@@ -407,8 +407,6 @@
                             <p>Không những vậy, bạn còn có thể mua thêm phần mềm đi kèm trên các hệ điều hành Android/iOS</p>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

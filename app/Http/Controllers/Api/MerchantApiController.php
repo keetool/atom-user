@@ -19,6 +19,6 @@ class MerchantApiController extends Controller
      * POST /api/v1/merchant
      */
     public function createMerchant(){
-
+        
     }
 }

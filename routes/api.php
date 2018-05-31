@@ -24,7 +24,7 @@ Route::prefix("auth")->group(function () {
 });
 
 
-Route::prefix("v1")->middleware("api")->group(function () {
+Route::middleware("api")->group(function () {
     Route::get("/merchant", function () {
         return "test";
     });

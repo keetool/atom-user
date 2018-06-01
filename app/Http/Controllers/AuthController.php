@@ -35,17 +35,34 @@ class AuthController extends ApiController
      */
     public function merchantSignup(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        // change validation messages
+        $messages = [
+            'name.required' => lang_key_to_text("form.error.name.required"),
+            'phone.required' => lang_key_to_text("form.error.phone.required"),
+            'email.required' => lang_key_to_text("form.error.email.required"),
+            'password.required' => lang_key_to_text("form.error.password.required"),
+            'password.confirmed' => lang_key_to_text("form.error.password.confirmed"),
+            'merchant_name.required' => lang_key_to_text("form.error.merchant_name.required"),
+            'sub_domain.required' => lang_key_to_text("form.error.sub_domain.required"),
+            'password_confirmation.required' => lang_key_to_text("form.error.password_confirmation.required"),
+            'password.regex' => lang_key_to_text("form.error.password.regex"),
+            'password.min' => lang_key_to_text("form.error.password.min"),
+        ];
+
+        // change validation rules
+        $rules = [
             'name' => 'required|string',
             'phone' => "required|string",
             'email' => 'required|string|email',
-            'password' => 'required|string|confirmed',
+            'password' => array('required', 'string', 'confirmed', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/'),
             "merchant_name" => "required|string",
             "password_confirmation" => "required|string",
             "sub_domain" => "required|string|unique:merchants"
-        ]);
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
+            // return errors to user
             $errors = $validator->errors()->all();
             return $this->badRequest($errors);
         }

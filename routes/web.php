@@ -17,9 +17,10 @@ Route::get('/', "HomeController@index");
 Route::get("/free-trial", "HomeController@register");
 
 $manageRoutes = function () {
-    Route::get("/test", "ManageController@index");
+    Route::get("/{path?}", "ManageController@index")->where('path', ".*");
 };
 Route::domain("{client}." . remove_protocol(config("app.url")))
+    ->prefix("manage")
     ->middleware(['getSubDomain'])->group(
         $manageRoutes
     );

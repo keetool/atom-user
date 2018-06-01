@@ -8,6 +8,7 @@ class ManageController extends Controller
 {
     public function index(Request $request)
     {
-        dd($request->subDomain);
+        $subDomain = $request->subDomain;
+        return view("manage.index");
     }
 }

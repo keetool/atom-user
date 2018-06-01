@@ -15,10 +15,10 @@ class AuthController extends ApiController
     protected $merchantRepository;
     protected $userRepository;
 
-    public function __construct(Merchant $merchant, User $user)
+    public function __construct(MerchantRepository $merchantRepository, UserRepository $userRepository)
     {
-        $this->merchantRepository = new MerchantRepository($merchant);
-        $this->userRepository = new UserRepository($user);
+        $this->merchantRepository = $merchantRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -37,9 +37,11 @@ class AuthController extends ApiController
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'phone' => "required|string",
+            'email' => 'required|string|email',
             'password' => 'required|string|confirmed',
             "merchant_name" => "required|string",
+            "password_confirmation" => "required|string",
             "sub_domain" => "required|string|unique:merchants"
         ]);
 
@@ -48,18 +50,31 @@ class AuthController extends ApiController
             return $this->badRequest($errors);
         }
 
+        $subDomain = $request->sub_domain;
+        $email = $request->email;
+
+        // check if user exist in merchant
+        $userExist = $this->userRepository->uniqueUserMerchant($subDomain, $email);
+        if ($userExist) {
+            return $this->badRequest([
+                "Email này đã tồn tại"
+            ]);
+        }
+
+        // create merchant
         $merchant = $this->merchantRepository->create([
             "name" => $request->merchant_name,
-            "sub_domain" => $request->sub_domain
+            "sub_domain" => $subDomain
         ]);
 
-
+        // create user belongs to merchant
         $user = $this->userRepository->create([
             "name" => $request->name,
-            "email" => $request->email,
+            "phone" => $request->phone,
+            "email" => $email,
             "password" => bcrypt($request->password),
             "merchant_id" => $merchant->id,
-            "is_root" => $request->is_root
+            "is_root" => true
         ]);
 
         return $this->resourceCreated([

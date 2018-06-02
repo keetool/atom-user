@@ -23,7 +23,7 @@ Route::group(['prefix' => 'api/v1', 'middleware' => []], function(){
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");
 };
-Route::domain("{client}." . remove_protocol(config("app.url")))
+Route::domain("{client}." . config("app.domain"))
     ->prefix("manage")
     ->middleware(['getSubDomain'])->group(
         $manageRoutes

@@ -13,3 +13,7 @@
 
 Route::get('/', "HomeController@index");
 Route::get("/free-trial", "HomeController@register");
+
+Route::group(['prefix' => 'api/v1', 'middleware' => []], function(){
+    Route::get('ooppsoie', 'HomeController@test01');
+});

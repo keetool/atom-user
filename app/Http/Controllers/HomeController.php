@@ -19,4 +19,11 @@ class HomeController extends Controller
     {
         return view("home.merchant_register");
     }
+
+    public function test01()
+    {
+        return [
+            'sux' => 'mydix'
+        ];
+    }
 }

@@ -28,7 +28,7 @@
                 </p>
                 <br>
 
-                <form action="store-free-trial" method="post">
+                <form id="store-free-trial" method="post">
                     {{csrf_field()}}
                     <div class="form-group label-floating">
                         <label class="control-label">Họ và tên</label>
@@ -38,28 +38,35 @@
                         <label class="control-label">Email</label>
                         <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Ví dụ: demo@keetool.com">
                     </div>
+
                     <div class="form-group label-floating">
                         <label class="control-label">Số điện thoại</label>
                         <input type="text" name="phone" value="{{old('phone')}}" class="form-control" placeholder="Ví dụ: 09 04 06 8888">
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Tên doanh nghiệp</label>
-                        <input type="text" name="company" value="{{old('company')}}" class="form-control" placeholder="Ví dụ: keetool">
+                        <input type="text" name="merchant_name" value="{{old('merchant_name')}}" class="form-control" placeholder="Tên doanh nghiệp">
                     </div>
                     <div class="form-group label-floating">
-                        <label class="control-label">Người giới thiệu (Nếu có)</label>
-                        <input type="text" name="refer" value="{{old('refer')}}" class="form-control" placeholder="Ví dụ: Nguyễn Văn A">
-                    </div>
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                <div>{{ $error }}</div>
-                            @endforeach
+                        <label class="control-label">Tên miền</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="subdomain" name="sub_domain" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">.{{ $_SERVER['HTTP_HOST'] }}</span>
                         </div>
-                    @endif
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Mật khẩu</label>
+                        <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Mật khẩu chứa ít nhất 8 kí tự">
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Xác nhận mật khẩu</label>
+                        <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Nhập lại mật khẩu">
+                    </div>
+
+                    <div id="error"></div>
 
 
-                    <button type="submit" class="btn btn-primary pull-right">
+                    <button id="submit-button" type="submit" class="btn btn-primary pull-right">
                         Bắt đầu dùng thử
                     </button>
                 </form>
@@ -67,4 +74,49 @@
         </div>
     </div>
 </div>
+
+
+@endsection
+
+@section("script")
+<script>
+    const id = '#store-free-trial';
+    $(id).submit(function(event){
+        event.preventDefault();
+        // clear html error
+        $("#error").html("");
+
+        // get data from form
+        const data = $(id).serializeArray();
+
+        // convert data to upload
+        const postData = {};
+        data.forEach((item) => {
+            postData[item.name] = item.value;
+        });
+
+        axios.post("/api/v1/auth/signup/merchant", postData)
+            .then((res) => {
+                window.location.href = "http://" + postData["sub_domain"] + "."
+                    + window.location.hostname + "/manage/login";
+            })
+            .catch((error) => {
+                let errorStr = "";
+                error.response.data.forEach((s, i) => {
+                    if (i == 0) {
+                        errorStr = s;
+                    } else {
+                        errorStr += "<br/>" + s;
+                    }
+                });
+
+                // set errors returned by server
+                $("#error").html(
+                    "<div class='alert alert-danger'>" +
+                        errorStr +
+                    "</div>"
+                );
+            });
+    });
+</script>
 @endsection

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +19,12 @@ Route::get("/free-trial", "HomeController@register");
 Route::group(['prefix' => 'api/v1', 'middleware' => []], function(){
     Route::get('ooppsoie', 'HomeController@test01');
 });
+
+$manageRoutes = function () {
+    Route::get("/{path?}", "ManageController@index")->where('path', ".*");
+};
+Route::domain("{client}." . remove_protocol(config("app.url")))
+    ->prefix("manage")
+    ->middleware(['getSubDomain'])->group(
+        $manageRoutes
+    );

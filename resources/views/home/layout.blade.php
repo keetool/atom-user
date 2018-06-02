@@ -194,6 +194,8 @@
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
 <script type="text/javascript">
     (function() {
         function getRandomInt(min, max) {
@@ -221,4 +223,7 @@
         });
     })();
 </script>
+
+@yield("script")
+
 </html>

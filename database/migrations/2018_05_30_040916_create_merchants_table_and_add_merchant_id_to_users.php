@@ -14,15 +14,16 @@ class CreateMerchantsTableAndAddMerchantIdToUsers extends Migration
     public function up()
     {
         Schema::create("merchants", function (Blueprint $table) {
-            $table->increments("id");
+            $table->uuid("id")->primary();
             $table->string("name");
             $table->string("sub_domain");
             $table->softDeletes();
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE merchants ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
 
         Schema::table("users", function (Blueprint $table) {
-            $table->integer("merchant_id")->unsigned();
+            $table->uuid("merchant_id");
             $table->boolean("is_root")->default("false");
             $table->foreign("merchant_id")->references("id")->on("merchants");
         });

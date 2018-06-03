@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
+    protected $casts = [
+        'id' => 'string',
+    ];
+    protected $primaryKey = "id";
+
     /**
      * The attributes that are mass assignable.
      *

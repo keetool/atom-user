@@ -11,6 +11,8 @@ class Merchant extends Model
     ];
     protected $primaryKey = "id";
 
+    protected $table = 'merchants';
+
     protected $fillable = [
         "name", "sub_domain"
     ];

@@ -18,7 +18,7 @@ function lang_key_to_text($key)
         "form.error.password_confirmation.required" => "Bạn vui lòng xác nhận mật khẩu",
         "form.error.password.min" => "Mật khẩu phải có ít nhất 8 kí tự",
         "form.error.password.regex" => "Mật khẩu phải có ít nhất 1 số, 1 chữ viết thường, 1 chữ viết hoa",
-
+        "form.error.sub_domain.exists" => "Sub domain không tồn tại"
     ];
     if (array_key_exists($key, $dict))
         return $dict[$key];

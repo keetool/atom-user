@@ -24,5 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Passport::ignoreMigrations();
+
+        $this->app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
     }
 }

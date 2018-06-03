@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Handler for GET /
-     * @return view
-     */
     public function index()
     {
         return view("home.index");
@@ -18,5 +14,10 @@ class HomeController extends Controller
     public function register()
     {
         return view("home.merchant_register");
+    }
+
+    public function checkMerchant()
+    {
+        return view("home.check_merchant");
     }
 }

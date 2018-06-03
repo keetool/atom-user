@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
  */
+
+ // oauth 2 api implementation
+Route::post('login', 'AuthController@login');
+
 Route::prefix("auth")->group(function () {
     Route::post('check/merchant', 'AuthController@checkMerchant');
     Route::post('signup/user', 'AuthController@signup');
@@ -23,6 +27,8 @@ Route::prefix("auth")->group(function () {
     });
 });
 
+
+
 Route::middleware("api")->group(function () {
     Route::get("/merchant", function () {
         return "test";
@@ -30,5 +36,5 @@ Route::middleware("api")->group(function () {
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return "abc";
 });

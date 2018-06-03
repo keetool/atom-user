@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Request;
 
 Route::get('/', "HomeController@index");
 Route::get("/free-trial", "HomeController@register");
-
-Route::group(['prefix' => 'api/v1', 'middleware' => []], function(){
-    Route::get('ooppsoie', 'HomeController@test01');
-});
+Route::get("/login", "HomeController@login");
 
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");

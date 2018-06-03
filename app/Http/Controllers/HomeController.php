@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-	 * adsksakdasd
-	 *
-	 * asdkksad
-	 *
-	 */
-    public function test01()
+    public function index()
     {
-        return [
-            'sux' => 'mydix'
-        ];
+        return view("home.index");
+    }
+
+    public function register()
+    {
+        return view("home.merchant_register");
+    }
+
+    public function login()
+    {
+        return view("home.login");
     }
 }

@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-6" style="padding-top: 100px">
                 <p>
-                    Nếu bạn đã có tài khoản <a style="color: #c50000" href="/login">Đăng nhập tại đây</a>
+                    Nếu bạn đã có tài khoản <a style="color: #c50000" href="/check-merchant">Đăng nhập tại đây</a>
                 </p>
                 <br>
                 <form id="store-free-trial" method="post">

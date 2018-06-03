@@ -16,8 +16,8 @@ class HomeController extends Controller
         return view("home.merchant_register");
     }
 
-    public function login()
+    public function checkMerchant()
     {
-        return view("home.login");
+        return view("home.check_merchant");
     }
 }

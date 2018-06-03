@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
  */
 Route::prefix("auth")->group(function () {
-    Route::post('check/merchant', 'AuthController@login');
+    Route::post('check/merchant', 'AuthController@checkMerchant');
     Route::post('signup/user', 'AuthController@signup');
     Route::post('signup/merchant', 'AuthController@merchantSignup');
 
@@ -22,7 +22,6 @@ Route::prefix("auth")->group(function () {
         Route::get('user', 'AuthController@user');
     });
 });
-
 
 Route::middleware("api")->group(function () {
     Route::get("/merchant", function () {

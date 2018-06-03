@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Request;
 
 Route::get('/', "HomeController@index");
 Route::get("/free-trial", "HomeController@register");
-Route::get("/login", "HomeController@login");
+Route::get("/check-merchant", "HomeController@checkMerchant");
 
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");

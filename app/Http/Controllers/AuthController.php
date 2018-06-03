@@ -167,8 +167,12 @@ class AuthController extends ApiController
     //         )->toDateTimeString()
     //     ]);
     // }
-
-    public function login(Request $request)
+    
+    /**
+     * Check if merchant exist
+     *
+     */
+    public function checkMerchant(Request $request)
     {
         $messages = [
             'sub_domain.required' => lang_key_to_text("form.error.sub_domain.required"),
@@ -188,7 +192,7 @@ class AuthController extends ApiController
             return $this->badRequest($errors);
         }
         return $this->resourceCreated([
-            "message" => "Reroute you to your subdomain in a minute"
+            "message" => "Reroute you to your sub domain in a sec"
         ]);
     }
 

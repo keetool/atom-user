@@ -20,13 +20,13 @@ Welcome to the generated API reference.
 <!-- END_INFO -->
 
 #general
-<!-- START_2be1f0e022faf424f18f30275e61416e -->
+<!-- START_b511cfc544d2dd97a4948f44496a1cf7 -->
 ## Login user and create token
 
 > Example request:
 
 ```bash
-curl -X POST "http://myproject.test/api/v1/auth/login" \
+curl -X POST "http://localhost/api/v1/auth/check/merchant" \
 -H "Accept: application/json"
 ```
 
@@ -34,7 +34,7 @@ curl -X POST "http://myproject.test/api/v1/auth/login" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://myproject.test/api/v1/auth/login",
+    "url": "http://localhost/api/v1/auth/check/merchant",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -48,10 +48,10 @@ $.ajax(settings).done(function (response) {
 
 
 ### HTTP Request
-`POST api/v1/auth/login`
+`POST api/v1/auth/check/merchant`
 
 
-<!-- END_2be1f0e022faf424f18f30275e61416e -->
+<!-- END_b511cfc544d2dd97a4948f44496a1cf7 -->
 
 <!-- START_af1caab78a6024cfa995793b20153382 -->
 ## Create user
@@ -59,7 +59,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://myproject.test/api/v1/auth/signup/user" \
+curl -X POST "http://localhost/api/v1/auth/signup/user" \
 -H "Accept: application/json"
 ```
 
@@ -67,7 +67,7 @@ curl -X POST "http://myproject.test/api/v1/auth/signup/user" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://myproject.test/api/v1/auth/signup/user",
+    "url": "http://localhost/api/v1/auth/signup/user",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -92,7 +92,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://myproject.test/api/v1/auth/signup/merchant" \
+curl -X POST "http://localhost/api/v1/auth/signup/merchant" \
 -H "Accept: application/json"
 ```
 
@@ -100,7 +100,7 @@ curl -X POST "http://myproject.test/api/v1/auth/signup/merchant" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://myproject.test/api/v1/auth/signup/merchant",
+    "url": "http://localhost/api/v1/auth/signup/merchant",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -125,7 +125,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://myproject.test/api/v1/auth/logout" \
+curl -X GET "http://localhost/api/v1/auth/logout" \
 -H "Accept: application/json"
 ```
 
@@ -133,7 +133,7 @@ curl -X GET "http://myproject.test/api/v1/auth/logout" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://myproject.test/api/v1/auth/logout",
+    "url": "http://localhost/api/v1/auth/logout",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -591,7 +591,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://myproject.test/api/v1/auth/user" \
+curl -X GET "http://localhost/api/v1/auth/user" \
 -H "Accept: application/json"
 ```
 
@@ -599,7 +599,7 @@ curl -X GET "http://myproject.test/api/v1/auth/user" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://myproject.test/api/v1/auth/user",
+    "url": "http://localhost/api/v1/auth/user",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1050,48 +1050,4 @@ $.ajax(settings).done(function (response) {
 
 
 <!-- END_157d8ad79ead4900498aa93abc060df0 -->
-
-<!-- START_4816db23c4142df9ed5ece0d8bde6fdf -->
-## adsksakdasd
-
-asdkksad
-
-> Example request:
-
-```bash
-curl -X GET "http://myproject.test/api/v1/ooppsoie" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://myproject.test/api/v1/ooppsoie",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-{
-    "sux": "mydix"
-}
-```
-
-### HTTP Request
-`GET api/v1/ooppsoie`
-
-`HEAD api/v1/ooppsoie`
-
-
-<!-- END_4816db23c4142df9ed5ece0d8bde6fdf -->
 

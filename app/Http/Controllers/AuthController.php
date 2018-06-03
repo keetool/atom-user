@@ -136,34 +136,63 @@ class AuthController extends ApiController
      * @return [string] token_type
      * @return [string] expires_at
      */
-    public function login(Request $request)
+
+    // public function login(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => 'required|string|email',
+    //         'password' => 'required|string',
+    //         'remember_me' => 'boolean'
+    //     ]);
+    //     $credentials = request(['email', 'password']);
+    //     if (!Auth::attempt($credentials))
+    //         return response()->json([
+    //         'message' => 'Unauthorized'
+    //     ], 401);
+    //     $user = $request->user();
+
+    //     $tokenResult = $user->createToken('Personal Access Token');
+    //     $token = $tokenResult->token;
+
+    //     if ($request->remember_me)
+    //         $token->expires_at = Carbon::now()->addWeeks(1);
+
+    //     $token->save();
+
+    //     return response()->json([
+    //         'access_token' => $tokenResult->accessToken,
+    //         'token_type' => 'Bearer',
+    //         'expires_at' => Carbon::parse(
+    //             $tokenResult->token->expires_at
+    //         )->toDateTimeString()
+    //     ]);
+    // }
+    
+    /**
+     * Check if merchant exist
+     *
+     */
+    public function checkMerchant(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
-        ]);
-        $credentials = request(['email', 'password']);
-        if (!Auth::attempt($credentials))
-            return response()->json([
-            'message' => 'Unauthorized'
-        ], 401);
-        $user = $request->user();
+        $messages = [
+            'sub_domain.required' => lang_key_to_text("form.error.sub_domain.required"),
+            'sub_domain.exists' => lang_key_to_text("form.error.sub_domain.exists")
+        ];
 
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
+        // change validation rules
+        $rules = [
+            "sub_domain" => "required|string|exists:merchants,sub_domain"
+        ];
 
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
+        $validator = Validator::make($request->all(), $rules, $messages);
 
-        $token->save();
-
-        return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
+        if ($validator->fails()) {
+            // return errors to user
+            $errors = $validator->errors()->all();
+            return $this->badRequest($errors);
+        }
+        return $this->resourceCreated([
+            "message" => "Reroute you to your sub domain in a sec"
         ]);
     }
 

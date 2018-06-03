@@ -17,7 +17,7 @@ class CreateLogsTable extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('action');
-            $table->string('api');
+            $table->string('api')->nullable;
             $table->string('log');
             $table->timestamps();
         });

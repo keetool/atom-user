@@ -119,7 +119,10 @@ class LanguageController extends Controller
         $content = $request->content;
         $name = $request->name;
 
-
+        // update the language version
+        $lang = Language::find($lang_id);
+        $lang->version = time();
+        $lang->save();
 
         $keyword = Keyword::where("name", $name)->first();
         if ($keyword == null) {

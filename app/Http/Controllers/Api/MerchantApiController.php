@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
@@ -19,6 +19,6 @@ class MerchantApiController extends Controller
      * POST /api/v1/merchant
      */
     public function createMerchant(){
-        
+
     }
 }

@@ -18,6 +18,11 @@ class LanguageApiController extends ApiController
     {
         $code = $request->encode;
         $version = $request->version;
+
+        if ($code = null) {
+            $code = "en_us";
+        }
+
         $language = Language::where("codes", "like", "%" . $code . "%")->first();
         if ($language == null) {
             return $this->notFound([

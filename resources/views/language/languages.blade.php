@@ -25,23 +25,23 @@
             @endforeach
         </tbody>
     </table>
-    {{-- <table>
-        <thead>
-            <tr>
-                <th>Keyword</th>
-                @foreach($languages as $lang)
-                    <th>{{ $lang->name }}</th>
-                @endforeach
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($keywords as $Keyword)
-
-                <tr>
-                    <td></td>
-                </tr>
+    <div style="display:flex; border: 1px #d9d9d9 solid;padding:5px;margin-top:20px">
+        <div style="flex:1">
+            <div style="border: 1px #d9d9d9 solid;padding:5px"><strong>Keyword</strong></div>
+            @foreach($keywords as $keyword)
+                <div style="border: 1px #d9d9d9 solid;padding:5px">{{ $keyword->name }}</div>
             @endforeach
-        </tbody>
-    </table> --}}
+        </div>
+        @foreach($languages as $lang)
+            <div style="flex: 1">
+                <div style="border: 1px #d9d9d9 solid;padding:5px"><strong>{{ $lang->name }}</strong></div>
+                @foreach($lang->keywords()->orderBy('name')->get() as $keyword)
+                    <div style="border: 1px #d9d9d9 solid;padding:5px">
+                        {{ $keyword->pivot->content ? $keyword->pivot->content : 'x' }}
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
+    </div>
 
 @endsection

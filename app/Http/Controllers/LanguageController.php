@@ -17,7 +17,8 @@ class LanguageController extends Controller
     public function listLanguages()
     {
         $data = [
-            "languages" => Language::orderBy("created_at", "desc")->get()
+            "languages" => Language::orderBy("created_at", "desc")->get(),
+            "keywords" => Keyword::orderBy("name")->get()
         ];
         return view("language.languages", $data);
     }
@@ -51,12 +52,13 @@ class LanguageController extends Controller
     public function postAddLanguage(Request $request)
     {
         $data = $request->only(["name", "codes"]);
+        $data['version'] = time();
         $id = $request->id;
         if ($id) {
             Language::find($id)->update($data);
 
         } else {
-           $lang =  Language::create($data);
+            $lang = Language::create($data);
             $keywords = Keyword::all();
             foreach ($keywords as $keyword) {
                 $keywordLanguage = new KeywordLanguage();

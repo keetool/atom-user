@@ -27,7 +27,7 @@ Route::prefix("auth")->group(function () {
     });
 });
 
-Route::get('language/encode/{encode}/version/{version}', "Api\LanguageApiController@language");
+Route::get('language', "Api\LanguageApiController@language");
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

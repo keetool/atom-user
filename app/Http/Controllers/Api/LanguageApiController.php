@@ -14,8 +14,10 @@ class LanguageApiController extends ApiController
      * @method GET
      * @return view
      */
-    public function language($code, $version)
+    public function language(Request $request)
     {
+        $code = $request->encode;
+        $version = $request->version;
         $language = Language::where("codes", "like", "%" . $code . "%")->first();
         if ($language == null) {
             return $this->notFound([

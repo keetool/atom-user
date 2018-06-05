@@ -4,7 +4,7 @@ namespace App;
 
 class Language extends UuidModel
 {
-    protected $fillable = ["name", "codes"];
+    protected $fillable = ["name", "codes", "version"];
 
     public function keywords()
     {

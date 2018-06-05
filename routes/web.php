@@ -26,3 +26,8 @@ Route::domain("{client}." . config("app.domain"))
     ->middleware(['getSubDomain'])->group(
         $manageRoutes
     );
+
+
+
+
+

@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use App\Language;
 use App\KeywordLanguage;
 use App\Keyword;
+use App\Repositories\LanguageRepository;
 
 class LanguageController extends Controller
 {
+    protected $languageRepository;
+
+    public function __construct(LanguageRepository $languageRepository)
+    {
+        $this->languageRepository = $languageRepository;
+    }
+
     /**
      * Get list of languages
      * @method GET
@@ -179,15 +187,18 @@ class LanguageController extends Controller
     public function postAddKeyword(Request $request)
     {
         if ($request->id == null) {
-            $keyword = Keyword::create($request->all());
-            $langs = Language::all();
-            foreach ($langs as $lang) {
-                $keywordLanguage = new KeywordLanguage();
-                $keywordLanguage->language_id = $lang->id;
-                $keywordLanguage->keyword_id = $keyword->id;
-                $keywordLanguage->content = "";
-                $keywordLanguage->save();
+            $keyword = Keyword::where("name", $request->name)->first();
+            if ($keyword == null) {
+                $keyword = Keyword::create($request->all());
+                $langs = Language::all();
+                foreach ($langs as $lang) {
+                    $keywordLanguage = new KeywordLanguage();
+                    $keywordLanguage->language_id = $lang->id;
+                    $keywordLanguage->keyword_id = $keyword->id;
+                    $keywordLanguage->content = "";
+                    $keywordLanguage->save();
 
+                }
             }
         } else {
             $keyword = Keyword::find($request->id);

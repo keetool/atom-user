@@ -14,9 +14,9 @@ class Keyword extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            "name" => $this->name,
-            "value" => $this->pivot->content
+        $data = [
+            $this->name => $this->pivot->content
         ];
+        return $data;
     }
 }

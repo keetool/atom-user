@@ -29,6 +29,9 @@ class LanguageApiController extends ApiController
                 "message" => "language not existed"
             ]);
         }
+
+        $language->client_code = $code;
+
         if ($version == $language->version) {
             return $this->notModified();
         } else {

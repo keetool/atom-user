@@ -19,7 +19,7 @@ class LanguageApiController extends ApiController
         $code = $request->encode;
         $version = $request->version;
 
-        if ($code = null) {
+        if ($code == null) {
             $code = "en_us";
         }
 

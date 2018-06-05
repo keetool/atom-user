@@ -27,16 +27,16 @@
     </table>
     <div style="display:flex; border: 1px #d9d9d9 solid;padding:5px;margin-top:20px">
         <div style="flex:1">
-            <div style="border: 1px #d9d9d9 solid;padding:5px"><strong>Keyword</strong></div>
+            <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px"><strong>Keyword</strong></div>
             @foreach($keywords as $keyword)
-                <div style="border: 1px #d9d9d9 solid;padding:5px">{{ $keyword->name }}</div>
+                <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">{{ $keyword->name }}</div>
             @endforeach
         </div>
         @foreach($languages as $lang)
             <div style="flex: 1">
-                <div style="border: 1px #d9d9d9 solid;padding:5px"><strong>{{ $lang->name }}</strong></div>
+                <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px"><strong>{{ $lang->name }}</strong></div>
                 @foreach($lang->keywords()->orderBy('name')->get() as $keyword)
-                    <div style="border: 1px #d9d9d9 solid;padding:5px">
+                    <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">
                         {{ $keyword->pivot->content ? $keyword->pivot->content : 'x' }}
                     </div>
                 @endforeach

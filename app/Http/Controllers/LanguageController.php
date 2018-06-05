@@ -151,6 +151,6 @@ class LanguageController extends Controller
         $keywordLanguage->save();
 
 
-        return redirect("/t/language/" . $lang_id);
+        return redirect("/t/language/list");
     }
 }

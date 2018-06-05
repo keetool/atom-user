@@ -37,6 +37,7 @@
                 <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px"><strong>{{ $lang->name }}</strong></div>
                 @foreach($lang->keywords()->orderBy('name')->get() as $keyword)
                     <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">
+                        <a href="{{ url("/t/language/{{ $lang->id }}/keyword/{{ $keyword }}") }}"></a>
                         {{ $keyword->pivot->content ? $keyword->pivot->content : 'x' }}
                     </div>
                 @endforeach

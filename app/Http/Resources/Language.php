@@ -14,11 +14,15 @@ class Language extends JsonResource
      */
     public function toArray($request)
     {
+        $keywords = [];
+        foreach($this->keywords as $keyword) {
+            $keywords[$keyword->name] = $keyword->pivot->content;
+        }
         return [
             "id" => $this->id,
             "name" => $this->name,
             "codes" => $this->codes,
-            "keywords" => Keyword::collection($this->keywords),
+            "keywords" => $keywords,
             "version" => $this->version
         ];
     }

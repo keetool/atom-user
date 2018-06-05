@@ -17,6 +17,11 @@ class LanguageApiController extends ApiController
     public function language($code, $version)
     {
         $language = Language::where("codes", "like", "%" . $code . "%")->first();
+        if ($language == null) {
+            return $this->notFound([
+                "message" => "language not existed"
+            ]);
+        }
         if ($version == $language->version) {
             return $this->notModified();
         } else {

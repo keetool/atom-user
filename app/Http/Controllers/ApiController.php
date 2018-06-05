@@ -20,10 +20,17 @@ class ApiController extends Controller
         return $this->respond($data, 400);
     }
 
+    public function notFound($data = null)
+    {
+        return $this->respond($data, 404);
+    }
+
     public function notModified($data = null)
     {
         return $this->respond($data, 304);
     }
+
+
 
     public function respond($data = [], $httpCode)
     {

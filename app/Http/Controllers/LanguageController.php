@@ -153,4 +153,48 @@ class LanguageController extends Controller
 
         return redirect("/t/language/list");
     }
+
+    /**
+     * Return page add keyword without language id
+     * @method GET
+     * @return view
+     */
+    public function getKeywordAddOnly()
+    {
+        return view("language.add_keyword");
+    }
+
+    public function getKeywordEditOnly($id)
+    {
+        $keyword = Keyword::find($id);
+        return view("language.add_keyword", [
+            "keyword" => $keyword
+        ]);
+    }
+
+    /**
+     * Add keyword
+     * @param [string] name
+     */
+    public function postAddKeyword(Request $request)
+    {
+        if ($request->id == null) {
+            $keyword = Keyword::create($request->all());
+            $langs = Language::all();
+            foreach ($langs as $lang) {
+                $keywordLanguage = new KeywordLanguage();
+                $keywordLanguage->language_id = $lang->id;
+                $keywordLanguage->keyword_id = $keyword->id;
+                $keywordLanguage->content = "";
+                $keywordLanguage->save();
+
+            }
+        } else {
+            $keyword = Keyword::find($request->id);
+            $keyword->name = $request->name;
+            $keyword->save();
+        }
+
+        return redirect("/t/language/list");
+    }
 }

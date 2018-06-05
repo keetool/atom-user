@@ -27,9 +27,15 @@
     </table>
     <div style="display:flex; border: 1px #d9d9d9 solid;padding:5px;margin-top:20px">
         <div style="flex:1">
-            <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px"><strong>Keyword</strong></div>
+            <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">
+                <strong>Keyword <a href="/t/language/keyword/add">+</a></strong>
+            </div>
             @foreach($keywords as $keyword)
-                <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">{{ $keyword->name }}</div>
+                <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">
+                    <a href="/t/language/keyword/{{ $keyword->id }}/edit">
+                        {{ $keyword->name }}
+                    </a>
+                </div>
             @endforeach
         </div>
         @foreach($languages as $lang)
@@ -38,7 +44,7 @@
                 @foreach($lang->keywords()->orderBy('name')->get() as $keyword)
                     <div style="border: 1px #d9d9d9 solid;height:30px;line-height:30px;padding-left:5px">
                         <a href="{{ url("/t/language/$lang->id/keyword/$keyword->id") }}">
-                            {{ $keyword->pivot->content ? $keyword->pivot->content : 'x' }}
+                            {{ $keyword->pivot->content ? $keyword->pivot->content : '+' }}
                         </a>
                     </div>
                 @endforeach

@@ -16,4 +16,7 @@ Route::prefix("language")->group(function() {
     Route::get("/{lang_id}/keyword/{keyword_id}","LanguageController@getKeywordEdit");
     Route::post("/{lang_id}/keyword","LanguageController@postKeyword");
 
+    Route::get("/keyword/add", "LanguageController@getKeywordAddOnly");
+    Route::get("/keyword/{id}/edit", "LanguageController@getKeywordEditOnly");
+    Route::post("/keyword", "LanguageController@postAddKeyword");
 });

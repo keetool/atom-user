@@ -15,6 +15,10 @@ class Repository implements RepositoryInterface
         $this->model = $model;
     }
 
+    public function queryAllOrderBy($field, $order = "asc"){
+        return $this->model->orderBy($field, $order)->get();
+    }
+
     /**
      *  Get all instance of model
      */
@@ -32,7 +36,7 @@ class Repository implements RepositoryInterface
     // update record in the database
     public function update(array $data, $id)
     {
-        $record = $this->find($id);
+        $record = $this->show($id);
         return $record->update($data);
     }
 

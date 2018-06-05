@@ -7,45 +7,60 @@ use App\Language;
 use App\KeywordLanguage;
 use App\Keyword;
 use App\Repositories\LanguageRepository;
+use App\Repositories\KeywordRepository;
+use App\Repositories\KeywordLanguageRepository;
 
 class LanguageController extends Controller
 {
     protected $languageRepository;
+    protected $keywordRepository;
+    protected $keywordLanguageRepository;
 
-    public function __construct(LanguageRepository $languageRepository)
-    {
+    public function __construct(
+        KeywordRepository $keywordRepository,
+        KeywordLanguageRepository $keywordLanguageRepository,
+        LanguageRepository $languageRepository
+    ) {
         $this->languageRepository = $languageRepository;
+        $this->keywordRepository = $keywordRepository;
+        $this->keywordLanguageRepository = $keywordLanguageRepository;
     }
 
     /**
-     * Get list of languages
+     * list of languages
+     * /t/language/list
      * @method GET
      * @return view
      */
     public function listLanguages()
     {
-        $data = [
-            "languages" => Language::orderBy("created_at", "desc")->get(),
-            "keywords" => Keyword::orderBy("name")->get()
-        ];
-        return view("language.languages", $data);
+        return view("language.languages", [
+            "languages" => $this->languageRepository->queryAllOrderBy("created_at", "desc"),
+            "keywords" => $this->keywordRepository->queryAllOrderBy("name")
+        ]);
     }
 
     /**
      * Return view edit language
+     * /t/language/{lang_id}/edit
      * @method GET
      * @return view
      */
     public function getEditLanguage($id)
     {
         $data = [
-            "language" => Language::find($id)
+            "language" => $this->languageRepository->show($id)
         ];
         return view("language.add", $data);
     }
 
 
-    //
+    /**
+     * show add language page
+     * /t/language/add
+     * @method GET
+     * @return view
+     */
     public function getAddLanguage()
     {
         return view("language.add");
@@ -53,6 +68,7 @@ class LanguageController extends Controller
 
     /**
      * Create language
+     * /t/language
      * @method POST
      * @param [string] name
      * @param [string] code
@@ -63,36 +79,31 @@ class LanguageController extends Controller
         $data['version'] = time();
         $id = $request->id;
         if ($id) {
-            Language::find($id)->update($data);
-
+            $this->languageRepository->update($data, $id);
         } else {
-            $lang = Language::create($data);
-            $keywords = Keyword::all();
+            $lang = $this->languageRepository->create($data);
+            $keywords = $this->keywordRepository->all();
             foreach ($keywords as $keyword) {
-                $keywordLanguage = new KeywordLanguage();
-                $keywordLanguage->language_id = $lang->id;
-                $keywordLanguage->keyword_id = $keyword->id;
-                $keywordLanguage->content = "";
-                $keywordLanguage->save();
+                $this->keywordLanguageRepository->create([
+                    "language_id" => $lang->id,
+                    "keyword_id" => $keyword->id,
+                    "content" => ""
+                ]);
             }
         }
-
-
         return redirect("/t/language/list");
     }
 
     /**
      * Language detail page
+     * /t/language/{lang_id}
      * @method GET
      * @return view
      */
     public function getLanguageDetail($id)
     {
-
-        $language = Language::find($id);
-
+        $language = $this->languageRepository->show($id);
         $keywords = $language->keywords;
-
 
         return view("language.language_detail", [
             "keywords" => $keywords,
@@ -102,13 +113,14 @@ class LanguageController extends Controller
 
     /**
      * Show page edit keyword
+     * /t/language/{lang_id}/keyword/{keyword}
      * @method GET
      * @return view
      */
     public function getKeywordEdit($lang_id, $keyword_id)
     {
-        $keywordLanguage = KeywordLanguage::where("language_id", $lang_id)->where("keyword_id", $keyword_id)->first();
-        $keyword = Keyword::find($keyword_id);
+        $keywordLanguage = $this->keywordLanguageRepository->findByKeywordIdAndLanguageId($keyword_id, $lang_id);
+        $keyword = $this->keywordRepository->show($keyword_id);
 
         return view("language.keyword_edit", [
             "keyword_language" => $keywordLanguage,
@@ -197,7 +209,6 @@ class LanguageController extends Controller
                     $keywordLanguage->keyword_id = $keyword->id;
                     $keywordLanguage->content = "";
                     $keywordLanguage->save();
-
                 }
             }
         } else {

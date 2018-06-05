@@ -6,6 +6,6 @@ class KeywordLanguage extends UuidPivotModel
 {
     protected $table = "keyword_language";
     protected $fillable = [
-        "content"
+        "content", "language_id", "keyword_id"
     ];
 }

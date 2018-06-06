@@ -22,15 +22,15 @@ class ExampleTest extends TestCase
 
     // public function testPostApi()
     // {
-        // $response = $this->withHeaders([
-        //     'X-Header' => 'value'
-        // ])->json('POST', '/user', ['name' => 'Sally']);
+    //     $response = $this->withHeaders([
+    //         'X-Header' => 'value'
+    //     ])->json('POST', '/user', ['name' => 'Sally']);
 
-        // $response
-        //     ->assertStatus(201)
-        //     ->assertJson([
-        //         'created' => true,
-        //     ]);
+    //     $response
+    //         ->assertStatus(201)
+    //         ->assertJson([
+    //             'created' => true,
+    //         ]);
     // }
 
     // public function testGetWithAuthentication()

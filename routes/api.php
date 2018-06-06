@@ -27,12 +27,6 @@ Route::prefix("auth")->group(function () {
     });
 });
 
-Route::middleware("api")->group(function () {
-    Route::get("/merchant", function () {
-        return "test";
-    });
-});
-
 Route::get('language', "Api\LanguageApiController@language");
 
 

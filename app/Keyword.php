@@ -2,12 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Keyword extends Model
+class Keyword extends UuidModel
 {
-    protected $casts = [
-        'id' => 'string',
+    protected $fillable = [
+        "name"
     ];
-    protected $primaryKey = "id";
 }

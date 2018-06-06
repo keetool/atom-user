@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Language extends Model
+class Language extends UuidModel
 {
-    protected $casts = [
-        'id' => 'string',
-    ];
-    protected $primaryKey = "id";
+    protected $fillable = ["name", "codes", "version"];
+
+    public function keywords()
+    {
+        return $this->belongsToMany('App\Keyword')->withPivot("content")->withTimestamps();
+    }
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Request;
  */
 
 Route::get('/', "HomeController@index");
+Route::get('/login', "HomeController@index")->name('login');
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");
 
@@ -25,3 +26,8 @@ Route::domain("{client}." . config("app.domain"))
     ->middleware(['getSubDomain'])->group(
         $manageRoutes
     );
+
+
+
+
+

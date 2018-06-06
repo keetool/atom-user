@@ -5,7 +5,7 @@ use App\Language;
 
 $factory->define(Language::class, function (Faker $faker) {
     return [
-        "name" => $fake->name,
+        "name" => $faker->name,
         "codes" => "en_us,en_uk"
     ];
 });

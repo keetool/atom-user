@@ -71,7 +71,7 @@ class LanguageController extends Controller
      * /t/language
      * @method POST
      * @param [string] name
-     * @param [string] code
+     * @param [string] codes
      */
     public function postAddLanguage(Request $request)
     {
@@ -103,10 +103,8 @@ class LanguageController extends Controller
     public function getLanguageDetail($id)
     {
         $language = $this->languageRepository->show($id);
-        $keywords = $language->keywords;
 
         return view("language.language_detail", [
-            "keywords" => $keywords,
             "language" => $language
         ]);
     }

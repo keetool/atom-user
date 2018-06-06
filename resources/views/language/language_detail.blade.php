@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <a href="/t/language/{{ $language->id }}/keyword/add">Add</a>
-        @foreach($keywords as $keyword)
+        @foreach($language->keywords as $keyword)
             <tr>
                 <td>{{ $keyword->name }}</td>
                 <td>{{ $keyword->pivot->content }}</td>

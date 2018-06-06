@@ -9,7 +9,7 @@ use App\Repositories\MerchantRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Validator;
-use App\Events\SignUpMerchant;
+use App\Events\OnMerchant;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends ApiController
@@ -96,8 +96,8 @@ class AuthController extends ApiController
             "is_root" => true
         ]);
         
-        // log sign up merchant
-        event(new SignUpMerchant($merchant, $user));
+        // log create merchant
+        event(new OnMerchant($merchant, $user, 'create'));
 
         return $this->resourceCreated([
             "message" => "Successfully created merchant and user"

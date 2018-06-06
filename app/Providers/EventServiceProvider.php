@@ -13,8 +13,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SignUpMerchant' => [
-            'App\Listeners\LogSignUpMerchant',
+        'App\Events\OnMerchant' => [
+            'App\Listeners\LogMerchant',
+        ],
+        'App\Events\OnLanguage' => [
+            'App\Listeners\LogLanguage',
         ],
     ];
 

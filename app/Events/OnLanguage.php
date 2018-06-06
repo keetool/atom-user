@@ -9,22 +9,24 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\Merchant;
 use App\User;
+use App\Language;
 
-class SignUpMerchant
+class OnLanguage
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $merchant;
+    public $language;
     public $user;
+    public $action;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Merchant $merchant, User $user)
+    public function __construct(Language $language, User $user, $action)
     {
-        $this->merchant = $merchant;
+        $this->language = $language;
         $this->user = $user;
+        $this->action = $action;
     }
 }

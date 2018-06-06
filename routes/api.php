@@ -27,18 +27,8 @@ Route::prefix("auth")->group(function () {
     });
 });
 
-<<<<<<< HEAD
-
-
-Route::middleware("api")->group(function () {
-    Route::get("/merchant", function () {
-        return "test";
-    });
-});
-=======
 Route::get('language', "Api\LanguageApiController@language");
 
->>>>>>> 64467faacb27c10139b0f15ba390768823d5181a
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return "abc";

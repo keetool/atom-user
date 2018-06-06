@@ -11,8 +11,8 @@
 
 <body>
     <div id="app"></div>
-    <script type="text/javascript" src="https://d255zuevr6tr8p.cloudfront.net/build-manage/vendors~main.061f84fccf39cab5bca0.chunk.js"></script>
-    <script type="text/javascript" src="https://d255zuevr6tr8p.cloudfront.net/build-manage/main.061f84fccf39cab5bca0.js"></script>
+    <script type="text/javascript" src="https://d255zuevr6tr8p.cloudfront.net/build-manage/vendors~main.ff2d3d7dc07ef1a403b7.chunk.js"></script>
+    <script type="text/javascript" src="https://d255zuevr6tr8p.cloudfront.net/build-manage/main.ff2d3d7dc07ef1a403b7.js"></script>
 </body>
 
 </html>

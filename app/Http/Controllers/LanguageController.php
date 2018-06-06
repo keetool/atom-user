@@ -136,40 +136,51 @@ class LanguageController extends Controller
         ]);
     }
 
+    /**
+     * Add or edit the keywordLanguage and corresponding keyword
+     * @param [string] content
+     * @param [string] name
+     * @return redirect /t/language/list
+     */
     public function postKeyword($lang_id, Request $request)
     {
         $content = $request->content;
         $name = $request->name;
 
         // update the language version
-        $lang = Language::find($lang_id);
-        $lang->version = time();
-        $lang->save();
+        $this->languageRepository->update([
+            "version" => time()
+        ], $lang_id);
 
-        $keyword = Keyword::where("name", $name)->first();
+        // Check if the keyword with given name existed in the database
+        $keyword = $this->keywordRepository->findByName($name);
         if ($keyword == null) {
-            $keyword = Keyword::create([
+            $keyword = $this->keywordRepository->create([
                 "name" => $name
             ]);
             $otherLanguages = Language::where("id", "!=", $lang_id)->get();
             foreach ($otherLanguages as $lang) {
-                $keywordLanguage = new KeywordLanguage();
-                $keywordLanguage->language_id = $lang->id;
-                $keywordLanguage->keyword_id = $keyword->id;
-                $keywordLanguage->content = "";
-                $keywordLanguage->save();
+                $this->keywordLanguageRepository->create([
+                    "language_id" => $lang->id,
+                    "keyword_id" => $keyword->id,
+                    "content" => ""
+                ]);
             }
         }
-        $keywordLanguage = KeywordLanguage::where("language_id", $lang_id)->where("keyword_id", $keyword->id)->first();
+
+        // update the content of the current keyword language
+        $keywordLanguage = $this->keywordLanguageRepository->findByKeywordIdAndLanguageId($keyword->id, $lang_id);
+
         if ($keywordLanguage == null) {
+            // create new keywordLanguage if not existed
             $keywordLanguage = new KeywordLanguage();
         }
 
-        $keywordLanguage->language_id = $lang_id;
-        $keywordLanguage->keyword_id = $keyword->id;
-        $keywordLanguage->content = $content;
-        $keywordLanguage->save();
-
+        $this->keywordLanguageRepository->update([
+            "language_id" => $lang_id,
+            "keyword_id" => $keyword->id,
+            "content" => $content
+        ], $keywordLanguage->id);
 
         return redirect("/t/language/list");
     }
@@ -184,9 +195,13 @@ class LanguageController extends Controller
         return view("language.add_keyword");
     }
 
+    /**
+     * Show the keyword update page
+     * @param [uuid] id
+     */
     public function getKeywordEditOnly($id)
     {
-        $keyword = Keyword::find($id);
+        $keyword = $this->keywordRepository->show($id);
         return view("language.add_keyword", [
             "keyword" => $keyword
         ]);
@@ -195,26 +210,31 @@ class LanguageController extends Controller
     /**
      * Add keyword
      * @param [string] name
+     * @return redirect("/t/language/list")
      */
     public function postAddKeyword(Request $request)
     {
         if ($request->id == null) {
-            $keyword = Keyword::where("name", $request->name)->first();
+            // create new keyword
+            $keyword = $this->keywordRepository->findByName($request->name);
             if ($keyword == null) {
-                $keyword = Keyword::create($request->all());
+                // if keyword not existed
+                $keyword = $this->keywordRepository->create($request->all());
                 $langs = Language::all();
                 foreach ($langs as $lang) {
-                    $keywordLanguage = new KeywordLanguage();
-                    $keywordLanguage->language_id = $lang->id;
-                    $keywordLanguage->keyword_id = $keyword->id;
-                    $keywordLanguage->content = "";
-                    $keywordLanguage->save();
+                    // create the keyword for all languages
+                    $this->keywordLanguageRepository->create([
+                        "language_id" => $lang->id,
+                        "keyword_id" => $keyword->id,
+                        "content" => ""
+                    ]);
                 }
             }
         } else {
-            $keyword = Keyword::find($request->id);
-            $keyword->name = $request->name;
-            $keyword->save();
+            // update the existed keyword
+            $this->keywordRepository->update([
+                "name" => $request->name
+            ], $request->id);
         }
 
         return redirect("/t/language/list");

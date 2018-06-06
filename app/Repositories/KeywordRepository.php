@@ -9,6 +9,8 @@ class KeywordRepository extends Repository {
         parent::__construct(new Keyword());
     }
 
-
+    public function findByName($name) {
+        return Keyword::where("name", $name)->first();
+    }
 
 }

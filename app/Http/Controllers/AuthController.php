@@ -96,6 +96,7 @@ class AuthController extends ApiController
             "is_root" => true
         ]);
         
+        // log sign up merchant
         event(new SignUpMerchant($merchant, $user));
 
         return $this->resourceCreated([

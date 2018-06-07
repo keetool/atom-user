@@ -7,6 +7,10 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use App\Language;
+use App\Keyword;
+use App\KeywordLanguage;
+
+
 
 class LanguageTest extends TestCase
 {
@@ -14,10 +18,14 @@ class LanguageTest extends TestCase
     use WithoutMiddleware;
 
     protected $language;
+    protected $keyword;
+    protected $keyword_language;
 
     public function setUp(){
         parent::setUp();
         $this->language = factory(Language::class)->create();
+        $this->keyword = factory(Keyword::class)->create();
+        $this->keyword_language = factory(KeywordLanguage::class)->create();
     }
 
     /**
@@ -39,7 +47,9 @@ class LanguageTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs("language.add");
     }
-
+    /**
+     * POST /t/language
+     */
     public function testPostAddLanguage()
     {
         $response = $this->json("POST", "/t/language", [
@@ -61,4 +71,23 @@ class LanguageTest extends TestCase
         $response->assertViewHasAll(["language"]);
     }
 
+    public function testGetEditLanguage()
+    {
+        $response = $this->get("/t/language/" .  $this->language->id . "/edit");
+        $response->assertStatus(200);   
+    }
+
+    public function testGetKeyWord()
+    {
+        $response = $this->get("/t/language/" .  $this->language->id . "/keyword");
+        $response->assertStatus(200);   
+        $response->assertViewIs("language.keyword_edit");        
+    }
+
+    public function testGetKeyWordEdit()
+    {
+        $response = $this->get("/t/language/" .  $this->language->id . "/keyword/". $this->keyword->id);
+        $response->assertStatus(200);   
+        $response->assertViewIs("language.keyword_edit");        
+    }
 }

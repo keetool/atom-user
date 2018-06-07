@@ -9,9 +9,9 @@ use App\Repositories\MerchantRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Validator;
-use App\Events\OnMerchant;
 use Illuminate\Support\Facades\Auth;
-
+use App\Logs\MerchantLog;
+use App\Logs\Log;
 class AuthController extends ApiController
 {
     protected $merchantRepository;
@@ -97,7 +97,8 @@ class AuthController extends ApiController
         ]);
         
         // log create merchant
-        event(new OnMerchant($merchant, $user, 'create'));
+        $merchantLog = new MerchantLog($user, $merchant, 'creates');
+        Log::sendLog($merchantLog);
 
         return $this->resourceCreated([
             "message" => "Successfully created merchant and user"

@@ -394,7 +394,7 @@
                             <div class="carousel-item-active">
                                 <div class="card card-testimonial card-plain">
                                     <div class="card-avatar">
-                                        <img class="img" src="http://d1j8r0kxyu9tj8.cloudfront.net/images/1497464194PTuSLcWhoTLOpFZ.jpg" />
+                                        <img class="img" src="https://d1j8r0kxyu9tj8.cloudfront.net/images/1497464194PTuSLcWhoTLOpFZ.jpg" />
                                     </div>
                                     <div class="card-block">
                                         <h5 class="card-description">
@@ -418,7 +418,7 @@
                             <div class="carousel-item">
                                 <div class="card card-testimonial card-plain">
                                     <div class="card-avatar">
-                                        <img class="img" src="http://d1j8r0kxyu9tj8.cloudfront.net/images/1497464194PTuSLcWhoTLOpFZ.jpg" />
+                                        <img class="img" src="https://d1j8r0kxyu9tj8.cloudfront.net/images/1497464194PTuSLcWhoTLOpFZ.jpg" />
                                     </div>
                                     <div class="card-block">
                                         <h5 class="card-description">
@@ -442,7 +442,7 @@
                             <div class="carousel-item">
                                 <div class="card card-testimonial card-plain">
                                     <div class="card-avatar">
-                                        <img class="img" src="http://d1j8r0kxyu9tj8.cloudfront.net/images/1497464194PTuSLcWhoTLOpFZ.jpg" />
+                                        <img class="img" src="https://d1j8r0kxyu9tj8.cloudfront.net/images/1497464194PTuSLcWhoTLOpFZ.jpg" />
                                     </div>
                                     <div class="card-block">
                                         <h5 class="card-description">

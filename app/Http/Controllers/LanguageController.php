@@ -142,6 +142,7 @@ class LanguageController extends Controller
      */
     public function postKeyword($lang_id, Request $request)
     {
+
         $content = $request->content;
         $name = $request->name;
 
@@ -173,12 +174,10 @@ class LanguageController extends Controller
             // create new keywordLanguage if not existed
             $keywordLanguage = new KeywordLanguage();
         }
-
-        $this->keywordLanguageRepository->update([
-            "language_id" => $lang_id,
-            "keyword_id" => $keyword->id,
-            "content" => $content
-        ], $keywordLanguage->id);
+        $keywordLanguage->language_id = $lang_id;
+        $keywordLanguage->keyword_id = $keyword->id;
+        $keywordLanguage->content = $content;
+        $keywordLanguage->save();
 
         return redirect("/t/language/list");
     }
@@ -233,6 +232,14 @@ class LanguageController extends Controller
             $this->keywordRepository->update([
                 "name" => $request->name
             ], $request->id);
+        }
+
+        // update all languages version
+        $langs = Language::all();
+        foreach ($langs as $lang) {
+            $this->languageRepository->update([
+                "version" => time()
+            ], $lang->id);
         }
 
         return redirect("/t/language/list");

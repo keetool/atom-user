@@ -1,5 +1,19 @@
 version: '3'
 services:
+  node:
+    image: node
+    container_name: node
+    working_dir: /app
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    volumes:
+      - ./node:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+
   redis2:
     image: redis
     container_name: redis2
@@ -12,10 +26,10 @@ services:
       context: ./docker/php
       dockerfile: Dockerfile
     working_dir: /var/www
-    volumes: 
+    volumes:
       - ./:/var/www
 
-  nginx:    
+  nginx:
     container_name: nginx
     build:
       context: ./docker/nginx
@@ -25,7 +39,7 @@ services:
       - ./:/var/www
     ports:
       - 80:80
-    depends_on: 
+    depends_on:
       - workspace
       - postgres
       - redis2

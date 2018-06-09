@@ -21,6 +21,7 @@ Route::get("/check-merchant", "HomeController@checkMerchant");
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");
 };
+
 Route::domain("{client}." . config("app.domain"))
     ->prefix("manage")
     ->middleware(['getSubDomain'])->group(

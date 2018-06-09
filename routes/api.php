@@ -13,10 +13,10 @@ use Illuminate\Http\Request;
 |
  */
 
- // oauth 2 api implementation
-Route::post('login', 'AuthController@login');
+
 
 Route::prefix("auth")->group(function () {
+    Route::post('signin', 'AuthController@signin');
     Route::post('check/merchant', 'AuthController@checkMerchant');
     Route::post('signup/user', 'AuthController@signup');
     Route::post('signup/merchant', 'AuthController@merchantSignup');

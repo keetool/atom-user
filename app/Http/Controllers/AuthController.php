@@ -11,6 +11,9 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Events\SignUpMerchant;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
+use GuzzleHttp\Client;
 
 class AuthController extends ApiController
 {
@@ -95,7 +98,7 @@ class AuthController extends ApiController
             "merchant_id" => $merchant->id,
             "is_root" => true
         ]);
-        
+
         // log sign up merchant
         event(new SignUpMerchant($merchant, $user));
 
@@ -142,36 +145,31 @@ class AuthController extends ApiController
      * @return [string] expires_at
      */
 
-    public function login(Request $request)
+    public function signin(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
+        // $request->validate([
+        //     'email' => 'required|string|email',
+        //     'password' => 'required|string'
+        // ]);
+        // $credentials = request(['email', 'password']);
+        // if (!Auth::attempt($credentials))
+        //     return response()->json([
+        //     'message' => 'Unauthorized'
+        // ], 401);
+
+        // $user = $request->user();
+        $http = new Client;
+        $response = $http->post(url('/oauth/token'),[
+            'form_params' => [
+                'grant_type' => 'password',
+                'client_id' => config("app.client_id"),
+                'client_secret' => config("app.client_secret"),
+                'username' => $request->email,
+                'password' => $request->password,
+                'scope' => '',
+            ]
         ]);
-        $credentials = request(['email', 'password']);
-        if (!Auth::attempt($credentials))
-            return response()->json([
-            'message' => 'Unauthorized'
-        ], 401);
-
-        $user = $request->user();
-
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
-
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
-
-        $token->save();
-
-        return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]);
+        return json_decode((string) $response->getBody(), true);
     }
 
     /**

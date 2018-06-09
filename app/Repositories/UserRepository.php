@@ -29,4 +29,15 @@ class UserRepository extends Repository
         $user = $this->model->where("merchant_id", $merchant->id)->where("email", $email)->first();
         return $user != null;
     }
+
+    /**
+     * Find a user with merchant id email and password
+     * @param [string] $merchant_id
+     * @param [string] $email
+     * @param [string] $password
+     * @return [user] $user
+     */
+    public function findUserByMerchantEmailPassword($merchant_id, $email, $password){
+
+    }
 }

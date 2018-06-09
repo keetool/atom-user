@@ -148,17 +148,25 @@ class AuthController extends ApiController
 
     public function signin(Request $request)
     {
-        // $request->validate([
-        //     'email' => 'required|string|email',
-        //     'password' => 'required|string'
-        // ]);
-        // $credentials = request(['email', 'password']);
-        // if (!Auth::attempt($credentials))
-        //     return response()->json([
-        //     'message' => 'Unauthorized'
-        // ], 401);
+        // get subdomain from middleware
+        $subDomain = $request->subDomain;
 
-        // $user = $request->user();
+        $email = $request->email;
+        $password = $request->password;
+
+        // get merchant from subdomain
+        $merchant = $this->merchantRepository->findBySubDomain($subDomain);
+
+        if ($merchant == null) {
+            return $this->badRequest([
+                "message" => "domain không tồn tại"
+            ]);
+        }
+
+
+        // TODO: get user by merchant email and passowrd
+
+
         $http = new Client;
         $response = $http->post("https://" . config("app.domain") . '/oauth/token', [
             'form_params' => [

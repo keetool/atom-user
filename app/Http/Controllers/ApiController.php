@@ -30,7 +30,10 @@ class ApiController extends Controller
         return $this->respond($data, 304);
     }
 
-
+    public function unauthorized($data = null)
+    {
+        return $this->respond($data, 401);
+    }
 
     public function respond($data = [], $httpCode)
     {

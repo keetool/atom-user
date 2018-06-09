@@ -160,14 +160,14 @@ class AuthController extends ApiController
 
         // $user = $request->user();
         $http = new Client;
-        $response = $http->post(url('/oauth/token'), [
+        $response = $http->post("https://" . config("app.domain") . '/oauth/token', [
             'form_params' => [
                 'grant_type' => 'password',
                 'client_id' => config("app.client_id"),
                 'client_secret' => config("app.client_secret"),
                 'username' => $request->email,
                 'password' => $request->password,
-                'scope' => '',
+                'scope' => '*',
             ]
         ]);
         return json_decode((string)$response->getBody(), true);

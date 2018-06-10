@@ -14,16 +14,22 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use App\Logs\MerchantLog;
 use App\Logs\Log;
+use App\Repositories\MerchantUserRepository;
 
 class AuthController extends ApiController
 {
     protected $merchantRepository;
     protected $userRepository;
+    protected $merchantUserRepository;
 
-    public function __construct(MerchantRepository $merchantRepository, UserRepository $userRepository)
-    {
+    public function __construct(
+        MerchantUserRepository $merchantUserRepository,
+        MerchantRepository $merchantRepository,
+        UserRepository $userRepository
+    ) {
         $this->merchantRepository = $merchantRepository;
         $this->userRepository = $userRepository;
+        $this->merchantUserRepository = $merchantUserRepository;
     }
 
     /**
@@ -99,7 +105,7 @@ class AuthController extends ApiController
         ]);
 
         // add user to merchant
-        $merchant->users()->attach($user->id, ['role' => "root"]);
+        $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
 
         // log create merchant
         $merchantLog = new MerchantLog($user, $merchant, 'creates');
@@ -165,9 +171,8 @@ class AuthController extends ApiController
             ]);
         }
 
-
         // get user by merchant, email and password
-        $user = $this->userRepository->findUserByMerchantEmailPassword($merchant_id, $email, $password);
+        $user = $this->userRepository->findUserByMerchantEmailPassword($merchant->id, $email, $password);
 
         // if user not found
         if ($user == null) {
@@ -177,7 +182,7 @@ class AuthController extends ApiController
         }
 
         $http = new Client;
-        $response = $http->post("https://" . config("app.domain") . '/oauth/token', [
+        $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
             'form_params' => [
                 'grant_type' => 'password',
                 'client_id' => config("app.client_id"),

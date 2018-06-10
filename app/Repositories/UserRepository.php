@@ -16,7 +16,7 @@ class UserRepository extends Repository
     }
 
     public function joinMerchantUser() {
-        return $this->model->join("merchant_user", "users.id", "=", "merchant_user.id");
+        return $this->model->join("merchant_user", "users.id", "=", "merchant_user.user_id");
     }
 
     /**
@@ -28,10 +28,12 @@ class UserRepository extends Repository
     public function uniqueUserMerchant($subDomain, $email)
     {
         $merchant = $this->merchantRepository->findBySubDomain($subDomain);
+
         if (!$merchant) {
             return false;
         }
-        $user = $this->joinMerchantUser()->where("merchant_user.merchant_id", $merchant->id)->where("email", $email)->first();
+        $user = $this->joinMerchantUser()
+            ->where("merchant_user.merchant_id", $merchant->id)->where("email", $email)->first();
         return $user != null;
     }
 
@@ -48,6 +50,7 @@ class UserRepository extends Repository
             ->where("users.email", "=", $email)
             ->where("merchant_user.merchant_id", "=", $merchant_id)
             ->first();
+
         if ($user != null && Hash::check($password, $user->password)) {
             return $user;
         }

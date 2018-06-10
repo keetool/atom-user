@@ -16,10 +16,15 @@ class MerchantUserRepository extends Repository
      * Add user to merchant
      * @param [string] user_id
      * @param [object] merchant
-     * @return [boolean]
+     * @return [MerchantUser] $merchantUser
      */
-    public function addUser($merchant, $user_id) {
-
+    public function createMerchantUser($merchant_id, $user_id, $role = "root")
+    {
+        return $this->model->create([
+            "merchant_id" => $merchant_id,
+            "user_id" => $user_id,
+            "role" => $role
+        ]);
     }
 
 }

@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Merchant;
+use App\MerchantUser;
 
 class MerchantRepository extends Repository {
 
@@ -17,5 +18,6 @@ class MerchantRepository extends Repository {
     public function findBySubDomain($subDomain){
         return $this->model->where("sub_domain", $subDomain)->first();
     }
+
 
 }

@@ -15,6 +15,10 @@ class UserRepository extends Repository
         $this->merchantRepository = $merchantRepository;
     }
 
+    public function joinMerchantUser() {
+        return $this->model->join("merchant_user", "users.id", "=", "merchant_user.id");
+    }
+
     /**
      * Check if user exists in merchant
      * @param [string] $merchantName
@@ -27,7 +31,7 @@ class UserRepository extends Repository
         if (!$merchant) {
             return false;
         }
-        $user = $this->model->where("merchant_id", $merchant->id)->where("email", $email)->first();
+        $user = $this->joinMerchantUser()->where("merchant_user.merchant_id", $merchant->id)->where("email", $email)->first();
         return $user != null;
     }
 
@@ -40,7 +44,7 @@ class UserRepository extends Repository
      */
     public function findUserByMerchantEmailPassword($merchant_id, $email, $password)
     {
-        $user = User::join("merchant_user", "users.id", "=", "merchant_user.id")
+        $user = $this->joinMerchantUser()
             ->where("users.email", "=", $email)
             ->where("merchant_user.merchant_id", "=", $merchant_id)
             ->first();

@@ -96,8 +96,9 @@
 
         axios.post("/api/v1/auth/signup/merchant", postData)
             .then((res) => {
-                // window.location.href = "http://" + postData["sub_domain"] + "."
-                //     + window.location.hostname + "/manage/login";
+                // redirect user to the manage page
+                window.location.href = "{{ config("app.protocol") }}" + postData["sub_domain"] + "."
+                    + window.location.hostname + "/manage/login";
             })
             .catch((error) => {
                 let errorStr = "";

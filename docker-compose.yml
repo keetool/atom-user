@@ -30,7 +30,7 @@ services:
       - ./:/var/www
 
   nginx:
-    container_name: nginx
+    container_name: keetool1.test
     build:
       context: ./docker/nginx
       dockerfile: Dockerfile

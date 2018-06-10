@@ -95,9 +95,11 @@ class AuthController extends ApiController
             "phone" => $request->phone,
             "email" => $email,
             "password" => bcrypt($request->password),
-            "merchant_id" => $merchant->id,
             "is_root" => true
         ]);
+
+        // add user to merchant
+        $merchant->users()->attach($user->id, ['role' => "root"]);
 
         // log create merchant
         $merchantLog = new MerchantLog($user, $merchant, 'creates');

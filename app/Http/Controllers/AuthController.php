@@ -164,8 +164,14 @@ class AuthController extends ApiController
         }
 
 
-        // TODO: get user by merchant email and passowrd
+        // get user by merchant, email and password
+        $user = $this->userRepository->findUserByMerchantEmailPassword($merchant_id, $email, $password);
 
+        if ($user == null) {
+            return $this->badRequest([
+                "message" => "Sai thông tin đăng nhập"
+            ]);
+        }
 
         $http = new Client;
         $response = $http->post("https://" . config("app.domain") . '/oauth/token', [

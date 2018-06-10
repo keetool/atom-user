@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends Repository
 {
@@ -37,7 +38,15 @@ class UserRepository extends Repository
      * @param [string] $password
      * @return [user] $user
      */
-    public function findUserByMerchantEmailPassword($merchant_id, $email, $password){
-
+    public function findUserByMerchantEmailPassword($merchant_id, $email, $password)
+    {
+        $user = User::join("merchant_user", "users.id", "=", "merchant_user.id")
+            ->where("users.email", "=", $email)
+            ->where("merchant_user.merchant_id", "=", $merchant_id)
+            ->first();
+        if ($user != null && Hash::check($password, $user->password)) {
+            return $user;
+        }
+        return null;
     }
 }

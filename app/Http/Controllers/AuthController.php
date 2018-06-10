@@ -167,6 +167,7 @@ class AuthController extends ApiController
         // get user by merchant, email and password
         $user = $this->userRepository->findUserByMerchantEmailPassword($merchant_id, $email, $password);
 
+        // if user not found
         if ($user == null) {
             return $this->badRequest([
                 "message" => "Sai thông tin đăng nhập"

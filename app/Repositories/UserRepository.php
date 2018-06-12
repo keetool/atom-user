@@ -49,6 +49,7 @@ class UserRepository extends Repository
         $user = $this->joinMerchantUser()
             ->where("users.email", "=", $email)
             ->where("merchant_user.merchant_id", "=", $merchant_id)
+            ->select("users.*")
             ->first();
 
         if ($user != null && Hash::check($password, $user->password)) {

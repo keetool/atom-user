@@ -4,20 +4,20 @@ namespace App\Logs;
 use App\Logs\Log;
 
 
-class MerchantLog extends Log
+class SignInLog extends Log
 {
-    public $merchant;
+    protected $userAgent;
 
-    public function __construct($user, $merchant, $action, $api)
+    public function __construct($user, $action, $api, $userAgent)
     {
         parent::__construct($user, $action, $api);
-        $this->merchant = $merchant;
+        $this->userAgent = $userAgent;
     }
 
-    /**log
+    /**
      * [
      *  {type: "user", data: userId},
-     *  {type: "key", data: "log.merchant.create"}
+     *  {type: "key", data: "log.user.signin"}
      *  {type: "merchant", data: merchantId}
      * ]
      */
@@ -30,11 +30,11 @@ class MerchantLog extends Log
             ],
             [
                 'type' => 'key',
-                'data' => 'log.merchant.create',
+                'data' => 'log.user.signin',
             ],
             [
-                'type' => 'merchant',
-                'data' => $this->merchant->id,
+                'type' => "contant",
+                "value" => $this->userAgent
             ]
         ]);
     }

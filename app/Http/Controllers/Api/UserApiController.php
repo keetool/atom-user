@@ -10,6 +10,7 @@ class UserApiController extends Controller
 {
     /**
      * GET /api/v1/user
+     * return information of current logged in user
      * @return view
      */
     public function user(Request $request)

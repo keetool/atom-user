@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+    public function __construct()
+    {
+    }
     public function success($data = null)
     {
         return $this->respond($data, 200);

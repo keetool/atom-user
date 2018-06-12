@@ -16,6 +16,8 @@ use App\Logs\MerchantLog;
 use App\Logs\Log;
 use App\Repositories\MerchantUserRepository;
 
+use App\Logs\SignInLog;
+
 class AuthController extends ApiController
 {
     protected $merchantRepository;
@@ -108,7 +110,7 @@ class AuthController extends ApiController
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
 
         // log create merchant
-        $merchantLog = new MerchantLog($user, $merchant, 'creates');
+        $merchantLog = new MerchantLog($user, $merchant, 'creates', $request->url());
         Log::sendLog($merchantLog);
 
         return $this->resourceCreated([
@@ -192,6 +194,11 @@ class AuthController extends ApiController
                 'scope' => '*',
             ]
         ]);
+
+        // create signin log
+        $signInLog = new SignInLog($user, "user.signin", $request->url(), $request->header('User-Agent'));
+        Log::sendLog($signInLog);
+
         return json_decode((string)$response->getBody(), true);
     }
 

@@ -196,6 +196,30 @@ class AuthController extends ApiController
     }
 
     /**
+     * Refresh the token
+     * @param [string] refresh_token
+     */
+    public function refreshToken(Request $request)
+    {
+        $refresh_token = $request->refresh_token;
+
+        $http = new Client;
+
+        $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
+            'form_params' => [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $refresh_token,
+                'client_id' => config("app.client_id"),
+                'client_secret' => config("app.client_secret"),
+                'scope' => '*',
+            ],
+        ]);
+
+        return json_decode((string)$response->getBody(), true);
+
+    }
+
+    /**
      * Check if merchant exist
      *
      */
@@ -234,15 +258,5 @@ class AuthController extends ApiController
         return response()->json([
             'message' => 'Successfully logged out'
         ]);
-    }
-
-    /**
-     * Get the authenticated User
-     *
-     * @return [json] user object
-     */
-    public function user(Request $request)
-    {
-        return response()->json($request->user());
     }
 }

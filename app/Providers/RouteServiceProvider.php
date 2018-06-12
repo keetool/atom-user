@@ -65,6 +65,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
+        Route::domain("{client}." . config("app.domain"))
+            ->namespace($this->namespace)
+            ->middleware("getSubDomain")
+            ->prefix('client-api/v1')
+            ->group(base_path('routes/api_subdomain.php'));
+
         Route::prefix('api/v1')
             ->middleware('api')
             ->namespace($this->namespace)
@@ -75,10 +81,6 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/language.php'));
 
-        Route::domain("{client}." . config("app.domain"))
-            ->namespace($this->namespace)
-            ->middleware("getSubDomain")
-            ->prefix('api/v1')
-            ->group(base_path('routes/api_merchant.php'));
+
     }
 }

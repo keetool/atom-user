@@ -22,14 +22,13 @@ Route::prefix("auth")->group(function () {
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', 'AuthController@logout');
-        Route::get('user', 'AuthController@user');
     });
 });
 
 Route::get('language', "Api\LanguageApiController@language");
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return "abc";
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return "abc";
+// });
 

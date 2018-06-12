@@ -110,7 +110,7 @@ class AuthController extends ApiController
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
 
         // log create merchant
-        $merchantLog = new MerchantLog($user, $merchant, 'creates', $request->url());
+        $merchantLog = new MerchantLog($user, $merchant, 'merchant.create', $request->url());
         Log::sendLog($merchantLog);
 
         return $this->resourceCreated([

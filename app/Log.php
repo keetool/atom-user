@@ -2,9 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Log extends Model
+class Log extends UuidModel
 {
     protected $table = 'logs';
 

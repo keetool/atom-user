@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\User as UserResource;
 use App\Http\Controllers\ApiController;
 use App\Repositories\LogRepository;
+use App\Http\Resources\Log;
 
 class LogApiController extends ApiController
 {
@@ -31,6 +32,6 @@ class LogApiController extends ApiController
             $limit = 20;
         }
         $logs = $this->logRepo->findLogsByUserId($user->id, $limit);
-        return $logs;
+        return Log::collection($logs);
     }
 }

@@ -5,6 +5,9 @@ Route::prefix("auth")->group(function () {
     Route::post("token/refresh", 'AuthController@refreshToken');
 });
 
-Route::prefix("user")->middleware("auth:api")->group(function() {
-    Route::get("/", "Api\UserApiController@user");
+Route::middleware("auth:api")->group(function () {
+    Route::prefix("user")->group(function() {
+        Route::get("/", "Api\UserApiController@user");
+    });
 });
+

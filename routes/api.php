@@ -25,6 +25,7 @@ Route::prefix("auth")->group(function () {
     });
 });
 
+// load language dictionary
 Route::get('language', "Api\LanguageApiController@language");
 
 

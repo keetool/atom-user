@@ -10,7 +10,7 @@ class LanguageRepository extends Repository {
     }
 
     public function findByCode($code){
-        return Language::where("codes", "like", "%" . $code . "%")->first()
+        return Language::where("codes", "like", "%" . $code . "%")->first();
     }
 
 }

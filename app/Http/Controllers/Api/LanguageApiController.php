@@ -31,6 +31,12 @@ class LanguageApiController extends ApiController
         if ($language == null) {
             $language = $this->languageRepo->findByCode("en_us");
         }
+        if ($language == null) {
+            return $this->notFound([
+                "message" => "Chưa tồn tại ngôn ngữ nào"
+            ]);
+        }
+
         if ($version == $language->version) {
             return $this->notModified();
         } else {

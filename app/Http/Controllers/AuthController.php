@@ -15,6 +15,7 @@ use GuzzleHttp\Client;
 use App\Logs\MerchantLog;
 use App\Logs\Log;
 use App\Repositories\MerchantUserRepository;
+use GuzzleHttp\Exception\GuzzleException;
 
 use App\Logs\SignInLog;
 
@@ -184,6 +185,7 @@ class AuthController extends ApiController
         }
 
         $http = new Client;
+
         $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
             'form_params' => [
                 'grant_type' => 'password',
@@ -212,15 +214,24 @@ class AuthController extends ApiController
 
         $http = new Client;
 
-        $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
-            'form_params' => [
-                'grant_type' => 'refresh_token',
-                'refresh_token' => $refresh_token,
-                'client_id' => config("app.client_id"),
-                'client_secret' => config("app.client_secret"),
-                'scope' => '*',
-            ],
-        ]);
+        $response = null;
+
+        try {
+            $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
+                'form_params' => [
+                    'grant_type' => 'refresh_token',
+                    'refresh_token' => $refresh_token,
+                    'client_id' => config("app.client_id"),
+                    'client_secret' => config("app.client_secret"),
+                    'scope' => '*',
+                ],
+            ]);
+        } catch (GuzzleException $e) {
+            return $this->respond([
+                "message" => "Invalid token"
+            ], "401");
+        }
+
 
         return json_decode((string)$response->getBody(), true);
 

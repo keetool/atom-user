@@ -63,10 +63,26 @@ class CreateTablesForAuthorization extends Migration
 
         Schema::create("tabs", function (Blueprint $table) {
             $table->uuid("id")->primary();
-            $table->uuid("parent_id")->index;
-            $table->integer();
-
+            $table->uuid("parent_id")->index();
+            $table->integer("order")->unsigned();
+            $table->string("name");
+            $table->string("keyword");
+            $table->string("url");
+            $table->timestamps();
         });
+        DB::statement('ALTER TABLE tabs ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
+
+        Schema::create("roles", function (Blueprint $table) {
+            $table->uuid("id")->primary();
+            $table->string("name");
+            $table->uuid("merchant_id");
+            $table->boolean("deletable");
+            $table->timestamps();
+            $table->foreign("merchant_id")->references("id")->on("merchants");
+        });
+        DB::statement('ALTER TABLE roles ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
+
+
     }
 
     /**

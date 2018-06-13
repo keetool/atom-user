@@ -36,8 +36,8 @@ class CreateTablesForAuthorization extends Migration
             $table->uuid("action_id");
             $table->uuid("package_id");
             $table->timestamps();
-            $table->foreign("action_id")->references("actions")->on("id");
-            $table->foreign("package_id")->references("packages")->on("id");
+            $table->foreign("action_id")->references("id")->on("actions");
+            $table->foreign("package_id")->references("id")->on("packages");
         });
         DB::statement('ALTER TABLE action_package ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
 
@@ -45,8 +45,8 @@ class CreateTablesForAuthorization extends Migration
             $table->uuid("id");
             $table->uuid("merchant_id");
             $table->uuid("package_id");
-            $table->foreign("merchant_id")->references("merchants")->on("id");
-            $table->foreign("package_id")->references("packages")->on("id");
+            $table->foreign("merchant_id")->references("id")->on("merchants");
+            $table->foreign("package_id")->references("id")->on("packages");
             $table->timestamps();
         });
         DB::statement('ALTER TABLE merchant_package ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
@@ -55,8 +55,8 @@ class CreateTablesForAuthorization extends Migration
             $table->uuid("id")->primary();
             $table->uuid("action_id");
             $table->uuid("merchant_id");
-            $table->foreign("action_id")->references("actions")->on("id");
-            $table->foreign("merchant_id")->references("merchants")->on("id");
+            $table->foreign("action_id")->references("id")->on("actions");
+            $table->foreign("merchant_id")->references("id")->on("merchants");
             $table->timestamps();
         });
         DB::statement('ALTER TABLE action_merchant ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
@@ -82,6 +82,35 @@ class CreateTablesForAuthorization extends Migration
         });
         DB::statement('ALTER TABLE roles ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
 
+        Schema::create("role_user", function (Blueprint $table){
+            $table->uuid("id")->primary();
+            $table->timestamps();
+            $table->uuid("user_id");
+            $table->uuid("role_id");
+            $table->foreign("role_id")->references("id")->on("roles");
+            $table->foreign("user_id")->references("id")->on("users");
+        });
+        DB::statement('ALTER TABLE role_user ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
+
+        Schema::create("action_role", function (Blueprint $table) {
+            $table->uuid("id")->primary();
+            $table->uuid("role_id");
+            $table->uuid("action_id");
+            $table->timestamps();
+            $table->foreign("role_id")->references("id")->on("roles");
+            $table->foreign("action_id")->references("id")->on("actions");
+        });
+        DB::statement('ALTER TABLE action_role ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
+
+        Schema::create("action_tab", function (Blueprint $table) {
+            $table->uuid("id")->primary();
+            $table->uuid("tab_id");
+            $table->uuid("action_id");
+            $table->timestamps();
+            $table->foreign("tab_id")->references("id")->on("tabs");
+            $table->foreign("action_id")->references("id")->on("actions");
+        });
+        DB::statement('ALTER TABLE action_tab ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
 
     }
 

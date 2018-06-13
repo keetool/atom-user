@@ -27,9 +27,9 @@ class LanguageApiController extends ApiController
         $code = $request->encode;
         $version = $request->version;
 
-        $language = Language::where("codes", "like", "%" . $code . "%")->first();
+        $language = $this->languageRepo->findByCode($code);
         if ($language == null) {
-            $language = Language::where("codes", "like", "%" . $code . "%")->first();
+            $language = $this->languageRepo->findByCode("en_us");
         }
         if ($version == $language->version) {
             return $this->notModified();

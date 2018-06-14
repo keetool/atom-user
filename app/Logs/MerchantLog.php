@@ -16,9 +16,7 @@ class MerchantLog extends Log
 
     /**log
      * [
-     *  {type: "user", data: userId},
-     *  {type: "key", data: "log.merchant.create"}
-     *  {type: "merchant", data: merchantId}
+     *  {type: "key", data: "manage.log.merchant.create"}
      * ]
      */
     protected function format()
@@ -26,15 +24,21 @@ class MerchantLog extends Log
         return json_encode([
             [
                 'type' => 'user',
-                'data' => $this->user->id,
+                'data' => [
+                    "user_id" => $this->user->id
+                ],
             ],
             [
                 'type' => 'key',
-                'data' => 'log.merchant.create',
+                'data' => [
+                    "value" => 'manage.log.merchant.create'
+                ]
             ],
             [
                 'type' => 'merchant',
-                'data' => $this->merchant->id,
+                'data' => [
+                    "merchant_id" => $this->merchant->id,
+                ]
             ]
         ]);
     }

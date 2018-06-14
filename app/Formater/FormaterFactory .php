@@ -28,6 +28,8 @@ class FormaterFactory
                 return new ConstantFormater($data);
             case "key":
                 return new KeyFormater($data);
+            case "merchant":
+                return new MerchantFormater($data);
             default:
                 return null;
         }

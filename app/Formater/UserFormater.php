@@ -1,9 +1,7 @@
 <?php
 namespace App\Formater;
 
-use App\Repositories\LogRepository;
 use App\Http\Resources\User as UserResource;
-use App\Repositories\UserRepository;
 use App\User;
 
 

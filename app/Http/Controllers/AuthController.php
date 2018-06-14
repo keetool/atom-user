@@ -198,7 +198,7 @@ class AuthController extends ApiController
         ]);
 
         // create signin log
-        $signInLog = new SignInLog($user, "user.signin", $request->url(), $request->header('User-Agent'));
+        $signInLog = new SignInLog($user, "manage.user.signin", $request->url(), $request->header('User-Agent'));
         Log::sendLog($signInLog);
 
         return json_decode((string)$response->getBody(), true);

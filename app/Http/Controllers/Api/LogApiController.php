@@ -31,7 +31,8 @@ class LogApiController extends ApiController
         } else {
             $limit = 20;
         }
-        $logs = $this->logRepo->findLogsByUserId($user->id, $limit);
+        $order = $request->order ? $request->order : "desc";
+        $logs = $this->logRepo->findLogsByUserId($user->id, $limit, $order);
         return Log::collection($logs);
     }
 }

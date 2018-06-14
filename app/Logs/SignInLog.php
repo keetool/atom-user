@@ -17,7 +17,7 @@ class SignInLog extends Log
     /**
      * [
      *  {type: "user", data: userId},
-     *  {type: "key", data: "log.user.signin"}
+     *  {type: "key", data: "manage.log.user.signin"}
      *  {type: "merchant", data: merchantId}
      * ]
      */
@@ -26,15 +26,21 @@ class SignInLog extends Log
         return json_encode([
             [
                 'type' => 'user',
-                'data' => $this->user->id,
+                'data' => [
+                    "user_id" => $this->user->id
+                ]
             ],
             [
                 'type' => 'key',
-                'data' => 'log.user.signin',
+                'data' => [
+                    "value" => 'manage.log.user.signin'
+                ],
             ],
             [
-                'type' => "contant",
-                "value" => $this->userAgent
+                'type' => "constant",
+                'data' => [
+                    "value" => $this->userAgent
+                ]
             ]
         ]);
     }

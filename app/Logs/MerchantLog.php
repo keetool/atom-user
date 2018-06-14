@@ -2,6 +2,9 @@
 namespace App\Logs;
 
 use App\Logs\Log;
+use App\Objects\UserJsonObject;
+use App\Objects\KeyJsonObject;
+use App\Objects\MerchantJsonObject;
 
 
 class MerchantLog extends Log
@@ -22,24 +25,9 @@ class MerchantLog extends Log
     protected function format()
     {
         return json_encode([
-            [
-                'type' => 'user',
-                'data' => [
-                    "user_id" => $this->user->id
-                ],
-            ],
-            [
-                'type' => 'key',
-                'data' => [
-                    "value" => 'manage.log.merchant.create'
-                ]
-            ],
-            [
-                'type' => 'merchant',
-                'data' => [
-                    "merchant_id" => $this->merchant->id,
-                ]
-            ]
+            (new UserJsonObject($this->user))->toArray(),
+            (new KeyJsonObject('manage.log.merchant.create'))->toArray(),
+            (new MerchantJsonObject($this->merchant))->toArray()
         ]);
     }
 }

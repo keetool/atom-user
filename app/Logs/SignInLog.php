@@ -2,6 +2,9 @@
 namespace App\Logs;
 
 use App\Logs\Log;
+use App\Objects\UserJsonObject;
+use App\Objects\KeyJsonObject;
+use App\Objects\ConstantJsonObject;
 
 
 class SignInLog extends Log
@@ -24,24 +27,9 @@ class SignInLog extends Log
     protected function format()
     {
         return json_encode([
-            [
-                'type' => 'user',
-                'data' => [
-                    "user_id" => $this->user->id
-                ]
-            ],
-            [
-                'type' => 'key',
-                'data' => [
-                    "value" => 'manage.log.user.signin'
-                ],
-            ],
-            [
-                'type' => "constant",
-                'data' => [
-                    "value" => $this->userAgent
-                ]
-            ]
+            (new UserJsonObject($this->user))->toArray(),
+            (new KeyJsonObject('manage.log.user.signin'))->toArray(),
+            (new ConstantJsonObject($this->userAgent))->toArray()
         ]);
     }
 }

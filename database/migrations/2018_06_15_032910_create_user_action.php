@@ -14,47 +14,45 @@ class CreateUserAction extends Migration
      */
     public function up()
     {
-        Action::createMany([
-            [
-                "name" => "user.create",
-                "keyword" => "manage.action.user.create",
-                "permission" => json_encode([
-                    "effect" => "allow",
-                    "actions" => ["user.create"],
-                    "resources" => ["db:user:*:*"]
-                ]),
-                "type" => "system"
-            ],
-            [
-                "name" => "user.view",
-                "keyword" => "manage.action.user.view",
-                "permission" => json_encode([
-                    "effect" => "allow",
-                    "actions" => ["user.view"],
-                    "resources" => ["db:user:*:*"]
-                ]),
-                "type" => "system"
-            ],
-            [
-                "name" => "user.update",
-                "keyword" => "manage.action.user.update",
-                "permission" => json_encode([
-                    "effect" => "allow",
-                    "actions" => ["user.update"],
-                    "resources" => ["db:user:*:*"]
-                ]),
-                "type" => "system"
-            ],
-            [
-                "name" => "user.delete",
-                "keyword" => "manage.action.user.delete",
-                "permission" => json_encode([
-                    "effect" => "allow",
-                    "actions" => ["user.delete"],
-                    "resources" => ["db:user:*:*"]
-                ]),
-                "type" => "system"
-            ]
+        Action::create([
+            "name" => "user.create",
+            "keyword" => "manage.action.user.create",
+            "permission" => json_encode([
+                "effect" => "allow",
+                "actions" => ["user.create"],
+                "resources" => ["db:user:*:*"]
+            ]),
+            "type" => "system"
+        ]);
+        Action::create([
+            "name" => "user.view",
+            "keyword" => "manage.action.user.view",
+            "permission" => json_encode([
+                "effect" => "allow",
+                "actions" => ["user.view"],
+                "resources" => ["db:user:*:*"]
+            ]),
+            "type" => "system"
+        ]);
+        Action::create([
+            "name" => "user.update",
+            "keyword" => "manage.action.user.update",
+            "permission" => json_encode([
+                "effect" => "allow",
+                "actions" => ["user.update"],
+                "resources" => ["db:user:*:*"]
+            ]),
+            "type" => "system"
+        ]);
+        Action::create([
+            "name" => "user.delete",
+            "keyword" => "manage.action.user.delete",
+            "permission" => json_encode([
+                "effect" => "allow",
+                "actions" => ["user.delete"],
+                "resources" => ["db:user:*:*"]
+            ]),
+            "type" => "system"
         ]);
     }
 

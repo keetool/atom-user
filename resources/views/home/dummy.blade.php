@@ -17,17 +17,8 @@
             version    : 'v3.0'
             });
 
-            // $(document).trigger('fbload');
-            FB.AppEvents.logPageView(); 
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-
-            function checkLoginState() {
-                FB.getLoginStatus(function(response) {
-                    statusChangeCallback(response);
-                });
-            }  
+            $(document).trigger('fbload');
+            FB.AppEvents.logPageView();
         };
 
         (function(d, s, id){
@@ -38,7 +29,17 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
         
-        
+        $(document).on('fbload', function(){
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }  
+        });
     </script>
 
         <fb:login-button 

@@ -20,4 +20,9 @@ class HomeController extends Controller
     {
         return view("home.check_merchant");
     }
+
+    public function dummy()
+    {
+        return view('home.dummy');
+    }
 }

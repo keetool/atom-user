@@ -6,18 +6,16 @@
         </title>
     </head>
     <body>
-    <script src="landing-page/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script>
         
         window.fbAsyncInit = function() {
             FB.init({
-            appId      : '2003668823296017',
+            appId      : '{{config("app.facebook_app_id")}}',
             cookie     : true,
             xfbml      : true,
             version    : 'v3.0'
             });
 
-            $(document).trigger('fbload');
             FB.AppEvents.logPageView();
         };
 
@@ -28,18 +26,15 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-        
-        $(document).on('fbload', function(){
+
+            // FB.getLoginStatus(function(response) {
+            //     statusChangeCallback(response);
+
+        function checkLoginState() {
             FB.getLoginStatus(function(response) {
                 statusChangeCallback(response);
             });
-
-            function checkLoginState() {
-                FB.getLoginStatus(function(response) {
-                    statusChangeCallback(response);
-                });
-            }  
-        });
+        }  
     </script>
 
         <fb:login-button 

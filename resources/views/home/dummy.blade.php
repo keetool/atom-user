@@ -7,7 +7,6 @@
     </head>
     <body>
     <script>
-        
         window.fbAsyncInit = function() {
             FB.init({
             appId      : '2003668823296017',
@@ -27,8 +26,9 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-            // FB.getLoginStatus(function(response) {
-            //     statusChangeCallback(response);
+        function statusChangeCallback(response) {
+            console.log(response);
+        }
 
         function checkLoginState() {
             FB.getLoginStatus(function(response) {

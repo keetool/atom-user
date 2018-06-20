@@ -6,8 +6,8 @@
         </title>
     </head>
     <body>
+    <script src="landing-page/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script>
-        FB.init();
         
         window.fbAsyncInit = function() {
             FB.init({
@@ -16,9 +16,18 @@
             xfbml      : true,
             version    : 'v3.0'
             });
-            
-            FB.AppEvents.logPageView();   
-            
+
+            // $(document).trigger('fbload');
+            FB.AppEvents.logPageView(); 
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }  
         };
 
         (function(d, s, id){
@@ -28,16 +37,8 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-        }
+        
+        
     </script>
 
         <fb:login-button 

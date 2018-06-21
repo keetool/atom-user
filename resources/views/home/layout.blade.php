@@ -78,7 +78,7 @@
 <div class="section bg-light mt-4" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"> <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" class="logo-dark" alt="Start.ly Logo" />
+            <div class="col-sm-4"> <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" class="logo-dark" height="25px" />
                 <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
                 <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
                 <!-- // end .lead -->
@@ -118,7 +118,7 @@
                       <script type="text/javascript">
                       document.write(new Date().getFullYear());
                       </script>
-                      All rights reserved. Start.ly
+                      All rights reserved. KEETOOL
                   </small></div>
     </div>
     <!-- // end .container -->

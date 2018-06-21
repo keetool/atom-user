@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>
-
+            <meta name="google-signin-client_id" content="141997092589-lg3mgdl45p1t9t65qegltg0m1b6tlchd.apps.googleusercontent.com">
         </title>
     </head>
     <body>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -42,6 +43,7 @@
             onlogin="checkLoginState();">
         </fb:login-button>
         asdasdk
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </body>
     
 </html>

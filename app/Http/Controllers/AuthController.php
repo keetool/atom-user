@@ -116,8 +116,7 @@ class AuthController extends ApiController
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
 
         // log create merchant
-        $merchantLog = new MerchantLog($user, $merchant, 'manage.merchant.create', $request->url());
-        Log::sendLog($merchantLog);
+        Log::merchantLog($user, $merchant, $request);
 
         return $this->resourceCreated([
             "message" => "Successfully created merchant and user"
@@ -203,8 +202,7 @@ class AuthController extends ApiController
         ]);
 
         // create signin log
-        $signInLog = new SignInLog($user, "manage.user.signin", $request->url(), $request->header('User-Agent'));
-        Log::sendLog($signInLog);
+        Log::signInLog($user, $request);
 
         return json_decode((string)$response->getBody(), true);
     }

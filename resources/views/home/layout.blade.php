@@ -20,8 +20,8 @@
     <!-- /build -->
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529571679WLoLVlC4nzjl0yd.png">
 </head>
-
 <body class="overflow-hidden">
     <header id="home">
 
@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <h3 class="gradient-mask">Start.ly</h3>
+                    <img src="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" height="40px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -40,23 +40,23 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#features">Features</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pricing">Pricing</a>
-                        </li>
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" href="#pricing">Pricing</a>-->
+                        <!--</li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="blog.html">Blog</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="index-two.html">Landing Style Two</a>
-                                <a class="dropdown-item" href="blog.html">Blog Page</a>
-                                <a class="dropdown-item" href="blog-single.html">Blog Single</a>
-                            </div>
-                        </li>
+                        <!--<li class="nav-item dropdown">-->
+                            <!--<a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>-->
+                            <!--<div class="dropdown-menu">-->
+                                <!--<a class="dropdown-item" href="index-two.html">Landing Style Two</a>-->
+                                <!--<a class="dropdown-item" href="blog.html">Blog Page</a>-->
+                                <!--<a class="dropdown-item" href="blog-single.html">Blog Single</a>-->
+                            <!--</div>-->
+                        <!--</li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Help</a>
+                            <a class="nav-link" href="#">Docs</a>
                         </li>
 
                         <li class="nav-item text-center">
@@ -77,7 +77,7 @@
 <div class="section bg-light mt-4" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"> <img src="landing-page/assets/images/global/logo-dark.svg" class="logo-dark" alt="Start.ly Logo" />
+            <div class="col-sm-4"> <img src="images/global/logo-dark.svg" class="logo-dark" alt="Start.ly Logo" />
                 <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
                 <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
                 <!-- // end .lead -->

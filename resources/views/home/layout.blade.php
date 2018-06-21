@@ -18,8 +18,6 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="landing-page/assets/css/style.css">
     <!-- /build -->
-
-    <meta charset="utf-8" />
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -79,7 +77,7 @@
 <div class="section bg-light mt-4" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"> <img src="images/global/logo-dark.svg" class="logo-dark" alt="Start.ly Logo" />
+            <div class="col-sm-4"> <img src="landing-page/assets/images/global/logo-dark.svg" class="logo-dark" alt="Start.ly Logo" />
                 <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
                 <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
                 <!-- // end .lead -->
@@ -129,24 +127,14 @@
 <!-- JS Files -->
 <!-- build:js js/app.min.js -->
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
-<script src="js/global/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="js/global/bootstrap.bundle.min.js"></script>
-<!-- Main JS -->
-<script src="js/script.js"></script>
-<!-- /build -->
-</body>
-
-
-
-<!--  Plugins -->
-<!-- Core JS Files -->
-
 <script src="landing-page/assets/js/global/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="landing-page/assets/js/global/bootstrap.bundle.min.js"></script>
 <!-- Main JS -->
 <script src="landing-page/assets/js/script.js"></script>
+<!-- /build -->
+</body>
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <!--  Plugins for presentation page -->

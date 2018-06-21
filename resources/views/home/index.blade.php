@@ -21,7 +21,7 @@
             <div class="col-12 col-md-7 my-3 my-md-lg">
 
                 <div class="youtube cast-shadow" data-video-id="rm5sdAYCqqc" data-params="modestbranding=1&amp;showinfo=0&amp;controls=1&amp;vq=hd720">
-                    <img src="images/screen2.jpg" alt="image" class="img-fluid">
+                    <img src="landing-page/assets/images/screen2.jpg" alt="image" class="img-fluid">
                     <div class="play"><span class="pe-7s-play pe-3x"></span></div>
                 </div>
             </div>
@@ -44,16 +44,16 @@
     <div class="client-logos text-center">
         <p class="text-muted">TRUSTED BY MOST POPULAR BRANDS</p>
 
-        <img src="images/client_logo_1.png" alt="client logo" />
-        <img src="images/client_logo_2.png" alt="client logo" />
-        <img src="images/client_logo_3.png" alt="client logo" />
-        <img src="images/client_logo_4.png" alt="client logo" />
-        <img src="images/client_logo_5.png" alt="client logo" />
-        <img src="images/client_logo_6.png" alt="client logo" />
-        <img src="images/client_logo_7.png" alt="client logo" />
-        <img src="images/client_logo_8.png" alt="client logo" />
-        <img src="images/client_logo_9.png" alt="client logo" />
-        <img src="images/client_logo_10.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_1.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_2.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_3.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_4.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_5.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_6.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_7.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_8.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_9.png" alt="client logo" />
+        <img src="landing-page/assets/images/client_logo_10.png" alt="client logo" />
 
     </div>
     <!-- // end .client-logos -->
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="content">
-                    <img src="images/dashboard.png" alt="image">
+                    <img src="landing-page/assets/images/dashboard.png" alt="image">
                 </div>
             </div>
         </div>
@@ -172,7 +172,7 @@
 
 
         <div class="col-sm-8">
-            <img src="images/screen.jpg" alt="image" class="img-fluid cast-shadow my-5">
+            <img src="landing-page/assets/images/screen.jpg" alt="image" class="img-fluid cast-shadow my-5">
         </div>
 
 

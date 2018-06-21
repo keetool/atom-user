@@ -6,7 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>KEE TOOL - @yield('title')</title>
+    {{-- <title>KEE TOOL - @yield('title')</title> --}}
+    <title>atomuser - build your own community</title>
 
     <!-- CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Product+Sans:300,400,700" rel="stylesheet">

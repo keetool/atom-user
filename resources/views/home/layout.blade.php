@@ -1,191 +1,152 @@
-<!doctype html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" type="image/png" href="landing-page/assets/img/logo.png" cph-ssorder="0">
-    <link rel="icon" type="image/png" href="landing-page/assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>KEE TOOL - @yield('title')</title>
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <!-- CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans:300,400,700" rel="stylesheet">
+    <!-- build:css css/app.min.css -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="landing-page/assets/css/global/bootstrap.min.css">
+    <!-- Plugins -->
+    <link rel="stylesheet" href="landing-page/assets/css/global/plugins/icon-font.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="landing-page/assets/css/style.css">
+    <!-- /build -->
 
-    <link href="landing-page/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="landing-page/assets/css/paper-kit.css" rel="stylesheet"/>
-    <link href="landing-page/assets/css/demo.css" rel="stylesheet" />
-
+    <meta charset="utf-8" />
     <!--     Fonts and icons     -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="landing-page/assets/css/nucleo-icons.css" rel="stylesheet">
-
 </head>
-<body class="presentation-page loading">
-<nav class="navbar navbar-toggleable-md fixed-top nav-down">
-    <div class="container" style="width:95%!important">
-        <div class="navbar-translate">
-            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-            </button>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <img src="landing-page/assets/img/colorlogo.png" height="20px"/>
-                </a>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-scroll="true">Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-scroll="true">Về chúng tôi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-scroll="true">Báo giá</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="btn btn-round btn-danger" style="background-color:#c50000;border-color:#c50000" href="/free-trial">
-                        <i class="fa fa-shopping-cart"></i> Dùng thử
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<body class="overflow-hidden">
+    <header id="home">
+
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <h3 class="gradient-mask">Start.ly</h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+                <div class="collapse navbar-collapse" id="site-nav">
+                    <ul class="navbar-nav text-sm-left ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pricing">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="index-two.html">Landing Style Two</a>
+                                <a class="dropdown-item" href="blog.html">Blog Page</a>
+                                <a class="dropdown-item" href="blog-single.html">Blog Single</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+
+                        <li class="nav-item text-center">
+                            <a href="#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                        </li>
+                        <li class="nav-item text-center">
+                            <a href="#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <!-- // end navbar -->
 
 @yield("content")
 
-<footer class="footer footer-big footer-black">
+<div class="section bg-light mt-4" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-sm-3 col-xs-6">
-                <img src="landing-page/assets/img/logowhite.png" height="30px"/>
+            <div class="col-sm-4"> <img src="images/global/logo-dark.svg" class="logo-dark" alt="Start.ly Logo" />
+                <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
+                <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
+                <!-- // end .lead -->
             </div>
-            <div class="col-md-9 offset-md-1 col-sm-9 col-xs-12">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="links">
-                            <ul class="uppercase-links stacked-links">
-                                <li>
-                                    <a href="#paper-kit">
-                                        Trang chủ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Báo giá
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Bảo hành
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="links">
-                            <ul class="uppercase-links stacked-links">
-                                <li>
-                                    <a href="#paper-kit">
-                                        Liên hệ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Tuyển dụng
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Về chúng tôi
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="links">
-                            <ul class="uppercase-links stacked-links">
-                                <li>
-                                    <a href="#paper-kit">
-                                        Tin tức
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Dùng thử
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Phản hồi
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="social-area">
-                            <a class="btn btn-just-icon btn-round btn-default" href="https://www.facebook.com/keetool">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-just-icon btn-round btn-default">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-just-icon btn-round btn-default">
-                                <i class="fa fa-google-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="copyright">
-                    <div class="pull-left">
-                        © <script>document.write(new Date().getFullYear())</script> KEETOOL
-                    </div>
-                    <div class="links pull-right">
-                        <ul>
-                            <li>
-                                <a href="#paper-kit">
-                                    Company Policy
-                                </a>
-                            </li>
-                            |
-                            <li>
-                                <a href="#paper-kit">
-                                    Terms
-                                </a>
-                            </li>
-                            |
-                            <li>
-                                <a href="#paper-kit">
-                                    Privacy
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <ul class="list-unstyled footer-links ml-1">
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <ul class="list-unstyled footer-links ml-1">
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#about">Privacy</a></li>
+                </ul>
+            </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <ul class="list-unstyled footer-links ml-1">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Linkedin</a></li>
+                </ul>
+            </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
+            </div>
+            <!-- // end .col-sm-3 -->
         </div>
+        <!-- // end .row -->
+        <div class=" text-center mt-4"> <small class="text-muted">Copyright ©
+                      <script type="text/javascript">
+                      document.write(new Date().getFullYear());
+                      </script>
+                      All rights reserved. Start.ly
+                  </small></div>
     </div>
-</footer>
+    <!-- // end .container -->
+</div>
+<!-- // end #about.section -->
+<!-- // end .agency -->
+<!-- JS Files -->
+<!-- build:js js/app.min.js -->
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="js/global/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/global/bootstrap.bundle.min.js"></script>
+<!-- Main JS -->
+<script src="js/script.js"></script>
+<!-- /build -->
 </body>
+
+
 
 <!--  Plugins -->
 <!-- Core JS Files -->
-<script src="landing-page/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/tether.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/paper-kit.js?v=2.0.0"></script>
-<script src="landing-page/assets/js/demo.js"></script>
+
+<script src="landing-page/assets/js/global/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="landing-page/assets/js/global/bootstrap.bundle.min.js"></script>
+<!-- Main JS -->
+<script src="landing-page/assets/js/script.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <!--  Plugins for presentation page -->

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Request;
  */
 
 Route::get('/', "HomeController@index");
-Route::get('/login', "HomeController@index")->name('login');
+// Route::get('/login', "HomeController@index")->name('login');
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");
 
@@ -22,6 +22,15 @@ Route::get("/check-merchant", "HomeController@checkMerchant");
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");
 };
+
+$socialRoutes = function () {
+    Route::get("/{path?}", "SocialController@index")->where('path', ".*");
+};
+
+Route::domain("{client}." . config("app.domain"))
+    ->middleware(['getSubDomain'])->group(
+        $socialRoutes
+    );
 
 Route::domain("{client}." . config("app.domain"))
     ->prefix("manage")

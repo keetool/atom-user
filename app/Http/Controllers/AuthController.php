@@ -18,21 +18,26 @@ use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 
 use App\Logs\SignInLog;
+use Illuminate\Support\Facades\Hash;
+use App\Services\AppService;
 
 class AuthController extends ApiController
 {
     protected $merchantRepository;
     protected $userRepository;
     protected $merchantUserRepository;
+    protected $appService;
 
     public function __construct(
         MerchantUserRepository $merchantUserRepository,
         MerchantRepository $merchantRepository,
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        AppService $appService
     ) {
         $this->merchantRepository = $merchantRepository;
         $this->userRepository = $userRepository;
         $this->merchantUserRepository = $merchantUserRepository;
+        $this->appService = $appService;
     }
 
     /**
@@ -276,5 +281,103 @@ class AuthController extends ApiController
         return response()->json([
             'message' => 'Successfully logged out'
         ]);
+    }
+
+    public function facebookTokenSignin(Request $request)
+    {
+        $inputToken = $request->input_token;
+        $data = $request->data;
+        $facebookId = $request->facebook_id;
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "Content-Type: application/json",
+                "Content-Length: " . strlen($data),
+            ),
+        ));
+        $responseJson = curl_exec($curl);
+        $response = json_decode($responseJson);
+        $accessToken = $response->access_token;
+        curl_close($curl);
+
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "Content-Type: application/json",
+                "Content-Length: " . strlen($data),
+            ),
+        ));
+        $responseJson = curl_exec($curl);
+        $response = json_decode($responseJson);
+        curl_close($curl);
+        if ($response->data) {
+            //id + name + email
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "Content-Type: application/json",
+                    "Content-Length: " . strlen($data),
+                ),
+            ));
+            $responseJson = curl_exec($curl);
+            $response = json_decode($responseJson);
+            curl_close($curl);
+
+            $user = User::where("facebook_id", $facebookId)->first();
+            if ($user == null) {
+                $user = new User();
+                if (isset($response->email))
+                    $user->email = $response->email;
+                else
+                    $user->email = $response->id . '@atomuser.com';
+                $user->password = Hash::make($response->id . 'atomuser');
+                $user->phone = '000';
+            }
+            $user->name = $response->name;
+            $user->facebook_id = $response->id;
+
+            //avatar
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "Content-Type: application/json",
+                    "Content-Length: " . strlen($data),
+                ),
+            ));
+            $responseJson = curl_exec($curl);
+            $response = json_decode($responseJson);
+            curl_close($curl);
+
+            $user->avatar_url = $response->data->url;
+            $user->save();
+
+            Auth::login($user);
+
+            return [
+                "status" => 1,
+                "user" => $user->transformAuth(),
+                "token" => $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser')
+            ];
+        } else {
+            return [
+                "status" => 0
+            ];
+        }
     }
 }

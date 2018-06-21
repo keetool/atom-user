@@ -288,52 +288,19 @@ class AuthController extends ApiController
         $inputToken = $request->input_token;
         $data = $request->data;
         $facebookId = $request->facebook_id;
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "Content-Type: application/json",
-                "Content-Length: " . strlen($data),
-            ),
-        ));
-        $responseJson = curl_exec($curl);
-        $response = json_decode($responseJson);
+        $http = new Client;
+        
+        $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");
+        $response = json_decode((string)$response->getBody());
         $accessToken = $response->access_token;
-        curl_close($curl);
 
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "Content-Type: application/json",
-                "Content-Length: " . strlen($data),
-            ),
-        ));
-        $responseJson = curl_exec($curl);
-        $response = json_decode($responseJson);
-        curl_close($curl);
+        $response = $http->get("https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken);
+        $response = json_decode((string)$response->getBody());
+        
         if ($response->data) {
             //id + name + email
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => array(
-                    "Content-Type: application/json",
-                    "Content-Length: " . strlen($data),
-                ),
-            ));
-            $responseJson = curl_exec($curl);
-            $response = json_decode($responseJson);
-            curl_close($curl);
+            $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
+            $response = json_decode((string)$response->getBody());
 
             $user = User::where("facebook_id", $facebookId)->first();
             if ($user == null) {
@@ -349,20 +316,8 @@ class AuthController extends ApiController
             $user->facebook_id = $response->id;
 
             //avatar
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => array(
-                    "Content-Type: application/json",
-                    "Content-Length: " . strlen($data),
-                ),
-            ));
-            $responseJson = curl_exec($curl);
-            $response = json_decode($responseJson);
-            curl_close($curl);
+            $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
+            $response = json_decode((string)$response->getBody());
 
             $user->avatar_url = $response->data->url;
             $user->save();

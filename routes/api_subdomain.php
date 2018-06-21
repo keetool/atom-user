@@ -12,5 +12,10 @@ Route::middleware("auth:api")->group(function () {
     Route::prefix("log")->group(function() {
         Route::get("/", "Api\LogApiController@myLogs");
     });
+
+    Route::prefix("post")->group(function () {
+        Route::post("/", "Api\PostApiController@createPost");
+
+    });
 });
 

@@ -165,7 +165,6 @@ class AuthController extends ApiController
     {
         // get subdomain from middleware
         $subDomain = $request->subDomain;
-
         $email = $request->email;
         $password = $request->password;
 
@@ -286,20 +285,25 @@ class AuthController extends ApiController
         $inputToken = $request->input_token;
         $data = $request->data;
         $facebookId = $request->facebook_id;
+        $subDomain = $request->subDomain;
+        $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        // dd($subDomain);
+        if ($merchant == null)
+            return $this->badRequest('Non-existing merchant');
+        // dd($subDomain);
         $http = new Client;
-        
+
         $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");
         $response = json_decode((string)$response->getBody());
         $accessToken = $response->access_token;
 
         $response = $http->get("https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken);
         $response = json_decode((string)$response->getBody());
-        
         if ($response->data) {
             //id + name + email
             $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
             $response = json_decode((string)$response->getBody());
-
+            // dd($response);
             $user = User::where("facebook_id", $facebookId)->first();
             if ($user == null) {
                 $user = new User();
@@ -320,17 +324,17 @@ class AuthController extends ApiController
             $user->avatar_url = $response->data->url;
             $user->save();
 
+            $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
             Auth::login($user);
-
-            return [
-                "status" => 1,
-                "user" => $user->transformAuth(),
-                "token" => $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser')
-            ];
+            // dd($user);
+            return $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser');
         } else {
-            return [
-                "status" => 0
-            ];
+            return $this->badRequest();
         }
+    }
+
+    public function asd(Request $request)
+    {
+        dd($request->subDomain);
     }
 }

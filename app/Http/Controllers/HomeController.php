@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home.dummy');
     }
+
+    public function dummy2()
+    {
+        return view('home.dummy2');
+    }
 }

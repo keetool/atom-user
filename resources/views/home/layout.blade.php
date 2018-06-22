@@ -261,7 +261,7 @@
         -o-border-radius: 10px;
         overflow: hidden;
         margin-bottom: 30px;
-        width: 350px;
+        width: 400px;
         height: 500px;
         /*-moz-box-shadow: 0 0 3px #ccc;*/
         /*-webkit-box-shadow: 0 0 3px #ccc;*/
@@ -270,7 +270,7 @@
     }
 
     .atomuser-iframe > iframe {
-        width: 350px;
+        width: 400px;
         height: 500px;
         /*border: none;*/
         /*padding: 0;*/

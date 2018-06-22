@@ -165,7 +165,6 @@ class AuthController extends ApiController
     {
         // get subdomain from middleware
         $subDomain = $request->subDomain;
-
         $email = $request->email;
         $password = $request->password;
 
@@ -288,11 +287,11 @@ class AuthController extends ApiController
         $facebookId = $request->facebook_id;
         $subDomain = $request->subDomain;
         $merchant = Merchant::where('sub_domain', $subDomain)->first();
-        if($merchant == null)
+        if ($merchant == null)
             return $this->badRequest('Non-existing merchant');
         dd($subDomain);
         $http = new Client;
-        
+
         $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");
         $response = json_decode((string)$response->getBody());
         $accessToken = $response->access_token;
@@ -334,5 +333,10 @@ class AuthController extends ApiController
         } else {
             return $this->badRequest();
         }
+    }
+
+    public function asd(Request $request)
+    {
+        dd($request->subDomain);
     }
 }

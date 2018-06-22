@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Merchant;
+use App\Http\Controllers\ApiController;
 
-class MerchantApiController extends Controller
+class MerchantApiController extends ApiController
 {
-    /**
-     * GET /api/v1/merchant
-     * @return view
-     */
-    public function index()
+    public function merchant($merchantId)
     {
-        return view("home.index");
+        $merchant = Merchant::find($merchantId);
+        return [
+            'id' => $merchant->id,
+            'name' => $merchant->name,
+            'sub_domain' => $merchant->sub_domain
+        ];
     }
 
-    /**
-     * POST /api/v1/merchant
-     */
     public function createMerchant(){
 
     }

@@ -286,6 +286,7 @@ class AuthController extends ApiController
         $data = $request->data;
         $facebookId = $request->facebook_id;
         $subDomain = $request->subDomain;
+        dd($subDomain);
         $merchant = Merchant::where('sub_domain', $subDomain)->first();
         // dd($subDomain);
         if ($merchant == null)

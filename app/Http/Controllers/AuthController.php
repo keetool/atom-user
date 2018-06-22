@@ -286,10 +286,10 @@ class AuthController extends ApiController
         $inputToken = $request->input_token;
         $data = $request->data;
         $facebookId = $request->facebook_id;
-        $merchantId = $request->merchantId;
+        // $merchantId = $request->merchantId;
 
-        if(Merchant::find($merchantId) == null)
-            return $this->badRequest('Non-existing merchant');
+        // if(Merchant::find($merchantId) == null)
+        //     return $this->badRequest('Non-existing merchant');
         $http = new Client;
         
         $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");
@@ -324,7 +324,7 @@ class AuthController extends ApiController
             $user->avatar_url = $response->data->url;
             $user->save();
 
-            $this->merchantUserRepository->createMerchantUser($merchantId, $user->id, "user");
+            // $this->merchantUserRepository->createMerchantUser($merchantId, $user->id, "user");
             Auth::login($user);
 
             return $this->success([

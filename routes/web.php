@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Request;
  */
 
 Route::get('/', "HomeController@index");
+Route::get("/blogs", "HomeController@blogs");
 // Route::get('/login', "HomeController@index")->name('login');
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");

@@ -287,7 +287,6 @@ class AuthController extends ApiController
         $data = $request->data;
         $facebookId = $request->facebook_id;
 
-        // dd([$inputToken, $facebookId]);
 
         // if(Merchant::find($merchantId) == null)
         //     return $this->badRequest('Non-existing merchant');
@@ -299,12 +298,11 @@ class AuthController extends ApiController
 
         $response = $http->get("https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken);
         $response = json_decode((string)$response->getBody());
-        
         if ($response->data) {
             //id + name + email
             $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
             $response = json_decode((string)$response->getBody());
-
+            // dd($response);
             $user = User::where("facebook_id", $facebookId)->first();
             if ($user == null) {
                 $user = new User();
@@ -327,7 +325,7 @@ class AuthController extends ApiController
 
             // $this->merchantUserRepository->createMerchantUser($merchantId, $user->id, "user");
             Auth::login($user);
-
+            // dd($user);
             return $this->success([
                 "user" => $user->transformAuth(),
                 "token" => $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser')

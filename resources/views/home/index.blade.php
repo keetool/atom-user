@@ -11,10 +11,10 @@
         <div class="row align-items-center">
             <div class="col-12 col-md-5">
 
-                <h1 class="display-5">Create a community <br>for your own website</h1>
-                <p class="text-muted mb-3">Have you ever wanna create a community for your website users? With just a few simple click, you will get it!<br><br>Totally free, start building your community now!</p>
+                <h1 class="display-5">{{trans("app.welcome.create")}}</h1>
+                <p class="text-muted mb-3">{{trans("app.welcome.message1")}}<br><br>{{trans("app.welcome.message2")}}</p>
                 <p>
-                    <a href="#signup" class="btn btn-xl btn-primary">Get started free</a>
+                    <a href="#signup" class="btn btn-xl btn-primary">{{trans("app.welcome.started")}}</a>
                 </p>
 
             </div>
@@ -71,7 +71,7 @@
                 <div class="media-icon d-flex mr-3"> <i class="pe-7s-paint-bucket pe-3x"></i> </div>
                 <!-- // end .di -->
                 <div class="media-body">
-                    <h5 class="mt-0">Easy Customization</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                    <h5 class="mt-0">{{trans("app.feature1.easy.title")}}</h5> {{trans("app.feature1.easy.message")}}
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
                 <div class="media-icon d-flex mr-3"> <i class="pe-7s-rocket pe-3x"></i> </div>
                 <!-- // end .di -->
                 <div class="media-body">
-                    <h5 class="mt-0">Super Fast</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante.
+                    <h5 class="mt-0">{{trans("app.feature1.fast.title")}}</h5> {{trans("app.feature1.fast.message")}}
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                 <div class="media-icon d-flex mr-3"> <i class="pe-7s-piggy pe-3x"></i> </div>
                 <!-- // end .di -->
                 <div class="media-body">
-                    <h5 class="mt-0">Save Money</h5>in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    <h5 class="mt-0">{{trans("app.feature1.save.title")}}</h5>{{trans("app.feature1.save.message")}}
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                 <div class="media-icon d-flex mr-3"> <i class="pe-7s-cloud-upload pe-3x"></i> </div>
                 <!-- // end .di -->
                 <div class="media-body">
-                    <h5 class="mt-0">Cloud Upload</h5> sit amet nibh libero, in gravida nulla. vel metus scelerisque ante sollicitudin.
+                    <h5 class="mt-0">{{trans("app.feature1.cloud.title")}}</h5> {{trans("app.feature1.cloud.message")}}
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                 <div class="media-icon d-flex mr-3"> <i class="pe-7s-science pe-3x"></i> </div>
                 <!-- // end .di -->
                 <div class="media-body">
-                    <h5 class="mt-0">Proven Technology</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus ante .
+                    <h5 class="mt-0">{{trans("app.feature1.proven.title")}}</h5> {{trans("app.feature1.proven.message")}}
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                 <div class="media-icon d-flex mr-3"> <i class="pe-7s-like2 pe-3x"></i> </div>
                 <!-- // end .di -->
                 <div class="media-body">
-                    <h5 class="mt-0">100% Satisfaction</h5>Amet nibh libero, in gravida nulla. Nulla vel metus ante sollicitudin.
+                    <h5 class="mt-0">{{trans("app.feature1.satisfaction.title")}}</h5>{{trans("app.feature1.satisfaction.message")}}
                 </div>
             </div>
         </div>
@@ -148,8 +148,8 @@
             <div class="media">
                 <div class="media-body">
                     <div class="media-icon mb-3"> <i class="pe-7s-like2 pe-3x"></i> </div>
-                    <h3 class="mt-0">Perfect Dashboard</h3>
-                    <p> Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae sunt reiciendis, molestias omnis soluta?</p>
+                    <h3 class="mt-0">{{trans("app.feature2.dashboard.title")}}</h3>
+                    <p> {{trans("app.feature2.dashboard.message")}}</p>
                 </div>
             </div>
         </div>
@@ -164,8 +164,8 @@
             <div class="media">
                 <div class="media-body">
                     <div class="media-icon mb-3"> <i class="pe-7s-graph1 pe-3x"></i> </div>
-                    <h3 class="mt-0">Charts, Diagrams & more</h3>
-                    <p> Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae sunt reiciendis, molestias omnis soluta?</p>
+                    <h3 class="mt-0">{{trans("app.feature2.charts.title")}}</h3>
+                    <p> {{trans("app.feature2.charts.message")}}</p>
                 </div>
             </div>
         </div>
@@ -198,7 +198,7 @@
                 <!-- // end .di -->
                 <div class="media-body text-center">
                     <div class="color-icon mb-3"> <i class="pe-7s-medal pe-3x"></i> </div>
-                    <h5 class="mt-0">Award Winning Design</h5> Monotonectally envisioneer e-business niche markets vis-a-vis cost effective information. objectively promote worldwide.
+                    <h5 class="mt-0">{{trans("app.feature3.award.title")}}</h5> {{trans("app.feature3.award.message")}}
                 </div>
             </div>
         </div>
@@ -207,7 +207,7 @@
                 <!-- // end .di -->
                 <div class="media-body text-center">
                     <div class="color-icon mb-3"> <i class="pe-7s-diamond pe-3x"></i> </div>
-                    <h5 class="mt-0">Carefully Crafted</h5> Authoritatively streamline strategic markets without user-centric potentialities. Credibly integrate progressive technologies
+                    <h5 class="mt-0">{{trans("app.feature3.carefully.title")}}</h5> {{trans("app.feature3.carefully.message")}}
                 </div>
             </div>
         </div>
@@ -216,7 +216,7 @@
                 <!-- // end .di -->
                 <div class="media-body text-center">
                     <div class="color-icon mb-3"> <i class="pe-7s-cloud-upload pe-3x"></i> </div>
-                    <h5 class="mt-0">Cloud Sync</h5>Objectively underwhelm e-business leadership skills after cross-unit best practices. Continually innovate robust action items
+                    <h5 class="mt-0">{{trans("app.feature3.sync.title")}}</h5>{{trans("app.feature3.sync.message")}}
                 </div>
             </div>
         </div>
@@ -349,23 +349,23 @@
 <div class="section" id="signup">
 <div class="container">
     <div class="section-title text-center">
-        <h3>Start your free trial</h3>
-        <p>Signup now. Its free and takes less than 3 minutes</p>
+        <h3>{{trans("app.started.title")}}</h3>
+        <p>{{trans("app.started.subtitle")}}</p>
     </div>
     <div class="row justify-content-md-center">
         <div class="col col-md-5">
             <form>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name">
+                    <input type="text" class="form-control" placeholder="{{trans("app.started.fullname")}}">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email Address">
+                    <input type="email" class="form-control" placeholder="{{trans("app.started.email")}}">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="{{trans("app.started.password")}}">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-xl btn-block btn-primary">GET STARTED FOR FREE</button>
+                    <button type="submit" class="btn btn-xl btn-block btn-primary">{{trans("app.started.getstarted")}}</button>
                 </div>
             </form>
         </div>

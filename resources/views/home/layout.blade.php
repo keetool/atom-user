@@ -14,6 +14,7 @@
     <meta property="og:type" content="website" />
 
     <meta property="og:image" content="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529571594AvZvBrjZQSIwaNT.png" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Product+Sans:300,400,700" rel="stylesheet">
     <!-- build:css css/app.min.css -->
@@ -34,7 +35,7 @@
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" height="40px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,36 +45,28 @@
                 <div class="collapse navbar-collapse" id="site-nav">
                     <ul class="navbar-nav text-sm-left ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
+                            <a class="nav-link" href="#features">{{trans("app.features")}}</a>
                         </li>
                         <!--<li class="nav-item">-->
                             <!--<a class="nav-link" href="#pricing">Pricing</a>-->
                         <!--</li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="blogs">{{trans("app.blog")}}</a>
                         </li>
-
-                        <!--<li class="nav-item dropdown">-->
-                            <!--<a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>-->
-                            <!--<div class="dropdown-menu">-->
-                                <!--<a class="dropdown-item" href="index-two.html">Landing Style Two</a>-->
-                                <!--<a class="dropdown-item" href="blog.html">Blog Page</a>-->
-                                <!--<a class="dropdown-item" href="blog-single.html">Blog Single</a>-->
-                            <!--</div>-->
-                        <!--</li>-->
+                        {{-- {{dd($locale)}} --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Docs</a>
+                            <a class="nav-link" href="#">{{trans("app.docs")}}</a>
                         </li>
 
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                            <a href="#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">{{trans("app.login")}}</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                            <a href="#signup" class="btn align-middle btn-primary my-2 my-lg-0">{{trans("app.signup")}}</a>
                         </li>
                     </ul>
 
-                </div>
+                </di>
             </div>
         </nav>
         <!-- // end navbar -->
@@ -115,6 +108,12 @@
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
+                <div class="nav-item" style="margin-top: 10px;">
+                    <select class="btn btn-sm btn-outline-primary ml-1" id="languageSwitcher">
+                        <option {{$locale == "en" ? "selected" : ""}}>en</option>
+                        <option {{$locale == "vi" ? "selected" : ""}}>vi</option>
+                    </select>
+                </div>
             </div>
             <!-- // end .col-sm-3 -->
         </div>
@@ -179,6 +178,41 @@
         });
     })();
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Change Language
+        
+        $('#languageSwitcher').change(function (e) { 
+            e.preventDefault();
+            // console.log(1);
+            // console.log($('meta[name="csrf-token"]').attr('content'));
+            var locale = $(this).val();
+            var _token = $('meta[name="csrf-token"]').attr('content');
+
+            var url = "/change-language";
+            var data = {
+                locale: locale,
+                _token: _token
+            }
+            var config = {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }
+            
+            axios.post(url, data, config)
+            .then((response) => {
+                console.log(response);
+                window.location.reload(true);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        });        
+    });
+</script>
+
 
 @yield("script")
 

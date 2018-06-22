@@ -9,6 +9,8 @@ use App\Keyword;
 use App\Repositories\LanguageRepository;
 use App\Repositories\KeywordRepository;
 use App\Repositories\KeywordLanguageRepository;
+use Illuminate\Support\Facades\Session;
+use App;
 
 class LanguageController extends Controller
 {
@@ -24,6 +26,9 @@ class LanguageController extends Controller
         $this->languageRepository = $languageRepository;
         $this->keywordRepository = $keywordRepository;
         $this->keywordLanguageRepository = $keywordLanguageRepository;
+        // $locale = App::getLocale();
+        // $this->data['locale'] = $locale;
+        // dd($locale);
     }
 
     /**
@@ -243,5 +248,17 @@ class LanguageController extends Controller
         }
 
         return redirect("/t/language/list");
+    }
+
+    public function changeLanguage(Request $request)
+    {
+        // dd($request->locale);
+        // dd(1);
+        if($request->locale){
+            // dd(1);
+            $request->session()->put('locale', $request->locale);
+            $request->session()->flash('alert-success', ('app.Locale_Change_Success'));
+            // dd(Session::all());
+        }
     }
 }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Request;
 
 Route::get('/', "HomeController@index");
 // Route::get('/login', "HomeController@index")->name('login');
+Route::get('/blogs', "HomeController@blogs");
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");
 
@@ -40,6 +41,5 @@ Route::domain("{client}." . config("app.domain"))
     );
 
 
-
-
+Route::post("/change-language", "LanguageController@changeLanguage");
 

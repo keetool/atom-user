@@ -324,7 +324,7 @@ class AuthController extends ApiController
             $user->avatar_url = $response->data->url;
             $user->save();
 
-            $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "user");
+            $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
             Auth::login($user);
             // dd($user);
             return $this->success([

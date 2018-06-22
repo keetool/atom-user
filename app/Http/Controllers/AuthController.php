@@ -287,7 +287,7 @@ class AuthController extends ApiController
         $data = $request->data;
         $facebookId = $request->facebook_id;
 
-        dd([$inputToken, $facebookId]);
+        // dd([$inputToken, $facebookId]);
 
         // if(Merchant::find($merchantId) == null)
         //     return $this->badRequest('Non-existing merchant');

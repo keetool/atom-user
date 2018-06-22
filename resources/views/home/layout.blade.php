@@ -262,7 +262,7 @@
         overflow: hidden;
         margin-bottom: 30px;
         width: 400px;
-        height: 500px;
+        height: 600px;
         /*-moz-box-shadow: 0 0 3px #ccc;*/
         /*-webkit-box-shadow: 0 0 3px #ccc;*/
         /*box-shadow: 0 0 3px #ccc;*/
@@ -271,7 +271,7 @@
 
     .atomuser-iframe > iframe {
         width: 400px;
-        height: 500px;
+        height: 600px;
         /*border: none;*/
         /*padding: 0;*/
 

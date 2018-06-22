@@ -354,9 +354,9 @@ class AuthController extends ApiController
                 $user->email = $response->email;
             else
                 $user->email = $response->sub . '@atomuser.com';
-            $user->password = Hash::make($response->sub . 'atomuser');
-            $user->phone = '000';
             $user->social_id = "google." . $response->sub;
+            $user->password = Hash::make($user->social_id);
+            $user->phone = '000';
         }
         $user->name = $response->name;
         $user->avatar_url = $response->picture;

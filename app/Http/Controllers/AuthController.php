@@ -287,9 +287,10 @@ class AuthController extends ApiController
         $facebookId = $request->facebook_id;
         $subDomain = $request->subDomain;
         $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        dd($subDomain);
         if ($merchant == null)
             return $this->badRequest('Non-existing merchant');
-        // dd($subDomain);
+        dd($subDomain);
         $http = new Client;
 
         $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");

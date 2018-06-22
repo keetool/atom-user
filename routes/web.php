@@ -18,6 +18,7 @@ Route::get('/', "HomeController@index");
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");
 
+Route::get('/signin', "SocialController@index")->name('login');
 
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");

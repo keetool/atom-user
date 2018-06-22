@@ -11,16 +11,14 @@ class MerchantApiController extends ApiController
     public function merchant($merchantId)
     {
         if (!preg_match('/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/', $merchantId))
-            return [
-                'status' => 0,
-                'message' => 'Invalid id format',
-            ];
+            return $this->notFound([
+                "message" => "Invalid id format"
+            ]);
         $merchant = Merchant::find($merchantId);
         if ($merchant == null) {
-            return [
-                'status' => 0,
-                'message' => 'Non-existing merchant id',
-            ];
+            return $this->notFound([
+                "message" => "Non-existing merchant id"
+            ]);
         }
         return [
             'id' => $merchant->id,

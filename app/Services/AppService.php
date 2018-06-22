@@ -1,42 +1,18 @@
 <?php
 
-namespace App\Providers;
+namespace App\Services;
 
-use Illuminate\Support\ServiceProvider;
-use Laravel\Passport\Passport;
 use GuzzleHttp\Client;
-use App\Log;
+use App\Logs\Log;
 use App\Logs\SignInLog;
+use App\User;
 
-class AppServiceProvider extends ServiceProvider
+class AppService
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function signIn($request, $email, $password) 
     {
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        Passport::ignoreMigrations();
-
-        $this->app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
-    }
-
-    public function signIn($request, $facebook_id, $password) 
-    {
-        $user = User::where('facebook_id', $facebook_id)->first();
-
+        $user = User::where('email', $email)->first();
         $http = new Client;
-
         $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
             'form_params' => [
                 'grant_type' => 'password',

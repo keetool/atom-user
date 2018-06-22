@@ -1,49 +1,29 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            <meta name="google-signin-client_id" content="141997092589-lg3mgdl45p1t9t65qegltg0m1b6tlchd.apps.googleusercontent.com">
-        </title>
-    </head>
-    <body>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '2003668823296017',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v3.0'
-            });
+<head>
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+</head>
+<body>
+  <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
-            FB.AppEvents.logPageView();
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function statusChangeCallback(response) {
-            console.log(response);
-        }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-        }  
-    </script>
-
-        <fb:login-button 
-            scope="public_profile,email"
-            onlogin="checkLoginState();">
-        </fb:login-button>
-        asdasdk
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    </body>
-    
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
 </html>

@@ -327,7 +327,7 @@ class AuthController extends ApiController
 
             $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
 
-            return $this->appService->signIn($request, $user->email, $user->social_id . 'atomuser');
+            return $this->appService->signIn($request, $user->email, $user->social_id);
         } else {
             return $this->badRequest();
         }
@@ -364,6 +364,6 @@ class AuthController extends ApiController
 
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
 
-        return $this->appService->signIn($request, $user->email, $user->social_id . 'atomuser');
+        return $this->appService->signIn($request, $user->email, $user->social_id);
     }
 }

@@ -3,6 +3,7 @@
 Route::prefix("auth")->group(function () {
     Route::post('signin', 'AuthController@signin');
     Route::post("token/refresh", 'AuthController@refreshToken');
+    Route::post('facebook/token-signin', 'AuthController@facebookTokenSignin');
 });
 
 Route::middleware("auth:api")->group(function () {

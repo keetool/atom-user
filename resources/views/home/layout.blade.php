@@ -34,7 +34,7 @@
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" height="40px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,13 +44,13 @@
                 <div class="collapse navbar-collapse" id="site-nav">
                     <ul class="navbar-nav text-sm-left ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
+                            <a class="nav-link" href="/#features">Features</a>
                         </li>
                         <!--<li class="nav-item">-->
                             <!--<a class="nav-link" href="#pricing">Pricing</a>-->
                         <!--</li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="blogs">Blog</a>
                         </li>
 
                         <!--<li class="nav-item dropdown">-->
@@ -66,10 +66,10 @@
                         </li>
 
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                            <a href="/#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                            <a href="/#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
                         </li>
                     </ul>
 

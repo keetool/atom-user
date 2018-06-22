@@ -11,6 +11,11 @@ class HomeController extends Controller
         return view("home.index");
     }
 
+    public function blogs()
+    {
+        return view("home.blogs");
+    }
+
     public function register()
     {
         return view("home.merchant_register");

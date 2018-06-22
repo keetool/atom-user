@@ -304,18 +304,19 @@ class AuthController extends ApiController
             $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
             $response = json_decode((string)$response->getBody());
             // dd($response);
-            $user = User::where("facebook_id", $facebookId)->first();
+            $user = User::where("social_id", "facebook." . $facebookId)->first();
             if ($user == null) {
                 $user = new User();
                 if (isset($response->email))
                     $user->email = $response->email;
                 else
-                    $user->email = $response->id . '@atomuser.com';
-                $user->password = Hash::make($response->id . 'atomuser');
+                    $user->email = "facebook" . $response->id . '@atomuser.com';
+                $user->social_id = "facebook." . $facebookId;
+                $user->password = Hash::make($user->social_id);
                 $user->phone = '000';
             }
+
             $user->name = $response->name;
-            $user->facebook_id = $response->id;
 
             //avatar
             $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
@@ -325,16 +326,44 @@ class AuthController extends ApiController
             $user->save();
 
             $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
-            Auth::login($user);
-            // dd($user);
-            return $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser');
+
+            return $this->appService->signIn($request, $user->email, $user->social_id . 'atomuser');
         } else {
             return $this->badRequest();
         }
     }
 
-    public function asd(Request $request)
+    public function googleTokenSignin(Request $request)
     {
-        dd($request->subDomain);
+        $inputToken = $request->input_token;
+
+        $subDomain = $request->subDomain;
+        $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        if ($merchant == null)
+            return $this->badRequest('Non-existing merchant');
+
+        $http = new Client;
+        $response = $http->get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" . $inputToken);
+        $response = json_decode((string)$response->getBody());
+
+        // dd($response);
+        $user = User::where("social_id", "google." . $response->sub)->first();
+        if ($user == null) {
+            $user = new User();
+            if (isset($response->email))
+                $user->email = $response->email;
+            else
+                $user->email = $response->sub . '@atomuser.com';
+            $user->password = Hash::make($response->sub . 'atomuser');
+            $user->phone = '000';
+            $user->social_id = "google." . $response->sub;
+        }
+        $user->name = $response->name;
+        $user->avatar_url = $response->picture;
+        $user->save();
+
+        $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
+
+        return $this->appService->signIn($request, $user->email, $user->social_id . 'atomuser');
     }
 }

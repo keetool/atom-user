@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Request;
  */
 
 Route::get('/', "HomeController@index");
+Route::get("/blogs", "HomeController@blogs");
 // Route::get('/login', "HomeController@index")->name('login');
 Route::get('/blogs', "HomeController@blogs");
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");
-
 Route::get('/signin', "SocialController@index")->name('login');
+Route::get('/dummy', 'HomeController@dummy');
+Route::get('/dummy2', 'HomeController@dummy2');
 
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");
@@ -40,6 +42,4 @@ Route::domain("{client}." . config("app.domain"))
         $manageRoutes
     );
 
-
-Route::post("/change-language", "LanguageController@changeLanguage");
 

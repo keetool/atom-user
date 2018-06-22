@@ -28,8 +28,5 @@ Route::prefix("auth")->group(function () {
 // load language dictionary
 Route::get('language', "Api\LanguageApiController@language");
 
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return "abc";
-// });
-
+// load merchant info
+Route::get('merchant/{merchantId}', 'Api\MerchantApiController@merchant');

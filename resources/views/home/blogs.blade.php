@@ -1,17 +1,10 @@
-@extends("home.layout");
 
-@section ("title", "Blogs")
+@extends("home.layout")
 
-@section('content')
-    <!-- hero -->
-    <section class="jumbotron sub-page text-center d-flex align-items-center">
-            <div class="container">
-                <h1 class="display-4">Our Blog</h1>
-                <p class="lead my-4" data-wow-delay="0.5s">A place where we speak our mind. Product Udates, Marketing, Sales and some fun. Subscribe for email updates.</p>
-            </div>
-        </section>
-        <!-- // end hero -->
-    </header>
+@section("Title", "Blog")
+
+@section("content")
+
     <div class="section my-lg" id="blog">
         <div class="container">
             <div class="row">
@@ -27,9 +20,11 @@
                             </a>
                             <div class="post-meta text-muted mb-3">
                                 <small class="author"> by <a href="#" class="link-muted">John Mickey </a></small>
-                                <small class="time"> on <a href="#" class="link-muted">July 10 </a> </small>
+                                <small class="time"> on <a href="#" class="link-muted">July 10 </a></small>
                             </div>
-                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph emerging quality vectors for progressive catalysts for change utilize fully tested... </p>
+                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph
+                                emerging quality vectors for progressive catalysts for change utilize fully
+                                tested... </p>
                         </div>
                         <!-- .entry-content -->
                         <a href="blog-single.html">Continue reading →</a>
@@ -48,9 +43,11 @@
                             </a>
                             <div class="post-meta text-muted mb-3">
                                 <small class="author"> by <a href="#" class="link-muted">John Mickey </a></small>
-                                <small class="time"> on <a href="#" class="link-muted">July 10 </a> </small>
+                                <small class="time"> on <a href="#" class="link-muted">July 10 </a></small>
                             </div>
-                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph emerging quality vectors for progressive catalysts for change utilize fully tested... </p>
+                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph
+                                emerging quality vectors for progressive catalysts for change utilize fully
+                                tested... </p>
                         </div>
                         <!-- .entry-content -->
                         <a href="blog-single.html">Continue reading →</a>
@@ -69,9 +66,12 @@
                             </a>
                             <div class="post-meta text-muted mb-3">
                                 <small class="author"> by <a href="#" class="link-muted">John Mickey </a></small>
-                                <small class="time"> on <a href="#" class="link-muted">July 10 </a> </small>
+                                <small class="time"> on <a href="#" class="link-muted">July 10 </a></small>
                             </div>
-                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph emerging quality vectors for progressive catalysts for change utilize fully tested... </p>
+                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph
+                                emerging quality vectors for progressive catalysts for change utilize fully
+                                tested... </p>
+
                         </div>
                         <!-- .entry-content -->
                         <a href="blog-single.html">Continue reading →</a>
@@ -90,9 +90,11 @@
                             </a>
                             <div class="post-meta text-muted mb-3">
                                 <small class="author"> by <a href="#" class="link-muted">John Mickey </a></small>
-                                <small class="time"> on <a href="#" class="link-muted">July 10 </a> </small>
+                                <small class="time"> on <a href="#" class="link-muted">July 10 </a></small>
                             </div>
-                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph emerging quality vectors for progressive catalysts for change utilize fully tested... </p>
+                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph
+                                emerging quality vectors for progressive catalysts for change utilize fully
+                                tested... </p>
                         </div>
                         <!-- .entry-content -->
                         <a href="blog-single.html">Continue reading →</a>
@@ -111,9 +113,11 @@
                             </a>
                             <div class="post-meta text-muted mb-3">
                                 <small class="author"> by <a href="#" class="link-muted">John Mickey </a></small>
-                                <small class="time"> on <a href="#" class="link-muted">July 10 </a> </small>
+                                <small class="time"> on <a href="#" class="link-muted">July 10 </a></small>
                             </div>
-                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph emerging quality vectors for progressive catalysts for change utilize fully tested... </p>
+                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph
+                                emerging quality vectors for progressive catalysts for change utilize fully
+                                tested... </p>
                         </div>
                         <!-- .entry-content -->
                         <a href="blog-single.html">Continue reading →</a>
@@ -132,9 +136,11 @@
                             </a>
                             <div class="post-meta text-muted mb-3">
                                 <small class="author"> by <a href="#" class="link-muted">John Mickey </a></small>
-                                <small class="time"> on <a href="#" class="link-muted">July 10 </a> </small>
+                                <small class="time"> on <a href="#" class="link-muted">July 10 </a></small>
                             </div>
-                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph emerging quality vectors for progressive catalysts for change utilize fully tested... </p>
+                            <p> Seamlessly restore wireless ideas before interdependent e-tailers. Conveniently morph
+                                emerging quality vectors for progressive catalysts for change utilize fully
+                                tested... </p>
                         </div>
                         <!-- .entry-content -->
                         <a href="blog-single.html">Continue reading →</a>

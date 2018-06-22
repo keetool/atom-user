@@ -45,13 +45,13 @@
                 <div class="collapse navbar-collapse" id="site-nav">
                     <ul class="navbar-nav text-sm-left ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#features">{{trans("app.features")}}</a>
+                            <a class="nav-link" href="/#features">Features</a>
                         </li>
                         <!--<li class="nav-item">-->
                             <!--<a class="nav-link" href="#pricing">Pricing</a>-->
                         <!--</li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="blogs">{{trans("app.blog")}}</a>
+                            <a class="nav-link" href="blogs">Blog</a>
                         </li>
                         {{-- {{dd($locale)}} --}}
                         <li class="nav-item">
@@ -59,10 +59,10 @@
                         </li>
 
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">{{trans("app.login")}}</a>
+                            <a href="/#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-primary my-2 my-lg-0">{{trans("app.signup")}}</a>
+                            <a href="/#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
                         </li>
                     </ul>
 
@@ -109,9 +109,9 @@
             <div class="col-sm-2">
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
                 <div class="nav-item" style="margin-top: 10px;">
-                    <select class="btn btn-sm btn-outline-primary ml-1" id="languageSwitcher">
-                        <option {{$locale == "en" ? "selected" : ""}}>en</option>
-                        <option {{$locale == "vi" ? "selected" : ""}}>vi</option>
+                    <select class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        <option>en</option>
+                        <option>vi</option>
                     </select>
                 </div>
             </div>

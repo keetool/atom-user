@@ -8,7 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{-- <title>KEE TOOL - @yield('title')</title> --}}
     <title>atomuser - build your own community</title>
+    <!-- Meta Share -->
+    <meta property="og:title" content="atomuser - build your own community" />
+    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website" />
 
+    <meta property="og:image" content="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529571594AvZvBrjZQSIwaNT.png" />
     <!-- CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Product+Sans:300,400,700" rel="stylesheet">
     <!-- build:css css/app.min.css -->

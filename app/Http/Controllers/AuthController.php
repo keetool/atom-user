@@ -327,10 +327,7 @@ class AuthController extends ApiController
             $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
             Auth::login($user);
             // dd($user);
-            return $this->success([
-                "user" => $user->transformAuth(),
-                "token" => $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser')
-            ]);
+            return $this->appService->signIn($request, $user->email, $user->facebook_id . 'atomuser');
         } else {
             return $this->badRequest();
         }

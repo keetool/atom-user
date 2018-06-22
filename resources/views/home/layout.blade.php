@@ -115,6 +115,12 @@
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
+                <div class="nav-item" style="margin-top: 10px;">
+                    <select class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        <option>en</option>
+                        <option>vi</option>
+                    </select>
+                </div>
             </div>
             <!-- // end .col-sm-3 -->
         </div>

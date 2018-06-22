@@ -19,8 +19,6 @@ Route::prefix("auth")->group(function () {
     Route::post('check/merchant', 'AuthController@checkMerchant');
     Route::post('signup/user', 'AuthController@signup');
     Route::post('signup/merchant', 'AuthController@merchantSignup');
-    Route::get('google/token-signin', 'AuthController@googleTokenSignin');
-
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', 'AuthController@logout');
     });

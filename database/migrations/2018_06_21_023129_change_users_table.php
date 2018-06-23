@@ -14,7 +14,7 @@ class ChangeUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function(Blueprint $table) {
-            $table->string('facebook_id')->unique()->nullable();
+            $table->string('social_id')->unique()->nullable();
             $table->text('avatar_url')->nullable();
         });
     }

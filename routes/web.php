@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Request;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
-Route::get('/', "HomeController@index");
 Route::get("/blogs", "HomeController@blogs");
 // Route::get('/login', "HomeController@index")->name('login');
 Route::get('/blogs', "HomeController@blogs");
@@ -41,5 +39,7 @@ Route::domain("{client}." . config("app.domain"))
     ->middleware(['getSubDomain'])->group(
         $manageRoutes
     );
+
+Route::get('/', "HomeController@index");
 
 

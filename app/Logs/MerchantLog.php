@@ -26,7 +26,7 @@ class MerchantLog extends Log
     {
         return json_encode([
             (new UserJsonObject($this->user))->toArray(),
-            (new KeyJsonObject('manage.log.merchant.create'))->toArray(),
+            (new KeyJsonObject($this->action))->toArray(),
             (new MerchantJsonObject($this->merchant))->toArray()
         ]);
     }

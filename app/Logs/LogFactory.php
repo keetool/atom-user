@@ -15,7 +15,7 @@ abstract class LogFactory
     protected $api;
     protected $user;
 
-    public function __construct($action, $api, $user)
+    function __construct($action, $api, $user)
     {
         $this->action = $action;
         $this->api = $api;

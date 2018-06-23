@@ -29,25 +29,7 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        /* Multi Lang
-        if($this->lang){
-            $code = $this->lang;
-        }else{
-            $code = $request->session()->get("lang");
-        }
-        */
-        $code = $request->lang;
-        if($code){
-            $code = "en-us";
-        }
-        $language = $this->languageRepo->findByCode($code);
-        $keywords = $this->keywordRepo->getAllKeyWord();
-        $data = [];
-        foreach ($keywords as $keyword) {
-            $data[$keyword->name] = $this->keywordLanguageRepo->findByKeywordIdAndLanguageId($keyword->id, $language->id)->toArray();
-        }
-        $this->data['keyword'] = $data;
-        return view("home.index", $this->data);
+        return view("home.index");
     }
 
     public function blogs()

@@ -24,6 +24,11 @@ class PostApiController extends ApiController
         $this->merchantRepo = $merchantRepository;
     }
 
+    /**
+     * Update the post
+     * param: title
+     * param: body
+     */
     public function updatePost($subdomain, $postId, Request $request)
     {
         $title = $request->title;
@@ -69,6 +74,9 @@ class PostApiController extends ApiController
         return new PostResource($post);
     }
 
+    /**
+     * Get posts of the merchant corresponding to the current subdomain
+     */
     public function getPosts(Request $request)
     {
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
@@ -78,6 +86,12 @@ class PostApiController extends ApiController
         return PostResource::collection($posts);
     }
 
+
+    /**
+     * Create Post
+     * param: title
+     * param: body
+     */
     public function createPost(Request $request)
     {
         $title = $request->title;
@@ -103,6 +117,9 @@ class PostApiController extends ApiController
         return new PostResource($post);
     }
 
+    /**
+     * Delete post
+     */
     public function deletePost($subdomain, $postId, Request $request)
     {
         $post = $this->postRepo->show($postId);

@@ -1371,7 +1371,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_e13301e78893fd760353ea5000d47e50 -->
 
 <!-- START_33cceb96811b35cc8774fbf78f47ab0d -->
-## client-api/v1/post
+## Create Post
+param: title
+param: body
 
 > Example request:
 
@@ -1404,7 +1406,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_33cceb96811b35cc8774fbf78f47ab0d -->
 
 <!-- START_a94101b09f37137dbe721a3f4f8cc146 -->
-## client-api/v1/post/{postId}
+## Update the post
+param: title
+param: body
 
 > Example request:
 
@@ -1437,7 +1441,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_a94101b09f37137dbe721a3f4f8cc146 -->
 
 <!-- START_98bd06b1b4e75d2529e8c98d2c5d2011 -->
-## client-api/v1/post
+## Get posts of the merchant corresponding to the current subdomain
 
 > Example request:
 
@@ -1774,7 +1778,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_98bd06b1b4e75d2529e8c98d2c5d2011 -->
 
 <!-- START_45a3e77840eac5e9d3321dc8fd2ad8fc -->
-## client-api/v1/post/{postId}
+## Delete post
 
 > Example request:
 

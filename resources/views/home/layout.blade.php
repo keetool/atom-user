@@ -308,6 +308,10 @@
         transform: rotate(-45deg);
     }
 
+    .atomuser-overflow-hidden {
+        overflow: hidden;
+    }
+
 </style>
 <div class="atomuser hide" id="atomuser">
     <div class="atomuser-iframe">
@@ -330,11 +334,13 @@
 
         document.getElementById('atomuser').classList.remove('hide');
         document.getElementById('atomuser').classList.add('show');
+        document.body.classList.add('atomuser-overflow-hidden');
     }
 
     function closeIframe() {
 
         document.getElementById('atomuser').classList.remove('show');
+        document.body.classList.remove('atomuser-overflow-hidden');
         document.getElementById('atomuser').classList.add('hide');
     }
 

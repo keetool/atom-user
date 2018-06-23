@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepository;
+use App\Repositories\PostRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,7 @@ class PostApiController extends ApiController
     protected $postRepo;
     protected $merchantRepo;
 
-    public function __construct(PostRepository $postRepo, MerchantRepository $merchantRepository) {
+    public function __construct(PostRepositoryInterface $postRepo, MerchantRepository $merchantRepository) {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
@@ -91,5 +92,12 @@ class PostApiController extends ApiController
         ]);
 
         return new PostResource($post);
+    }
+
+    public function deletePost($subdomain, $postId){
+        $this->postRepo->delete($postId);
+        return $this->success([
+            "message" => "deleted"
+        ]);
     }
 }

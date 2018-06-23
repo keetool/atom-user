@@ -2,8 +2,12 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Post extends UuidModel
 {
+    use SoftDeletes;
+
     protected $table = 'posts';
 
     protected $fillable = ["title", "body", "upvote", "downvote", "merchant_id", "creator_id"];

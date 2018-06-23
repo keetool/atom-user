@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Post;
 
-class PostRepository extends Repository {
+class PostRepository extends Repository implements PostRepositoryInterface {
 
     public function __construct(){
         parent::__construct(new Post());
@@ -13,4 +13,6 @@ class PostRepository extends Repository {
     public function findByMerchantId($merchantId, $limit = 20, $order = "desc") {
         return $this->model->where("merchant_id", $merchantId)->orderBy("created_at", $order)->paginate($limit);
     }
+
+
 }

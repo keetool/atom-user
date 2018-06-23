@@ -28,7 +28,7 @@ class SignInLog extends Log
     {
         return json_encode([
             (new UserJsonObject($this->user))->toArray(),
-            (new KeyJsonObject('manage.log.user.signin'))->toArray(),
+            (new KeyJsonObject($this->action))->toArray(),
             (new ConstantJsonObject($this->userAgent))->toArray()
         ]);
     }

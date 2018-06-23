@@ -33,11 +33,5 @@ abstract class Log
         Log::sendLog($signInLog);
     }
 
-    public static function merchantLog($user, $merchant, $request)
-    {
-        $merchantLog = new MerchantLog($user, $merchant, 'manage.action.merchant.create', $request->url());
-        Log::sendLog($merchantLog);
-    }
-
     abstract protected function format();
 }

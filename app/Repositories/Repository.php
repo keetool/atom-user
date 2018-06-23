@@ -41,6 +41,11 @@ class Repository implements RepositoryInterface
     }
 
      // remove record from the database
+
+    /**
+     * @param $id
+     * @return int
+     */
     public function delete($id)
     {
         return $this->model->destroy($id);

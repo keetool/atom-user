@@ -116,9 +116,9 @@
             <div class="col-sm-2">
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
                 <div class="nav-item" style="margin-top: 10px;">
-                    <select class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
-                        <option>en</option>
-                        <option>vi</option>
+                    <select onchange="location = this.value;" class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        <option value="?lang=en-us">en</option>
+                        <option value="?lang=vi-vn">vi</option>
                     </select>
                 </div>
             </div>
@@ -354,6 +354,17 @@
         }
 
     };
+
+
+    var url = window.location.search;
+    var languageSwitcher = document.getElementById('languageSwitcher');
+
+    for(var i, j = 0; i = languageSwitcher.options[j]; j++) {
+        if(i.value == url) {
+            languageSwitcher.selectedIndex = j;
+            break;
+        }
+    }
 </script>
 
 </html>

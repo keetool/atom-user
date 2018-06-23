@@ -16,4 +16,5 @@ class KeywordLanguageRepository extends Repository
         return $this->model->where("language_id", $languageId)->where("keyword_id", $keywordId)->first();
     }
 
+
 }

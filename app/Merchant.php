@@ -17,4 +17,8 @@ class Merchant extends UuidModel
         return $this->belongsToMany(User::class, 'merchant_user', 'merchant_id', 'user_id')
             ->withPivot('id', 'role')->withTimestamps();
     }
+
+    public function posts() {
+        return $this->hasMany(Post::class, "merchant_id");
+    }
 }

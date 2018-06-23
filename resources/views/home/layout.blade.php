@@ -310,6 +310,8 @@
 
     .atomuser-overflow-hidden {
         overflow: hidden;
+        position: relative;
+        height: 100%;
     }
 
 </style>

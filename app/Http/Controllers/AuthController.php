@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Logs\CreateMerchantLogFactory;
+use App\Logs\SignInLogFactory;
+use App\Services\AppService;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
-use App\Merchant;
 use App\Repositories\MerchantRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use GuzzleHttp\Client;
-use App\Logs\MerchantLog;
 use App\Logs\Log;
 use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 
-use App\Logs\SignInLog;
-use Illuminate\Support\Facades\Hash;
-use App\Services\AppService;
+
 
 class AuthController extends ApiController
 {
@@ -41,7 +37,7 @@ class AuthController extends ApiController
     }
 
     /**
-     * Create merchant and root user
+     *
      * @param [string] name
      * @param [string] email
      * @param [string] password
@@ -116,7 +112,8 @@ class AuthController extends ApiController
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
 
         // log create merchant
-        Log::merchantLog($user, $merchant, $request);
+        $createMerchantLogFactory = new CreateMerchantLogFactory($request->url(), $user, $merchant);
+        Log::sendLog($createMerchantLogFactory->makeLog());
 
         return $this->resourceCreated([
             "message" => "Successfully created merchant and user"
@@ -201,14 +198,16 @@ class AuthController extends ApiController
         ]);
 
         // create signin log
-        Log::signInLog($user, $request);
+        $signInLogFactory = new SignInLogFactory($request->url(), $user, $request->header('User-Agent'));
+        Log::sendLog($signInLogFactory->makeLog());
 
         return json_decode((string)$response->getBody(), true);
     }
 
+
     /**
-     * Refresh the token
-     * @param [string] refresh_token
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|mixed
      */
     public function refreshToken(Request $request)
     {

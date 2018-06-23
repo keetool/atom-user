@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\PostRepository;
+use App\Repositories\PostRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 use GuzzleHttp\Client;
@@ -29,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Passport::ignoreMigrations();
 
         $this->app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
+
+        $this->app->singleton(PostRepositoryInterface::class, PostRepository::class);
     }
 
     public function signIn($request, $facebook_id, $password) 

@@ -3,6 +3,8 @@
 Route::prefix("auth")->group(function () {
     Route::post('signin', 'AuthController@signin');
     Route::post("token/refresh", 'AuthController@refreshToken');
+    Route::post('facebook/token-signin', 'AuthController@facebookTokenSignin');
+    Route::post('google/token-signin', 'AuthController@googleTokenSignin');
 });
 
 Route::middleware("auth:api")->group(function () {
@@ -19,5 +21,7 @@ Route::middleware("auth:api")->group(function () {
         Route::get('/', "Api\PostApiController@getPosts");
         Route::delete("/{postId}", "Api\PostApiController@deletePost");
     });
+
+
 });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Logs\CreateMerchantLogFactory;
 use App\Logs\SignInLogFactory;
+use App\Services\AppService;
 use Illuminate\Http\Request;
 use App\Repositories\MerchantRepository;
 use App\Repositories\UserRepository;
@@ -15,21 +16,24 @@ use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 
 
+
 class AuthController extends ApiController
 {
     protected $merchantRepository;
     protected $userRepository;
     protected $merchantUserRepository;
+    protected $appService;
 
     public function __construct(
         MerchantUserRepository $merchantUserRepository,
         MerchantRepository $merchantRepository,
-        UserRepository $userRepository
-    )
-    {
+        UserRepository $userRepository,
+        AppService $appService
+    ) {
         $this->merchantRepository = $merchantRepository;
         $this->userRepository = $userRepository;
         $this->merchantUserRepository = $merchantUserRepository;
+        $this->appService = $appService;
     }
 
     /**
@@ -158,7 +162,6 @@ class AuthController extends ApiController
     {
         // get subdomain from middleware
         $subDomain = $request->subDomain;
-
         $email = $request->email;
         $password = $request->password;
 
@@ -274,5 +277,92 @@ class AuthController extends ApiController
         return response()->json([
             'message' => 'Successfully logged out'
         ]);
+    }
+
+    public function facebookTokenSignin(Request $request)
+    {
+        $inputToken = $request->input_token;
+        $data = $request->data;
+        $facebookId = $request->facebook_id;
+        $subDomain = $request->subDomain;
+        $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        // dd($subDomain);
+        if ($merchant == null)
+            return $this->badRequest('Non-existing merchant');
+        // dd($subDomain);
+        $http = new Client;
+
+        $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");
+        $response = json_decode((string)$response->getBody());
+        $accessToken = $response->access_token;
+
+        $response = $http->get("https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken);
+        $response = json_decode((string)$response->getBody());
+        if ($response->data) {
+            //id + name + email
+            $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
+            $response = json_decode((string)$response->getBody());
+            // dd($response);
+            $user = User::where("social_id", "facebook." . $facebookId)->first();
+            if ($user == null) {
+                $user = new User();
+                if (isset($response->email))
+                    $user->email = $response->email;
+                else
+                    $user->email = "facebook" . $response->id . '@atomuser.com';
+                $user->social_id = "facebook." . $facebookId;
+                $user->password = Hash::make($user->social_id);
+                $user->phone = '000';
+            }
+
+            $user->name = $response->name;
+
+            //avatar
+            $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
+            $response = json_decode((string)$response->getBody());
+
+            $user->avatar_url = $response->data->url;
+            $user->save();
+
+            $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
+
+            return $this->appService->signIn($request, $user->email, $user->social_id);
+        } else {
+            return $this->badRequest();
+        }
+    }
+
+    public function googleTokenSignin(Request $request)
+    {
+        $inputToken = $request->input_token;
+
+        $subDomain = $request->subDomain;
+        $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        if ($merchant == null)
+            return $this->badRequest('Non-existing merchant');
+
+        $http = new Client;
+        $response = $http->get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" . $inputToken);
+        $response = json_decode((string)$response->getBody());
+
+        // dd($response);
+        $user = User::where("social_id", "google." . $response->sub)->first();
+        if ($user == null) {
+            $user = new User();
+            if (isset($response->email))
+                $user->email = $response->email;
+            else
+                $user->email = $response->sub . '@atomuser.com';
+            $user->social_id = "google." . $response->sub;
+            $user->password = Hash::make($user->social_id);
+            $user->phone = '000';
+        }
+        $user->name = $response->name;
+        $user->avatar_url = $response->picture;
+        $user->save();
+
+        $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
+
+        return $this->appService->signIn($request, $user->email, $user->social_id);
     }
 }

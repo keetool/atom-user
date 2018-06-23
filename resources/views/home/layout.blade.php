@@ -8,7 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{-- <title>KEE TOOL - @yield('title')</title> --}}
     <title>atomuser - build your own community</title>
+    <!-- Meta Share -->
+    <meta property="og:title" content="atomuser - build your own community" />
+    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website" />
 
+    <meta property="og:image" content="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529571594AvZvBrjZQSIwaNT.png" />
     <!-- CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Product+Sans:300,400,700" rel="stylesheet">
     <!-- build:css css/app.min.css -->
@@ -29,7 +34,7 @@
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" height="40px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,13 +44,13 @@
                 <div class="collapse navbar-collapse" id="site-nav">
                     <ul class="navbar-nav text-sm-left ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
+                            <a class="nav-link" href="/#features">Features</a>
                         </li>
                         <!--<li class="nav-item">-->
                             <!--<a class="nav-link" href="#pricing">Pricing</a>-->
                         <!--</li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="blogs">Blog</a>
                         </li>
 
                         <!--<li class="nav-item dropdown">-->
@@ -61,10 +66,10 @@
                         </li>
 
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                            <a href="/#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a href="#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                            <a href="/#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
                         </li>
                     </ul>
 
@@ -110,6 +115,12 @@
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
+                <div class="nav-item" style="margin-top: 10px;">
+                    <select class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        <option>en</option>
+                        <option>vi</option>
+                    </select>
+                </div>
             </div>
             <!-- // end .col-sm-3 -->
         </div>
@@ -176,5 +187,151 @@
 </script>
 
 @yield("script")
+<style>
+    .atomuser {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+    }
+
+    .atomuser-fab {
+        width: 80px;
+        height: 80px;
+        background-color: #0087ea;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        float: right;
+    }
+
+    .atomuser-fab > .atomuser-icon {
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+    }
+
+    .atomuser-fab > .atomuser-icon > .atomuser-icon-dot {
+        width: 25%;
+        height: 25%;
+        background-color: #0087ea;
+        border-radius: 50%;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+    }
+
+    .atomuser-fab > .atomuser-close {
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 40%;
+        height: 40%;
+        opacity: 0.5;
+    }
+
+    .atomuser-close:hover {
+        opacity: 1;
+    }
+
+    .atomuser-close:before, .atomuser-close:after {
+        position: absolute;
+        left: 45%;
+        content: ' ';
+        height: 100%;
+        width: 2px;
+        background-color: white;
+    }
+
+    .atomuser-close:before {
+        transform: rotate(45deg);
+    }
+
+    .atomuser-close:after {
+        transform: rotate(-45deg);
+    }
+
+    .atomuser > .atomuser-iframe {
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -o-border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        width: 400px;
+        height: 500px;
+        /*-moz-box-shadow: 0 0 3px #ccc;*/
+        /*-webkit-box-shadow: 0 0 3px #ccc;*/
+        /*box-shadow: 0 0 3px #ccc;*/
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .atomuser-iframe > iframe {
+        width: 400px;
+        height: 500px;
+        /*border: none;*/
+        /*padding: 0;*/
+
+    }
+
+    .atomuser-iframe > iframe.show {
+        display: block;
+    }
+
+    .atomuser-iframe > iframe.hide {
+        display: none;
+    }
+
+
+</style>
+<div class="atomuser">
+    <div class="atomuser-iframe">
+        <iframe class="hide" id="atomuser-iframe" src="https://k.atomuser.com" frameBorder="0">
+        </iframe>
+    </div>
+    <div class="atomuser-fab" id="atomuser-btn-fab">
+        <div class="atomuser-icon">
+            <div class="atomuser-icon-dot">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var isClosedIframe = true;
+
+    function openIframe() {
+
+
+        document.getElementById('atomuser-iframe').classList.remove('hide');
+        document.getElementById('atomuser-iframe').classList.add('show');
+    }
+
+    function closeIframe() {
+
+        document.getElementById('atomuser-iframe').classList.remove('show');
+        document.getElementById('atomuser-iframe').classList.add('hide');
+    }
+
+
+    document.getElementById('atomuser-btn-fab').onclick = function () {
+        if (isClosedIframe) {
+            this.innerHTML = '<div class="atomuser-close"/>';
+            openIframe();
+            isClosedIframe = false;
+        } else {
+            this.innerHTML = '<div class="atomuser-icon">\n' +
+                '        <div class="atomuser-icon-dot">\n' +
+                '        </div>\n' +
+                '    </div>';
+            closeIframe();
+            isClosedIframe = true;
+        }
+
+    };
+</script>
 
 </html>

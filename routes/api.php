@@ -19,7 +19,6 @@ Route::prefix("auth")->group(function () {
     Route::post('check/merchant', 'AuthController@checkMerchant');
     Route::post('signup/user', 'AuthController@signup');
     Route::post('signup/merchant', 'AuthController@merchantSignup');
-
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', 'AuthController@logout');
     });
@@ -28,8 +27,5 @@ Route::prefix("auth")->group(function () {
 // load language dictionary
 Route::get('language', "Api\LanguageApiController@language");
 
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return "abc";
-// });
-
+// load merchant info
+Route::get('merchant/{merchantId}', 'Api\MerchantApiController@merchant');

@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\MerchantUser;
+use App\Merchant;
 
 
 class MerchantUserRepository extends Repository
@@ -20,7 +21,8 @@ class MerchantUserRepository extends Repository
      */
     public function createMerchantUser($merchant_id, $user_id, $role = "root")
     {
-        return $this->model->create([
+        if (MerchantUser::where('merchant_id', $merchant_id)->where('user_id', $user_id)->first() == null)
+            return $this->model->create([
             "merchant_id" => $merchant_id,
             "user_id" => $user_id,
             "role" => $role

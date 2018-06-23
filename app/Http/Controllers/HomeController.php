@@ -37,6 +37,9 @@ class HomeController extends Controller
         }
         */
         $code = $request->lang;
+        if($code){
+            $code = "en-us";
+        }
         $language = $this->languageRepo->findByCode($code);
         $keywords = $this->keywordRepo->getAllKeyWord();
         $data = [];

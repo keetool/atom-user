@@ -328,14 +328,14 @@
     function openIframe() {
 
 
-        document.getElementById('atomuser-iframe').classList.remove('hide');
-        document.getElementById('atomuser-iframe').classList.add('show');
+        document.getElementById('atomuser').classList.remove('hide');
+        document.getElementById('atomuser').classList.add('show');
     }
 
     function closeIframe() {
 
-        document.getElementById('atomuser-iframe').classList.remove('show');
-        document.getElementById('atomuser-iframe').classList.add('hide');
+        document.getElementById('atomuser').classList.remove('show');
+        document.getElementById('atomuser').classList.add('hide');
     }
 
 
@@ -354,7 +354,8 @@
         }
 
     };
-
+</script>
+<script>
 
     var url = window.location.search;
     var languageSwitcher = document.getElementById('languageSwitcher');

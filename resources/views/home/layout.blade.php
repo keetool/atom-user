@@ -195,8 +195,8 @@
     }
 
     .atomuser-fab {
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         background-color: #0087ea;
         border-radius: 50%;
         cursor: pointer;
@@ -238,6 +238,59 @@
         opacity: 1;
     }
 
+    .atomuser > .atomuser-iframe {
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        width: 350px;
+        height: 500px;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .atomuser-iframe > iframe {
+        width: 350px;
+        height: 500px;
+
+    }
+
+    .show .atomuser-iframe > iframe {
+        display: block;
+    }
+
+    .hide .atomuser-iframe > iframe {
+        display: none;
+    }
+
+    @media only screen and (max-width: 480px) {
+
+        .atomuser {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .show.atomuser {
+            top: 20px;
+            left: 20px;
+        }
+
+        .show.atomuser > .atomuser-iframe, .atomuser-iframe > iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hide .atomuser-fab {
+        }
+
+        .show .atomuser-fab {
+            z-index: 999;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
     .atomuser-close:before, .atomuser-close:after {
         position: absolute;
         left: 45%;
@@ -255,41 +308,10 @@
         transform: rotate(-45deg);
     }
 
-    .atomuser > .atomuser-iframe {
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -o-border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 30px;
-        width: 400px;
-        height: 500px;
-        /*-moz-box-shadow: 0 0 3px #ccc;*/
-        /*-webkit-box-shadow: 0 0 3px #ccc;*/
-        /*box-shadow: 0 0 3px #ccc;*/
-        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
-    }
-
-    .atomuser-iframe > iframe {
-        width: 400px;
-        height: 500px;
-        /*border: none;*/
-        /*padding: 0;*/
-
-    }
-
-    .atomuser-iframe > iframe.show {
-        display: block;
-    }
-
-    .atomuser-iframe > iframe.hide {
-        display: none;
-    }
-
-
 </style>
-<div class="atomuser">
+<div class="atomuser hide" id="atomuser">
     <div class="atomuser-iframe">
-        <iframe class="hide" id="atomuser-iframe" src="https://k.atomuser.com" frameBorder="0">
+        <iframe id="atomuser-iframe" src="http://abcde.atomuser.com" frameBorder="0">
         </iframe>
     </div>
     <div class="atomuser-fab" id="atomuser-btn-fab">

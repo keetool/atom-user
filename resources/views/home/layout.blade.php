@@ -261,7 +261,7 @@
         display: none;
     }
 
-    @media only screen and (max-width: 480px) {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
         .atomuser {
             bottom: 20px;

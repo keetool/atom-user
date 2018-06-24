@@ -40,13 +40,14 @@ class HomeController extends Controller
         if(!$code){
             $code = "en-us";
         }
-        dd($code);
+        // dd($code);
         $language = $this->languageRepo->findByCode($code);
         $keywords = $this->keywordRepo->getAllKeyWord();
         $data = [];
         foreach ($keywords as $keyword) {
             $data[$keyword->name] = $this->keywordLanguageRepo->findByKeywordIdAndLanguageId($keyword->id, $language->id)->toArray();
         }
+        dd($data);
         $this->data['keyword'] = $data;
         return view("home.index", $this->data);
     }

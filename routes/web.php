@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Request;
 | contains the "web" middleware group. Now create something great!
 |
  */
-Route::get("/blogs", "HomeController@blogs");
+
 // Route::get('/login', "HomeController@index")->name('login');
 Route::get("/free-trial", "HomeController@register");
 Route::get("/check-merchant", "HomeController@checkMerchant");
@@ -38,10 +38,16 @@ Route::domain("{client}." . config("app.domain"))
     ->middleware(['getSubDomain'])->group(
         $manageRoutes
     );
-
 Route::get('/', "HomeController@index");
+Route::get("/blogs", "HomeController@blogs");
+
+/*Multi Lang
+$routes = function() {
+    Route::get('/', "HomeController@index");
+    Route::get("/blogs", "HomeController@blogs");
+};
 
 
-
-
+Route::middleware(['web', 'multi-language'])->group($routes);
+*/
 

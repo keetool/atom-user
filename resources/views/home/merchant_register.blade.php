@@ -134,6 +134,10 @@
     a[disabled] {
         pointer-events: none;
     }
+    
+    .btn-primary{
+        color: #fff;
+    }
 </style>
 
 <div class="container" style="margin-top: 40px;">

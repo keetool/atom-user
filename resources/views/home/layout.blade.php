@@ -286,8 +286,14 @@
             position: absolute;
             top: 0px;
             right: 0px;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .show .atomuser-fab > .atomuser-close {
+            width: 60%;
+            height: 60%;
+
         }
     }
 
@@ -317,7 +323,7 @@
 </style>
 <div class="atomuser hide" id="atomuser">
     <div class="atomuser-iframe">
-        <iframe id="atomuser-iframe" src="https://k.atomuser.com" frameBorder="0">
+        <iframe id="atomuser-iframe" src="http://localhost:3000" frameBorder="0">
         </iframe>
     </div>
     <div class="atomuser-fab" id="atomuser-btn-fab">

@@ -47,7 +47,7 @@ class HomeController extends Controller
         foreach ($keywords as $keyword) {
             $data[$keyword->name] = $this->keywordLanguageRepo->findByKeywordIdAndLanguageId($keyword->id, $language->id)->toArray();
         }
-        dd($data);
+        // dd($data);
         $this->data['keyword'] = $data;
         return view("home.index", $this->data);
     }

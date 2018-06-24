@@ -28,6 +28,7 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+        dd($this->code);
         $language = $this->languageRepo->findByCode($this->code);
         $keywords = $this->keywordRepo->getAllKeyWord();
         $data = [];

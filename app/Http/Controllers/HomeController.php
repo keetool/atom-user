@@ -15,33 +15,20 @@ class HomeController extends Controller
     protected $languageRepo;
     protected $keywordRepo;
     protected $keywordLanguageRepo;
-    public $lang;
+    public $code;
 
     public function __construct(LanguageRepository $languageRepo, KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {
         $this->languageRepo = $languageRepo;
         $this->keywordRepo = $keywordRepo;
         $this->keywordLanguageRepo = $keywordLanguageRepo;
-        /*Multi Lang
-        $this->lang = \Request::get("lang");
-        */
+        $this->code = \Request::get("lang");
+        
     }
 
     public function index(Request $request)
     {
-        /* Multi Lang
-        if($this->lang){
-            $code = $this->lang;
-        }else{
-            $code = $request->session()->get("lang");
-        }
-        */
-        $code = $request->lang;
-        if(!$code){
-            $code = "en-us";
-        }
-        // dd($code);
-        $language = $this->languageRepo->findByCode($code);
+        $language = $this->languageRepo->findByCode($this->code);
         $keywords = $this->keywordRepo->getAllKeyWord();
         $data = [];
         foreach ($keywords as $keyword) {

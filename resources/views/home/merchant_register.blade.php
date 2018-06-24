@@ -249,7 +249,9 @@
         });
 
         $("input").keypress(function(){
+            this.classList.remove("is-invalid");
             this.classList.add("is-valid");
+            
         })
 
         allNextBtn.click(function(){
@@ -259,12 +261,13 @@
                 curInputs = curStep.find("input[type='text'],input[type='password'],input[type='email']"),
                 isValid = true;
             // console.log(curInputs);
-            console.log(curInputs[0].value);
+            // console.log(curInputs[0].value);
 
             $(".form-group").removeClass("has-error");
             for(var i=0; i<curInputs.length; i++){
                 if (curInputs[i].value.trim() === ""){
                     // console.log(1);
+                    
                     curInputs[i].classList.add("is-invalid");
                     isValid = false;
                     $(curInputs[i]).closest(".form-group").addClass("has-error");
@@ -282,7 +285,6 @@
 
     const id = '#store-free-trial';
     $(id).submit(function(event){
-        console.log(1);
         event.preventDefault();
         // clear html error
         $("#error").html("");

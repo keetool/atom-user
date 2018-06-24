@@ -22,8 +22,8 @@ class HomeController extends Controller
         $this->languageRepo = $languageRepo;
         $this->keywordRepo = $keywordRepo;
         $this->keywordLanguageRepo = $keywordLanguageRepo;
-        $this->code = \Request::get("lang");
-        dd(\Request::get("lang"));
+        $this->code = $request->attributes->get('lang');
+        dd($request->attributes->get('lang'));
         
     }
 

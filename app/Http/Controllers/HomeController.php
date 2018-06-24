@@ -22,9 +22,7 @@ class HomeController extends Controller
         $this->languageRepo = $languageRepo;
         $this->keywordRepo = $keywordRepo;
         $this->keywordLanguageRepo = $keywordLanguageRepo;
-        $this->code = $request->attributes->get('lang');
-        dd($request->attributes->get('lang'));
-        
+        $this->code = $request->session()->get('lang');
     }
 
     public function index(Request $request)

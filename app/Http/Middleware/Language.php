@@ -23,9 +23,10 @@ class Language
             $lang = Session::get("lang");
         } else {
             $lang = "en-us";
+            $request->session()->put("lang", $lang);
         }
         // dd($lang);
-        $request->attributes->add(['lang' => $lang]);
+        // $request->attributes->add(['lang' => $lang]);
 
         return $next($request);
     }

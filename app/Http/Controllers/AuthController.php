@@ -14,7 +14,7 @@ use GuzzleHttp\Client;
 use App\Logs\Log;
 use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
-
+use App\Merchant;
 
 
 class AuthController extends ApiController

@@ -24,6 +24,7 @@ class Language
         } else {
             $lang = "en-us";
         }
+        dd($lang);
         $request->attributes->add(['lang' => $lang]);
 
         return $next($request);

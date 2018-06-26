@@ -10,7 +10,7 @@ use App\Repositories\KeywordRepository;
 use App\Repositories\KeywordLanguageRepository;
 use Illuminate\Support\Facades\Session;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     protected $languageRepo;
     protected $keywordRepo;
@@ -19,16 +19,16 @@ class HomeController extends Controller
 
     public function __construct(LanguageRepository $languageRepo, KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {
+        parent::__construct();
         $this->languageRepo = $languageRepo;
         $this->keywordRepo = $keywordRepo;
         $this->keywordLanguageRepo = $keywordLanguageRepo;
-        $this->code = "en-us";
     }
 
     public function index(Request $request)
     {
         // dd($this->code);
-        $language = $this->languageRepo->findByCode($this->code);
+        $language = $this->languageRepo->findByCode($this->lang);
         $keywords = $this->keywordRepo->getAllKeyWord();
         $data = [];
         foreach ($keywords as $keyword) {

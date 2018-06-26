@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -117,8 +116,13 @@
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
                 <div class="nav-item" style="margin-top: 10px;">
                     <select onchange="location = this.value;" class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        @if ($lang == "vi-vn")
+                        <option value="?lang=vi-vn">vi</option>
+                        <option value="?lang=en-us">en</option>
+                        @else
                         <option value="?lang=en-us">en</option>
                         <option value="?lang=vi-vn">vi</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -241,9 +245,6 @@
     .atomuser > .atomuser-iframe {
         border-radius: 10px;
         overflow: hidden;
-        margin-bottom: 30px;
-        width: 350px;
-        height: 500px;
         filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
     }
 
@@ -253,15 +254,18 @@
 
     }
 
-    .show .atomuser-iframe > iframe {
-        display: block;
+    .show .atomuser-iframe {
+        margin-bottom: 30px;
+        width: 350px;
+        height: 500px;
     }
 
-    .hide .atomuser-iframe > iframe {
-        display: none;
+    .hide .atomuser-iframe {
+        width: 0;
+        height: 0;
     }
 
-    @media only screen and (max-width: 480px) {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
         .atomuser {
             bottom: 20px;
@@ -286,8 +290,20 @@
             position: absolute;
             top: 0px;
             right: 0px;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .show .atomuser-fab > .atomuser-close {
+            width: 60%;
+            height: 60%;
+
+        }
+
+        .atomuser-overflow-hidden {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
         }
     }
 
@@ -306,12 +322,6 @@
 
     .atomuser-close:after {
         transform: rotate(-45deg);
-    }
-
-    .atomuser-overflow-hidden {
-        overflow: hidden;
-        position: relative;
-        height: 100%;
     }
 
 </style>

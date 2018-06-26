@@ -269,7 +269,7 @@
                     
                     </p>
                     <div id="error"></div>
-                    <button class="btn btn-success btn-lg pull-right" id="submit-button" type="submit">Submit</button>
+                    <button class="btn btn-success btn-lg pull-right" style="width: 100%" id="submit-button" type="submit">Submit</button>
                 </div>
             </div>
         </div>

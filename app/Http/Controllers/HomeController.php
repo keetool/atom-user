@@ -41,26 +41,26 @@ class HomeController extends BaseController
 
     public function blogs()
     {
-        return view("home.blogs");
+        return view("home.blogs", $this->data);
     }
 
     public function register()
     {
-        return view("home.merchant_register");
+        return view("home.merchant_register", $this->data);
     }
 
     public function checkMerchant()
     {
-        return view("home.check_merchant");
+        return view("home.check_merchant", $this->data);
     }
 
     public function dummy()
     {
-        return view('home.dummy');
+        return view('home.dummy', $this->data);
     }
 
     public function dummy2()
     {
-        return view('home.dummy2');
+        return view('home.dummy2', $this->data);
     }
 }

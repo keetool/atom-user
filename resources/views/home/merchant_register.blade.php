@@ -142,7 +142,7 @@
 
 <div class="container" style="margin-top: 40px;">
 
-    <div class="stepwizard offset-md-3">
+    <div class="stepwizard offset-md-3 offset-3">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
@@ -226,6 +226,20 @@
 
 @section("script")
 <script>
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function validateSubdomain(subdomain) {
+        var re = /^[a-zA-Z0-9]{3,20}$/;
+        return re.test(subdomain);
+    }
+
+    function validatePhone(phone) {
+        var re = /^[0-9]+$/;
+        return re.test(phone);
+    }
 
     $(document).ready(function () {
         var navListItems = $('div.setup-panel div a'),
@@ -265,6 +279,44 @@
 
             $(".form-group").removeClass("has-error");
             for(var i=0; i<curInputs.length; i++){
+                // console.log(curInputs[i].getAttribute("email"));
+                if(curInputs[i].getAttribute("name") == "email"){
+                    var email = curInputs[i].value.trim();
+                    if(!validateEmail(email)){
+                        curInputs[i].classList.add("is-invalid");
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        break;
+                    }
+                }
+                if(curInputs[i].getAttribute("name") == "sub_domain"){
+                    var subdomain = curInputs[i].value.trim();
+                    if(!validateSubdomain(subdomain)){
+                        curInputs[i].classList.add("is-invalid");
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        break;
+                    }
+                }
+                if(curInputs[i].getAttribute("name") == "phone"){
+                    var phone = curInputs[i].value.trim();
+                    if(!validatePhone(phone)){
+                        curInputs[i].classList.add("is-invalid");
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        break;
+                    }
+                }
+                if(curInputs[i].getAttribute("name") == "password_confirmation"){
+                    var password = curInputs[i].value.trim();
+                    var retype = curInputs[i-1].value.trim();                    
+                    if(password !== retype){
+                        curInputs[i].classList.add("is-invalid");
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        break;
+                    }
+                }
                 if (curInputs[i].value.trim() === ""){
                     // console.log(1);
                     

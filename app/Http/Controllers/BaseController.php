@@ -29,6 +29,7 @@ class BaseController extends Controller
             // dd($lang);
             $this->lang = $lang;
             $request->attributes->add(['lang' => $lang]);
+            $this->data['lang'] = $lang;
     
             return $next($request);
         });

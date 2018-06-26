@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -117,8 +116,13 @@
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
                 <div class="nav-item" style="margin-top: 10px;">
                     <select onchange="location = this.value;" class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        @if ($lang == "vi-vn")
+                        <option value="?lang=vi-vn">vi</option>
+                        <option value="?lang=en-us">en</option>
+                        @else
                         <option value="?lang=en-us">en</option>
                         <option value="?lang=vi-vn">vi</option>
+                        @endif
                     </select>
                 </div>
             </div>

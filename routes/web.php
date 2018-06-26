@@ -39,12 +39,13 @@ Route::domain("{client}." . config("app.domain"))
         $manageRoutes
     );
 
+Route::get('/', "HomeController@index");
+Route::get("/blogs", "HomeController@blogs");
+// $routes = function() {
+//     Route::get('/', "HomeController@index");
+//     Route::get("/blogs", "HomeController@blogs");
+// };
 
-$routes = function() {
-    Route::get('/', "HomeController@index");
-    Route::get("/blogs", "HomeController@blogs");
-};
-
-Route::middleware(['web', 'multi-language'])->group($routes);
+// Route::middleware(['web', 'multi-language'])->group($routes);
 
 

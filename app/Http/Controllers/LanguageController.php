@@ -244,4 +244,5 @@ class LanguageController extends Controller
 
         return redirect("/t/language/list");
     }
+
 }

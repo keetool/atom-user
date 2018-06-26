@@ -3,22 +3,32 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Merchant;
+use App\Http\Controllers\ApiController;
 
-class MerchantApiController extends Controller
+class MerchantApiController extends ApiController
 {
-    /**
-     * GET /api/v1/merchant
-     * @return view
-     */
-    public function index()
+    public function merchant($merchantId)
     {
-        return view("home.index");
+        if (!preg_match('/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/', $merchantId))
+            return $this->notFound([
+                "message" => "Invalid id format"
+            ]);
+        $merchant = Merchant::find($merchantId);
+        if ($merchant == null) {
+            return $this->notFound([
+                "message" => "Non-existing merchant id"
+            ]);
+        }
+        return [
+            'id' => $merchant->id,
+            'name' => $merchant->name,
+            'sub_domain' => $merchant->sub_domain
+        ];
     }
 
-    /**
-     * POST /api/v1/merchant
-     */
-    public function createMerchant(){
+    public function createMerchant()
+    {
 
     }
 }

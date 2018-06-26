@@ -2,44 +2,32 @@
 namespace App\Logs;
 
 use App\Logs\Log;
+use App\Objects\UserJsonObject;
+use App\Objects\KeyJsonObject;
+use App\Objects\MerchantJsonObject;
 
 
 class MerchantLog extends Log
 {
-    protected $action;
-    protected $user;
-    protected $merchant;
+    public $merchant;
 
-    public function __construct($user, $merchant, $action)
+    public function __construct($user, $merchant, $action, $api)
     {
-        $this->action = $action;
+        parent::__construct($user, $action, $api);
         $this->merchant = $merchant;
-        $this->api = ' ';
-        $this->user = $user;
     }
 
-    /**
+    /**log
      * [
-     *  {type: "user", data: userId},
-     *  {type: "key", data: "user.log.create"}
-     *  {type: "merchant", data: merchantId}
+     *  {type: "key", data: "manage.log.merchant.create"}
      * ]
      */
     protected function format()
     {
         return json_encode([
-            [
-                'type' => 'user',
-                'data' => $this->user->id,
-            ],
-            [
-                'type' => 'key',
-                'data' => 'user.' . $this->action,
-            ],
-            [
-                'type' => 'merchant',
-                'data' => $this->merchant->id,
-            ]
+            (new UserJsonObject($this->user))->toArray(),
+            (new KeyJsonObject($this->action))->toArray(),
+            (new MerchantJsonObject($this->merchant))->toArray()
         ]);
     }
 }

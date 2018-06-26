@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Resources\Language as LanguageResource;
 use App\Http\Controllers\ApiController;
 use App\Language;
+use App\Repositories\LanguageRepository;
 
 class LanguageApiController extends ApiController
 {
+    protected $languageRepo;
+
+    public function __construct(LanguageRepository $languageRepo)
+    {
+        parent::__construct();
+        $this->languageRepo = $languageRepo;
+    }
     /**
      * GET /api/v1/languages
      * @method GET
@@ -19,16 +27,16 @@ class LanguageApiController extends ApiController
         $code = $request->encode;
         $version = $request->version;
 
-        if ($code == null) {
-            $code = "en_us";
+        $language = $this->languageRepo->findByCode($code);
+        if ($language == null) {
+            $language = $this->languageRepo->findByCode("en_us");
         }
-
-        $language = Language::where("codes", "like", "%" . $code . "%")->first();
         if ($language == null) {
             return $this->notFound([
-                "message" => "language not existed"
+                "message" => "Chưa tồn tại ngôn ngữ nào"
             ]);
         }
+
         if ($version == $language->version) {
             return $this->notModified();
         } else {
@@ -36,4 +44,6 @@ class LanguageApiController extends ApiController
         }
 
     }
+
+    
 }

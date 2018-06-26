@@ -1,191 +1,152 @@
-<!doctype html>
-<html lang="en" class="no-js">
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" type="image/png" href="landing-page/assets/img/logo.png" cph-ssorder="0">
-    <link rel="icon" type="image/png" href="landing-page/assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{-- <title>KEE TOOL - @yield('title')</title> --}}
+    <title>atomuser - build your own community</title>
+    <!-- Meta Share -->
+    <meta property="og:title" content="atomuser - build your own community" />
+    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website" />
 
-    <title>KEE TOOL - @yield('title')</title>
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-
-    <link href="landing-page/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="landing-page/assets/css/paper-kit.css" rel="stylesheet"/>
-    <link href="landing-page/assets/css/demo.css" rel="stylesheet" />
-
+    <meta property="og:image" content="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529571594AvZvBrjZQSIwaNT.png" />
+    <!-- CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans:300,400,700" rel="stylesheet">
+    <!-- build:css css/app.min.css -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="landing-page/assets/css/global/bootstrap.min.css">
+    <!-- Plugins -->
+    <link rel="stylesheet" href="landing-page/assets/css/global/plugins/icon-font.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="landing-page/assets/css/style.css">
+    <!-- /build -->
     <!--     Fonts and icons     -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="landing-page/assets/css/nucleo-icons.css" rel="stylesheet">
-
+    <link rel="icon" href="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529571679WLoLVlC4nzjl0yd.png">
 </head>
-<body class="presentation-page loading">
-<nav class="navbar navbar-toggleable-md fixed-top nav-down">
-    <div class="container" style="width:95%!important">
-        <div class="navbar-translate">
-            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-            </button>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <img src="landing-page/assets/img/colorlogo.png" height="20px"/>
-                </a>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-scroll="true">Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-scroll="true">Về chúng tôi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-scroll="true">Báo giá</a>
-                </li>
+<body class="overflow-hidden">
+    <header id="home">
 
-                <li class="nav-item">
-                    <a class="btn btn-round btn-danger" style="background-color:#c50000;border-color:#c50000" href="/free-trial">
-                        <i class="fa fa-shopping-cart"></i> Dùng thử
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" height="40px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+                <div class="collapse navbar-collapse" id="site-nav">
+                    <ul class="navbar-nav text-sm-left ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#features">Features</a>
+                        </li>
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" href="#pricing">Pricing</a>-->
+                        <!--</li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="blogs">Blog</a>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">-->
+                            <!--<a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>-->
+                            <!--<div class="dropdown-menu">-->
+                                <!--<a class="dropdown-item" href="index-two.html">Landing Style Two</a>-->
+                                <!--<a class="dropdown-item" href="blog.html">Blog Page</a>-->
+                                <!--<a class="dropdown-item" href="blog-single.html">Blog Single</a>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Docs</a>
+                        </li>
+
+                        <li class="nav-item text-center">
+                            <a href="/#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                        </li>
+                        <li class="nav-item text-center">
+                            <a href="/#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <!-- // end navbar -->
 
 @yield("content")
 
-<footer class="footer footer-big footer-black">
+<div class="section bg-light mt-4" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-sm-3 col-xs-6">
-                <img src="landing-page/assets/img/logowhite.png" height="30px"/>
+            <div class="col-sm-4"> <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" class="logo-dark" height="25px" />
+                <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
+                <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
+                <!-- // end .lead -->
             </div>
-            <div class="col-md-9 offset-md-1 col-sm-9 col-xs-12">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="links">
-                            <ul class="uppercase-links stacked-links">
-                                <li>
-                                    <a href="#paper-kit">
-                                        Trang chủ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Báo giá
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Bảo hành
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="links">
-                            <ul class="uppercase-links stacked-links">
-                                <li>
-                                    <a href="#paper-kit">
-                                        Liên hệ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Tuyển dụng
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Về chúng tôi
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="links">
-                            <ul class="uppercase-links stacked-links">
-                                <li>
-                                    <a href="#paper-kit">
-                                        Tin tức
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Dùng thử
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#paper-kit">
-                                        Phản hồi
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="social-area">
-                            <a class="btn btn-just-icon btn-round btn-default" href="https://www.facebook.com/keetool">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-just-icon btn-round btn-default">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn btn-just-icon btn-round btn-default">
-                                <i class="fa fa-google-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="copyright">
-                    <div class="pull-left">
-                        © <script>document.write(new Date().getFullYear())</script> KEETOOL
-                    </div>
-                    <div class="links pull-right">
-                        <ul>
-                            <li>
-                                <a href="#paper-kit">
-                                    Company Policy
-                                </a>
-                            </li>
-                            |
-                            <li>
-                                <a href="#paper-kit">
-                                    Terms
-                                </a>
-                            </li>
-                            |
-                            <li>
-                                <a href="#paper-kit">
-                                    Privacy
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <ul class="list-unstyled footer-links ml-1">
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <ul class="list-unstyled footer-links ml-1">
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#about">Privacy</a></li>
+                </ul>
+            </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <ul class="list-unstyled footer-links ml-1">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Linkedin</a></li>
+                </ul>
+            </div>
+            <!-- // end .col-sm-3 -->
+            <div class="col-sm-2">
+                <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
+                <div class="nav-item" style="margin-top: 10px;">
+                    <select onchange="location = this.value;" class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        <option value="?lang=en-us">en</option>
+                        <option value="?lang=vi-vn">vi</option>
+                    </select>
                 </div>
             </div>
+            <!-- // end .col-sm-3 -->
         </div>
+        <!-- // end .row -->
+        <div class=" text-center mt-4"> <small class="text-muted">Copyright ©
+                      <script type="text/javascript">
+                      document.write(new Date().getFullYear());
+                      </script>
+                      All rights reserved. KEETOOL
+                  </small></div>
     </div>
-</footer>
+    <!-- // end .container -->
+</div>
+<!-- // end #about.section -->
+<!-- // end .agency -->
+<!-- JS Files -->
+<!-- build:js js/app.min.js -->
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="landing-page/assets/js/global/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="landing-page/assets/js/global/bootstrap.bundle.min.js"></script>
+<!-- Main JS -->
+<script src="landing-page/assets/js/script.js"></script>
+<!-- /build -->
 </body>
 
-<!--  Plugins -->
-<!-- Core JS Files -->
-<script src="landing-page/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/tether.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="landing-page/assets/js/paper-kit.js?v=2.0.0"></script>
-<script src="landing-page/assets/js/demo.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <!--  Plugins for presentation page -->
@@ -195,6 +156,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
 
 <script type="text/javascript">
     (function() {
@@ -225,5 +187,199 @@
 </script>
 
 @yield("script")
+<style>
+    .atomuser {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+    }
+
+    .atomuser-fab {
+        width: 50px;
+        height: 50px;
+        background-color: #0087ea;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        float: right;
+    }
+
+    .atomuser-fab > .atomuser-icon {
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+    }
+
+    .atomuser-fab > .atomuser-icon > .atomuser-icon-dot {
+        width: 25%;
+        height: 25%;
+        background-color: #0087ea;
+        border-radius: 50%;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+    }
+
+    .atomuser-fab > .atomuser-close {
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 40%;
+        height: 40%;
+        opacity: 0.5;
+    }
+
+    .atomuser-close:hover {
+        opacity: 1;
+    }
+
+    .atomuser > .atomuser-iframe {
+        border-radius: 10px;
+        overflow: hidden;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .atomuser-iframe > iframe {
+        width: 350px;
+        height: 500px;
+
+    }
+
+    .show .atomuser-iframe {
+        margin-bottom: 30px;
+        width: 350px;
+        height: 500px;
+    }
+
+    .hide .atomuser-iframe {
+        width: 0;
+        height: 0;
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+        .atomuser {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .show.atomuser {
+            top: 20px;
+            left: 20px;
+        }
+
+        .show.atomuser > .atomuser-iframe, .atomuser-iframe > iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hide .atomuser-fab {
+        }
+
+        .show .atomuser-fab {
+            z-index: 999;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .show .atomuser-fab > .atomuser-close {
+            width: 60%;
+            height: 60%;
+
+        }
+
+        .atomuser-overflow-hidden {
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+    }
+
+    .atomuser-close:before, .atomuser-close:after {
+        position: absolute;
+        left: 45%;
+        content: ' ';
+        height: 100%;
+        width: 2px;
+        background-color: white;
+    }
+
+    .atomuser-close:before {
+        transform: rotate(45deg);
+    }
+
+    .atomuser-close:after {
+        transform: rotate(-45deg);
+    }
+
+</style>
+<div class="atomuser hide" id="atomuser">
+    <div class="atomuser-iframe">
+        <iframe id="atomuser-iframe" src="https://k.atomuser.com" frameBorder="0">
+        </iframe>
+    </div>
+    <div class="atomuser-fab" id="atomuser-btn-fab">
+        <div class="atomuser-icon">
+            <div class="atomuser-icon-dot">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var isClosedIframe = true;
+
+    function openIframe() {
+
+
+        document.getElementById('atomuser').classList.remove('hide');
+        document.getElementById('atomuser').classList.add('show');
+        document.body.classList.add('atomuser-overflow-hidden');
+    }
+
+    function closeIframe() {
+
+        document.getElementById('atomuser').classList.remove('show');
+        document.body.classList.remove('atomuser-overflow-hidden');
+        document.getElementById('atomuser').classList.add('hide');
+    }
+
+
+    document.getElementById('atomuser-btn-fab').onclick = function () {
+        if (isClosedIframe) {
+            this.innerHTML = '<div class="atomuser-close"/>';
+            openIframe();
+            isClosedIframe = false;
+        } else {
+            this.innerHTML = '<div class="atomuser-icon">\n' +
+                '        <div class="atomuser-icon-dot">\n' +
+                '        </div>\n' +
+                '    </div>';
+            closeIframe();
+            isClosedIframe = true;
+        }
+
+    };
+</script>
+<script>
+
+    var url = window.location.search;
+    var languageSwitcher = document.getElementById('languageSwitcher');
+
+    for(var i, j = 0; i = languageSwitcher.options[j]; j++) {
+        if(i.value == url) {
+            languageSwitcher.selectedIndex = j;
+            break;
+        }
+    }
+</script>
 
 </html>

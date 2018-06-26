@@ -2,29 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Logs\CreateMerchantLogFactory;
+use App\Logs\SignInLogFactory;
+use App\Services\AppService;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
-use App\Merchant;
 use App\Repositories\MerchantRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use App\Logs\MerchantLog;
+use GuzzleHttp\Client;
 use App\Logs\Log;
+use App\Repositories\MerchantUserRepository;
+use GuzzleHttp\Exception\GuzzleException;
+use App\Merchant;
+
+
 class AuthController extends ApiController
 {
     protected $merchantRepository;
     protected $userRepository;
+    protected $merchantUserRepository;
+    protected $appService;
 
-    public function __construct(MerchantRepository $merchantRepository, UserRepository $userRepository)
-    {
+    public function __construct(
+        MerchantUserRepository $merchantUserRepository,
+        MerchantRepository $merchantRepository,
+        UserRepository $userRepository,
+        AppService $appService
+    ) {
         $this->merchantRepository = $merchantRepository;
         $this->userRepository = $userRepository;
+        $this->merchantUserRepository = $merchantUserRepository;
+        $this->appService = $appService;
     }
 
     /**
-     * Create merchant and root user
+     *
      * @param [string] name
      * @param [string] email
      * @param [string] password
@@ -92,13 +105,15 @@ class AuthController extends ApiController
             "phone" => $request->phone,
             "email" => $email,
             "password" => bcrypt($request->password),
-            "merchant_id" => $merchant->id,
             "is_root" => true
         ]);
-        
+
+        // add user to merchant
+        $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
+
         // log create merchant
-        $merchantLog = new MerchantLog($user, $merchant, 'creates');
-        Log::sendLog($merchantLog);
+        $createMerchantLogFactory = new CreateMerchantLogFactory($request->url(), $user, $merchant);
+        Log::sendLog($createMerchantLogFactory->makeLog());
 
         return $this->resourceCreated([
             "message" => "Successfully created merchant and user"
@@ -143,36 +158,84 @@ class AuthController extends ApiController
      * @return [string] expires_at
      */
 
-    public function login(Request $request)
+    public function signin(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
+        // get subdomain from middleware
+        $subDomain = $request->subDomain;
+        $email = $request->email;
+        $password = $request->password;
+
+        // get merchant from subdomain
+        $merchant = $this->merchantRepository->findBySubDomain($subDomain);
+
+        if ($merchant == null) {
+            return $this->badRequest([
+                "message" => "domain không tồn tại"
+            ]);
+        }
+
+        // get user by merchant, email and password
+        $user = $this->userRepository->findUserByMerchantEmailPassword($merchant->id, $email, $password);
+
+        // if user not found
+        if ($user == null) {
+            return $this->badRequest([
+                "message" => "Sai thông tin đăng nhập"
+            ]);
+        }
+
+        $http = new Client;
+
+        $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
+            'form_params' => [
+                'grant_type' => 'password',
+                'client_id' => config("app.client_id"),
+                'client_secret' => config("app.client_secret"),
+                'username' => $request->email,
+                'password' => $request->password,
+                'scope' => '*',
+            ]
         ]);
-        $credentials = request(['email', 'password']);
-        if (!Auth::attempt($credentials))
-            return response()->json([
-            'message' => 'Unauthorized'
-        ], 401);
 
-        $user = $request->user();
+        // create signin log
+        $signInLogFactory = new SignInLogFactory($request->url(), $user, $request->header('User-Agent'));
+        Log::sendLog($signInLogFactory->makeLog());
 
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
+        return json_decode((string)$response->getBody(), true);
+    }
 
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
 
-        $token->save();
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|mixed
+     */
+    public function refreshToken(Request $request)
+    {
+        $refresh_token = $request->refresh_token;
 
-        return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]);
+        $http = new Client;
+
+        $response = null;
+
+        try {
+            $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
+                'form_params' => [
+                    'grant_type' => 'refresh_token',
+                    'refresh_token' => $refresh_token,
+                    'client_id' => config("app.client_id"),
+                    'client_secret' => config("app.client_secret"),
+                    'scope' => '*',
+                ],
+            ]);
+        } catch (GuzzleException $e) {
+            return $this->respond([
+                "message" => "Invalid token"
+            ], "401");
+        }
+
+
+        return json_decode((string)$response->getBody(), true);
+
     }
 
     /**
@@ -216,13 +279,90 @@ class AuthController extends ApiController
         ]);
     }
 
-    /**
-     * Get the authenticated User
-     *
-     * @return [json] user object
-     */
-    public function user(Request $request)
+    public function facebookTokenSignin(Request $request)
     {
-        return response()->json($request->user());
+        $inputToken = $request->input_token;
+        $data = $request->data;
+        $facebookId = $request->facebook_id;
+        $subDomain = $request->subDomain;
+        $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        // dd($subDomain);
+        if ($merchant == null)
+            return $this->badRequest('Non-existing merchant');
+        // dd($subDomain);
+        $http = new Client;
+
+        $response = $http->get("https://graph.facebook.com/oauth/access_token?client_id=" . config("app.facebook_app_id") . "&client_secret=" . config("app.facebook_app_secret") . "&grant_type=client_credentials");
+        $response = json_decode((string)$response->getBody());
+        $accessToken = $response->access_token;
+
+        $response = $http->get("https://graph.facebook.com/debug_token?input_token=" . $inputToken . "&access_token=" . $accessToken);
+        $response = json_decode((string)$response->getBody());
+        if ($response->data) {
+            //id + name + email
+            $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
+            $response = json_decode((string)$response->getBody());
+            // dd($response);
+            $user = User::where("social_id", "facebook." . $facebookId)->first();
+            if ($user == null) {
+                $user = new User();
+                if (isset($response->email))
+                    $user->email = $response->email;
+                else
+                    $user->email = "facebook" . $response->id . '@atomuser.com';
+                $user->social_id = "facebook." . $facebookId;
+                $user->password = Hash::make($user->social_id);
+                $user->phone = '000';
+            }
+
+            $user->name = $response->name;
+
+            //avatar
+            $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
+            $response = json_decode((string)$response->getBody());
+
+            $user->avatar_url = $response->data->url;
+            $user->save();
+
+            $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
+
+            return $this->appService->signIn($request, $user->email, $user->social_id);
+        } else {
+            return $this->badRequest();
+        }
+    }
+
+    public function googleTokenSignin(Request $request)
+    {
+        $inputToken = $request->input_token;
+
+        $subDomain = $request->subDomain;
+        $merchant = Merchant::where('sub_domain', $subDomain)->first();
+        if ($merchant == null)
+            return $this->badRequest('Non-existing merchant');
+
+        $http = new Client;
+        $response = $http->get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" . $inputToken);
+        $response = json_decode((string)$response->getBody());
+
+        // dd($response);
+        $user = User::where("social_id", "google." . $response->sub)->first();
+        if ($user == null) {
+            $user = new User();
+            if (isset($response->email))
+                $user->email = $response->email;
+            else
+                $user->email = $response->sub . '@atomuser.com';
+            $user->social_id = "google." . $response->sub;
+            $user->password = Hash::make($user->social_id);
+            $user->phone = '000';
+        }
+        $user->name = $response->name;
+        $user->avatar_url = $response->picture;
+        $user->save();
+
+        $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
+
+        return $this->appService->signIn($request, $user->email, $user->social_id);
     }
 }

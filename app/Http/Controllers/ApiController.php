@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+    public function __construct()
+    {
+    }
     public function success($data = null)
     {
         return $this->respond($data, 200);
@@ -30,7 +33,10 @@ class ApiController extends Controller
         return $this->respond($data, 304);
     }
 
-
+    public function unauthorized($data = null)
+    {
+        return $this->respond($data, 401);
+    }
 
     public function respond($data = [], $httpCode)
     {

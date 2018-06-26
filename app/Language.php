@@ -8,6 +8,6 @@ class Language extends UuidModel
 
     public function keywords()
     {
-        return $this->belongsToMany('App\Keyword')->withPivot("content")->withTimestamps();
+        return $this->belongsToMany('App\Keyword')->withPivot("content")->withTimestamps()->using("App\KeywordLanguage");
     }
 }

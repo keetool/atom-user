@@ -13,4 +13,8 @@ class KeywordRepository extends Repository {
         return Keyword::where("name", $name)->first();
     }
 
+    public function getAllKeyWord() {
+        return Keyword::all();
+    }
+
 }

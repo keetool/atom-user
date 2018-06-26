@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class UuidPivotModel extends Model
+class UuidPivotModel extends Pivot
 {
     protected $casts = [
         'id' => 'string',

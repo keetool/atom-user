@@ -1,7 +1,10 @@
 <?php
 
 return [
+    'client_id' => env("CLIENT_ID", ""),
+    'client_secret' => env("CLIENT_SECRET", ""),
     'domain' => env("APP_DOMAIN", 'localhost'),
+    "protocol" => env("APP_PROTOCOL","http://"),
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -108,6 +111,13 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'facebook_app_id' => env('FACEBOOK_APP_ID'),
+    
+    'facebook_app_secret' => env('FACEBOOK_APP_SECRET', ''),
+
+    'google_app_id' => env('GOOGLE_APP_ID'),
+    
+    'google_app_secret' => env('GOOGLE_APP_SECRET', ''),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

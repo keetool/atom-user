@@ -30,7 +30,7 @@ services:
       - ./:/var/www
 
   nginx:
-    container_name: nginx
+    container_name: atomuser.test
     build:
       context: ./docker/nginx
       dockerfile: Dockerfile
@@ -50,7 +50,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgres
     environment:
-        - POSTGRES_DB=keetool-academy
+        - POSTGRES_DB=atom-user
         - POSTGRES_USER=default
         - POSTGRES_PASSWORD=default
     ports:

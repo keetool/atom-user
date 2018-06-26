@@ -40,8 +40,12 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
-            'cors'
         ],
+        'multi-language' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\Language::class
+        ]
     ];
 
     /**
@@ -61,6 +65,5 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'getSubDomain' => \App\Http\Middleware\GetSubDomain::class,
-        'cors' => \App\Http\Middleware\Cors::class
     ];
 }

@@ -9,4 +9,8 @@ class LanguageRepository extends Repository {
         parent::__construct(new Language());
     }
 
+    public function findByCode($code){
+        return Language::where("codes", "like", "%" . $code . "%")->first();
+    }
+
 }

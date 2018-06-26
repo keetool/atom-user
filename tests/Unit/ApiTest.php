@@ -14,25 +14,10 @@ class api extends TestCase
      */
     public function testPostMarchant()
     {
-        $response = $this->json("POST", "/login", [
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
-        ]);
-        $response->assertStatus(401);
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
      }
 
-    /**
-     * Test Post checkMerchant
-     * check/merchant
-     */
-    // public function postMarchant()
-    // {
-    //     $response = $this->json("POST", "/t/language", [
-    //         "name" => "test1",
-    //         "codes" => "test2",
-    //     ]);
-
-    // }
-    
+  
 }

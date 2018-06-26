@@ -5,6 +5,8 @@ Route::prefix("auth")->group(function () {
     Route::post("token/refresh", 'AuthController@refreshToken');
     Route::post('facebook/token-signin', 'AuthController@facebookTokenSignin');
     Route::post('google/token-signin', 'AuthController@googleTokenSignin');
+
+    Route::get('test', "AuthController@test");
 });
 
 Route::middleware("auth:api")->group(function () {
@@ -22,6 +24,8 @@ Route::middleware("auth:api")->group(function () {
         Route::delete("/{postId}", "Api\PostApiController@deletePost");
     });
 
-
+    Route::prefix("dashboard")->group(function() {
+        Route::get("/new-user", "Api\DashboardApiController@newUserCount");
+    });
 });
 

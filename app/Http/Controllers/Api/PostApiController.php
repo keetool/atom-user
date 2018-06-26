@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Api;
-
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
 use App\Repositories\MerchantRepository;

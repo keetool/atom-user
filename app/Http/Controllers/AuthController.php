@@ -184,24 +184,7 @@ class AuthController extends ApiController
             ]);
         }
 
-        $http = new Client;
-
-        $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
-            'form_params' => [
-                'grant_type' => 'password',
-                'client_id' => config("app.client_id"),
-                'client_secret' => config("app.client_secret"),
-                'username' => $request->email,
-                'password' => $request->password,
-                'scope' => '*',
-            ]
-        ]);
-
-        // create signin log
-        $signInLogFactory = new SignInLogFactory($request->url(), $user, $request->header('User-Agent'));
-        Log::sendLog($signInLogFactory->makeLog());
-
-        return json_decode((string)$response->getBody(), true);
+        return $this->appService->signIn($request, $email, $password);
     }
 
 
@@ -364,5 +347,10 @@ class AuthController extends ApiController
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
 
         return $this->appService->signIn($request, $user->email, $user->social_id);
+    }
+
+    public function test(Request $request)
+    {
+        dd($request->subDomain);
     }
 }

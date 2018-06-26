@@ -138,6 +138,37 @@
     .btn-primary{
         color: #fff;
     }
+
+    .nextBtn{
+        width: 100%;
+    }
+
+    #atomuser-code{
+        background: #f3f3f2;
+        color: #828282;
+        height: 250px;
+        padding: 20px;
+        white-space:pre-wrap;
+    }
+    #atomuser-code::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+    #atomuser-code::-webkit-scrollbar
+    {
+        width: 8px;
+        background-color: #F5F5F5;
+    }
+
+    #atomuser-code::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
 </style>
 
 <div class="container" style="margin-top: 40px;">
@@ -161,6 +192,13 @@
 
     <form role="form" action="" id="store-free-trial" method="post">
         {{csrf_field()}}
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div id="error-validate">
+
+                </div>
+            </div>
+        </div>
         <div class="row setup-content" id="step-1">
             <div class="col-md-6 offset-md-3">
                 <div class="col-md-12">
@@ -212,6 +250,24 @@
             <div class="col-md-6 offset-md-3">
                 <div class="col-md-12">
                     <h3> Step 3</h3>
+                    <p>Copy and paste the source code bellow to your own website. We highly recommend you to put it right after body tag.
+                    
+<pre id="atomuser-code">
+&lt;div class=&quot;atomuser hide&quot; id=&quot;atomuser&quot;&gt;
+    &lt;div class=&quot;atomuser-iframe&quot;&gt;
+        &lt;iframe id=&quot;atomuser-iframe&quot; src=&quot;https://k.atomuser.com&quot; frameBorder=&quot;0&quot;&gt;
+        &lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;atomuser-fab&quot; id=&quot;atomuser-btn-fab&quot;&gt;
+        &lt;div class=&quot;atomuser-icon&quot;&gt;
+            &lt;div class=&quot;atomuser-icon-dot&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                    
+                    </p>
                     <div id="error"></div>
                     <button class="btn btn-success btn-lg pull-right" id="submit-button" type="submit">Submit</button>
                 </div>
@@ -239,6 +295,11 @@
     function validatePhone(phone) {
         var re = /^[0-9]+$/;
         return re.test(phone);
+    }
+
+    function validatePassword(password) {
+        var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        return re.test(password);
     }
 
     $(document).ready(function () {
@@ -285,6 +346,7 @@
                     if(!validateEmail(email)){
                         curInputs[i].classList.add("is-invalid");
                         isValid = false;
+                        $("#error-validate").html("<div class='alert alert-danger'>Email không hợp lệ</div>");
                         $(curInputs[i]).closest(".form-group").addClass("has-error");
                         break;
                     }
@@ -294,6 +356,7 @@
                     if(!validateSubdomain(subdomain)){
                         curInputs[i].classList.add("is-invalid");
                         isValid = false;
+                        $("#error-validate").html("<div class='alert alert-danger'>Subdomain phải từ 3-20 kí tự và không có kí tự đặc biệt</div>");
                         $(curInputs[i]).closest(".form-group").addClass("has-error");
                         break;
                     }
@@ -303,6 +366,7 @@
                     if(!validatePhone(phone)){
                         curInputs[i].classList.add("is-invalid");
                         isValid = false;
+                        $("#error-validate").html("<div class='alert alert-danger'>Số điện thoại không hợp lệ</div>");
                         $(curInputs[i]).closest(".form-group").addClass("has-error");
                         break;
                     }
@@ -313,6 +377,14 @@
                     if(password !== retype){
                         curInputs[i].classList.add("is-invalid");
                         isValid = false;
+                        $("#error-validate").html("<div class='alert alert-danger'>Mật khẩu không trùng</div>");
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        break;
+                    }
+                    if(!validatePassword(password)){
+                        curInputs[i].classList.add("is-invalid");
+                        isValid = false;
+                        $("#error-validate").html("<div class='alert alert-danger'>Mật khẩu ít nhất 8 kí tự, có ít nhất 1 kí tự viết hoa và có ít nhất 1 chữ số.</div>");
                         $(curInputs[i]).closest(".form-group").addClass("has-error");
                         break;
                     }
@@ -322,13 +394,17 @@
                     
                     curInputs[i].classList.add("is-invalid");
                     isValid = false;
+                    $("#error-validate").html("<div class='alert alert-danger'>Chưa nhập </div>");
                     $(curInputs[i]).closest(".form-group").addClass("has-error");
                     break;
                 }
             }
 
-            if (isValid)
+            if (isValid){
                 nextStepWizard.removeAttr('disabled').trigger('click');
+                $("#error-validate").html("");
+            }
+                
         });
 
         $('div.setup-panel div a.btn-primary').trigger('click');

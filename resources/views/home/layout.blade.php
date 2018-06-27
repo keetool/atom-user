@@ -79,10 +79,10 @@
                         </li>
 
                         <li class="nav-item text-center">
-                            <a href="/#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                            <a href="/free-trial" class="btn align-middle btn-outline-primary my-2 my-lg-0">REGISTER</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a href="/#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                            <a href="/access-dashboard" class="btn align-middle btn-primary my-2 my-lg-0">YOUR DASHBOARD</a>
                         </li>
                     </ul>
 

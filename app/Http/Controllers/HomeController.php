@@ -63,4 +63,13 @@ class HomeController extends BaseController
     {
         return view('home.dummy2', $this->data);
     }
+
+    public function accessDashboard(Request $request)
+    {
+        if($request->subdomain){
+            $url = $request->subdomain;
+            return redirect()->away(generate_https($url));
+        }
+        return view("home.access_dashboard", $this->data);
+    }
 }

@@ -294,7 +294,7 @@ class AuthController extends ApiController
                 else
                     $user->email = "facebook" . $response->id . '@atomuser.com';
                 $user->social_id = "facebook." . $facebookId;
-                $user->password = Hash::make($user->social_id);
+                $user->password = bcrypt($user->social_id);
                 $user->phone = '000';
             }
 
@@ -337,7 +337,7 @@ class AuthController extends ApiController
             else
                 $user->email = $response->sub . '@atomuser.com';
             $user->social_id = "google." . $response->sub;
-            $user->password = Hash::make($user->social_id);
+            $user->password = bcrypt($user->social_id);
             $user->phone = '000';
         }
         $user->name = $response->name;

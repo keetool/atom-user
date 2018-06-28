@@ -56,15 +56,15 @@
 
                 <div class="collapse navbar-collapse" id="site-nav">
                     <ul class="navbar-nav text-sm-left ml-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="/#features">Features</a>
-                        </li>
+                        </li> --}}
                         <!--<li class="nav-item">-->
                             <!--<a class="nav-link" href="#pricing">Pricing</a>-->
                         <!--</li>-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="blogs">Blog</a>
-                        </li>
+                        </li> --}}
 
                         <!--<li class="nav-item dropdown">-->
                             <!--<a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>-->
@@ -74,9 +74,9 @@
                                 <!--<a class="dropdown-item" href="blog-single.html">Blog Single</a>-->
                             <!--</div>-->
                         <!--</li>-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="#">Docs</a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item text-center">
                             <a href="/free-trial" class="btn align-middle btn-outline-primary my-2 my-lg-0">REGISTER</a>

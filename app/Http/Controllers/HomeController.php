@@ -15,7 +15,6 @@ class HomeController extends BaseController
     protected $languageRepo;
     protected $keywordRepo;
     protected $keywordLanguageRepo;
-    public $code;
 
     public function __construct(LanguageRepository $languageRepo, KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {

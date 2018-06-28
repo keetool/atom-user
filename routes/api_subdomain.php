@@ -10,10 +10,10 @@ Route::prefix("auth")->group(function () {
 });
 
 Route::middleware("auth:api")->group(function () {
-    Route::prefix("user")->group(function() {
+    Route::prefix("user")->group(function () {
         Route::get("/", "Api\UserApiController@user");
     });
-    Route::prefix("log")->group(function() {
+    Route::prefix("log")->group(function () {
         Route::get("/", "Api\LogApiController@myLogs");
     });
 
@@ -24,8 +24,13 @@ Route::middleware("auth:api")->group(function () {
         Route::delete("/{postId}", "Api\PostApiController@deletePost");
     });
 
-    Route::prefix("dashboard")->group(function() {
-        Route::get("/new-user", "Api\DashboardApiController@newUserCount");
+    Route::prefix("dashboard")->group(function () {
+        Route::get("/", "Api\DashboardApiController@newUserCount");
     });
 });
 
+// Route::prefix("dashboard")->group(function () {
+//     Route::get("/new-user", "Api\DashboardApiController@newUserCount");
+// });
+
+    

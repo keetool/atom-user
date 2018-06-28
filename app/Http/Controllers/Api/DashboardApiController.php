@@ -4,49 +4,43 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
+use App\Merchant;
+use App\MerchantUser;
+use Illuminate\Support\Facades\DB;
 
 class DashboardApiController extends ApiController
 {
 
     public function newUserCount(Request $request)
     {
-        dd($request->subDomain);
-        $date_array = createDateRangeArray(strtotime($startTime), strtotime($end_time));
-        // $paid_by_date_personal_temp = Register::select(DB::raw('DATE(paid_time) as date,count(1) as num'))
-        //         ->whereBetween('paid_time', [$startTime, $endTime])
-        //         ->where('saler_id', $saler->id)
-        //         ->where('money', '>', 0)
-        //         ->groupBy(DB::raw('DATE(paid_time)'))->pluck('num', 'date');
+        $merchant_id = Merchant::where('sub_domain', $request->subDomain)->first()->id;
+        $start_time = $request->start_time;
+        $end_time = $request->end_time;
+        if ($start_time == null) {
+            $start_time = "2018-06-13";
+            $end_time = "2018-06-22";
+        }
+        $date_array = createDateRangeArray(strtotime($start_time), strtotime($end_time));
+        $new_user_by_date_temp = MerchantUser::select(DB::raw('DATE(created_at) as date,count(1) as num'))
+            ->whereBetween(DB::raw('DATE(created_at)'), [$start_time, $end_time])
+            ->where('merchant_id', $merchant_id)
+            ->groupBy(DB::raw('DATE(created_at)'))->pluck('num', 'date');
 
-        //     $registers_by_date_personal_temp = Register::select(DB::raw('DATE(created_at) as date,count(1) as num'))
-        //         ->whereBetween('created_at', [$startTime, $endTime])
-        //         ->where('saler_id', $saler->id)
-        //         ->where(function ($query) {
-        //             $query->where('status', 0)
-        //                 ->orWhere('money', '>', 0);
-        //         })
-        //         ->groupBy(DB::raw('DATE(created_at)'))->pluck('num', 'date');
+        $new_user_by_date = [];
+        foreach ($date_array as $date) {
+            if (isset($new_user_by_date_temp[$date])) {
+                $new_user_by_date[] = [
+                    "date" => $date,
+                    "count" => $new_user_by_date_temp[$date]
+                ];
+            } else {
+                $new_user_by_date[] = [
+                    "date" => $date,
+                    "count" => 0
+                ];
+            }
+        }
 
-        //     $registers_by_date_personal = [];
-        //     $paid_by_date_personal = [];
-
-        //     foreach ($date_array as $date) {
-        //         if (isset($registers_by_date_personal_temp[$date])) {
-        //             $registers_by_date_personal[$di] = $registers_by_date_personal_temp[$date];
-        //         } else {
-        //             $registers_by_date_personal[$di] = 0;
-        //         }
-        //         if (isset($paid_by_date_personal_temp[$date])) {
-        //             $paid_by_date_personal[$di] = $paid_by_date_personal_temp[$date];
-        //         } else {
-        //             $paid_by_date_personal[$di] = 0;
-        //         }
-
-        //         $di += 1;
-        //     }
-
-        //     $data['registers_by_date'] = $registers_by_date_personal;
-        //     $data['paid_by_date'] = $paid_by_date_personal;
-        //     $data['date_array'] = $date_array;
+        return $this->success(["new_user_id_by_date" => $new_user_by_date]);
     }
 }

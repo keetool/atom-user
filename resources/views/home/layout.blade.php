@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="landing-page/assets/css/global/plugins/icon-font.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="landing-page/assets/css/style.css">
+    <link rel="stylesheet" href="landing-page/assets/css/atomuser.css">
+
     <!-- /build -->
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">

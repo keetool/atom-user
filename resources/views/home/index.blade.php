@@ -19,10 +19,8 @@
 
             </div>
             <div class="col-12 col-md-7 my-3 my-md-lg">
-
-                <div class="youtube cast-shadow" data-video-id="rm5sdAYCqqc" data-params="modestbranding=1&amp;showinfo=0&amp;controls=1&amp;vq=hd720">
-                    <img src="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529570017i7WAXS0swIbEM5X.png" alt="image" class="img-fluid">
-                    <div class="play"><span class="pe-7s-play pe-3x"></span></div>
+                <div class="video-responsive">
+                    <iframe width="420" height="315" src="http://www.youtube.com/embed/PsaBUV3DKKo" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

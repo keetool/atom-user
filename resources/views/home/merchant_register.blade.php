@@ -193,7 +193,8 @@
 
 <div class="container-fluid" style="margin-top: 40px;">
 
-    <div class="row">
+    <div class="row" style="position: relative">
+        <div class="stepwizard-row"></div>
         <div class="col-md-4 offset-md-4">
             <div class="stepwizard">
                 <div class="stepwizard-row setup-panel">

@@ -345,33 +345,4 @@
 
 <!--&lt;!&ndash; // end Pricing &ndash;&gt;-->
 
-<!-- Signup -->
-<div class="section" id="signup">
-<div class="container">
-    <div class="section-title text-center">
-        <h3>{{ $keyword['website.homepage.section5.signup_title']['content'] }}</h3>
-        <p>{{ $keyword['website.homepage.section5.signup_subtitle']['content'] }}</p>
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="col col-md-5">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="{{ $keyword['website.homepage.section5.signup_fullname']['content'] }}">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="{{ $keyword['website.homepage.section5.signup_email']['content'] }}">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="{{ $keyword['website.homepage.section5.signup_password']['content'] }}">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-xl btn-block btn-primary">{{ $keyword['website.homepage.section5.signup_button']['content'] }}</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-</div>
-</div>
-
 @endsection

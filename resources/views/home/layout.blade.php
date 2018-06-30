@@ -99,24 +99,25 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4"> <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" class="logo-dark" height="25px" />
-                <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
-                <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
+                <br/><br/>
+                {{-- <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p> --}}
+                <p class="ml-1"><a href="{{url('/free-trial')}}" target="_blank">Purchase now →</a></p>
                 <!-- // end .lead -->
             </div>
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <ul class="list-unstyled footer-links ml-1">
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <ul class="list-unstyled footer-links ml-1">
                     <li><a href="#">Terms</a></li>
-                    <li><a href="#about">Privacy</a></li>
+                    <li><a href="#">Privacy</a></li>
                 </ul>
             </div>
             <!-- // end .col-sm-3 -->

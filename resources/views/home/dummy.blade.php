@@ -5,7 +5,7 @@
 </head>
 
 <body>
-{{--<div class="g-signin2" data-onsuccess="onSignIn"></div>--}}
+<div>Test</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script>
         // var socket = io('http://localhost:9000');

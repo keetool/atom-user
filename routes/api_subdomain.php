@@ -25,6 +25,13 @@ Route::middleware("auth:api")->group(function () {
 
         // vote = 'up' or 'down'
         Route::post("/{postId}/vote/{vote}", "Api\PostApiController@vote");
+
+        // Api comment
+        Route::prefix("/{postId}/comment")->group(function () {
+            Route::post("/", "Api\CommentApiController@createComment");
+            Route::put("/{commentId}", "Api\CommentApiController@updateComment");
+            Route::delete("/{commentId}", "Api\CommentApiController@deleteComment");
+        });
     });
 
     Route::prefix("dashboard")->group(function () {

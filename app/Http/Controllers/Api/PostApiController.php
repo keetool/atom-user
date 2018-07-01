@@ -149,7 +149,7 @@ class PostApiController extends ApiController
 
         $post = $this->postRepo->show($postId);
         if ($post == null) {
-            return $this->badRequest("post not exist");
+            return $this->badRequest(["message" => "post not found"]);
         }
 
         $user = Auth::user();

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\CommentRepository;
+use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepository;
@@ -37,6 +39,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(PostRepositoryInterface::class, PostRepository::class);
 
         $this->app->singleton(VoteRepositoryInterface::class, VoteRepository::class);
+
+        $this->app->singleton(CommentRepositoryInterface::class, CommentRepository::class);
     }
 
     public function signIn($request, $facebook_id, $password)

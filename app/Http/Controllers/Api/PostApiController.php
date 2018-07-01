@@ -164,26 +164,18 @@ class PostApiController extends ApiController
                 "post_id" => $postId
             ]);
             if ($voteValue == 1) {
-                $this->postRepo->update([
-                    "upvote" => $post->upvote + 1
-                ], $post->id);
+                $this->postRepo->increment($postId, "upvote");
             } else if ($voteValue == -1) {
-                $this->postRepo->update([
-                    "downvote" => $post->downvote + 1
-                ], $post->id);
+                $this->postRepo->increment($postId, 'downvote');
             }
         } else {
             if ($vote->value == $voteValue) {
                 //remove the vote
                 $this->voteRepo->delete($vote->id);
                 if ($voteValue == 1) {
-                    $this->postRepo->update([
-                        "upvote" => $post->upvote - 1
-                    ], $post->id);
+                    $this->postRepo->decrement($postId, "upvote");
                 } else if ($voteValue == -1) {
-                    $this->postRepo->update([
-                        "downvote" => $post->downvote - 1
-                    ], $post->id);
+                    $this->postRepo->decrement($postId, "downvote");
                 }
             }
             if ($vote->value == -1 * $voteValue) {
@@ -194,15 +186,11 @@ class PostApiController extends ApiController
 
 
                 if ($voteValue == 1) {
-                    $this->postRepo->update([
-                        "upvote" => $post->upvote + 1,
-                        "downvote" => $post->downvote - 1
-                    ], $post->id);
+                    $this->postRepo->increment($postId, "upvote");
+                    $this->postRepo->decrement($postId, "downvote");
                 } else if ($voteValue == -1) {
-                    $this->postRepo->update([
-                        "downvote" => $post->downvote + 1,
-                        "upvote" => $post->upvote - 1
-                    ], $post->id);
+                    $this->postRepo->increment($postId, "downvote");
+                    $this->postRepo->decrement($postId, "upvote");
                 }
             }
         }

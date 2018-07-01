@@ -12,4 +12,8 @@ namespace App\Repositories;
 interface PostRepositoryInterface
 {
     public function findByMerchantId($merchantId, $limit = 20, $order = "desc");
+
+    public function increment($postId, $column);
+
+    public function decrement($postId, $column);
 }

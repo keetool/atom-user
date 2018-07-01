@@ -232,6 +232,10 @@
         filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.15));
     }
 
+    .atomuser-fab:hover .atomuser-close {
+        opacity: 1;
+    }
+
     .atomuser-fab > .atomuser-icon {
         width: 50%;
         height: 50%;
@@ -260,10 +264,6 @@
         width: 40%;
         height: 40%;
         opacity: 0.5;
-    }
-
-    .atomuser-close:hover {
-        opacity: 1;
     }
 
     .atomuser > .atomuser-iframe {

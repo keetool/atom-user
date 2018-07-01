@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\File;
 use App\Repositories\LanguageRepository;
@@ -55,6 +56,8 @@ class HomeController extends BaseController
 
     public function dummy()
     {
+        $redis = Redis::connection();
+        $redis->publish('message', "[]");
         return view('home.dummy', $this->data);
     }
 

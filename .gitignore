@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 .env
 push.sh
+/echo/laravel-echo-server.json
+/socket/node_modules

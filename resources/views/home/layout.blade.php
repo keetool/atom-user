@@ -216,13 +216,20 @@
     }
 
     .atomuser-fab {
+        transition: all .2s ease-in-out;
         width: 50px;
         height: 50px;
-        background-color: #0087ea;
+        background-image: linear-gradient(to top, #009efb 0%, #005bea 100%);
         border-radius: 50%;
         cursor: pointer;
         position: relative;
         float: right;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .atomuser-fab:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.15));
     }
 
     .atomuser-fab > .atomuser-icon {
@@ -344,7 +351,7 @@
 </style>
 <div class="atomuser hide" id="atomuser">
     <div class="atomuser-iframe">
-        <iframe id="atomuser-iframe" src="https://k.atomuser.com" frameBorder="0">
+        <iframe id="atomuser-iframe" src="http://localhost:3000" frameBorder="0">
         </iframe>
     </div>
     <div class="atomuser-fab" id="atomuser-btn-fab">

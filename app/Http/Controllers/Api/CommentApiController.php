@@ -25,6 +25,13 @@ class CommentApiController extends ApiController
         $this->commentRepo = $commentRepository;
     }
 
+    /**
+     * Create comment
+     * param: value
+     * @param $postId
+     * @param Request $request
+     * @return CommentResource|\Illuminate\Http\JsonResponse
+     */
     public function createComment($subDomain, $postId, Request $request)
     {
         $post = $this->postRepo->show($postId);
@@ -47,6 +54,14 @@ class CommentApiController extends ApiController
         return new CommentResource($comment);
     }
 
+    /**
+     * Update Comment
+     * param value
+     * @param $postId
+     * @param $commentId
+     * @param Request $request
+     * @return CommentResource|\Illuminate\Http\JsonResponse
+     */
     public function updateComment($subDomain, $postId, $commentId, Request $request)
     {
         $post = $this->postRepo->show($postId);
@@ -75,6 +90,12 @@ class CommentApiController extends ApiController
         return new CommentResource($comment);
     }
 
+    /**
+     * Delete comment
+     * @param $postId
+     * @param $commentId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deleteComment($subDomain, $postId, $commentId)
     {
         $post = $this->postRepo->show($postId);

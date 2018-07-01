@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\File;
-use App\Repositories\LanguageRepository;
-use App\Repositories\KeywordRepository;
 use App\Repositories\KeywordLanguageRepository;
-use Illuminate\Support\Facades\Session;
+use App\Repositories\KeywordRepository;
+use App\Repositories\LanguageRepository;
+use App\Services\SocketService;
+use Illuminate\Http\Request;
 
 class HomeController extends BaseController
 {
     protected $languageRepo;
     protected $keywordRepo;
     protected $keywordLanguageRepo;
+    protected $socketService;
 
-    public function __construct(LanguageRepository $languageRepo, KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
+    public function __construct(
+        LanguageRepository $languageRepo,
+        SocketService $socketService,
+        KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {
         parent::__construct();
         $this->languageRepo = $languageRepo;
         $this->keywordRepo = $keywordRepo;
         $this->keywordLanguageRepo = $keywordLanguageRepo;
+        $this->socketService = $socketService;
     }
 
     public function index(Request $request)
@@ -56,19 +58,19 @@ class HomeController extends BaseController
 
     public function dummy()
     {
-        $redis = Redis::connection();
-        $redis->publish('message', "[]");
+
         return view('home.dummy', $this->data);
     }
 
     public function dummy2()
     {
+        $this->socketService->publish("channel", "event", ["message" => "hello"]);
         return view('home.dummy2', $this->data);
     }
 
     public function accessDashboard(Request $request)
     {
-        if($request->subdomain){
+        if ($request->subdomain) {
             $url = $request->subdomain;
             return redirect()->away(generate_https($url));
         }

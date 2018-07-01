@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <link href="https://d255zuevr6tr8p.cloudfront.net/build-social/vendors~main.42a589d0c78ed474debf.chunk.css"
           rel="stylesheet">

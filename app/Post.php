@@ -19,4 +19,8 @@ class Post extends UuidModel
     public function user() {
         return $this->belongsTo(User::class, "creator_id");
     }
+
+    public function votes() {
+        return $this->hasMany(Vote::class, "post_id");
+    }
 }

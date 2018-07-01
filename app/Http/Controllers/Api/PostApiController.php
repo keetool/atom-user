@@ -1,9 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Api;
+
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
+use App\Repositories\VoteRepositoryInterface;
+use App\Vote;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
@@ -14,12 +18,17 @@ class PostApiController extends ApiController
 
     protected $postRepo;
     protected $merchantRepo;
+    protected $voteRepo;
 
-    public function __construct(PostRepositoryInterface $postRepo, MerchantRepository $merchantRepository)
+    public function __construct(
+        VoteRepositoryInterface $voteRepository,
+        PostRepositoryInterface $postRepo,
+        MerchantRepository $merchantRepository)
     {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
+        $this->voteRepo = $voteRepository;
     }
 
     /**
@@ -131,5 +140,75 @@ class PostApiController extends ApiController
         return $this->success([
             "message" => "deleted"
         ]);
+    }
+
+
+    public function vote($subdomain, $postId, $vote)
+    {
+        $voteValue = $vote == "up" ? 1 : -1;
+
+        $post = $this->postRepo->show($postId);
+        if ($post == null) {
+            return $this->badRequest("post not exist");
+        }
+
+        $user = Auth::user();
+
+        $vote = $this->voteRepo->findVoteByUserIdAndPostId($user->id, $postId);
+
+        if ($vote == null) {
+            // user does not upvote or downvote
+            $this->voteRepo->create([
+                "user_id" => $user->id,
+                "value" => $voteValue,
+                "post_id" => $postId
+            ]);
+            if ($voteValue == 1) {
+                $this->postRepo->update([
+                    "upvote" => $post->upvote + 1
+                ], $post->id);
+            } else if ($voteValue == -1) {
+                $this->postRepo->update([
+                    "downvote" => $post->downvote + 1
+                ], $post->id);
+            }
+        } else {
+            if ($vote->value == $voteValue) {
+                //remove the vote
+                $this->voteRepo->delete($vote->id);
+                if ($voteValue == 1) {
+                    $this->postRepo->update([
+                        "upvote" => $post->upvote - 1
+                    ], $post->id);
+                } else if ($voteValue == -1) {
+                    $this->postRepo->update([
+                        "downvote" => $post->downvote - 1
+                    ], $post->id);
+                }
+            }
+            if ($vote->value == -1 * $voteValue) {
+                //change to oposite vote
+                $this->voteRepo->update([
+                    "value" => $voteValue
+                ], $vote->id);
+
+
+                if ($voteValue == 1) {
+                    $this->postRepo->update([
+                        "upvote" => $post->upvote + 1,
+                        "downvote" => $post->downvote - 1
+                    ], $post->id);
+                } else if ($voteValue == -1) {
+                    $this->postRepo->update([
+                        "downvote" => $post->downvote + 1,
+                        "upvote" => $post->upvote - 1
+                    ], $post->id);
+                }
+            }
+        }
+
+        $post = $this->postRepo->show($postId);
+
+        return new PostResource($post);
     }
 }

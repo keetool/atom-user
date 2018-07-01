@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
+use App\Repositories\VoteRepository;
+use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 use GuzzleHttp\Client;
@@ -33,9 +35,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
 
         $this->app->singleton(PostRepositoryInterface::class, PostRepository::class);
+
+        $this->app->singleton(VoteRepositoryInterface::class, VoteRepository::class);
     }
 
-    public function signIn($request, $facebook_id, $password) 
+    public function signIn($request, $facebook_id, $password)
     {
         $user = User::where('facebook_id', $facebook_id)->first();
 

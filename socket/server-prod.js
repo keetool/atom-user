@@ -1,6 +1,6 @@
 const SOCKET_PORT = 9000;
 const REDIS = {
-    "host": "localhost",
+    "host": "redis1.d3zfqq.0001.apse1.cache.amazonaws.com",
     "port": "6379",
 };
 

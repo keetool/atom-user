@@ -13,6 +13,9 @@
         socket.on("channel:event", function (data) {
             console.log(data);
         });
+        socket.on("k:post.create", function (data) {
+            console.log(data);
+        });
     </script>
 
 {{--<script>--}}

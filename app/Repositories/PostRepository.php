@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 
 use App\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostRepository extends Repository implements PostRepositoryInterface {
 
@@ -15,4 +16,14 @@ class PostRepository extends Repository implements PostRepositoryInterface {
     }
 
 
+    public function increment($postId, $column)
+    {
+        DB::table('posts')->where('id', $postId)->increment($column);
+    }
+
+    public function decrement($postId, $column)
+    {
+        DB::table('posts')->where('id', $postId)->decrement($column);
+
+    }
 }

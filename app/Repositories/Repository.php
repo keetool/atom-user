@@ -34,6 +34,12 @@ class Repository implements RepositoryInterface
     }
 
     // update record in the database
+
+    /**
+     * @param array $data
+     * @param $id
+     * @return mixed
+     */
     public function update(array $data, $id)
     {
         $record = $this->show($id);

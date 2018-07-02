@@ -6,8 +6,10 @@
  * Time: 9:27 AM
  */
 
-namespace App\SocketEvent;
+namespace App\SocketEvent\Post;
 
+
+use App\SocketEvent\SocketEvent;
 
 class CreatePostSocketEvent extends SocketEvent
 {

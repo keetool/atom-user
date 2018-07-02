@@ -8,7 +8,7 @@ use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use App\Services\SocketService;
-use App\SocketEvent\CreatePostSocketEvent;
+use App\SocketEvent\Post\CreatePostSocketEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;

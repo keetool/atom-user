@@ -6,8 +6,10 @@
  * Time: 9:27 AM
  */
 
-namespace App\SocketEvent;
+namespace App\SocketEvent\Comment;
 
+
+use App\SocketEvent\SocketEvent;
 
 class CreateCommentSocketEvent extends SocketEvent
 {

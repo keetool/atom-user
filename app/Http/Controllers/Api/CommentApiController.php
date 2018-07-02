@@ -6,7 +6,7 @@ use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Http\Controllers\ApiController;
 use App\Services\SocketService;
-use App\SocketEvent\CreateCommentSocketEvent;
+use App\SocketEvent\Comment\CreateCommentSocketEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Comment as CommentResource;

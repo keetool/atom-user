@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\SocketEvent\SocketEvent;
 use Illuminate\Support\Facades\Redis;
 
 class SocketService
@@ -14,5 +15,10 @@ class SocketService
             "event" => $event
         ];
         $redis->publish($channel, json_encode($data));
+    }
+
+    public function publishEvent($channel, SocketEvent $socketEvent)
+    {
+        $this->publish($channel, $socketEvent->getName(), $socketEvent->getData());
     }
 }

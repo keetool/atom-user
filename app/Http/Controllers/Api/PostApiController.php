@@ -7,7 +7,8 @@ use App\Logs\Post\PostLogFactory;
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
-use App\Vote;
+use App\Services\SocketService;
+use App\SocketEvent\CreatePostSocketEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
@@ -19,16 +20,19 @@ class PostApiController extends ApiController
     protected $postRepo;
     protected $merchantRepo;
     protected $voteRepo;
+    protected $socketService;
 
     public function __construct(
         VoteRepositoryInterface $voteRepository,
         PostRepositoryInterface $postRepo,
+        SocketService $socketService,
         MerchantRepository $merchantRepository)
     {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
         $this->voteRepo = $voteRepository;
+        $this->socketService = $socketService;
     }
 
     /**
@@ -99,7 +103,7 @@ class PostApiController extends ApiController
      * param: title
      * param: body
      */
-    public function createPost(Request $request)
+    public function createPost($subDomain, Request $request)
     {
         $title = $request->title;
         $body = $request->body;
@@ -118,6 +122,11 @@ class PostApiController extends ApiController
             "merchant_id" => $merchant->id,
             "creator_id" => Auth::user()->id
         ]);
+
+        $createPostSocketEvent = new CreatePostSocketEvent([
+            "post_id" => $post->id
+        ]);
+        $this->socketService->publishEvent($subDomain, $createPostSocketEvent);
 
         Log::sendLog(PostLogFactory::getCreateInstance($request->url(), Auth::user(), $post)->makeLog());
 

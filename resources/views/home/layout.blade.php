@@ -101,7 +101,7 @@
             <div class="col-sm-4"> <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" class="logo-dark" height="25px" />
                 <br/><br/>
                 {{-- <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p> --}}
-                <p class="ml-1"><a href="{{url('/free-trial')}}" target="_blank">Purchase now →</a></p>
+                <p class="ml-1"><a href="{{url('/free-trial')}}">Register now →</a></p>
                 <!-- // end .lead -->
             </div>
             <!-- // end .col-sm-3 -->

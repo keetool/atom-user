@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Http\Controllers\ApiController;
+use App\Services\SocketService;
+use App\SocketEvent\CreateCommentSocketEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Comment as CommentResource;
@@ -14,8 +16,10 @@ class CommentApiController extends ApiController
 
     protected $postRepo;
     protected $commentRepo;
+    protected $socketService;
 
     public function __construct(
+        SocketService $socketService,
         PostRepositoryInterface $postRepo,
         CommentRepositoryInterface $commentRepository
     )
@@ -23,6 +27,17 @@ class CommentApiController extends ApiController
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->commentRepo = $commentRepository;
+        $this->socketService = $socketService;
+    }
+
+    /**
+     * Query param: limit, order
+     * @param Request $request
+     */
+    public function getComments($subdomain, $postId, Request $request)
+    {
+        $comments = $this->commentRepo->findAllCommentByPostIdPaginate($postId, $request->order, $request->limit);
+        return CommentResource::collection($comments);
     }
 
     /**
@@ -47,9 +62,12 @@ class CommentApiController extends ApiController
             'user_id' => $user->id
         ]);
 
-        $this->postRepo->update([
-            "num_comments" => $post->num_comments + 1
-        ], $post->id);
+        $this->postRepo->increment($post->id, "num_comments");
+
+        $createCommentSocketEvent = new CreateCommentSocketEvent([
+            "comment" => new CommentResource($comment)
+        ]);
+        $this->socketService->publishEvent($subDomain, $createCommentSocketEvent);
 
         return new CommentResource($comment);
     }
@@ -113,6 +131,9 @@ class CommentApiController extends ApiController
         if ($comment->user_id != $user->id) {
             return $this->unauthorized(["message" => "You are not authorized to delete this comment"]);
         }
+
+        $this->postRepo->decrement($postId, "num_comments");
+
         $this->commentRepo->delete($commentId);
 
         return $this->success(["message" => "deleted"]);

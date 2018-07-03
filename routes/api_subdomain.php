@@ -22,7 +22,6 @@ Route::middleware("auth:api")->group(function () {
         Route::put("/{postId}", "Api\PostApiController@updatePost");
         Route::get('/', "Api\PostApiController@getPosts");
         Route::delete("/{postId}", "Api\PostApiController@deletePost");
-//        Route::get("/list");
         // vote = 'up' or 'down'
         Route::post("/{postId}/vote/{vote}", "Api\PostApiController@vote");
 

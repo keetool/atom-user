@@ -166,7 +166,7 @@ class PostApiController extends ApiController
         $vote = $this->voteRepo->findVoteByUserIdAndPostId($user->id, $postId);
 
         if ($vote == null) {
-            // user does not upvote or downvote
+            // user have not upvote or downvote yet
             $this->voteRepo->create([
                 "user_id" => $user->id,
                 "value" => $voteValue,

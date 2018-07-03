@@ -12,4 +12,6 @@ namespace App\Repositories;
 interface CommentRepositoryInterface
 {
     public function findAllCommentByPostIdPaginate($postId, $order = "asc", $limit = 10);
+
+    public function findCommentsAfterACommentPaginate($commentId, $order = "asc");
 }

@@ -39,6 +39,12 @@ class CommentApiController extends ApiController
         return CommentResource::collection($comments);
     }
 
+    public function loadMoreComments($subdomain, $commentId, Request $request)
+    {
+        $comments = $this->commentRepo->findCommentsAfterACommentPaginate($commentId, $request->order, $request->limit);
+        return CommentResource::collection($comments);
+    }
+
     /**
      * Create comment
      * param: value

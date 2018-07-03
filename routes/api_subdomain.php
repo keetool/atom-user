@@ -33,7 +33,7 @@ Route::middleware("auth:api")->group(function () {
             Route::delete("/{commentId}", "Api\CommentApiController@deleteComment");
         });
 
-        Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
+        // Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
     });
 
     Route::prefix("comment")->group(function () {
@@ -54,7 +54,7 @@ Route::middleware("auth:api")->group(function () {
 //     Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
 //     Route::get("/{commentId}/load-more", "Api\CommentApiController@loadComments");
 // });
-// Route::prefix("post")->group(function() {
-//     Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
-// });
+Route::prefix("post")->group(function() {
+    Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
+});
     

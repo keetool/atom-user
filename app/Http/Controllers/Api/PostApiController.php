@@ -42,10 +42,9 @@ class PostApiController extends ApiController
      */
     public function updatePost($subdomain, $postId, Request $request)
     {
-        $title = $request->title;
         $body = $request->body;
 
-        if ($title == null || $body == null) {
+        if ($body == null) {
             return $this->badRequest([
                 "Thiếu dữ liệu trả lên"
             ]);
@@ -74,7 +73,6 @@ class PostApiController extends ApiController
 
 
         $this->postRepo->update([
-            "title" => $title,
             "body" => $body,
         ], $postId);
 
@@ -105,7 +103,6 @@ class PostApiController extends ApiController
      */
     public function createPost($subDomain, Request $request)
     {
-        $title = $request->title;
         $body = $request->body;
 
         if ($title == null || $body == null) {
@@ -117,8 +114,8 @@ class PostApiController extends ApiController
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $post = $this->postRepo->create([
-            "title" => $title,
             "body" => $body,
+            "num_comments" => 0,
             "merchant_id" => $merchant->id,
             "creator_id" => Auth::user()->id
         ]);

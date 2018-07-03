@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\CommentRepository;
 use App\Repositories\CommentRepositoryInterface;
+use App\Repositories\ImageRepository;
+use App\Repositories\ImageRepositoryInterface;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepository;
@@ -41,6 +43,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(CommentRepositoryInterface::class, CommentRepository::class);
 
         $this->app->singleton(SocketService::class, SocketService::class);
+
+        $this->app->singleton(ImageRepositoryInterface::class, ImageRepository::class);
     }
 
 }

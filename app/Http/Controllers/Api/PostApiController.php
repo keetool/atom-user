@@ -116,9 +116,12 @@ class PostApiController extends ApiController
         $post = $this->postRepo->create([
             "body" => $body,
             "num_comments" => 0,
+            "upvote" => 0,
+            "downvote" => 0,
             "merchant_id" => $merchant->id,
             "creator_id" => Auth::user()->id
         ]);
+
 
         $createPostSocketEvent = new CreatePostSocketEvent([
             "post_id" => $post->id

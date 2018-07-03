@@ -4,13 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends UuidModel
+class Image extends UuidModel
 {
-    use SoftDeletes;
-
     protected $table = 'posts';
 
-    protected $fillable = ['num_comments', "body", "upvote", "downvote", "merchant_id", "creator_id"];
+    protected $fillable = ["user_id", "merchant_id", "path", 'url'];
 
     public function merchant()
     {

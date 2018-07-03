@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Repositories\ImageRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Storage;
 
 class ImageApiController extends ApiController
 {
+    protected $imageRepository;
 
+    public function __construct(
+        ImageRepositoryInterface $imageRepository
+    )
+    {
+        parent::__construct();
+        $this->imageRepository = $imageRepository;
+    }
 
     /**
      * Param: image
@@ -22,12 +31,19 @@ class ImageApiController extends ApiController
         ]);
 
         if ($request->hasFile('image')) {
+
+
+
             $image = $request->file('image');
             $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 
             $s3 = Storage::disk('s3');
             $filePath = 'images/' . $imageFileName;
             $s3->put("production/" . $filePath, file_get_contents($image), 'public');
+
+            $image = $this->imageRepository->create([
+
+            ]);
         }
 
         return $this->success([

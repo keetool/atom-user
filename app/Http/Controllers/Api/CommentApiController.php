@@ -39,9 +39,9 @@ class CommentApiController extends ApiController
         return CommentResource::collection($comments);
     }
 
-    public function loadMoreComments($subdomain, $commentId, Request $request)
+    public function loadComments($subdomain, $postId, Request $request)
     {
-        $comments = $this->commentRepo->findCommentsAfterACommentPaginate($commentId, $request->order, $request->limit);
+        $comments = $this->commentRepo->findCommentsAfterACommentPaginate($postId, $request->comment_id, $request->order, $request->limit);
         return CommentResource::collection($comments);
     }
 

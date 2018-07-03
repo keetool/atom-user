@@ -23,17 +23,16 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         }
         return Comment::where("post_id", $postId)->orderBy("created_at", $order)->paginate($limit);
     }
-    
-    public function findCommentsAfterACommentPaginate($commentId, $order = "asc")
-    {
-        $comment = Comment::find($commentId);
 
+    public function findCommentsAfterACommentPaginate($postId, $commentId = null, $order = "asc")
+    {
         if ($order == null) {
             $order = "asc";
         }
-
-        return Comment::where("post_id", $comment->post_id)->where('created_at', '>', $comment->created_at)
-            ->orderBy("created_at", $order)->limit(5)
-            ->get();
+        $comments = Comment::where("post_id", $postId);
+        if ($commentId)
+            $comments = $comments->where('created_at', '>', Comment::find($commentId)->created_at);
+        $comments = $comments->orderBy("created_at", $order)->limit(5)->get();
+        return $comments;
     }
 }

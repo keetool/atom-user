@@ -32,11 +32,12 @@ Route::middleware("auth:api")->group(function () {
             Route::put("/{commentId}", "Api\CommentApiController@updateComment");
             Route::delete("/{commentId}", "Api\CommentApiController@deleteComment");
         });
+
+        Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
     });
 
     Route::prefix("comment")->group(function () {
         Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
-        Route::get("/{commentId}/load-more", "Api\CommentApiController@loadMoreComments");
     });
 
     Route::prefix("dashboard")->group(function () {
@@ -51,6 +52,9 @@ Route::middleware("auth:api")->group(function () {
 
 // Route::prefix("comment")->group(function() {
 //     Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
-//     Route::get("/{commentId}/load-more", "Api\CommentApiController@loadMoreComments");
+//     Route::get("/{commentId}/load-more", "Api\CommentApiController@loadComments");
+// });
+// Route::prefix("post")->group(function() {
+//     Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
 // });
     

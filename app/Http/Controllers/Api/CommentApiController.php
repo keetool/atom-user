@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Comment as CommentResource;
 
+/**
+ * @resource Comment
+ */
 class CommentApiController extends ApiController
 {
 
@@ -30,15 +33,32 @@ class CommentApiController extends ApiController
     }
 
     /**
+     * GET post's comment
      * Query param: limit, order
      * @param Request $request
+     * return [
+     *     'title' => 'required|max:255',
+     *     'body' => 'required',
+     *     'type' => 'in:foo,bar',
+     *     'thumbnail' => 'required_if:type,foo|image',
+     *];
      */
     public function getComments($subdomain, $postId, Request $request)
     {
-        $comments = $this->commentRepo->findAllCommentByPostIdPaginate($postId, $request->order, $request->limit);
-        return CommentResource::collection($comments);
+        return [
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'type' => 'in:foo,bar',
+            'thumbnail' => 'required_if:type,foo|image',
+        ];
+        // $comments = $this->commentRepo->findAllCommentByPostIdPaginate($postId, $request->order, $request->limit);
+        // return CommentResource::collection($comments);
     }
 
+    /**
+     * @comments
+     * ASDASDASDL
+     */
     public function loadComments($subdomain, $postId, Request $request)
     {
         $comments = $this->commentRepo->findCommentsAfterACommentPaginate($postId, $request->comment_id, $request->order, $request->limit);

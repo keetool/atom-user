@@ -13,7 +13,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
-
+/**
+ * @resource Post
+ */
 class PostApiController extends ApiController
 {
 
@@ -92,6 +94,14 @@ class PostApiController extends ApiController
 
         $posts = $this->postRepo->findByMerchantId($merchant->id);
 
+        return PostResource::collection($posts);
+    }
+    
+    public function loadPosts(Request $request)
+    {
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+
+        $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
         return PostResource::collection($posts);
     }
 

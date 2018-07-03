@@ -11,7 +11,7 @@ class Comment extends UuidModel
 
     protected $table = 'comments';
 
-    protected $fillable = ["value", "post_id", "user_id"];
+    protected $fillable = ["value", "post_id", "user_id", "upvote", "downvote"];
 
     public function user() {
         return $this->belongsTo(User::class, "user_id");

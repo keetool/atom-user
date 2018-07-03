@@ -45,14 +45,14 @@ class CommentApiController extends ApiController
      */
     public function getComments($subdomain, $postId, Request $request)
     {
-        return [
-            'title' => 'required|max:255',
-            'body' => 'required',
-            'type' => 'in:foo,bar',
-            'thumbnail' => 'required_if:type,foo|image',
-        ];
-        // $comments = $this->commentRepo->findAllCommentByPostIdPaginate($postId, $request->order, $request->limit);
-        // return CommentResource::collection($comments);
+        // return [
+        //     'title' => 'required|max:255',
+        //     'body' => 'required',
+        //     'type' => 'in:foo,bar',
+        //     'thumbnail' => 'required_if:type,foo|image',
+        // ];
+        $comments = $this->commentRepo->findAllCommentByPostIdPaginate($postId, $request->order, $request->limit);
+        return CommentResource::collection($comments);
     }
 
     /**

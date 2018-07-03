@@ -16,7 +16,7 @@ class ChangeVotesTable extends Migration
         //ADD unique(user_id, post_id) and ADD index(value)
         Schema::table('votes', function (Blueprint $table) {
             $table->text('value')->index()->change();
-            $table->unique('user_id', 'post_id');
+            $table->unique(['user_id', 'post_id']);
         });
     }
 

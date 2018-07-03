@@ -21,7 +21,7 @@ class CreateCommentVotesTable extends Migration
             $table->foreign("comment_id")->references("id")->on("comments");
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
-            $table->unique('user_id', 'comment_id');
+            $table->unique(['user_id', 'comment_id']);
         });
         DB::statement('ALTER TABLE comment_votes ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
     }

@@ -105,7 +105,7 @@ class PostApiController extends ApiController
     {
         $body = $request->body;
 
-        if ($title == null || $body == null) {
+        if ($body == null) {
             return $this->badRequest([
                 "Thiếu dữ liệu trả lên"
             ]);

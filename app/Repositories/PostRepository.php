@@ -24,7 +24,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
             $limit = 10;
         $posts = $this->model->where("merchant_id", $merchantId);
         if($postId)
-            $posts = $posts->where("created_at", ">", $this->model->find($postId)->created_at);
+            $posts = $posts->where("created_at", "<", $this->model->find($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
         return $posts;
     }

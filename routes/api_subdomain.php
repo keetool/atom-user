@@ -34,7 +34,7 @@ Route::middleware("auth:api")->group(function () {
         });
     });
 
-    Route::prefix("comment")->group(function() {
+    Route::prefix("comment")->group(function () {
         Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
         Route::get("/{commentId}/load-more", "Api\CommentApiController@loadMoreComments");
     });
@@ -42,6 +42,11 @@ Route::middleware("auth:api")->group(function () {
     Route::prefix("dashboard")->group(function () {
         Route::get("/", "Api\DashboardApiController@newUserCount");
     });
+
+    Route::prefix("image")->group(function () {
+        Route::post("/", "Api\ImageApiController@createImage");
+    });
+
 });
 
 // Route::prefix("comment")->group(function() {

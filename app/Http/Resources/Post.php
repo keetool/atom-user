@@ -23,7 +23,6 @@ class Post extends JsonResource
 
         return [
             'id' => $this->id,
-            'title' => $this->title,
             'body' => $this->body,
             'downvote' => $this->downvote,
             "upvote" => $this->upvote,

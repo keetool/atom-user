@@ -9,7 +9,6 @@
 namespace App\Repositories;
 
 
-interface VoteRepositoryInterface
+interface ImageRepositoryInterface
 {
-    public function findVoteByUserIdAndPostId($userId, $postId);
 }

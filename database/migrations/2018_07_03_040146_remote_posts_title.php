@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeVotesTable extends Migration
+class RemotePostsTitle extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class ChangeVotesTable extends Migration
      */
     public function up()
     {
-        //ADD unique(user_id, post_id) and ADD index(value)
-        Schema::table('votes', function (Blueprint $table) {
-            $table->text('value')->index()->change();
-            $table->unique(['user_id', 'post_id']);
+        Schema::table("posts", function (Blueprint $table) {
+            $table->dropColumn('title');
         });
     }
 

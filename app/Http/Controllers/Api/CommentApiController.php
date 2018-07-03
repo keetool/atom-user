@@ -22,8 +22,7 @@ class CommentApiController extends ApiController
         SocketService $socketService,
         PostRepositoryInterface $postRepo,
         CommentRepositoryInterface $commentRepository
-    )
-    {
+    ) {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->commentRepo = $commentRepository;
@@ -139,5 +138,60 @@ class CommentApiController extends ApiController
         return $this->success(["message" => "deleted"]);
     }
 
+    public function vote()
+    {
+        // $voteValue = $vote == "up" ? 1 : -1;
 
+        // $post = $this->postRepo->show($postId);
+        // if ($post == null) {
+        //     return $this->badRequest(["message" => "post not found"]);
+        // }
+
+        // $user = Auth::user();
+
+        // $vote = $this->voteRepo->findVoteByUserIdAndPostId($user->id, $postId);
+
+        // if ($vote == null) {
+        //     // user have not upvote or downvote yet
+        //     $this->voteRepo->create([
+        //         "user_id" => $user->id,
+        //         "value" => $voteValue,
+        //         "post_id" => $postId
+        //     ]);
+        //     if ($voteValue == 1) {
+        //         $this->postRepo->increment($postId, "upvote");
+        //     } else if ($voteValue == -1) {
+        //         $this->postRepo->increment($postId, 'downvote');
+        //     }
+        // } else {
+        //     if ($vote->value == $voteValue) {
+        //         //remove the vote
+        //         $this->voteRepo->delete($vote->id);
+        //         if ($voteValue == 1) {
+        //             $this->postRepo->decrement($postId, "upvote");
+        //         } else if ($voteValue == -1) {
+        //             $this->postRepo->decrement($postId, "downvote");
+        //         }
+        //     }
+        //     if ($vote->value == -1 * $voteValue) {
+        //         //change to oposite vote
+        //         $this->voteRepo->update([
+        //             "value" => $voteValue
+        //         ], $vote->id);
+
+
+        //         if ($voteValue == 1) {
+        //             $this->postRepo->increment($postId, "upvote");
+        //             $this->postRepo->decrement($postId, "downvote");
+        //         } else if ($voteValue == -1) {
+        //             $this->postRepo->increment($postId, "downvote");
+        //             $this->postRepo->decrement($postId, "upvote");
+        //         }
+        //     }
+        // }
+
+        // $post = $this->postRepo->show($postId);
+
+        // return new PostResource($post);
+    }
 }

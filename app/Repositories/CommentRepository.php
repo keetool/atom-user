@@ -24,14 +24,14 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         return Comment::where("post_id", $postId)->orderBy("created_at", $order)->paginate($limit);
     }
 
-    public function findCommentsAfterACommentPaginate($postId, $commentId = null, $order = "asc", $limit = 10)
+    public function findCommentsAfterACommentPaginate($postId, $commentId = null, $order = "desc", $limit = 10)
     {
         if ($order == null) {
-            $order = "asc";
+            $order = "desc";
         }
 
-        if ($order == null) {
-            $oder = 10;
+        if ($limit == null) {
+            $limit = 10;
         }
         $comments = Comment::where("post_id", $postId);
         if ($commentId)

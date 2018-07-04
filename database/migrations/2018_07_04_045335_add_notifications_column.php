@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeCommentsTable extends Migration
+class AddNotificationsColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class ChangeCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::table("comments", function (Blueprint $table) {
-            $table->integer("upvote")->default(0);
-            $table->integer("downvote")->default(0);
+        Schema::table("notifications", function (Blueprint $table) {
+            $table->string("type");
+            $table->uuid("receiver_id")->index();
+            $table->uuid("author_id")->index();
         });
     }
 

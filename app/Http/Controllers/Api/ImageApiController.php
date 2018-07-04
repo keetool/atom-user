@@ -26,6 +26,7 @@ class ImageApiController extends ApiController
     }
 
     /**
+     * Upload Image
      * Param: image
      * @param Request $request
      * @return ImageResource

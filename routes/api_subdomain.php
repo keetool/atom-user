@@ -13,6 +13,7 @@ Route::middleware("auth:api")->group(function () {
     Route::prefix("user")->group(function () {
         Route::get("/", "Api\UserApiController@user");
     });
+    
     Route::prefix("log")->group(function () {
         Route::get("/", "Api\LogApiController@myLogs");
     });
@@ -35,10 +36,9 @@ Route::middleware("auth:api")->group(function () {
 
         Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
     });
-    Route::get("load-post", "Api\PostApiController@loadPosts");
 
     Route::prefix("comment")->group(function () {
-        Route::post("/{commentId}/{vote}", "Api\CommentApiController@vote");
+        Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
     });
 
     Route::prefix("dashboard")->group(function () {
@@ -49,6 +49,7 @@ Route::middleware("auth:api")->group(function () {
         Route::post("/", "Api\ImageApiController@createImage");
     });
 
+    Route::get("load-post", "Api\PostApiController@loadPosts");
 });
 
 // Route::prefix("comment")->group(function () {

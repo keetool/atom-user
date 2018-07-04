@@ -1071,7 +1071,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_95d3e466685ce5941d4e63cb0bf6b2b8 -->
 
 <!-- START_53591963dc89f0c036dafbb9a9365d46 -->
-## client-api/v1/post/{postId}/load-comment
+## Load comments
 
 > Example request:
 
@@ -1441,7 +1441,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_e1c0cc3ebf34ca6802344473ac3456e4 -->
 
-#Home language routes
+#Home routes
 <!-- START_dbead2b009f8ff7b851d4debdf907579 -->
 ## list of languages
 /t/language/list
@@ -4171,7 +4171,6 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_74ce018a42a42ea99499584e84d957e4 -->
 
-#Home routes
 <!-- START_0f15af4a72ec033d66ef9a320727b267 -->
 ## /
 

@@ -11,7 +11,7 @@ use App\Repositories\KeywordRepository;
 use App\Repositories\KeywordLanguageRepository;
 
 /**
- * @resource Home language routes
+ * @resource Home routes
  */
 class LanguageController extends Controller
 {

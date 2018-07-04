@@ -61,8 +61,7 @@ class CommentApiController extends ApiController
     }
 
     /**
-     * @comments
-     * ASDASDASDL
+     * Load comments
      */
     public function loadComments($subdomain, $postId, Request $request)
     {

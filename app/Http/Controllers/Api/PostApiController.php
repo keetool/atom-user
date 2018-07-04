@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
+use App\Repositories\ImagePostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
+
 /**
  * @resource Post
  */
@@ -20,6 +22,8 @@ class PostApiController extends ApiController
 {
 
     protected $postRepo;
+
+    protected $imagePostRepository;
     protected $merchantRepo;
     protected $voteRepo;
     protected $socketService;
@@ -28,6 +32,7 @@ class PostApiController extends ApiController
         VoteRepositoryInterface $voteRepository,
         PostRepositoryInterface $postRepo,
         SocketService $socketService,
+        ImagePostRepositoryInterface $imagePostRepository,
         MerchantRepository $merchantRepository)
     {
         parent::__construct();
@@ -35,6 +40,7 @@ class PostApiController extends ApiController
         $this->merchantRepo = $merchantRepository;
         $this->voteRepo = $voteRepository;
         $this->socketService = $socketService;
+        $this->imagePostRepository = $imagePostRepository;
     }
 
     /**
@@ -96,7 +102,7 @@ class PostApiController extends ApiController
 
         return PostResource::collection($posts);
     }
-    
+
     public function loadPosts(Request $request)
     {
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
@@ -114,7 +120,6 @@ class PostApiController extends ApiController
     public function createPost($subDomain, Request $request)
     {
         $body = $request->body;
-
         if ($body == null) {
             return $this->badRequest([
                 "Thiếu dữ liệu trả lên"
@@ -132,6 +137,16 @@ class PostApiController extends ApiController
             "creator_id" => Auth::user()->id
         ]);
 
+
+        if ($request->image_ids) {
+            $imageIds = json_decode($request->image_ids);
+            foreach ($imageIds as $imageId) {
+                $this->imagePostRepository->create([
+                    "image_id" => $imageId,
+                    'post_id' => $post->id
+                ]);
+            }
+        }
 
         $createPostSocketEvent = new CreatePostSocketEvent([
             "post_id" => $post->id

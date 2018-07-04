@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\CommentRepository;
 use App\Repositories\CommentRepositoryInterface;
+use App\Repositories\ImagePostRepository;
+use App\Repositories\ImagePostRepositoryInterface;
 use App\Repositories\ImageRepository;
 use App\Repositories\ImageRepositoryInterface;
 use App\Repositories\MerchantInterface;
@@ -49,6 +51,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ImageRepositoryInterface::class, ImageRepository::class);
 
         $this->app->singleton(MerchantInterface::class, MerchantRepository::class);
+
+        $this->app->singleton(ImagePostRepositoryInterface::class, ImagePostRepository::class);
+
     }
 
 }

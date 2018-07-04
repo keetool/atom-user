@@ -31,7 +31,8 @@ class Post extends JsonResource
             "merchant" => new MerchantResource($this->merchant),
             'created_at' => strtotime($this->created_at),
             'updated_at' => strtotime($this->updated_at),
-            "vote" => $vote == null ? 0 : $vote->value
+            "vote" => $vote == null ? 0 : $vote->value,
+            "posts" => ImageResource::collection($this->images)
         ];
     }
 }

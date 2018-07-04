@@ -44,7 +44,8 @@ class ImageApiController extends ApiController
 
 
             $image = $request->file('image');
-            $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+            $imageFileName = time() . str_random(8) . bcrypt(str_random(8) . $image->getClientOriginalName())
+                . '.' . $image->getClientOriginalExtension();
 
             $s3 = Storage::disk('s3');
             $filePath = 'images/' . $imageFileName;

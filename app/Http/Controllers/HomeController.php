@@ -8,6 +8,9 @@ use App\Repositories\LanguageRepository;
 use App\Services\SocketService;
 use Illuminate\Http\Request;
 
+/**
+ * @resource Home routes
+ */
 class HomeController extends BaseController
 {
     protected $languageRepo;

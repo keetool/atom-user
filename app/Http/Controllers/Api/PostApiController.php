@@ -139,7 +139,7 @@ class PostApiController extends ApiController
 
 
         if ($request->image_ids) {
-            $imageIds = json_decode($request->image_ids);
+            $imageIds = json_encode($request->image_ids);
             foreach ($imageIds as $imageId) {
                 $this->imagePostRepository->create([
                     "image_id" => $imageId,

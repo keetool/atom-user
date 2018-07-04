@@ -39,4 +39,15 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         $comments = $comments->orderBy("created_at", $order)->limit($limit)->get();
         return $comments;
     }
+
+    public function increment($commentId, $column)
+    {
+        Comment::where('id', $commentId)->increment($column);
+    }
+
+    public function decrement($commentId, $column)
+    {
+        Comment::where('id', $commentId)->decrement($column);
+
+    }
 }

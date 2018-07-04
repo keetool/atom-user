@@ -13,11 +13,18 @@ class Comment extends UuidModel
 
     protected $fillable = ["value", "post_id", "user_id", "upvote", "downvote"];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class, "user_id");
     }
 
-    public function post() {
+    public function post()
+    {
         return $this->belongsTo(Post::class, "post_id");
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(CommentVote::class, "comment_id");
     }
 }

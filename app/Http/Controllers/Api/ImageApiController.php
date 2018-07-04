@@ -10,6 +10,9 @@ use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @resource Image
+ */
 class ImageApiController extends ApiController
 {
     protected $imageRepository;

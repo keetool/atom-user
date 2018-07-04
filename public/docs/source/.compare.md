@@ -829,6 +829,41 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_e1c0cc3ebf34ca6802344473ac3456e4 -->
 
+#Image
+<!-- START_65d2e3d726f00747909ebbf723a416a0 -->
+## Upload Image
+Param: image
+
+> Example request:
+
+```bash
+curl -X POST "http://atomuser.test/client-api/v1/image" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/image",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST client-api/v1/image`
+
+
+<!-- END_65d2e3d726f00747909ebbf723a416a0 -->
+
 #Post
 <!-- START_33cceb96811b35cc8774fbf78f47ab0d -->
 ## Create Post
@@ -4216,40 +4251,6 @@ $.ajax(settings).done(function (response) {
 
 
 <!-- END_bf44e8850ecd91d57f2035ebebb01328 -->
-
-<!-- START_65d2e3d726f00747909ebbf723a416a0 -->
-## Upload Image
-Param: image
-
-> Example request:
-
-```bash
-curl -X POST "http://atomuser.test/client-api/v1/image" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://atomuser.test/client-api/v1/image",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST client-api/v1/image`
-
-
-<!-- END_65d2e3d726f00747909ebbf723a416a0 -->
 
 <!-- START_b511cfc544d2dd97a4948f44496a1cf7 -->
 ## Check if merchant exist

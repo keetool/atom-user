@@ -794,6 +794,31 @@ $.ajax(settings).done(function (response) {
 <h3>HTTP Request</h3>
 <p><code>POST client-api/v1/comment/{commentId}/vote/{vote}</code></p>
 <!-- END_e1c0cc3ebf34ca6802344473ac3456e4 -->
+<h1>Image</h1>
+<!-- START_65d2e3d726f00747909ebbf723a416a0 -->
+<h2>Upload Image</h2>
+<p>Param: image</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://atomuser.test/client-api/v1/image" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/image",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST client-api/v1/image</code></p>
+<!-- END_65d2e3d726f00747909ebbf723a416a0 -->
 <h1>Post</h1>
 <!-- START_33cceb96811b35cc8774fbf78f47ab0d -->
 <h2>Create Post</h2>
@@ -3857,30 +3882,6 @@ $.ajax(settings).done(function (response) {
 <p><code>GET client-api/v1/dashboard</code></p>
 <p><code>HEAD client-api/v1/dashboard</code></p>
 <!-- END_bf44e8850ecd91d57f2035ebebb01328 -->
-<!-- START_65d2e3d726f00747909ebbf723a416a0 -->
-<h2>Upload Image</h2>
-<p>Param: image</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://atomuser.test/client-api/v1/image" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://atomuser.test/client-api/v1/image",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST client-api/v1/image</code></p>
-<!-- END_65d2e3d726f00747909ebbf723a416a0 -->
 <!-- START_b511cfc544d2dd97a4948f44496a1cf7 -->
 <h2>Check if merchant exist</h2>
 <blockquote>

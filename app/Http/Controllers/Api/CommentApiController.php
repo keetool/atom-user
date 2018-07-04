@@ -178,7 +178,8 @@ class CommentApiController extends ApiController
             return $this->badRequest(["message" => "comment not found"]);
         }
 
-        $user = User::find("b4619dc6-3d3d-4dbf-91a2-f677cab665bd");
+        $user = Auth::user();
+        // $user = User::find("b4619dc6-3d3d-4dbf-91a2-f677cab665bd");
 
         $vote = $this->commentVoteRepo->findVoteByUserIdAndCommentId($user->id, $commentId);
 

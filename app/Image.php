@@ -2,11 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-
 class Image extends UuidModel
 {
-    protected $table = 'posts';
+    protected $table = 'images';
 
     protected $fillable = ["user_id", "merchant_id", "path", 'url'];
 

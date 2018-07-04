@@ -6,6 +6,8 @@ use App\Repositories\CommentRepository;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\ImageRepository;
 use App\Repositories\ImageRepositoryInterface;
+use App\Repositories\MerchantInterface;
+use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepository;
@@ -49,6 +51,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ImageRepositoryInterface::class, ImageRepository::class);
 
         $this->app->singleton(CommentVoteRepositoryInterface::class, CommentVoteRepository::class);
+        
+        $this->app->singleton(MerchantInterface::class, MerchantRepository::class);
     }
 
 }

@@ -51,15 +51,6 @@ Route::middleware("auth:api")->group(function () {
 
 });
 
-// Route::prefix("comment")->group(function() {
-//     Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
-//     Route::get("/{commentId}/load-more", "Api\CommentApiController@loadComments");
+// Route::prefix("comment")->group(function () {
+//     Route::post("/{commentId}/{vote}", "Api\CommentApiController@vote");
 // });
-// Route::prefix("post")->group(function() {
-//     Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
-// });
-// Route::get("load-post", "Api\PostApiController@loadPosts");
-
-Route::prefix("comment")->group(function () {
-    Route::post("/{commentId}/{vote}", "Api\CommentApiController@vote");
-});

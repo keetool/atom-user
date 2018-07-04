@@ -88,8 +88,10 @@ class CommentApiController extends ApiController
 
         $comment = $this->commentRepo->create([
             "value" => $request->value,
-            'post_id' => $postId,
-            'user_id' => $user->id
+            "post_id" => $postId,
+            "user_id" => $user->id,
+            "upvote" => 0,
+            "downvote" => 0
         ]);
 
         $this->postRepo->increment($post->id, "num_comments");

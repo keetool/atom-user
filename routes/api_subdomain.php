@@ -39,7 +39,6 @@ Route::middleware("auth:api")->group(function () {
 
     Route::prefix("comment")->group(function () {
         Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
-        Route::get("/gaugau", "Api\CommentApiController@test");
     });
 
     Route::prefix("dashboard")->group(function () {

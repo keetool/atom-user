@@ -169,11 +169,10 @@ class CommentApiController extends ApiController
         return $this->success(["message" => "deleted"]);
     }
 
-    public function test()
-    {
-        dd('aaskd');
-    }
-
+    /**
+     * Vote comment
+     * $vote = {up,down}
+     */
     public function vote($subDomain, $commentId, $vote)
     {
         $voteValue = $vote == "up" ? 1 : -1;

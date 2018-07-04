@@ -10,6 +10,8 @@ use App\SocketEvent\Comment\CreateCommentSocketEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Comment as CommentResource;
+use App\User;
+use App\Repositories\CommentVoteRepositoryInterface;
 
 /**
  * @resource Comment
@@ -20,15 +22,18 @@ class CommentApiController extends ApiController
     protected $postRepo;
     protected $commentRepo;
     protected $socketService;
+    protected $commentVoteRepo;
 
     public function __construct(
         SocketService $socketService,
         PostRepositoryInterface $postRepo,
-        CommentRepositoryInterface $commentRepository
+        CommentRepositoryInterface $commentRepository,
+        CommentVoteRepositoryInterface $commentVoteRepo
     ) {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->commentRepo = $commentRepository;
+        $this->commentVoteRepo = $commentVoteRepo;
         $this->socketService = $socketService;
     }
 
@@ -56,8 +61,7 @@ class CommentApiController extends ApiController
     }
 
     /**
-     * @comments
-     * ASDASDASDL
+     * Load comments
      */
     public function loadComments($subdomain, $postId, Request $request)
     {
@@ -83,8 +87,10 @@ class CommentApiController extends ApiController
 
         $comment = $this->commentRepo->create([
             "value" => $request->value,
-            'post_id' => $postId,
-            'user_id' => $user->id
+            "post_id" => $postId,
+            "user_id" => $user->id,
+            "upvote" => 0,
+            "downvote" => 0
         ]);
 
         $this->postRepo->increment($post->id, "num_comments");
@@ -164,60 +170,65 @@ class CommentApiController extends ApiController
         return $this->success(["message" => "deleted"]);
     }
 
-    public function vote()
+    /**
+     * Vote comment
+     * $vote = {up,down}
+     */
+    public function vote($subDomain, $commentId, $vote)
     {
-        // $voteValue = $vote == "up" ? 1 : -1;
+        $voteValue = $vote == "up" ? 1 : -1;
 
-        // $post = $this->postRepo->show($postId);
-        // if ($post == null) {
-        //     return $this->badRequest(["message" => "post not found"]);
-        // }
+        $post = $this->commentRepo->show($commentId);
+        if ($post == null) {
+            return $this->badRequest(["message" => "comment not found"]);
+        }
 
-        // $user = Auth::user();
+        $user = Auth::user();
+        // $user = User::find("b4619dc6-3d3d-4dbf-91a2-f677cab665bd");
 
-        // $vote = $this->voteRepo->findVoteByUserIdAndPostId($user->id, $postId);
+        $vote = $this->commentVoteRepo->findVoteByUserIdAndCommentId($user->id, $commentId);
 
-        // if ($vote == null) {
-        //     // user have not upvote or downvote yet
-        //     $this->voteRepo->create([
-        //         "user_id" => $user->id,
-        //         "value" => $voteValue,
-        //         "post_id" => $postId
-        //     ]);
-        //     if ($voteValue == 1) {
-        //         $this->postRepo->increment($postId, "upvote");
-        //     } else if ($voteValue == -1) {
-        //         $this->postRepo->increment($postId, 'downvote');
-        //     }
-        // } else {
-        //     if ($vote->value == $voteValue) {
-        //         //remove the vote
-        //         $this->voteRepo->delete($vote->id);
-        //         if ($voteValue == 1) {
-        //             $this->postRepo->decrement($postId, "upvote");
-        //         } else if ($voteValue == -1) {
-        //             $this->postRepo->decrement($postId, "downvote");
-        //         }
-        //     }
-        //     if ($vote->value == -1 * $voteValue) {
-        //         //change to oposite vote
-        //         $this->voteRepo->update([
-        //             "value" => $voteValue
-        //         ], $vote->id);
+        if ($vote == null) {
+            // user have not upvote or downvote yet
+            $this->commentVoteRepo->create([
+                "user_id" => $user->id,
+                "value" => $voteValue,
+                "comment_id" => $commentId
+            ]);
+            if ($voteValue == 1) {
+                $this->commentRepo->increment($commentId, "upvote");
+            } else if ($voteValue == -1) {
+                $this->commentRepo->increment($commentId, 'downvote');
+            }
+        } else {
+            if ($vote->value == $voteValue) {
+                //remove the vote
+                $this->commentVoteRepo->delete($vote->id);
+                if ($voteValue == 1) {
+                    $this->commentRepo->decrement($commentId, "upvote");
+                } else if ($voteValue == -1) {
+                    $this->commentRepo->decrement($commentId, "downvote");
+                }
+            }
+            if ($vote->value == -1 * $voteValue) {
+                //change to oposite vote
+                $this->commentVoteRepo->update([
+                    "value" => $voteValue
+                ], $vote->id);
 
 
-        //         if ($voteValue == 1) {
-        //             $this->postRepo->increment($postId, "upvote");
-        //             $this->postRepo->decrement($postId, "downvote");
-        //         } else if ($voteValue == -1) {
-        //             $this->postRepo->increment($postId, "downvote");
-        //             $this->postRepo->decrement($postId, "upvote");
-        //         }
-        //     }
-        // }
+                if ($voteValue == 1) {
+                    $this->commentRepo->increment($commentId, "upvote");
+                    $this->commentRepo->decrement($commentId, "downvote");
+                } else if ($voteValue == -1) {
+                    $this->commentRepo->increment($commentId, "downvote");
+                    $this->commentRepo->decrement($commentId, "upvote");
+                }
+            }
+        }
 
-        // $post = $this->postRepo->show($postId);
+        $comment = $this->commentRepo->show($commentId);
 
-        // return new PostResource($post);
+        return new CommentResource($comment);
     }
 }

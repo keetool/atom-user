@@ -10,6 +10,9 @@ use App\Repositories\LanguageRepository;
 use App\Repositories\KeywordRepository;
 use App\Repositories\KeywordLanguageRepository;
 
+/**
+ * @resource Home routes
+ */
 class LanguageController extends Controller
 {
     protected $languageRepository;

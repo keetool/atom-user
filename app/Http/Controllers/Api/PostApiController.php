@@ -11,7 +11,7 @@ use App\Repositories\ImagePostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
-use App\Services\SocketService;
+use App\Services\SocketServiceInterface;
 use App\SocketEvent\Post\CreatePostSocketEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
@@ -34,10 +34,11 @@ class PostApiController extends ApiController
     public function __construct(
         VoteRepositoryInterface $voteRepository,
         PostRepositoryInterface $postRepo,
-        SocketService $socketService,
+        SocketServiceInterface $socketService,
         ImagePostRepositoryInterface $imagePostRepository,
         MerchantRepository $merchantRepository
-    ) {
+    )
+    {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
@@ -239,11 +240,11 @@ class PostApiController extends ApiController
             ]);
             if ($voteValue == 1) {
                 $notification = new CreateUpvotePostNotification($user, $post);
-                Notification::saveNotification($notification);
+                Notification::saveNotification($subdomain, $notification);
                 $this->postRepo->increment($postId, "upvote");
             } else if ($voteValue == -1) {
                 $notification = new CreateDownvotePostNotification($user, $post);
-                Notification::saveNotification($notification);
+                Notification::saveNotification($subdomain, $notification);
 
                 $this->postRepo->increment($postId, 'downvote');
 
@@ -267,13 +268,13 @@ class PostApiController extends ApiController
 
                 if ($voteValue == 1) {
                     $notification = new CreateUpvotePostNotification($user, $post);
-                    Notification::saveNotification($notification);
+                    Notification::saveNotification($subdomain, $notification);
 
                     $this->postRepo->increment($postId, "upvote");
                     $this->postRepo->decrement($postId, "downvote");
                 } else if ($voteValue == -1) {
                     $notification = new CreateDownvotePostNotification($user, $post);
-                    Notification::saveNotification($notification);
+                    Notification::saveNotification($subdomain, $notification);
 
                     $this->postRepo->increment($postId, "downvote");
                     $this->postRepo->decrement($postId, "upvote");

@@ -9,13 +9,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class api extends TestCase
 {
     /**
-     * A basic test example.
-     *
-     * @return void
+     * Test Post login
+     * /login
      */
-    public function testExample()
+    public function testPostMarchant()
     {
-        $this->assertTrue(true);
-    }
-    
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+     }
+
+  
 }

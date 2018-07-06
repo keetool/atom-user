@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\KeywordLanguageRepository;
 use App\Repositories\KeywordRepository;
 use App\Repositories\LanguageRepository;
-use App\Services\SocketService;
+use App\Services\SocketServiceInterface;
 use Illuminate\Http\Request;
 
 /**
@@ -20,7 +20,7 @@ class HomeController extends BaseController
 
     public function __construct(
         LanguageRepository $languageRepo,
-        SocketService $socketService,
+        SocketServiceInterface $socketService,
         KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {
         parent::__construct();
@@ -73,8 +73,10 @@ class HomeController extends BaseController
 
     public function accessDashboard(Request $request)
     {
-        if ($request->subdomain) {
-            $url = $request->subdomain;
+        if ($request->subdomain) {;
+            $url = $request->subdomain . "." . config("app.domain");
+            $url = generate_https($url);
+            $url = $url . "/manage/signin";
             return redirect()->away(generate_https($url));
         }
         return view("home.access_dashboard", $this->data);

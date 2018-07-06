@@ -10,10 +10,15 @@ Route::prefix("auth")->group(function () {
 });
 
 Route::middleware("auth:api")->group(function () {
+
+
     Route::prefix("user")->group(function () {
         Route::get("/", "Api\UserApiController@user");
+        Route::prefix("/notification")->group(function () {
+            Route::get("/", "Api\NotificationApiController@getNotifications");
+        });
     });
-    
+
     Route::prefix("log")->group(function () {
         Route::get("/", "Api\LogApiController@myLogs");
     });

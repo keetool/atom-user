@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Notifications\Notification;
+use App\Notifications\Post\CreateCommentNotification;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Http\Controllers\ApiController;
@@ -28,7 +30,8 @@ class CommentApiController extends ApiController
         PostRepositoryInterface $postRepo,
         CommentRepositoryInterface $commentRepository,
         CommentVoteRepositoryInterface $commentVoteRepo
-    ) {
+    )
+    {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->commentRepo = $commentRepository;
@@ -40,6 +43,7 @@ class CommentApiController extends ApiController
      * GET post's comment
      * Query param: limit, order
      * @param Request $request
+     * @return
      * return [
      *     'title' => 'required|max:255',
      *     'body' => 'required',
@@ -98,6 +102,10 @@ class CommentApiController extends ApiController
             "comment" => new CommentResource($comment)
         ]);
         $this->socketService->publishEvent($subDomain, $createCommentSocketEvent);
+
+        // Create notification
+        $notification = new CreateCommentNotification($user, $post);
+        Notification::saveNotification($subDomain, $notification);
 
         return new CommentResource($comment);
     }

@@ -6565,7 +6565,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_65d2e3d726f00747909ebbf723a416a0 -->
 
-#Post
+#Notification
 <!-- START_5cdf6064e98da9906e0e6f20c37b924d -->
 ## GET user notification list
 Param: limit, page
@@ -6904,6 +6904,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_5cdf6064e98da9906e0e6f20c37b924d -->
 
+#Post
 <!-- START_33cceb96811b35cc8774fbf78f47ab0d -->
 ## Create Post
 param: title

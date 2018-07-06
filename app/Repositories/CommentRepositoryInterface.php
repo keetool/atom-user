@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: quan
@@ -12,4 +13,10 @@ namespace App\Repositories;
 interface CommentRepositoryInterface
 {
     public function findAllCommentByPostIdPaginate($postId, $order = "asc", $limit = 10);
+
+    public function findCommentsAfterACommentPaginate($postId, $commentId = null, $order = "asc", $limit = 10);
+
+    public function increment($commentId, $column);
+
+    public function decrement($commentId, $column);
 }

@@ -10,9 +10,15 @@ Route::prefix("auth")->group(function () {
 });
 
 Route::middleware("auth:api")->group(function () {
+
+
     Route::prefix("user")->group(function () {
         Route::get("/", "Api\UserApiController@user");
+        Route::prefix("/notification")->group(function () {
+            Route::get("/", "Api\NotificationApiController@getNotifications");
+        });
     });
+
     Route::prefix("log")->group(function () {
         Route::get("/", "Api\LogApiController@myLogs");
     });
@@ -21,8 +27,8 @@ Route::middleware("auth:api")->group(function () {
         Route::post("/", "Api\PostApiController@createPost");
         Route::put("/{postId}", "Api\PostApiController@updatePost");
         Route::get('/', "Api\PostApiController@getPosts");
+        Route::get("/{postId}", "Api\PostApiController@getPost");
         Route::delete("/{postId}", "Api\PostApiController@deletePost");
-//        Route::get("/list");
         // vote = 'up' or 'down'
         Route::post("/{postId}/vote/{vote}", "Api\PostApiController@vote");
 
@@ -33,16 +39,25 @@ Route::middleware("auth:api")->group(function () {
             Route::put("/{commentId}", "Api\CommentApiController@updateComment");
             Route::delete("/{commentId}", "Api\CommentApiController@deleteComment");
         });
+
+        Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
+    });
+
+    Route::prefix("comment")->group(function () {
+        Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
     });
 
     Route::prefix("dashboard")->group(function () {
         Route::get("/", "Api\DashboardApiController@newUserCount");
     });
 
+    Route::prefix("image")->group(function () {
+        Route::post("/", "Api\ImageApiController@createImage");
+    });
+
+    Route::get("load-post", "Api\PostApiController@loadPosts");
 });
 
-// Route::prefix("dashboard")->group(function () {
-//     Route::get("/new-user", "Api\DashboardApiController@newUserCount");
+// Route::prefix("comment")->group(function () {
+//     Route::post("/{commentId}/vote/{vote}", "Api\CommentApiController@vote");
 // });
-
-    

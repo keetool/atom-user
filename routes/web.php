@@ -40,13 +40,15 @@ Route::domain(config("app.domain"))
     );
 
 Route::domain("{client}." . config("app.domain"))
-    ->middleware(['getSubDomain'])->group(
-        $socialRoutes
-    );
-
-Route::domain("{client}." . config("app.domain"))
     ->prefix("manage")
     ->middleware(['getSubDomain'])->group(
         $manageRoutes
     );
+
+Route::domain("{client}." . config("app.domain"))
+    ->middleware(['getSubDomain'])->group(
+        $socialRoutes
+    );
+
+
 

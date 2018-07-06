@@ -16,7 +16,9 @@ use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Merchant;
 
-
+/**
+ * @resource Auth
+ */
 class AuthController extends ApiController
 {
     protected $merchantRepository;

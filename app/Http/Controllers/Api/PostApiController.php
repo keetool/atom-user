@@ -4,20 +4,29 @@ namespace App\Http\Controllers\Api;
 
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
+use App\Notifications\Notification;
+use App\Notifications\Post\CreateDownvotePostNotification;
+use App\Notifications\Post\CreateUpvotePostNotification;
+use App\Repositories\ImagePostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
-use App\Services\SocketService;
+use App\Services\SocketServiceInterface;
 use App\SocketEvent\Post\CreatePostSocketEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
 
+/**
+ * @resource Post
+ */
 class PostApiController extends ApiController
 {
 
     protected $postRepo;
+
+    protected $imagePostRepository;
     protected $merchantRepo;
     protected $voteRepo;
     protected $socketService;
@@ -25,14 +34,17 @@ class PostApiController extends ApiController
     public function __construct(
         VoteRepositoryInterface $voteRepository,
         PostRepositoryInterface $postRepo,
-        SocketService $socketService,
-        MerchantRepository $merchantRepository)
+        SocketServiceInterface $socketService,
+        ImagePostRepositoryInterface $imagePostRepository,
+        MerchantRepository $merchantRepository
+    )
     {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
         $this->voteRepo = $voteRepository;
         $this->socketService = $socketService;
+        $this->imagePostRepository = $imagePostRepository;
     }
 
     /**
@@ -42,10 +54,9 @@ class PostApiController extends ApiController
      */
     public function updatePost($subdomain, $postId, Request $request)
     {
-        $title = $request->title;
         $body = $request->body;
 
-        if ($title == null || $body == null) {
+        if ($body == null) {
             return $this->badRequest([
                 "Thiếu dữ liệu trả lên"
             ]);
@@ -74,7 +85,6 @@ class PostApiController extends ApiController
 
 
         $this->postRepo->update([
-            "title" => $title,
             "body" => $body,
         ], $postId);
 
@@ -97,6 +107,33 @@ class PostApiController extends ApiController
         return PostResource::collection($posts);
     }
 
+    /**
+     * Get post by id
+     */
+    public function getPost($subdomain, $postId, Request $request)
+    {
+        $post = $this->postRepo->show($postId);
+
+        if ($post == null) {
+            return $this->notFound([
+                "message" => "post not found"
+            ]);
+        }
+
+        return new PostResource($post);
+    }
+
+    public function loadPosts($subdomain, Request $request)
+    {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+
+        $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
+        return PostResource::collection($posts);
+    }
+
 
     /**
      * Create Post
@@ -105,10 +142,8 @@ class PostApiController extends ApiController
      */
     public function createPost($subDomain, Request $request)
     {
-        $title = $request->title;
         $body = $request->body;
-
-        if ($title == null || $body == null) {
+        if ($body == null) {
             return $this->badRequest([
                 "Thiếu dữ liệu trả lên"
             ]);
@@ -117,11 +152,24 @@ class PostApiController extends ApiController
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $post = $this->postRepo->create([
-            "title" => $title,
             "body" => $body,
+            "num_comments" => 0,
+            "upvote" => 0,
+            "downvote" => 0,
             "merchant_id" => $merchant->id,
             "creator_id" => Auth::user()->id
         ]);
+
+
+        if ($request->image_ids) {
+            $imageIds = json_decode($request->image_ids);
+            foreach ($imageIds as $imageId) {
+                $this->imagePostRepository->create([
+                    "image_id" => $imageId,
+                    'post_id' => $post->id
+                ]);
+            }
+        }
 
         $createPostSocketEvent = new CreatePostSocketEvent([
             "post_id" => $post->id
@@ -165,17 +213,24 @@ class PostApiController extends ApiController
 
         $vote = $this->voteRepo->findVoteByUserIdAndPostId($user->id, $postId);
 
+
         if ($vote == null) {
-            // user does not upvote or downvote
+            // user have not upvote or downvote yet
             $this->voteRepo->create([
                 "user_id" => $user->id,
                 "value" => $voteValue,
                 "post_id" => $postId
             ]);
             if ($voteValue == 1) {
+                $notification = new CreateUpvotePostNotification($user, $post);
+                Notification::saveNotification($subdomain, $notification);
                 $this->postRepo->increment($postId, "upvote");
             } else if ($voteValue == -1) {
+                $notification = new CreateDownvotePostNotification($user, $post);
+                Notification::saveNotification($subdomain, $notification);
+
                 $this->postRepo->increment($postId, 'downvote');
+
             }
         } else {
             if ($vote->value == $voteValue) {
@@ -195,9 +250,15 @@ class PostApiController extends ApiController
 
 
                 if ($voteValue == 1) {
+                    $notification = new CreateUpvotePostNotification($user, $post);
+                    Notification::saveNotification($subdomain, $notification);
+
                     $this->postRepo->increment($postId, "upvote");
                     $this->postRepo->decrement($postId, "downvote");
                 } else if ($voteValue == -1) {
+                    $notification = new CreateDownvotePostNotification($user, $post);
+                    Notification::saveNotification($subdomain, $notification);
+
                     $this->postRepo->increment($postId, "downvote");
                     $this->postRepo->decrement($postId, "upvote");
                 }

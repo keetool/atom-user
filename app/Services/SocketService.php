@@ -5,7 +5,7 @@ namespace App\Services;
 use App\SocketEvent\SocketEvent;
 use Illuminate\Support\Facades\Redis;
 
-class SocketService
+class SocketService implements SocketServiceInterface
 {
     public function publish($channel, $event, $data)
     {

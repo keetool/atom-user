@@ -122,6 +122,9 @@ class PostApiController extends ApiController
         return new PostResource($post);
     }
 
+    /**
+     * Load post
+     */
     public function loadPosts($subdomain, Request $request)
     {
         if ($this->merchantRepo->findBySubDomain($subdomain) == null)
@@ -133,6 +136,19 @@ class PostApiController extends ApiController
         return PostResource::collection($posts);
     }
 
+    /**
+     * Post list
+     * $stype = {top}
+     */
+    public function postList($subdomain, $type, Request $request)
+    {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+        if ($type == "top")
+            $posts = $this->postRepo->loadTopByMerchantId($merchant->id, $request->post_id, $request->limit);
+        return PostResource::collection($posts);
+    }
 
     /**
      * Create Post

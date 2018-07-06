@@ -51,6 +51,8 @@ Route::middleware("auth:api")->group(function () {
     });
 
     Route::get("load-post", "Api\PostApiController@loadPosts");
+    
+    Route::get("post/list/{type}", "Api\PostApiController@postList");
 });
 
 // Route::prefix("comment")->group(function () {

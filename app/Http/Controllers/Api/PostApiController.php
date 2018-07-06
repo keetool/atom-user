@@ -17,7 +17,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
-use App\Merchant;
 
 /**
  * @resource Post
@@ -125,7 +124,7 @@ class PostApiController extends ApiController
 
     public function loadPosts($subdomain, Request $request)
     {
-        if (Merchant::where('sub_domain', $subdomain)->first() == null)
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
             return $this->notFound(["message" => "merchant not found"]);
 
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);

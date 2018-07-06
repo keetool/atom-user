@@ -10,6 +10,8 @@ use App\Repositories\ImageRepository;
 use App\Repositories\ImageRepositoryInterface;
 use App\Repositories\MerchantInterface;
 use App\Repositories\MerchantRepository;
+use App\Repositories\NotificationRepository;
+use App\Repositories\NotificationRepositoryInterface;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepository;
@@ -58,6 +60,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(MerchantInterface::class, MerchantRepository::class);
 
         $this->app->singleton(ImagePostRepositoryInterface::class, ImagePostRepository::class);
+
+        $this->app->singleton(NotificationRepositoryInterface::class, NotificationRepository::class);
 
     }
 

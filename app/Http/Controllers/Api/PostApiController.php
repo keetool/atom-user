@@ -36,7 +36,8 @@ class PostApiController extends ApiController
         PostRepositoryInterface $postRepo,
         SocketServiceInterface $socketService,
         ImagePostRepositoryInterface $imagePostRepository,
-        MerchantRepository $merchantRepository)
+        MerchantRepository $merchantRepository
+    )
     {
         parent::__construct();
         $this->postRepo = $postRepo;
@@ -106,8 +107,27 @@ class PostApiController extends ApiController
         return PostResource::collection($posts);
     }
 
-    public function loadPosts(Request $request)
+    /**
+     * Get post by id
+     */
+    public function getPost($subdomain, $postId, Request $request)
     {
+        $post = $this->postRepo->show($postId);
+
+        if ($post == null) {
+            return $this->notFound([
+                "message" => "post not found"
+            ]);
+        }
+
+        return new PostResource($post);
+    }
+
+    public function loadPosts($subdomain, Request $request)
+    {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);

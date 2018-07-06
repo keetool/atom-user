@@ -216,8 +216,6 @@
     </div>
 
     <div id="vue-app">
-        <form role="form" action="" id="store-free-trial" method="post">
-            {{csrf_field()}}
             <div class="row">
                 <div class="col-md-4 offset-md-4">
                     <div id="error-validate">
@@ -229,19 +227,19 @@
                 <div class="col-md-4 offset-md-4">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <input name="name" value="{{old('name')}}" type="text" class="form-control" placeholder="Full Name" required/>
+                            <input v-model="name" name="name" value="{{old('name')}}" type="text" class="form-control" placeholder="Full Name" required/>
                         </div>
                         <div class="form-group">
-                            <input name="email" value="{{old('email')}}" type="email" class="form-control" placeholder="Email Address" required/>
+                            <input v-model="email" name="email" value="{{old('email')}}" type="email" class="form-control" placeholder="Email Address" required/>
                         </div>
                         <div class="form-group">
-                            <input name="phone" value="{{old('phone')}}" type="text" class="form-control" placeholder="Phone Number" required/>
+                            <input v-model="phone" name="phone" value="{{old('phone')}}" type="text" class="form-control" placeholder="Phone Number" required/>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Password" required>
+                            <input v-model="password" type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Re-type Password" required>
+                            <input v-model="password_confirmation" type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Re-type Password" required>
                         </div>
                         <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next Step</button>
                     </div>
@@ -251,11 +249,11 @@
                 <div class="col-md-4 offset-md-4">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <input type="text" name="merchant_name" value="{{old('merchant_name')}}" class="form-control" placeholder="Page Name" />
+                            <input v-model="merchant_name" type="text" name="merchant_name" value="{{old('merchant_name')}}" class="form-control" placeholder="Page Name" />
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input v-model="subdomain" type="text" class="form-control" placeholder="Subdomain" name="sub_domain" aria-describedby="basic-addon2">
+                                <input v-model="sub_domain" type="text" class="form-control" placeholder="Subdomain" name="sub_domain" aria-describedby="basic-addon2">
                                 <span class="input-group-addon" id="basic-addon2">.{{ $_SERVER['HTTP_HOST'] }}</span>
                             </div>
                         </div>
@@ -271,7 +269,7 @@
 <pre id="atomuser-code">
 &lt;div class=&quot;atomuser hide&quot; id=&quot;atomuser&quot;&gt;
     &lt;div class=&quot;atomuser-iframe&quot;&gt;
-    &lt;iframe id=&quot;atomuser-iframe&quot; src=&quot;https://@{{subdomain}}.atomuser.com&quot; frameBorder=&quot;0&quot;&gt;
+    &lt;iframe id=&quot;atomuser-iframe&quot; src=&quot;https://@{{sub_domain}}.atomuser.com&quot; frameBorder=&quot;0&quot;&gt;
         &lt;/iframe&gt;
     &lt;/div&gt;
     &lt;div class=&quot;atomuser-fab&quot; id=&quot;atomuser-btn-fab&quot;&gt;
@@ -283,11 +281,10 @@
 &lt;/div&gt;
 </pre>
                         <div id="error"></div>
-                        <button class="btn btn-success btn-lg pull-right" style="width: 100%" id="submit-button" type="submit">Got it!</button>
+                        <button v-on:click="storeFreeTrial()" class="btn btn-success btn-lg pull-right" style="width: 100%" id="submit-button" type="submit">Got it!</button>
                     </div>
                 </div>
             </div>
-        </form>
     </div>
 
 </div>
@@ -425,52 +422,53 @@
         $('div.setup-panel div a.btn-primary').trigger('click');
     });
 
-
-    const id = '#store-free-trial';
-    $(id).submit(function(event){
-        event.preventDefault();
-        // clear html error
-        $("#error").html("");
-
-        // get data from form
-        const data = $(id).serializeArray();
-        console.log(data);
-
-        // convert data to upload
-        const postData = {};
-        data.forEach((item) => {
-            postData[item.name] = item.value;
-        });
-
-        axios.post("/api/v1/auth/signup/merchant", postData)
-            .then((res) => {
-                // redirect user to the manage page
-                window.location.href = "{{ config("app.protocol") }}" + postData["sub_domain"] + "."
-                    + window.location.hostname + "/manage/signin";
-            })
-            .catch((error) => {
-                let errorStr = "";
-                error.response.data.forEach((s, i) => {
-                    if (i == 0) {
-                        errorStr = s;
-                    } else {
-                        errorStr += "<br/>" + s;
-                    }
-                });
-
-                // set errors returned by server
-                $("#error").html(
-                    "<div class='alert alert-danger'>" +
-                        errorStr +
-                    "</div>"
-                );
-            });
-    });
-
     var app = new Vue({
         el: "#vue-app",
         data: {
-            subdomain: ""
+            name: "",
+            email: "",
+            phone: "",
+            password: "",
+            password_confirmation: "",
+            merchant_name: "",
+            sub_domain: "",
+        },
+        methods: {
+            storeFreeTrial: function () {
+                var postData = {
+                    name: this.name,
+                    email: this.email,
+                    phone: this.phone,
+                    password: this.password,
+                    password_confirmation: this.password_confirmation,
+                    merchant_name: this.merchant_name,
+                    sub_domain: this.sub_domain
+                }
+                axios.post("/api/v1/auth/signup/merchant", postData)
+                    .then((res) => {
+                        // redirect user to the manage page
+                        console.log(res);
+                        window.location.href = "{{ config("app.protocol") }}" + postData["sub_domain"] + "."
+                            + window.location.hostname + "/manage/signin";
+                    })
+                    .catch((error) => {
+                        let errorStr = "";
+                        error.response.data.forEach((s, i) => {
+                            if (i == 0) {
+                                errorStr = s;
+                            } else {
+                                errorStr += "<br/>" + s;
+                            }
+                        });
+
+                        // set errors returned by server
+                        $("#error").html(
+                            "<div class='alert alert-danger'>" +
+                                errorStr +
+                            "</div>"
+                        );
+                    });
+            }
         }
     });
 </script>

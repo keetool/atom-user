@@ -2,6 +2,10 @@
 
 namespace App\Notifications;
 
+use App\Http\Resources\NotificationResource;
+use App\Services\SocketServiceInterface;
+use App\SocketEvent\Notification\CreateNotificationSocketEvent;
+
 abstract class Notification
 {
     public $image_url;
@@ -11,6 +15,7 @@ abstract class Notification
     public $type;
     public $receiver;
     public $actor;
+    public $socketSerice;
 
     public const UNSEEN = "unseen";
     public const SEEN = "seen";
@@ -38,8 +43,9 @@ abstract class Notification
     }
 
 
-    public static function saveNotification(Notification $notification)
+    public static function saveNotification($channel, Notification $notification)
     {
+
         $newNotification = new \App\Notification();
         $newNotification->detail = $notification->format();
         $newNotification->image_url = $notification->image_url;
@@ -52,6 +58,12 @@ abstract class Notification
         $newNotification->receiver_id = $notification->receiver->id;
         $newNotification->actor_id = $notification->actor->id;
         $newNotification->save();
+
+        $data = new NotificationResource($newNotification);
+        $createNotificationSocketEvent = new CreateNotificationSocketEvent($data);
+
+        $socketSerice = resolve(SocketServiceInterface::class);
+        $socketSerice->publishEvent($channel, $createNotificationSocketEvent);
     }
 
     abstract public function format();

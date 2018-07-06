@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\KeywordLanguageRepository;
 use App\Repositories\KeywordRepository;
 use App\Repositories\LanguageRepository;
-use App\Services\SocketService;
+use App\Services\SocketServiceInterface;
 use Illuminate\Http\Request;
 
 /**
@@ -20,7 +20,7 @@ class HomeController extends BaseController
 
     public function __construct(
         LanguageRepository $languageRepo,
-        SocketService $socketService,
+        SocketServiceInterface $socketService,
         KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {
         parent::__construct();

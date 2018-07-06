@@ -15,6 +15,7 @@ use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepository;
 use App\Repositories\VoteRepositoryInterface;
 use App\Services\SocketService;
+use App\Services\SocketServiceInterface;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 use App\Repositories\CommentVoteRepository;
@@ -48,12 +49,12 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(CommentRepositoryInterface::class, CommentRepository::class);
 
-        $this->app->singleton(SocketService::class, SocketService::class);
+        $this->app->singleton(SocketServiceInterface::class, SocketService::class);
 
         $this->app->singleton(ImageRepositoryInterface::class, ImageRepository::class);
 
         $this->app->singleton(CommentVoteRepositoryInterface::class, CommentVoteRepository::class);
-        
+
         $this->app->singleton(MerchantInterface::class, MerchantRepository::class);
 
         $this->app->singleton(ImagePostRepositoryInterface::class, ImagePostRepository::class);

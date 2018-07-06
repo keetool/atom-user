@@ -16,4 +16,14 @@ class Notification extends UuidModel
         'receiver_id',
         'author_id',
         'image_url', 'type'];
+
+    public function receiver()
+    {
+        return $this->belongsTo(User::class, "receiver_id");
+    }
+
+    public function actor()
+    {
+        return $this->belongsTo(User::class, "actor_id");
+    }
 }

@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Http\Controllers\ApiController;
-use App\Services\SocketService;
+use App\Services\SocketServiceInterface;
 use App\SocketEvent\Comment\CreateCommentSocketEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Comment as CommentResource;
-use App\User;
 use App\Repositories\CommentVoteRepositoryInterface;
 
 /**
@@ -25,7 +24,7 @@ class CommentApiController extends ApiController
     protected $commentVoteRepo;
 
     public function __construct(
-        SocketService $socketService,
+        SocketServiceInterface $socketService,
         PostRepositoryInterface $postRepo,
         CommentRepositoryInterface $commentRepository,
         CommentVoteRepositoryInterface $commentVoteRepo

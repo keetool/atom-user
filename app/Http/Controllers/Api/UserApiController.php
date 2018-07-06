@@ -17,4 +17,13 @@ class UserApiController extends Controller
         $user = $request->user();
         return new UserResource($user);
     }
+
+    /**
+     * User list
+     * $type = {new}
+     */
+    public function userList($subdomain, $type, Request $request)
+    {
+        dd($type);
+    }
 }

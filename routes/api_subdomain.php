@@ -17,6 +17,9 @@ Route::middleware("auth:api")->group(function () {
         Route::prefix("/notification")->group(function () {
             Route::get("/", "Api\NotificationApiController@getNotifications");
         });
+
+        Route::get("/list/{type}", "Api\UserApiController@userList");
+
     });
 
     Route::prefix("log")->group(function () {
@@ -41,6 +44,9 @@ Route::middleware("auth:api")->group(function () {
         });
 
         Route::get("/{postId}/load-comment", "Api\CommentApiController@loadComments");
+
+        Route::get("/list/{type}", "Api\PostApiController@postList");
+
     });
 
     Route::prefix("comment")->group(function () {
@@ -55,7 +61,7 @@ Route::middleware("auth:api")->group(function () {
         Route::post("/", "Api\ImageApiController@createImage");
     });
 
-    Route::get("load-post", "Api\PostApiController@loadPosts");
+    Route::get("load-post", "Api\PostApiController@loadPosts");    
 });
 
 // Route::prefix("comment")->group(function () {

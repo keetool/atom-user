@@ -175,7 +175,7 @@
 <script src="landing-page/assets/js/presentation-page/jquery.sharrre.js"></script>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
 
@@ -207,7 +207,7 @@
     })();
 </script>
 
-@yield("script")
+@stack("scripts")
 <style>
     .atomuser {
         position: fixed;

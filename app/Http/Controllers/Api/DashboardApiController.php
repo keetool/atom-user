@@ -13,7 +13,8 @@ class DashboardApiController extends ApiController
 
     public function newUserCount(Request $request)
     {
-        $merchant_id = Merchant::where('sub_domain', $request->subDomain)->first()->id;
+        $merchant = Merchant::where('sub_domain', $request->subDomain)->first();
+        $merchant_id = $merchant->id;
         $start_time = $request->start_time;
         $end_time = $request->end_time;
         if ($start_time == null) {
@@ -41,6 +42,13 @@ class DashboardApiController extends ApiController
             }
         }
 
-        return $this->success(["new_user_id_by_date" => $new_user_by_date]);
+        $total_posts = $merchant->posts()->count();
+
+        $total_users = $merchant->users()->count();
+        return $this->success([
+            "new_user_id_by_date" => $new_user_by_date,
+            "total_posts" => $total_posts,
+            "total_users" => $total_users
+        ]);
     }
 }

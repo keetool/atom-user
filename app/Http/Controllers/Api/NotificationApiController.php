@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * @resource Post
+ * @resource Notification
  */
 class NotificationApiController extends ApiController
 {

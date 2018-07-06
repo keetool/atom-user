@@ -216,7 +216,7 @@
     </div>
 
     <div id="vue-app">
-        <form role="form" action="" id="store-free-trial" method="post"></form>
+        <form role="form" action="" id="store-free-trial" method="post">
             {{csrf_field()}}
             <div class="row">
                 <div class="col-md-4 offset-md-4">

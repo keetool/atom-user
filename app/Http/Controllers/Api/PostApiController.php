@@ -112,7 +112,7 @@ class PostApiController extends ApiController
     public function getPost($subdomain, $postId, Request $request)
     {
         $post = $this->postRepo->show($postId);
-        
+
         if ($post == null) {
             return $this->notFound([
                 "message" => "post not found"
@@ -122,8 +122,11 @@ class PostApiController extends ApiController
         return new PostResource($post);
     }
 
-    public function loadPosts(Request $request)
+    public function loadPosts($subdomain, Request $request)
     {
+        if (Merchant::where('sub_domain', $subdomain)->first() == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
@@ -254,7 +257,7 @@ class PostApiController extends ApiController
                 } else if ($voteValue == -1) {
                     $notification = new CreateDownvotePostNotification($user, $post);
                     Notification::saveNotification($notification);
-                    
+
                     $this->postRepo->increment($postId, "downvote");
                     $this->postRepo->decrement($postId, "upvote");
                 }

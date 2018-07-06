@@ -13,6 +13,7 @@ class AppService
     {
         $user = User::where('email', $email)->first();
         $http = new Client;
+        // dd(config("app.protocol") . config("app.domain") . '/oauth/token');
         $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
             'form_params' => [
                 'grant_type' => 'password',

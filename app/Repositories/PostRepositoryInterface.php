@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: quan
@@ -12,4 +13,10 @@ namespace App\Repositories;
 interface PostRepositoryInterface
 {
     public function findByMerchantId($merchantId, $limit = 20, $order = "desc");
+
+    public function loadByMerchantId($merchantId, $postId = null, $limit = 10, $order = "desc");
+
+    public function increment($postId, $column);
+
+    public function decrement($postId, $column);
 }

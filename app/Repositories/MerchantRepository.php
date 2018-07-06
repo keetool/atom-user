@@ -1,13 +1,16 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Merchant;
 use App\MerchantUser;
 
-class MerchantRepository extends Repository {
+class MerchantRepository extends Repository implements MerchantInterface
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct(new Merchant());
     }
 
@@ -15,7 +18,8 @@ class MerchantRepository extends Repository {
      * @param [string] $subDomain
      * @return [Merchant] $merchant
      */
-    public function findBySubDomain($subDomain){
+    public function findBySubDomain($subDomain)
+    {
         return $this->model->where("sub_domain", $subDomain)->first();
     }
 

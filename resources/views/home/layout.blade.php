@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,16 +22,32 @@
     <link rel="stylesheet" href="landing-page/assets/css/global/plugins/icon-font.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="landing-page/assets/css/style.css">
+    <link rel="stylesheet" href="landing-page/assets/css/atomuser.css">
+
     <!-- /build -->
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529571679WLoLVlC4nzjl0yd.png">
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({‘gtm.start’:
+        new Date().getTime(),event:‘gtm.js’});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!=‘dataLayer’?‘&l=‘+l:‘’;j.async=true;j.src=
+        ’https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,‘script’,‘dataLayer’,‘GTM-M6L5HXR’);
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 <body class="overflow-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6L5HXR" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header id="home">
 
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav id="atom-nav" class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%;z-index: 100;">
             <div class="container">
                 <a class="navbar-brand" href="/">
                     <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" height="40px">
@@ -43,15 +58,15 @@
 
                 <div class="collapse navbar-collapse" id="site-nav">
                     <ul class="navbar-nav text-sm-left ml-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="/#features">Features</a>
-                        </li>
+                        </li> --}}
                         <!--<li class="nav-item">-->
                             <!--<a class="nav-link" href="#pricing">Pricing</a>-->
                         <!--</li>-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="blogs">Blog</a>
-                        </li>
+                        </li> --}}
 
                         <!--<li class="nav-item dropdown">-->
                             <!--<a class="nav-link" href="#" data-toggle="dropdown">Pages <span class="pe-2x pe-7s-angle-down"></span>  </a>-->
@@ -61,15 +76,15 @@
                                 <!--<a class="dropdown-item" href="blog-single.html">Blog Single</a>-->
                             <!--</div>-->
                         <!--</li>-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="#">Docs</a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item text-center">
-                            <a href="/#signup" class="btn align-middle btn-outline-primary my-2 my-lg-0">Login</a>
+                            <a href="/free-trial" class="btn align-middle btn-outline-primary my-2 my-lg-0">REGISTER</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a href="/#signup" class="btn align-middle btn-primary my-2 my-lg-0">Sign Up</a>
+                            <a href="/access-dashboard" class="btn align-middle btn-primary my-2 my-lg-0">YOUR DASHBOARD</a>
                         </li>
                     </ul>
 
@@ -84,24 +99,25 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4"> <img src="https://d1j8r0kxyu9tj8.cloudfront.net/files/1529570270K2KtqY6J6FZb1lr.png" class="logo-dark" height="25px" />
-                <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p>
-                <p class="ml-1"><a href="https://themeforest.net/user/surjithctly/portfolio?ref=surjithctly&utm_source=footer_content" target="_blank">Purchase now →</a></p>
+                <br/><br/>
+                {{-- <p class="mt-3 ml-1 text-muted">Start.ly is a SASS software landing page template. </p> --}}
+                <p class="ml-1"><a href="{{url('/free-trial')}}">Register now →</a></p>
                 <!-- // end .lead -->
             </div>
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <ul class="list-unstyled footer-links ml-1">
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
             <!-- // end .col-sm-3 -->
             <div class="col-sm-2">
                 <ul class="list-unstyled footer-links ml-1">
                     <li><a href="#">Terms</a></li>
-                    <li><a href="#about">Privacy</a></li>
+                    <li><a href="#">Privacy</a></li>
                 </ul>
             </div>
             <!-- // end .col-sm-3 -->
@@ -117,8 +133,13 @@
                 <a href="#home" class="btn btn-sm btn-outline-primary ml-1">Go to Top</a>
                 <div class="nav-item" style="margin-top: 10px;">
                     <select onchange="location = this.value;" class="btn btn-sm ml-1" style="background: transparent; border: 1px solid #7642FF; color: #7642FF" id="languageSwitcher">
+                        @if ($lang == "vi-vn")
+                        <option value="?lang=vi-vn">vi</option>
+                        <option value="?lang=en-us">en</option>
+                        @else
                         <option value="?lang=en-us">en</option>
                         <option value="?lang=vi-vn">vi</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -195,13 +216,24 @@
     }
 
     .atomuser-fab {
+        transition: all .2s ease-in-out;
         width: 50px;
         height: 50px;
-        background-color: #0087ea;
+        background-image: linear-gradient(to top, #009efb 0%, #005bea 100%);
         border-radius: 50%;
         cursor: pointer;
         position: relative;
         float: right;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .atomuser-fab:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.15));
+    }
+
+    .atomuser-fab:hover .atomuser-close {
+        opacity: 1;
     }
 
     .atomuser-fab > .atomuser-icon {
@@ -232,10 +264,6 @@
         width: 40%;
         height: 40%;
         opacity: 0.5;
-    }
-
-    .atomuser-close:hover {
-        opacity: 1;
     }
 
     .atomuser > .atomuser-iframe {
@@ -380,6 +408,15 @@
             break;
         }
     }
+</script>
+<script>
+    $(window).bind('scroll', function () {
+        if ($(window).scrollTop() > 60) {
+            $('#atom-nav').addClass('fixed');
+        } else {
+            $('#atom-nav').removeClass('fixed');
+        }
+    });
 </script>
 
 </html>

@@ -16,7 +16,9 @@ use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Merchant;
 
-
+/**
+ * @resource Auth
+ */
 class AuthController extends ApiController
 {
     protected $merchantRepository;
@@ -184,24 +186,7 @@ class AuthController extends ApiController
             ]);
         }
 
-        $http = new Client;
-
-        $response = $http->post(config("app.protocol") . config("app.domain") . '/oauth/token', [
-            'form_params' => [
-                'grant_type' => 'password',
-                'client_id' => config("app.client_id"),
-                'client_secret' => config("app.client_secret"),
-                'username' => $request->email,
-                'password' => $request->password,
-                'scope' => '*',
-            ]
-        ]);
-
-        // create signin log
-        $signInLogFactory = new SignInLogFactory($request->url(), $user, $request->header('User-Agent'));
-        Log::sendLog($signInLogFactory->makeLog());
-
-        return json_decode((string)$response->getBody(), true);
+        return $this->appService->signIn($request, $email, $password);
     }
 
 
@@ -311,7 +296,7 @@ class AuthController extends ApiController
                 else
                     $user->email = "facebook" . $response->id . '@atomuser.com';
                 $user->social_id = "facebook." . $facebookId;
-                $user->password = Hash::make($user->social_id);
+                $user->password = bcrypt($user->social_id);
                 $user->phone = '000';
             }
 
@@ -354,7 +339,7 @@ class AuthController extends ApiController
             else
                 $user->email = $response->sub . '@atomuser.com';
             $user->social_id = "google." . $response->sub;
-            $user->password = Hash::make($user->social_id);
+            $user->password = bcrypt($user->social_id);
             $user->phone = '000';
         }
         $user->name = $response->name;
@@ -364,5 +349,10 @@ class AuthController extends ApiController
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
 
         return $this->appService->signIn($request, $user->email, $user->social_id);
+    }
+
+    public function test(Request $request)
+    {
+        dd($request->subDomain);
     }
 }

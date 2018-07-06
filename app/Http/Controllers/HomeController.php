@@ -2,33 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\File;
-use App\Repositories\LanguageRepository;
-use App\Repositories\KeywordRepository;
 use App\Repositories\KeywordLanguageRepository;
-use Illuminate\Support\Facades\Session;
+use App\Repositories\KeywordRepository;
+use App\Repositories\LanguageRepository;
+use App\Services\SocketServiceInterface;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+/**
+ * @resource Home routes
+ */
+class HomeController extends BaseController
 {
     protected $languageRepo;
     protected $keywordRepo;
     protected $keywordLanguageRepo;
-    public $code;
+    protected $socketService;
 
-    public function __construct(LanguageRepository $languageRepo, KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
+    public function __construct(
+        LanguageRepository $languageRepo,
+        SocketServiceInterface $socketService,
+        KeywordRepository $keywordRepo, KeywordLanguageRepository $keywordLanguageRepo, Request $request)
     {
+        parent::__construct();
         $this->languageRepo = $languageRepo;
         $this->keywordRepo = $keywordRepo;
         $this->keywordLanguageRepo = $keywordLanguageRepo;
-        $this->code = "en-us";
+        $this->socketService = $socketService;
     }
 
     public function index(Request $request)
     {
         // dd($this->code);
-        $language = $this->languageRepo->findByCode($this->code);
+        $language = $this->languageRepo->findByCode($this->lang);
         $keywords = $this->keywordRepo->getAllKeyWord();
         $data = [];
         foreach ($keywords as $keyword) {
@@ -41,26 +46,37 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        return view("home.blogs");
+        return view("home.blogs", $this->data);
     }
 
     public function register()
     {
-        return view("home.merchant_register");
+        return view("home.merchant_register", $this->data);
     }
 
     public function checkMerchant()
     {
-        return view("home.check_merchant");
+        return view("home.check_merchant", $this->data);
     }
 
     public function dummy()
     {
-        return view('home.dummy');
+
+        return view('home.dummy', $this->data);
     }
 
     public function dummy2()
     {
-        return view('home.dummy2');
+        $this->socketService->publish("channel", "event", ["message" => "hello"]);
+        return view('home.dummy2', $this->data);
+    }
+
+    public function accessDashboard(Request $request)
+    {
+        if ($request->subdomain) {
+            $url = $request->subdomain;
+            return redirect()->away(generate_https($url));
+        }
+        return view("home.access_dashboard", $this->data);
     }
 }

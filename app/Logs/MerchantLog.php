@@ -17,7 +17,8 @@ class MerchantLog extends Log
         $this->merchant = $merchant;
     }
 
-    /**log
+    /**
+     * log
      * [
      *  {type: "key", data: "manage.log.merchant.create"}
      * ]

@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Request;
  */
 
 // Route::get('/login', "HomeController@index")->name('login');
-Route::get("/free-trial", "HomeController@register");
-Route::get("/check-merchant", "HomeController@checkMerchant");
-Route::get('/signin', "SocialController@index")->name('login');
-Route::get('/dummy', 'HomeController@dummy');
-Route::get('/dummy2', 'HomeController@dummy2');
+
+$webRoutes = function () {
+    Route::get('/', "HomeController@index");
+    Route::get("/blogs", "HomeController@blogs");
+    Route::get("/free-trial", "HomeController@register");
+    Route::get("/check-merchant", "HomeController@checkMerchant");
+    Route::get('/signin', "SocialController@index")->name('login');
+    Route::get('/dummy', 'HomeController@dummy');
+    Route::get('/dummy2', 'HomeController@dummy2');
+    Route::get('/access-dashboard', 'HomeController@accessDashboard');
+};
 
 $manageRoutes = function () {
     Route::get("/{path?}", "ManageController@index")->where('path', ".*");
@@ -28,9 +34,9 @@ $socialRoutes = function () {
     Route::get("/{path?}", "SocialController@index")->where('path', ".*");
 };
 
-Route::domain("{client}." . config("app.domain"))
-    ->middleware(['getSubDomain'])->group(
-        $socialRoutes
+Route::domain(config("app.domain"))
+    ->group(
+        $webRoutes
     );
 
 Route::domain("{client}." . config("app.domain"))
@@ -39,12 +45,10 @@ Route::domain("{client}." . config("app.domain"))
         $manageRoutes
     );
 
+Route::domain("{client}." . config("app.domain"))
+    ->middleware(['getSubDomain'])->group(
+        $socialRoutes
+    );
 
-$routes = function() {
-    Route::get('/', "HomeController@index");
-    Route::get("/blogs", "HomeController@blogs");
-};
-
-Route::middleware(['web', 'multi-language'])->group($routes);
 
 

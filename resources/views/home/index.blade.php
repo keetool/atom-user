@@ -3,6 +3,7 @@
 @section("title", "Trang chủ")
 
 @section("content")
+
 <!-- hero -->
 <section class="jumbotron-two">
 
@@ -19,7 +20,7 @@
             </div>
             <div class="col-12 col-md-7 my-3 my-md-lg">
 
-                <div class="youtube cast-shadow" data-video-id="rm5sdAYCqqc" data-params="modestbranding=1&amp;showinfo=0&amp;controls=1&amp;vq=hd720">
+                <div class="youtube cast-shadow" data-video-id="9Typ90KfGNg" data-params="modestbranding=1&amp;showinfo=0&amp;controls=1&amp;vq=hd720">
                     <img src="http://d1j8r0kxyu9tj8.cloudfront.net/files/1529570017i7WAXS0swIbEM5X.png" alt="image" class="img-fluid">
                     <div class="play"><span class="pe-7s-play pe-3x"></span></div>
                 </div>
@@ -187,7 +188,7 @@
 <!-- features -->
 
 
-<div class="section bg-light py-lg">
+{{-- <div class="section bg-light py-lg">
 <div class="container">
 
     <div class="row">
@@ -223,7 +224,7 @@
 
     </div>
 </div>
-</div>
+</div> --}}
 
 <!-- // end features -->
 
@@ -343,34 +344,5 @@
 <!--</div>-->
 
 <!--&lt;!&ndash; // end Pricing &ndash;&gt;-->
-
-<!-- Signup -->
-<div class="section" id="signup">
-<div class="container">
-    <div class="section-title text-center">
-        <h3>{{ $keyword['website.homepage.section5.signup_title']['content'] }}</h3>
-        <p>{{ $keyword['website.homepage.section5.signup_subtitle']['content'] }}</p>
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="col col-md-5">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="{{ $keyword['website.homepage.section5.signup_fullname']['content'] }}">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="{{ $keyword['website.homepage.section5.signup_email']['content'] }}">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="{{ $keyword['website.homepage.section5.signup_password']['content'] }}">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-xl btn-block btn-primary">{{ $keyword['website.homepage.section5.signup_button']['content'] }}</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-</div>
-</div>
 
 @endsection

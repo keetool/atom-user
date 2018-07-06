@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
+use App\Merchant;
 
 /**
  * @resource Post

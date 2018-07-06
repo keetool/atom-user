@@ -35,6 +35,11 @@ $socialRoutes = function () {
 };
 
 Route::domain(config("app.domain"))
+    ->prefix("manage")->group(
+        $manageRoutes
+    );
+
+Route::domain(config("app.domain"))
     ->group(
         $webRoutes
     );
@@ -44,9 +49,5 @@ Route::domain("{client}." . config("app.domain"))
         $socialRoutes
     );
 
-Route::domain("{client}." . config("app.domain"))
-    ->prefix("manage")
-    ->middleware(['getSubDomain'])->group(
-        $manageRoutes
-    );
+
 

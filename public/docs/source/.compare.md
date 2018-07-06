@@ -8054,7 +8054,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- START_1489e2a936fa0bdbbd5b27f164250f4f -->
 ## Post list
-$stype = {top}
+$type = {top}
 param = {post_id}
 
 > Example request:

@@ -139,7 +139,7 @@ class PostApiController extends ApiController
 
     /**
      * Post list
-     * $stype = {top}
+     * $type = {top}
      * param = {post_id}
      */
     public function postList($subdomain, $type, Request $request)

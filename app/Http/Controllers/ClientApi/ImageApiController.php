@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\ClientApi;
 
 use App\Http\Resources\ImageResource;
 use App\Repositories\ImageRepositoryInterface;

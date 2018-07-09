@@ -1,0 +1,69 @@
+<?php
+
+Route::prefix("auth")->group(function () {
+    Route::post('signin', 'AuthController@signin');
+    Route::post("token/refresh", 'AuthController@refreshToken');
+    Route::post('facebook/token-signin', 'AuthController@facebookTokenSignin');
+    Route::post('google/token-signin', 'AuthController@googleTokenSignin');
+
+    Route::get('test', "AuthController@test");
+});
+
+Route::middleware("auth:api")->group(function () {
+
+
+    Route::prefix("user")->group(function () {
+        Route::get("/", "ClientApi\UserApiController@user");
+        Route::prefix("/notification")->group(function () {
+            Route::get("/", "ClientApi\NotificationApiController@getNotifications");
+        });
+
+        Route::get("/list/{type}", "ClientApi\UserApiController@userList");
+
+    });
+
+    Route::prefix("log")->group(function () {
+        Route::get("/", "ClientApi\LogApiController@myLogs");
+    });
+
+    Route::prefix("post")->group(function () {
+        Route::post("/", "ClientApi\PostApiController@createPost");
+        Route::put("/{postId}", "ClientApi\PostApiController@updatePost");
+        Route::get('/', "ClientApi\PostApiController@getPosts");
+        Route::get("/{postId}", "ClientApi\PostApiController@getPost");
+        Route::delete("/{postId}", "ClientApi\PostApiController@deletePost");
+        // vote = 'up' or 'down'
+        Route::post("/{postId}/vote/{vote}", "ClientApi\PostApiController@vote");
+
+        // Api comment
+        Route::prefix("/{postId}/comment")->group(function () {
+            Route::get("/", "ClientApi\CommentApiController@getComments");
+            Route::post("/", "ClientApi\CommentApiController@createComment");
+            Route::put("/{commentId}", "ClientApi\CommentApiController@updateComment");
+            Route::delete("/{commentId}", "ClientApi\CommentApiController@deleteComment");
+        });
+
+        Route::get("/{postId}/load-comment", "ClientApi\CommentApiController@loadComments");
+
+        Route::get("/list/{type}", "ClientApi\PostApiController@postList");
+
+    });
+
+    Route::prefix("comment")->group(function () {
+        Route::post("/{commentId}/vote/{vote}", "ClientApi\CommentApiController@vote");
+    });
+
+    Route::prefix("dashboard")->group(function () {
+        Route::get("/{type}", "ClientApi\DashboardApiController@dashBoard");
+    });
+
+    Route::prefix("image")->group(function () {
+        Route::post("/", "ClientApi\ImageApiController@createImage");
+    });
+
+    Route::get("load-post", "ClientApi\PostApiController@loadPosts");    
+});
+
+// Route::prefix("comment")->group(function () {
+//     Route::post("/{commentId}/vote/{vote}", "ClientApi\CommentApiController@vote");
+// });

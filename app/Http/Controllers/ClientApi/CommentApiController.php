@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\ClientApi;
 
 use App\Notifications\Notification;
 use App\Notifications\Post\CreateCommentNotification;

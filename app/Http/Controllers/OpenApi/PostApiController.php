@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\OpenApi;
 
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
@@ -19,7 +19,7 @@ use App\Http\Resources\Post as PostResource;
 use App\Http\Controllers\OpenApiController;
 
 /**
- * @resource Post
+ * @resource Open post
  */
 class PostApiController extends OpenApiController
 {
@@ -46,5 +46,18 @@ class PostApiController extends OpenApiController
         $this->imagePostRepository = $imagePostRepository;
     }
 
-    
+    /**
+     * Open api load post
+     * param = {post_id}
+     */
+    public function loadPosts($subdomain, Request $request)
+    {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+
+        $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
+        return PostResource::collection($posts);
+    }
 }

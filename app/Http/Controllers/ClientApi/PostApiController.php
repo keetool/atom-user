@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
 
 /**
- * @resource Post
+ * @resource Client post
  */
 class PostApiController extends ApiController
 {

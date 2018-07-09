@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @resource Image
+ * @resource Client image
  */
 class ImageApiController extends ApiController
 {

@@ -15,7 +15,7 @@ use App\Http\Resources\Comment as CommentResource;
 use App\Repositories\CommentVoteRepositoryInterface;
 
 /**
- * @resource Comment
+ * @resource Client comment
  */
 class CommentApiController extends ApiController
 {

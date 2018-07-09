@@ -8393,7 +8393,8 @@ $.ajax(settings).done(function (response) {
 
 #Open post
 <!-- START_bd53269352e20cebb133913cae6b5ba9 -->
-## open-api/v1/load-post
+## Load post open api
+param = {post_id}
 
 > Example request:
 

@@ -47,7 +47,7 @@ class PostApiController extends OpenApiController
     }
 
     /**
-     * Open api load post
+     * Load post open api
      * param = {post_id}
      */
     public function loadPosts($subdomain, Request $request)

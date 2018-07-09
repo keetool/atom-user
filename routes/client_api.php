@@ -53,10 +53,6 @@ Route::middleware("auth:api")->group(function () {
         Route::post("/{commentId}/vote/{vote}", "ClientApi\CommentApiController@vote");
     });
 
-    Route::prefix("dashboard")->group(function () {
-        Route::get("/{type}", "ClientApi\DashboardApiController@dashBoard");
-    });
-
     Route::prefix("image")->group(function () {
         Route::post("/", "ClientApi\ImageApiController@createImage");
     });

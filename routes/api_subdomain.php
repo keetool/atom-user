@@ -54,7 +54,7 @@ Route::middleware("auth:api")->group(function () {
     });
 
     Route::prefix("dashboard")->group(function () {
-        Route::get("/", "Api\DashboardApiController@newUserCount");
+        Route::get("/{type}", "Api\DashboardApiController@dashBoard");
     });
 
     Route::prefix("image")->group(function () {

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
-class UserRepository extends Repository
+class UserRepository extends Repository implements UserRepositoryInterface
 {
     protected $merchantRepository;
 
@@ -15,7 +15,8 @@ class UserRepository extends Repository
         $this->merchantRepository = $merchantRepository;
     }
 
-    public function joinMerchantUser() {
+    public function joinMerchantUser()
+    {
         return $this->model->join("merchant_user", "users.id", "=", "merchant_user.user_id");
     }
 
@@ -57,4 +58,19 @@ class UserRepository extends Repository
         }
         return null;
     }
+
+    public function findNewUserByMerchant($subDomain, $limit = 10)
+    {
+        $merchant = $this->merchantRepository->findBySubDomain($subDomain);
+
+        if (!$merchant) {
+            return false;
+        }
+
+        $users = $this->joinMerchantUser()
+            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->limit($limit)->get();
+        
+        return $users;
+    }
+
 }

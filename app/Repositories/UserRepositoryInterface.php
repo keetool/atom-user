@@ -16,4 +16,6 @@ interface UserRepositoryInterface
     public function uniqueUserMerchant($subDomain, $email);
 
     public function findUserByMerchantEmailPassword($merchant_id, $email, $password);
+
+    public function findNewUserByMerchant($subDomain, $limit = 10);
 }

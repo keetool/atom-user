@@ -8,7 +8,9 @@ use App\Merchant;
 use App\MerchantUser;
 use Illuminate\Support\Facades\DB;
 use App\Post;
-
+/**
+ * @resource Dashboard
+ */
 class DashboardApiController extends ApiController
 {
     /**

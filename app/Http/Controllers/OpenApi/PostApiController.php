@@ -60,4 +60,20 @@ class PostApiController extends OpenApiController
         $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
         return PostResource::collection($posts);
     }
+
+    /**
+     * Get post by id
+     */
+    public function getPost($subdomain, $postId, Request $request)
+    {
+        $post = $this->postRepo->show($postId);
+
+        if ($post == null) {
+            return $this->notFound([
+                "message" => "post not found"
+            ]);
+        }
+
+        return new PostResource($post);
+    }
 }

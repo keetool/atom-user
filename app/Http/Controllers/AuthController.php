@@ -303,7 +303,8 @@ class AuthController extends ApiController
             $user->name = $response->name;
 
             //avatar
-            $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
+
+            $response = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
             $response = json_decode((string)$response->getBody());
 
             $user->avatar_url = $response->data->url;

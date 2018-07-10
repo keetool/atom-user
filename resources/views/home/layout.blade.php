@@ -409,14 +409,5 @@
         }
     }
 </script>
-<script>
-    $(window).bind('scroll', function () {
-        if ($(window).scrollTop() > 60) {
-            $('#atom-nav').addClass('fixed');
-        } else {
-            $('#atom-nav').removeClass('fixed');
-        }
-    });
-</script>
 
 </html>

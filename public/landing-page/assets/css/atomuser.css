@@ -11,3 +11,7 @@
     width:100%;
     position:absolute;
 }
+
+body[dir="ltr"] {
+    overflow: hidden !important;
+}

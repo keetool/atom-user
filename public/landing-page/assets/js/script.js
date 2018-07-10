@@ -87,6 +87,7 @@ $(function() {
 
             // Replace the YouTube thumbnail with YouTube HTML5 Player
             $(this).replaceWith(iframe);
+            $("body").removeAttr("dir");
         });
     });
 

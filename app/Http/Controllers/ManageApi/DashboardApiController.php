@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\RootApi;
+namespace App\Http\Controllers\ManageApi;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\RootApiController;
+use App\Http\Controllers\ManageApiController;
 use App\Merchant;
 use App\MerchantUser;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +11,7 @@ use App\Post;
 /**
  * @resource Root dashboard
  */
-class DashboardApiController extends RootApiController
+class DashboardApiController extends ManageApiController
 {
     /**
      * Dassh board api

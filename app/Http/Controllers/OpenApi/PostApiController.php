@@ -83,12 +83,13 @@ class PostApiController extends OpenApiController
 
     public function test()
     {
+        return view('email.test1');
         $id = "69b65fd2-433e-4ea8-ae92-39eccee28cde";
         $user = $this->userRepo->show($id);
         $subject = "askdk";
         $data = [];
 
-        Mail::send('email.test', ['data' => $data], function ($m) use ($user, $subject) {
+        Mail::send('email.test1', ['data' => $data], function ($m) use ($user, $subject) {
             $m->from("no-reply@colorme.vn", "colorMe");
 
             $m->to($user->email, $user->name)->subject($subject);

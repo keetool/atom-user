@@ -72,10 +72,10 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/client_api.php'));
 
         Route::domain("{client}." . config("app.domain"))
-            ->namespace($this->namespace . "\RootApi")
+            ->namespace($this->namespace . "\ManageApi")
             ->middleware("getSubDomain")
-            ->prefix('root-api/v1')
-            ->group(base_path('routes/root_api.php'));
+            ->prefix('manage-api/v1')
+            ->group(base_path('routes/manage_api.php'));
 
         Route::domain("{client}." . config("app.domain"))
             ->namespace($this->namespace . "\OpenApi")

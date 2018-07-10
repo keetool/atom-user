@@ -16,7 +16,7 @@ class NotificationResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "detail" => $this->detail,
+            "detail" => json_decode($this->detail),
             'action_app' => $this->action_app,
             "action_web" => $this->action_web,
             "type" => $this->type,

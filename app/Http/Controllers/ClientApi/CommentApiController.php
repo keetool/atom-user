@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\ClientApi;
 
 use App\Notifications\Notification;
 use App\Notifications\Post\CreateCommentNotification;
@@ -15,7 +15,7 @@ use App\Http\Resources\Comment as CommentResource;
 use App\Repositories\CommentVoteRepositoryInterface;
 
 /**
- * @resource Comment
+ * @resource Client comment
  */
 class CommentApiController extends ApiController
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\ClientApi;
 
 use App\Http\Resources\ImageResource;
 use App\Repositories\ImageRepositoryInterface;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @resource Image
+ * @resource Client image
  */
 class ImageApiController extends ApiController
 {

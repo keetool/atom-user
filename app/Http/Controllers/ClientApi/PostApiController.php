@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\ClientApi;
 
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
 
 /**
- * @resource Post
+ * @resource Client post
  */
 class PostApiController extends ApiController
 {

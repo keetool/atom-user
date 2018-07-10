@@ -17,8 +17,11 @@ class Comment extends JsonResource
     {
         $user = Auth::user();
 
-        $vote = $this->votes()->where("user_id", $user->id)->first();
-        
+        if ($user)
+            $vote = $this->votes()->where("user_id", $user->id)->first();
+        else
+            $vote = null;
+            
         return [
             "id" => $this->id,
             "value" => $this->value,

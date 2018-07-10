@@ -83,13 +83,10 @@ $(function() {
             if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
 
             // The height and width of the iFrame should be the same as parent
-            var iframe = $('<iframe/>', { 'frameborder': '0', 'class': 'cast-shadow', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
-            // console.log(iframe);
+            var iframe = $('<iframe/>', { 'frameborder': '0', 'class': 'cast-shadow', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height(), 'scrolling': 'no' })
+            
             // Replace the YouTube thumbnail with YouTube HTML5 Player
-            // $(this).replaceWith(iframe);
-            $(this).replaceWith(iframe, () => {
-                console.log($("body[dir='ltr']"));
-            });
+            $(this).replaceWith(iframe);
         });
     });
 

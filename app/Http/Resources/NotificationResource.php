@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-
+use App\Formater\FormaterFactory;
 class NotificationResource extends JsonResource
 {
     /**
@@ -14,9 +14,13 @@ class NotificationResource extends JsonResource
      */
     public function toArray($request)
     {
+        $formaterFactory = FormaterFactory::getInstance();
+        $detail = json_decode($this->detail);
+        $detail = $formaterFactory->format($detail);
+
         return [
             "id" => $this->id,
-            "detail" => json_decode($this->detail),
+            "detail" => $detail,
             'action_app' => $this->action_app,
             "action_web" => $this->action_web,
             "type" => $this->type,

@@ -50,8 +50,8 @@ class DashboardApiController extends RootApiController
             }
             $total_users = $merchant->users()->count();
             return $this->success([
-                "new_user_by_date" => $new_user_by_date,
-                "total_users" => $total_users,
+                "charts" => $new_user_by_date,
+                "total" => $total_users,
             ]);
         }
 
@@ -86,8 +86,8 @@ class DashboardApiController extends RootApiController
             }
             $total_posts = $merchant->posts()->count();
             return $this->success([
-                "posts_by_date" => $posts_by_date,
-                "total_posts" => $total_posts
+                "charts" => $posts_by_date,
+                "total" => $total_posts
             ]);
         }
     }

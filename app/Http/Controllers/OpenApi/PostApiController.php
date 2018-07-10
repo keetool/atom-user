@@ -88,7 +88,7 @@ class PostApiController extends OpenApiController
         $subject = "askdk";
         $data = [];
 
-        Mail::queue('emails.test', ['data' => $data], function ($m) use ($user, $subject) {
+        Mail::send('email.test', ['data' => $data], function ($m) use ($user, $subject) {
             $m->from("no-reply@colorme.vn", "colorMe");
 
             $m->to($user->email, $user->name)->subject($subject);

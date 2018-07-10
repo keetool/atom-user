@@ -323,7 +323,6 @@
                                                                         </table>
                                                                     </td>
                                                                 </tr>
-                                                                @if($class->datestart)
                                                                     <tr>
                                                                         <td>
                                                                             <!-- TWO COLUMNS -->
@@ -367,7 +366,6 @@
                                                                             </table>
                                                                         </td>
                                                                     </tr>
-                                                                @endif
                                                                 <tr>
                                                                     <td>
                                                                         <!-- TWO COLUMNS -->
@@ -842,6 +840,7 @@
                                                             </tr>
                                                             </table>
                                                             <![endif]-->
+                                                            
                                                         </td>
                                                     </tr>
 

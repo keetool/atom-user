@@ -239,7 +239,7 @@
                             <input v-model="password" type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group">
-                            <input v-model="password_confirmation" type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Re-type Password" required>
+                            <input v-model="password_confirmation" type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Confirm Password" required>
                         </div>
                         <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next Step</button>
                     </div>

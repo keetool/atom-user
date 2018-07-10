@@ -85,13 +85,13 @@ class PostApiController extends OpenApiController
     {
         $id = "69b65fd2-433e-4ea8-ae92-39eccee28cde";
         $user = $this->userRepo->show($id);
-        dd($user);
+        $subject = "askdk";
         $data = [];
 
-        Mail::queue('emails.view_email', ['data' => $data], function ($m) use ($user, $subject) {
-            $m->from("", $this->emailCompanyName);
+        Mail::queue('emails.test', ['data' => $data], function ($m) use ($user, $subject) {
+            $m->from("no-reply@colorme.vn", "colorMe");
 
-            $m->to($user['email'], $user['name'])->subject($subject);
+            $m->to($user->email, $user->name)->subject($subject);
         });
     }
 }

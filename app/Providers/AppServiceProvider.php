@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\BookmarkRepository;
+use App\Repositories\BookmarkRepositoryInterface;
 use App\Repositories\CommentRepository;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\ImagePostRepository;
@@ -67,6 +69,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(NotificationRepositoryInterface::class, NotificationRepository::class);
 
+        $this->app->singleton(BookmarkRepositoryInterface::class, BookmarkRepository::class);
     }
 
 }

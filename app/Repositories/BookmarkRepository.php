@@ -44,9 +44,14 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
         }
         $posts = Post::join("bookmarks", "bookmarks.post_id", "=", "posts.id")
             ->where("bookmarks.user_id", "=", $userId)
-            ->orderBy("created_at", $order)
+            ->orderBy("bookmarks.created_at", $order)
             ->paginate($limit);
 
         return $posts;
+    }
+
+    public function findByPostIdAndUserId($postId, $userId)
+    {
+        return Bookmark::where("post_id", $postId)->where("user_id", $userId)->first();
     }
 }

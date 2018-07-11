@@ -13,7 +13,9 @@ class AddVersionToNotification extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('notifications', function(Blueprint $table){
+            $table->string("version")->default("v1");
+        });
     }
 
     /**

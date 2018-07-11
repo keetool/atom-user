@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends UuidModel
 {
-    use SoftDeletes;
-
     protected $table = 'posts';
 
     protected $fillable = ['num_comments', "body", "upvote", "downvote", "merchant_id", "creator_id"];

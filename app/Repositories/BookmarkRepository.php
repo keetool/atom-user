@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Bookmark;
+use App\Post;
 
 class BookmarkRepository extends Repository implements BookmarkRepositoryInterface
 {
@@ -10,5 +11,42 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
     public function __construct()
     {
         parent::__construct(new Bookmark());
+    }
+
+
+    public function getBookmarkPostsBySubDomainPaginate($merchantId, $userId, $order = "desc", $limit = 20)
+    {
+        if ($order == null) {
+            $order = "desc";
+        }
+
+        if ($limit == null) {
+            $limit = 20;
+        }
+
+        $posts = Post::join("bookmarks", "bookmarks.post_id", "=", "posts.id")
+            ->where("posts.merchant_id", "=", $merchantId)
+            ->where("bookmarks.user_id", "=", $userId)
+            ->orderBy("bookmarks.created_at", $order)
+            ->paginate($limit);
+
+        return $posts;
+    }
+
+    public function getAllBookmarkPostsPaginate($userId, $order = "desc", $limit = 20)
+    {
+        if ($order == null) {
+            $order = "desc";
+        }
+
+        if ($limit == null) {
+            $limit = 20;
+        }
+        $posts = Post::join("bookmarks", "bookmarks.post_id", "=", "posts.id")
+            ->where("bookmarks.user_id", "=", $userId)
+            ->orderBy("created_at", $order)
+            ->paginate($limit);
+
+        return $posts;
     }
 }

@@ -18,7 +18,9 @@ Route::middleware("auth:api")->group(function () {
         });
 
         Route::prefix("/bookmark")->group(function () {
-            Route::post("/", "Api");
+            Route::post("/", "Api\BookmarkApiController@createBookmark");
+            Route::get("/", "Api\BookmarkApiController@getAllBookmarks");
+            Route::get("/subdomain", "Api\BookmarkApiController@getBookmarksBySubDomain");
         });
     });
 

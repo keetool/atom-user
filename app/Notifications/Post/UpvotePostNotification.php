@@ -30,7 +30,6 @@ abstract class UpvotePostNotification extends Notification
     {
         return json_encode([
             (new UserJsonObject($this->actor))->toArray(),
-            (new KeyJsonObject($this->getType()))->toArray(),
             (new PostJsonObject($this->post))->toArray()
         ]);
     }

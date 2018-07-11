@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
 
 /**
- * @resource Bookmark
+ * @resource Client bookmark
  */
 class BookmarkApiController extends ApiController
 {

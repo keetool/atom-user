@@ -630,7 +630,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_e45d6bc29c8c4bf3ee565c811719cf0e -->
 
-#Bookmark
+#Client bookmark
 <!-- START_ac458cbaab4f046a5e211f219d138851 -->
 ## Create bookmark
 

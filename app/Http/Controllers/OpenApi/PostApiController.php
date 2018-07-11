@@ -19,6 +19,9 @@ use App\Http\Resources\Post as PostResource;
 use App\Http\Controllers\OpenApiController;
 use Illuminate\Support\Facades\Mail;
 use App\Repositories\UserRepository;
+use App\Repositories\KeywordLanguageRepository;
+use App\Repositories\KeywordRepository;
+use App\Repositories\LanguageRepository;
 
 /**
  * @resource Open post
@@ -32,6 +35,9 @@ class PostApiController extends OpenApiController
     protected $merchantRepo;
     protected $voteRepo;
     protected $socketService;
+    protected $languageRepo;
+    protected $keywordRepo;
+    protected $keywordLanguageRepo;
 
     public function __construct(
         VoteRepositoryInterface $voteRepository,
@@ -39,7 +45,10 @@ class PostApiController extends OpenApiController
         SocketService $socketService,
         ImagePostRepositoryInterface $imagePostRepository,
         MerchantRepository $merchantRepository,
-        UserRepository $userRepo
+        UserRepository $userRepo,
+        LanguageRepository $languageRepo,
+        KeywordRepository $keywordRepo,
+        KeywordLanguageRepository $keywordLanguageRepo
     ) {
         parent::__construct();
         $this->postRepo = $postRepo;
@@ -48,6 +57,9 @@ class PostApiController extends OpenApiController
         $this->socketService = $socketService;
         $this->imagePostRepository = $imagePostRepository;
         $this->userRepo = $userRepo;
+        $this->languageRepo = $languageRepo;
+        $this->keywordRepo = $keywordRepo;
+        $this->keywordLanguageRepo = $keywordLanguageRepo;
     }
 
     /**
@@ -83,11 +95,21 @@ class PostApiController extends OpenApiController
 
     public function test()
     {
-        return view('email.test1');
+        $language = $this->languageRepo->findByCode("vi-vn");
+        $keywords = $this->keywordRepo->getAllKeyWord();
+        $dataKeyword = [];
+        foreach ($keywords as $keyword) {
+            $dataKeyword[$keyword->name] = $this->keywordLanguageRepo->findByKeywordIdAndLanguageId($keyword->id, $language->id)->toArray();
+        }
+        $data['keyword'] = $dataKeyword;
+        // dd($data);
+
+        return view('email.test', $data);
         $id = "69b65fd2-433e-4ea8-ae92-39eccee28cde";
         $user = $this->userRepo->show($id);
         $subject = "askdk";
-        $data = [];
+
+
 
         Mail::send('email.test1', ['data' => $data], function ($m) use ($user, $subject) {
             $m->from("no-reply@colorme.vn", "colorMe");

@@ -20,6 +20,12 @@ Route::middleware("auth:api")->group(function () {
 
         Route::get("/list/{type}", "ClientApi\UserApiController@userList");
 
+        Route::prefix("/bookmark")->group(function () {
+            Route::post("/", "Api\BookmarkApiController@createBookmark");
+            Route::get("/", "Api\BookmarkApiController@getAllBookmarks");
+            Route::get("/subdomain", "Api\BookmarkApiController@getBookmarksBySubDomain");
+        });
+
     });
 
     Route::prefix("log")->group(function () {

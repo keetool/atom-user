@@ -19,4 +19,8 @@ interface PostRepositoryInterface
     public function increment($postId, $column);
 
     public function decrement($postId, $column);
+
+    public function hide($postId);
+
+    public function isCreator($postId);
 }

@@ -35,7 +35,7 @@ class Post extends JsonResource
             'created_at' => strtotime($this->created_at),
             'updated_at' => strtotime($this->updated_at),
             "vote" => $vote == null ? 0 : $vote->value,
-            "images" => ImageResource::collection($this->images)
+            "images" => ImageResource::collection($this->images),
         ];
     }
 }

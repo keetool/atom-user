@@ -19,4 +19,8 @@ interface CommentRepositoryInterface
     public function increment($commentId, $column);
 
     public function decrement($commentId, $column);
+    
+    public function hide($commentId);
+
+    public function isCreator($commentId);
 }

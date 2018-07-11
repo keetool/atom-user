@@ -38,8 +38,7 @@ class PostApiController extends ApiController
         SocketServiceInterface $socketService,
         ImagePostRepositoryInterface $imagePostRepository,
         MerchantRepository $merchantRepository
-    )
-    {
+    ) {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
@@ -217,7 +216,10 @@ class PostApiController extends ApiController
         ]);
     }
 
-
+    /**
+     * Vote post
+     * $vote = {up, down}
+     */
     public function vote($subdomain, $postId, $vote)
     {
         $voteValue = $vote == "up" ? 1 : -1;
@@ -286,5 +288,16 @@ class PostApiController extends ApiController
         $post = $this->postRepo->show($postId);
 
         return new PostResource($post);
+    }
+
+    /**
+     * Hide post
+     */
+    public function hidePost($subdomain, $postId)
+    {
+        if ($this->postRepo->isCreator($postId) == false)
+            return $this->badRequest(["Message" => "Your are not the creator of this post"]);
+        $this->postRepo->hide($postId);
+        return $this->success(["message" => "hid"]);
     }
 }

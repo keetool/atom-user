@@ -38,6 +38,7 @@ Route::middleware("auth:api")->group(function () {
         Route::put("/{postId}", "ClientApi\PostApiController@updatePost");
         Route::get('/', "ClientApi\PostApiController@getPosts");
         Route::get("/{postId}", "ClientApi\PostApiController@getPost");
+        Route::put("/{postId}/hide", "ClientApi\PostApiController@hidePost");
         Route::delete("/{postId}", "ClientApi\PostApiController@deletePost");
         // vote = 'up' or 'down'
         Route::post("/{postId}/vote/{vote}", "ClientApi\PostApiController@vote");
@@ -58,6 +59,7 @@ Route::middleware("auth:api")->group(function () {
 
     Route::prefix("comment")->group(function () {
         Route::post("/{commentId}/vote/{vote}", "ClientApi\CommentApiController@vote");
+        Route::put("/{commentId}/hide", "ClientApi\CommentApiController@hideComment");
     });
 
     Route::prefix("image")->group(function () {

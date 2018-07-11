@@ -195,11 +195,11 @@
                 <div class="col-md-12">
                     <p>Copy and paste the source code bellow to your own website. We highly recommend you to put it right after body tag.</p>
                     <div id="codeatom">
-                        <button onclick="CopyToClipboard('atomuser-code')" class="btn btn-secondary" id="clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+                        <button onclick="copyToClipboard('atomuser-code')" class="btn btn-secondary" id="clipboard"><i class="fa fa-clipboard" aria-hidden="true"></i> COPY</button>
                         @include("home.includes.code_atomuser")
                     </div>
                     <div id="error"></div>
-                    <button v-on:click="storeFreeTrial()" class="btn btn-success btn-lg pull-right" style="width: 100%" id="submit-button" type="submit">Got it!</button>
+                    <button v-on:click="storeFreeTrial()" class="btn btn-success btn-lg pull-right" style="width: 100%" id="submit-button" type="submit">Go to dashboard</button>
                 </div>
             </div>
         </div>
@@ -229,7 +229,7 @@
 
 @push("scripts")
 <script>
-    function CopyToClipboard(containerid) {
+    function copyToClipboard(containerid) {
         if (document.selection) { 
             var range = document.body.createTextRange();
             range.moveToElementText(document.getElementById(containerid));

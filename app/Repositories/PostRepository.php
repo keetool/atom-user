@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Post;
 use Illuminate\Support\Facades\DB;
+use App\Http\Resources\Post as PostResource;
 
 class PostRepository extends Repository implements PostRepositoryInterface
 {
@@ -20,12 +21,27 @@ class PostRepository extends Repository implements PostRepositoryInterface
 
     public function loadByMerchantId($merchantId, $postId = null, $limit = 10, $order = "desc")
     {
-        if($limit == null)
+        if ($limit == null)
             $limit = 10;
         $posts = $this->model->where("merchant_id", $merchantId);
-        if($postId)
+        if ($postId)
             $posts = $posts->where("created_at", "<", $this->model->find($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
+        return $posts;
+    }
+
+    public function loadTopByMerchantId($merchantId, $postId = null, $limit = 10, $order = "desc")
+    {
+        if ($limit == null)
+            $limit = 10;
+        $posts = $this->model->where("merchant_id", $merchantId);
+        if ($postId) {
+            $post = $this->show($postId);
+            $value = 1000000000*($post->upvote + $post->downvote)/(2500000000-(strtotime($post->created_at)-1));
+            $posts = $posts->whereRaw("1000000000*((upvote + downvote)/(2500000000-extract(epoch from (created_at::timestamp - '1970-01-01 00:00:01'::timestamp)))) < " . (string)$value);
+        }
+        $posts = $posts->orderByRaw("((upvote + downvote)/(2500000000-extract(epoch from (created_at::timestamp - '1970-01-01 00:00:01'::timestamp)))) desc")->limit($limit)->get();
+
         return $posts;
     }
 

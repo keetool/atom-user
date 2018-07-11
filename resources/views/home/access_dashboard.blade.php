@@ -21,7 +21,10 @@
                 <form action="" method="GET">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <input type="text" placeholder="Subdomain" class="form-control" name="subdomain" required>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Subdomain" name="subdomain" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">.{{ $_SERVER['HTTP_HOST'] }}</span>
+                        </div>
                     </div>
                     <button class="btn btn-primary btn-lg" style="width: 100%">
                         NEXT

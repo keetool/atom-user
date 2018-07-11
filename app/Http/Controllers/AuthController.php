@@ -112,7 +112,7 @@ class AuthController extends ApiController
 
         // add user to merchant
         $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "root");
-
+        
         // log create merchant
         $createMerchantLogFactory = new CreateMerchantLogFactory($request->url(), $user, $merchant);
         Log::sendLog($createMerchantLogFactory->makeLog());
@@ -303,10 +303,10 @@ class AuthController extends ApiController
             $user->name = $response->name;
 
             //avatar
-            $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
-            $response = json_decode((string)$response->getBody());
+            // $response = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
+            // $response = json_decode((string)$response->getBody());
 
-            $user->avatar_url = $response->data->url;
+            $user->avatar_url = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
             $user->save();
 
             $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");

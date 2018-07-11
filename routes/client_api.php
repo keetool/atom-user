@@ -21,9 +21,10 @@ Route::middleware("auth:api")->group(function () {
         Route::get("/list/{type}", "ClientApi\UserApiController@userList");
 
         Route::prefix("/bookmark")->group(function () {
-            Route::post("/", "Api\BookmarkApiController@createBookmark");
+            Route::post("/post/{postId}", "Api\BookmarkApiController@createBookmark");
+            Route::delete("/post/{postId}", "Api\BookmarkApiController@deleteBookmark");
             Route::get("/", "Api\BookmarkApiController@getAllBookmarks");
-            Route::get("/subdomain", "Api\BookmarkApiController@getBookmarksBySubDomain");
+            Route::get("/by-sub-domain", "Api\BookmarkApiController@getBookmarksBySubDomain");
         });
 
     });

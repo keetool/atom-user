@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ClientApi;
 
+use App\Http\Resources\PostFullResource;
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
 use App\Notifications\Notification;
@@ -92,7 +93,7 @@ class PostApiController extends ApiController
 
         Log::sendLog(PostLogFactory::getEditInstance($request->url(), Auth::user(), $post)->makeLog());
 
-        return new PostResource($post);
+        return new PostFullResource($post);
     }
 
     /**
@@ -104,7 +105,7 @@ class PostApiController extends ApiController
 
         $posts = $this->postRepo->findByMerchantId($merchant->id);
 
-        return PostResource::collection($posts);
+        return PostFullResource::collection($posts);
     }
 
     /**
@@ -120,7 +121,7 @@ class PostApiController extends ApiController
             ]);
         }
 
-        return new PostResource($post);
+        return new PostFullResource($post);
     }
 
     /**
@@ -134,7 +135,7 @@ class PostApiController extends ApiController
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
-        return PostResource::collection($posts);
+        return PostFullResource::collection($posts);
     }
 
     /**
@@ -149,7 +150,7 @@ class PostApiController extends ApiController
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
         if ($type == "top")
             $posts = $this->postRepo->loadTopByMerchantId($merchant->id, $request->post_id, $request->limit);
-        return PostResource::collection($posts);
+        return PostFullResource::collection($posts);
     }
 
     /**
@@ -195,7 +196,7 @@ class PostApiController extends ApiController
 
         Log::sendLog(PostLogFactory::getCreateInstance($request->url(), Auth::user(), $post)->makeLog());
 
-        return new PostResource($post);
+        return new PostFullResource($post);
     }
 
     /**

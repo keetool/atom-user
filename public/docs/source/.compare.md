@@ -26,7 +26,7 @@ Welcome to the generated API reference.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/auth/signin" \
+curl -X POST "http://atomuser.test/client-api/v1/auth/signin" \
 -H "Accept: application/json"
 ```
 
@@ -34,7 +34,7 @@ curl -X POST "http://localhost/client-api/v1/auth/signin" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/auth/signin",
+    "url": "http://atomuser.test/client-api/v1/auth/signin",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -59,7 +59,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/auth/token/refresh" \
+curl -X POST "http://atomuser.test/client-api/v1/auth/token/refresh" \
 -H "Accept: application/json"
 ```
 
@@ -67,7 +67,7 @@ curl -X POST "http://localhost/client-api/v1/auth/token/refresh" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/auth/token/refresh",
+    "url": "http://atomuser.test/client-api/v1/auth/token/refresh",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -92,7 +92,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/auth/facebook/token-signin" \
+curl -X POST "http://atomuser.test/client-api/v1/auth/facebook/token-signin" \
 -H "Accept: application/json"
 ```
 
@@ -100,7 +100,7 @@ curl -X POST "http://localhost/client-api/v1/auth/facebook/token-signin" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/auth/facebook/token-signin",
+    "url": "http://atomuser.test/client-api/v1/auth/facebook/token-signin",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -125,7 +125,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/auth/google/token-signin" \
+curl -X POST "http://atomuser.test/client-api/v1/auth/google/token-signin" \
 -H "Accept: application/json"
 ```
 
@@ -133,7 +133,7 @@ curl -X POST "http://localhost/client-api/v1/auth/google/token-signin" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/auth/google/token-signin",
+    "url": "http://atomuser.test/client-api/v1/auth/google/token-signin",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -158,7 +158,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/auth/test" \
+curl -X GET "http://atomuser.test/client-api/v1/auth/test" \
 -H "Accept: application/json"
 ```
 
@@ -166,7 +166,7 @@ curl -X GET "http://localhost/client-api/v1/auth/test" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/auth/test",
+    "url": "http://atomuser.test/client-api/v1/auth/test",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -495,7 +495,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/auth/check/merchant" \
+curl -X POST "http://atomuser.test/api/v1/auth/check/merchant" \
 -H "Accept: application/json"
 ```
 
@@ -503,7 +503,7 @@ curl -X POST "http://localhost/api/v1/auth/check/merchant" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/v1/auth/check/merchant",
+    "url": "http://atomuser.test/api/v1/auth/check/merchant",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -528,7 +528,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/auth/signup/user" \
+curl -X POST "http://atomuser.test/api/v1/auth/signup/user" \
 -H "Accept: application/json"
 ```
 
@@ -536,7 +536,7 @@ curl -X POST "http://localhost/api/v1/auth/signup/user" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/v1/auth/signup/user",
+    "url": "http://atomuser.test/api/v1/auth/signup/user",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -561,7 +561,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/auth/signup/merchant" \
+curl -X POST "http://atomuser.test/api/v1/auth/signup/merchant" \
 -H "Accept: application/json"
 ```
 
@@ -569,7 +569,7 @@ curl -X POST "http://localhost/api/v1/auth/signup/merchant" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/v1/auth/signup/merchant",
+    "url": "http://atomuser.test/api/v1/auth/signup/merchant",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -594,7 +594,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/v1/auth/logout" \
+curl -X GET "http://atomuser.test/api/v1/auth/logout" \
 -H "Accept: application/json"
 ```
 
@@ -602,7 +602,7 @@ curl -X GET "http://localhost/api/v1/auth/logout" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/v1/auth/logout",
+    "url": "http://atomuser.test/api/v1/auth/logout",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -630,6 +630,747 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_e45d6bc29c8c4bf3ee565c811719cf0e -->
 
+#Bookmark
+<!-- START_ac458cbaab4f046a5e211f219d138851 -->
+## Create bookmark
+
+> Example request:
+
+```bash
+curl -X POST "http://atomuser.test/client-api/v1/user/bookmark/post/{postId}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/user/bookmark/post/{postId}",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST client-api/v1/user/bookmark/post/{postId}`
+
+
+<!-- END_ac458cbaab4f046a5e211f219d138851 -->
+
+<!-- START_2608742c36f14572c9e1385687ec8324 -->
+## Delete bookmark
+
+> Example request:
+
+```bash
+curl -X DELETE "http://atomuser.test/client-api/v1/user/bookmark/post/{postId}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/user/bookmark/post/{postId}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE client-api/v1/user/bookmark/post/{postId}`
+
+
+<!-- END_2608742c36f14572c9e1385687ec8324 -->
+
+<!-- START_2afe7e3070cf34d66b8c2dbb2893b27b -->
+## Get bookmarks from all subdomains
+
+> Example request:
+
+```bash
+curl -X GET "http://atomuser.test/client-api/v1/user/bookmark" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/user/bookmark",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/RouteCollection.php",
+    "line": 179,
+    "trace": [
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 613,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 602,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 591,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 183,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 170,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 865,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 241,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 143,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET client-api/v1/user/bookmark`
+
+`HEAD client-api/v1/user/bookmark`
+
+
+<!-- END_2afe7e3070cf34d66b8c2dbb2893b27b -->
+
+<!-- START_82e813ec887624a1d2d165d51ab2a9a2 -->
+## Get bookmarks from this subdomain
+
+> Example request:
+
+```bash
+curl -X GET "http://atomuser.test/client-api/v1/user/bookmark/by-sub-domain" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/user/bookmark/by-sub-domain",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/RouteCollection.php",
+    "line": 179,
+    "trace": [
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 613,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 602,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 591,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 183,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 170,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 865,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 241,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 143,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET client-api/v1/user/bookmark/by-sub-domain`
+
+`HEAD client-api/v1/user/bookmark/by-sub-domain`
+
+
+<!-- END_82e813ec887624a1d2d165d51ab2a9a2 -->
+
 #Client comment
 <!-- START_0ceb1dec0646ffa6f4bfdfebd81ed55b -->
 ## GET post&#039;s comment
@@ -638,7 +1379,7 @@ Query param: limit, order
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/post/{postId}/comment" \
+curl -X GET "http://atomuser.test/client-api/v1/post/{postId}/comment" \
 -H "Accept: application/json"
 ```
 
@@ -646,7 +1387,7 @@ curl -X GET "http://localhost/client-api/v1/post/{postId}/comment" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}/comment",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}/comment",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -976,7 +1717,7 @@ param: value
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/post/{postId}/comment" \
+curl -X POST "http://atomuser.test/client-api/v1/post/{postId}/comment" \
 -H "Accept: application/json"
 ```
 
@@ -984,7 +1725,7 @@ curl -X POST "http://localhost/client-api/v1/post/{postId}/comment" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}/comment",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}/comment",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1010,7 +1751,7 @@ param value
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/client-api/v1/post/{postId}/comment/{commentId}" \
+curl -X PUT "http://atomuser.test/client-api/v1/post/{postId}/comment/{commentId}" \
 -H "Accept: application/json"
 ```
 
@@ -1018,7 +1759,7 @@ curl -X PUT "http://localhost/client-api/v1/post/{postId}/comment/{commentId}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}/comment/{commentId}",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}/comment/{commentId}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -1043,7 +1784,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/client-api/v1/post/{postId}/comment/{commentId}" \
+curl -X DELETE "http://atomuser.test/client-api/v1/post/{postId}/comment/{commentId}" \
 -H "Accept: application/json"
 ```
 
@@ -1051,7 +1792,7 @@ curl -X DELETE "http://localhost/client-api/v1/post/{postId}/comment/{commentId}
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}/comment/{commentId}",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}/comment/{commentId}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -1076,7 +1817,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/post/{postId}/load-comment" \
+curl -X GET "http://atomuser.test/client-api/v1/post/{postId}/load-comment" \
 -H "Accept: application/json"
 ```
 
@@ -1084,7 +1825,7 @@ curl -X GET "http://localhost/client-api/v1/post/{postId}/load-comment" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}/load-comment",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}/load-comment",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1414,7 +2155,7 @@ $vote = {up,down}
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/comment/{commentId}/vote/{vote}" \
+curl -X POST "http://atomuser.test/client-api/v1/comment/{commentId}/vote/{vote}" \
 -H "Accept: application/json"
 ```
 
@@ -1422,7 +2163,7 @@ curl -X POST "http://localhost/client-api/v1/comment/{commentId}/vote/{vote}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/comment/{commentId}/vote/{vote}",
+    "url": "http://atomuser.test/client-api/v1/comment/{commentId}/vote/{vote}",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1449,7 +2190,7 @@ Param: image
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/image" \
+curl -X POST "http://atomuser.test/client-api/v1/image" \
 -H "Accept: application/json"
 ```
 
@@ -1457,7 +2198,7 @@ curl -X POST "http://localhost/client-api/v1/image" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/image",
+    "url": "http://atomuser.test/client-api/v1/image",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1485,7 +2226,7 @@ param: body
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/post" \
+curl -X POST "http://atomuser.test/client-api/v1/post" \
 -H "Accept: application/json"
 ```
 
@@ -1493,7 +2234,7 @@ curl -X POST "http://localhost/client-api/v1/post" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post",
+    "url": "http://atomuser.test/client-api/v1/post",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1520,7 +2261,7 @@ param: body
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/client-api/v1/post/{postId}" \
+curl -X PUT "http://atomuser.test/client-api/v1/post/{postId}" \
 -H "Accept: application/json"
 ```
 
@@ -1528,7 +2269,7 @@ curl -X PUT "http://localhost/client-api/v1/post/{postId}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -1553,7 +2294,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/post" \
+curl -X GET "http://atomuser.test/client-api/v1/post" \
 -H "Accept: application/json"
 ```
 
@@ -1561,7 +2302,7 @@ curl -X GET "http://localhost/client-api/v1/post" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post",
+    "url": "http://atomuser.test/client-api/v1/post",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -1890,7 +2631,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/post/{postId}" \
+curl -X GET "http://atomuser.test/client-api/v1/post/{postId}" \
 -H "Accept: application/json"
 ```
 
@@ -1898,7 +2639,7 @@ curl -X GET "http://localhost/client-api/v1/post/{postId}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2227,7 +2968,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/client-api/v1/post/{postId}" \
+curl -X DELETE "http://atomuser.test/client-api/v1/post/{postId}" \
 -H "Accept: application/json"
 ```
 
@@ -2235,7 +2976,7 @@ curl -X DELETE "http://localhost/client-api/v1/post/{postId}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -2260,7 +3001,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/client-api/v1/post/{postId}/vote/{vote}" \
+curl -X POST "http://atomuser.test/client-api/v1/post/{postId}/vote/{vote}" \
 -H "Accept: application/json"
 ```
 
@@ -2268,7 +3009,7 @@ curl -X POST "http://localhost/client-api/v1/post/{postId}/vote/{vote}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/{postId}/vote/{vote}",
+    "url": "http://atomuser.test/client-api/v1/post/{postId}/vote/{vote}",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2295,7 +3036,7 @@ param = {post_id}
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/post/list/{type}" \
+curl -X GET "http://atomuser.test/client-api/v1/post/list/{type}" \
 -H "Accept: application/json"
 ```
 
@@ -2303,7 +3044,7 @@ curl -X GET "http://localhost/client-api/v1/post/list/{type}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/post/list/{type}",
+    "url": "http://atomuser.test/client-api/v1/post/list/{type}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2632,7 +3373,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/load-post" \
+curl -X GET "http://atomuser.test/client-api/v1/load-post" \
 -H "Accept: application/json"
 ```
 
@@ -2640,7 +3381,7 @@ curl -X GET "http://localhost/client-api/v1/load-post" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/load-post",
+    "url": "http://atomuser.test/client-api/v1/load-post",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -2971,7 +3712,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/list" \
+curl -X GET "http://atomuser.test/t/language/list" \
 -H "Accept: application/json"
 ```
 
@@ -2979,7 +3720,7 @@ curl -X GET "http://localhost/t/language/list" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/list",
+    "url": "http://atomuser.test/t/language/list",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3012,7 +3753,7 @@ null
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/add" \
+curl -X GET "http://atomuser.test/t/language/add" \
 -H "Accept: application/json"
 ```
 
@@ -3020,7 +3761,7 @@ curl -X GET "http://localhost/t/language/add" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/add",
+    "url": "http://atomuser.test/t/language/add",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3053,7 +3794,7 @@ null
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/t/language" \
+curl -X POST "http://atomuser.test/t/language" \
 -H "Accept: application/json"
 ```
 
@@ -3061,7 +3802,7 @@ curl -X POST "http://localhost/t/language" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language",
+    "url": "http://atomuser.test/t/language",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3087,7 +3828,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/{id}" \
+curl -X GET "http://atomuser.test/t/language/{id}" \
 -H "Accept: application/json"
 ```
 
@@ -3095,7 +3836,7 @@ curl -X GET "http://localhost/t/language/{id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/{id}",
+    "url": "http://atomuser.test/t/language/{id}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -3694,7 +4435,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/{id}/edit" \
+curl -X GET "http://atomuser.test/t/language/{id}/edit" \
 -H "Accept: application/json"
 ```
 
@@ -3702,7 +4443,7 @@ curl -X GET "http://localhost/t/language/{id}/edit" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/{id}/edit",
+    "url": "http://atomuser.test/t/language/{id}/edit",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4300,7 +5041,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/{lang_id}/keyword" \
+curl -X GET "http://atomuser.test/t/language/{lang_id}/keyword" \
 -H "Accept: application/json"
 ```
 
@@ -4308,7 +5049,7 @@ curl -X GET "http://localhost/t/language/{lang_id}/keyword" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/{lang_id}/keyword",
+    "url": "http://atomuser.test/t/language/{lang_id}/keyword",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4340,7 +5081,7 @@ null
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/{lang_id}/keyword/add" \
+curl -X GET "http://atomuser.test/t/language/{lang_id}/keyword/add" \
 -H "Accept: application/json"
 ```
 
@@ -4348,7 +5089,7 @@ curl -X GET "http://localhost/t/language/{lang_id}/keyword/add" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/{lang_id}/keyword/add",
+    "url": "http://atomuser.test/t/language/{lang_id}/keyword/add",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4381,7 +5122,7 @@ null
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/{lang_id}/keyword/{keyword_id}" \
+curl -X GET "http://atomuser.test/t/language/{lang_id}/keyword/{keyword_id}" \
 -H "Accept: application/json"
 ```
 
@@ -4389,7 +5130,7 @@ curl -X GET "http://localhost/t/language/{lang_id}/keyword/{keyword_id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/{lang_id}/keyword/{keyword_id}",
+    "url": "http://atomuser.test/t/language/{lang_id}/keyword/{keyword_id}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -4987,7 +5728,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/t/language/{lang_id}/keyword" \
+curl -X POST "http://atomuser.test/t/language/{lang_id}/keyword" \
 -H "Accept: application/json"
 ```
 
@@ -4995,7 +5736,7 @@ curl -X POST "http://localhost/t/language/{lang_id}/keyword" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/{lang_id}/keyword",
+    "url": "http://atomuser.test/t/language/{lang_id}/keyword",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -5020,7 +5761,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/keyword/add" \
+curl -X GET "http://atomuser.test/t/language/keyword/add" \
 -H "Accept: application/json"
 ```
 
@@ -5028,7 +5769,7 @@ curl -X GET "http://localhost/t/language/keyword/add" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/keyword/add",
+    "url": "http://atomuser.test/t/language/keyword/add",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -5060,7 +5801,7 @@ null
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/t/language/keyword/{id}/edit" \
+curl -X GET "http://atomuser.test/t/language/keyword/{id}/edit" \
 -H "Accept: application/json"
 ```
 
@@ -5068,7 +5809,7 @@ curl -X GET "http://localhost/t/language/keyword/{id}/edit" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/keyword/{id}/edit",
+    "url": "http://atomuser.test/t/language/keyword/{id}/edit",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -5666,7 +6407,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/t/language/keyword" \
+curl -X POST "http://atomuser.test/t/language/keyword" \
 -H "Accept: application/json"
 ```
 
@@ -5674,7 +6415,7 @@ curl -X POST "http://localhost/t/language/keyword" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/t/language/keyword",
+    "url": "http://atomuser.test/t/language/keyword",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -5699,7 +6440,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost//" \
+curl -X GET "http://atomuser.test//" \
 -H "Accept: application/json"
 ```
 
@@ -5707,7 +6448,7 @@ curl -X GET "http://localhost//" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//",
+    "url": "http://atomuser.test//",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -6036,7 +6777,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/blogs" \
+curl -X GET "http://atomuser.test/blogs" \
 -H "Accept: application/json"
 ```
 
@@ -6044,7 +6785,7 @@ curl -X GET "http://localhost/blogs" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/blogs",
+    "url": "http://atomuser.test/blogs",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -6373,7 +7114,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/free-trial" \
+curl -X GET "http://atomuser.test/free-trial" \
 -H "Accept: application/json"
 ```
 
@@ -6381,7 +7122,7 @@ curl -X GET "http://localhost/free-trial" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/free-trial",
+    "url": "http://atomuser.test/free-trial",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -6710,7 +7451,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/check-merchant" \
+curl -X GET "http://atomuser.test/check-merchant" \
 -H "Accept: application/json"
 ```
 
@@ -6718,7 +7459,7 @@ curl -X GET "http://localhost/check-merchant" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/check-merchant",
+    "url": "http://atomuser.test/check-merchant",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7047,7 +7788,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/dummy" \
+curl -X GET "http://atomuser.test/dummy" \
 -H "Accept: application/json"
 ```
 
@@ -7055,7 +7796,7 @@ curl -X GET "http://localhost/dummy" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/dummy",
+    "url": "http://atomuser.test/dummy",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7384,7 +8125,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/dummy2" \
+curl -X GET "http://atomuser.test/dummy2" \
 -H "Accept: application/json"
 ```
 
@@ -7392,7 +8133,7 @@ curl -X GET "http://localhost/dummy2" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/dummy2",
+    "url": "http://atomuser.test/dummy2",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -7721,7 +8462,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/access-dashboard" \
+curl -X GET "http://atomuser.test/access-dashboard" \
 -H "Accept: application/json"
 ```
 
@@ -7729,7 +8470,7 @@ curl -X GET "http://localhost/access-dashboard" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/access-dashboard",
+    "url": "http://atomuser.test/access-dashboard",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8060,7 +8801,7 @@ Param: limit, page
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/user/notification" \
+curl -X GET "http://atomuser.test/client-api/v1/user/notification" \
 -H "Accept: application/json"
 ```
 
@@ -8068,7 +8809,7 @@ curl -X GET "http://localhost/client-api/v1/user/notification" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/user/notification",
+    "url": "http://atomuser.test/client-api/v1/user/notification",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8400,7 +9141,7 @@ param = {}
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/open-api/v1/post/{postId}/load-comment" \
+curl -X GET "http://atomuser.test/open-api/v1/post/{postId}/load-comment" \
 -H "Accept: application/json"
 ```
 
@@ -8408,7 +9149,7 @@ curl -X GET "http://localhost/open-api/v1/post/{postId}/load-comment" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/open-api/v1/post/{postId}/load-comment",
+    "url": "http://atomuser.test/open-api/v1/post/{postId}/load-comment",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -8739,7 +9480,7 @@ param = {post_id}
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/open-api/v1/load-post" \
+curl -X GET "http://atomuser.test/open-api/v1/load-post" \
 -H "Accept: application/json"
 ```
 
@@ -8747,7 +9488,7 @@ curl -X GET "http://localhost/open-api/v1/load-post" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/open-api/v1/load-post",
+    "url": "http://atomuser.test/open-api/v1/load-post",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9076,7 +9817,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/open-api/v1/post/{postId}" \
+curl -X GET "http://atomuser.test/open-api/v1/post/{postId}" \
 -H "Accept: application/json"
 ```
 
@@ -9084,7 +9825,7 @@ curl -X GET "http://localhost/open-api/v1/post/{postId}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/open-api/v1/post/{postId}",
+    "url": "http://atomuser.test/open-api/v1/post/{postId}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9407,15 +10148,13 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_237a8da605fede7e87dd1ac046d51683 -->
 
-#Root dashboard
-<!-- START_acf634854a7d1bb48ed14add27f4283b -->
-## Dassh board api
-$type = {users-by-date, posts-by-date}
+<!-- START_88245841067a6a9131b1068bd93f9b21 -->
+## open-api/v1/test/send-mail
 
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/root-api/v1/dashboard/{type}" \
+curl -X GET "http://atomuser.test/open-api/v1/test/send-mail" \
 -H "Accept: application/json"
 ```
 
@@ -9423,7 +10162,7 @@ curl -X GET "http://localhost/root-api/v1/dashboard/{type}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/root-api/v1/dashboard/{type}",
+    "url": "http://atomuser.test/open-api/v1/test/send-mail",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9739,12 +10478,351 @@ $.ajax(settings).done(function (response) {
 ```
 
 ### HTTP Request
-`GET root-api/v1/dashboard/{type}`
+`GET open-api/v1/test/send-mail`
 
-`HEAD root-api/v1/dashboard/{type}`
+`HEAD open-api/v1/test/send-mail`
 
 
-<!-- END_acf634854a7d1bb48ed14add27f4283b -->
+<!-- END_88245841067a6a9131b1068bd93f9b21 -->
+
+#Root dashboard
+<!-- START_87e4f4943d1ffa49802b574e98a1453b -->
+## Dassh board api
+$type = {users-by-date, posts-by-date}
+
+> Example request:
+
+```bash
+curl -X GET "http://atomuser.test/manage-api/v1/dashboard/{type}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/manage-api/v1/dashboard/{type}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/RouteCollection.php",
+    "line": 179,
+    "trace": [
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 613,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 602,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 591,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 183,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 170,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 865,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 241,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 143,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET manage-api/v1/dashboard/{type}`
+
+`HEAD manage-api/v1/dashboard/{type}`
+
+
+<!-- END_87e4f4943d1ffa49802b574e98a1453b -->
 
 #general
 <!-- START_57011a4e29c6bc1cfec9270de49657bf -->
@@ -9753,7 +10831,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/oauth/authorize" \
+curl -X GET "http://atomuser.test/oauth/authorize" \
 -H "Accept: application/json"
 ```
 
@@ -9761,7 +10839,7 @@ curl -X GET "http://localhost/oauth/authorize" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/authorize",
+    "url": "http://atomuser.test/oauth/authorize",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9797,7 +10875,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/oauth/authorize" \
+curl -X POST "http://atomuser.test/oauth/authorize" \
 -H "Accept: application/json"
 ```
 
@@ -9805,7 +10883,7 @@ curl -X POST "http://localhost/oauth/authorize" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/authorize",
+    "url": "http://atomuser.test/oauth/authorize",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -9830,7 +10908,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/oauth/authorize" \
+curl -X DELETE "http://atomuser.test/oauth/authorize" \
 -H "Accept: application/json"
 ```
 
@@ -9838,7 +10916,7 @@ curl -X DELETE "http://localhost/oauth/authorize" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/authorize",
+    "url": "http://atomuser.test/oauth/authorize",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -9863,7 +10941,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/oauth/token" \
+curl -X POST "http://atomuser.test/oauth/token" \
 -H "Accept: application/json"
 ```
 
@@ -9871,7 +10949,7 @@ curl -X POST "http://localhost/oauth/token" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/token",
+    "url": "http://atomuser.test/oauth/token",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -9896,7 +10974,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/oauth/tokens" \
+curl -X GET "http://atomuser.test/oauth/tokens" \
 -H "Accept: application/json"
 ```
 
@@ -9904,7 +10982,7 @@ curl -X GET "http://localhost/oauth/tokens" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/tokens",
+    "url": "http://atomuser.test/oauth/tokens",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9938,7 +11016,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/oauth/tokens/{token_id}" \
+curl -X DELETE "http://atomuser.test/oauth/tokens/{token_id}" \
 -H "Accept: application/json"
 ```
 
@@ -9946,7 +11024,7 @@ curl -X DELETE "http://localhost/oauth/tokens/{token_id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/tokens/{token_id}",
+    "url": "http://atomuser.test/oauth/tokens/{token_id}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -9971,7 +11049,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/oauth/token/refresh" \
+curl -X POST "http://atomuser.test/oauth/token/refresh" \
 -H "Accept: application/json"
 ```
 
@@ -9979,7 +11057,7 @@ curl -X POST "http://localhost/oauth/token/refresh" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/token/refresh",
+    "url": "http://atomuser.test/oauth/token/refresh",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -10004,7 +11082,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/oauth/clients" \
+curl -X GET "http://atomuser.test/oauth/clients" \
 -H "Accept: application/json"
 ```
 
@@ -10012,7 +11090,7 @@ curl -X GET "http://localhost/oauth/clients" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/clients",
+    "url": "http://atomuser.test/oauth/clients",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -10046,7 +11124,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/oauth/clients" \
+curl -X POST "http://atomuser.test/oauth/clients" \
 -H "Accept: application/json"
 ```
 
@@ -10054,7 +11132,7 @@ curl -X POST "http://localhost/oauth/clients" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/clients",
+    "url": "http://atomuser.test/oauth/clients",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -10079,7 +11157,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/oauth/clients/{client_id}" \
+curl -X PUT "http://atomuser.test/oauth/clients/{client_id}" \
 -H "Accept: application/json"
 ```
 
@@ -10087,7 +11165,7 @@ curl -X PUT "http://localhost/oauth/clients/{client_id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/clients/{client_id}",
+    "url": "http://atomuser.test/oauth/clients/{client_id}",
     "method": "PUT",
     "headers": {
         "accept": "application/json"
@@ -10112,7 +11190,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/oauth/clients/{client_id}" \
+curl -X DELETE "http://atomuser.test/oauth/clients/{client_id}" \
 -H "Accept: application/json"
 ```
 
@@ -10120,7 +11198,7 @@ curl -X DELETE "http://localhost/oauth/clients/{client_id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/clients/{client_id}",
+    "url": "http://atomuser.test/oauth/clients/{client_id}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -10145,7 +11223,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/oauth/scopes" \
+curl -X GET "http://atomuser.test/oauth/scopes" \
 -H "Accept: application/json"
 ```
 
@@ -10153,7 +11231,7 @@ curl -X GET "http://localhost/oauth/scopes" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/scopes",
+    "url": "http://atomuser.test/oauth/scopes",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -10187,7 +11265,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/oauth/personal-access-tokens" \
+curl -X GET "http://atomuser.test/oauth/personal-access-tokens" \
 -H "Accept: application/json"
 ```
 
@@ -10195,7 +11273,7 @@ curl -X GET "http://localhost/oauth/personal-access-tokens" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/personal-access-tokens",
+    "url": "http://atomuser.test/oauth/personal-access-tokens",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -10229,7 +11307,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/oauth/personal-access-tokens" \
+curl -X POST "http://atomuser.test/oauth/personal-access-tokens" \
 -H "Accept: application/json"
 ```
 
@@ -10237,7 +11315,7 @@ curl -X POST "http://localhost/oauth/personal-access-tokens" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/personal-access-tokens",
+    "url": "http://atomuser.test/oauth/personal-access-tokens",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -10262,7 +11340,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/oauth/personal-access-tokens/{token_id}" \
+curl -X DELETE "http://atomuser.test/oauth/personal-access-tokens/{token_id}" \
 -H "Accept: application/json"
 ```
 
@@ -10270,7 +11348,7 @@ curl -X DELETE "http://localhost/oauth/personal-access-tokens/{token_id}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/oauth/personal-access-tokens/{token_id}",
+    "url": "http://atomuser.test/oauth/personal-access-tokens/{token_id}",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -10295,7 +11373,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/broadcasting/auth" \
+curl -X GET "http://atomuser.test/broadcasting/auth" \
 -H "Accept: application/json"
 ```
 
@@ -10303,7 +11381,7 @@ curl -X GET "http://localhost/broadcasting/auth" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/broadcasting/auth",
+    "url": "http://atomuser.test/broadcasting/auth",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -10318,7 +11396,517 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-null
+{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException",
+    "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Broadcasting\/Broadcasters\/Broadcaster.php",
+    "line": 69,
+    "trace": [
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Broadcasting\/Broadcasters\/RedisBroadcaster.php",
+            "line": 58,
+            "function": "verifyUserCanAccessChannel",
+            "class": "Illuminate\\Broadcasting\\Broadcasters\\Broadcaster",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Broadcasting\/BroadcastManager.php",
+            "line": 313,
+            "function": "auth",
+            "class": "Illuminate\\Broadcasting\\Broadcasters\\RedisBroadcaster",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Support\/Facades\/Facade.php",
+            "line": 221,
+            "function": "__call",
+            "class": "Illuminate\\Broadcasting\\BroadcastManager",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Broadcasting\/BroadcastController.php",
+            "line": 19,
+            "function": "__callStatic",
+            "class": "Illuminate\\Support\\Facades\\Facade",
+            "type": "::"
+        },
+        {
+            "function": "authenticate",
+            "class": "Illuminate\\Broadcasting\\BroadcastController",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Controller.php",
+            "line": 54,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php",
+            "line": 45,
+            "function": "callAction",
+            "class": "Illuminate\\Routing\\Controller",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php",
+            "line": 212,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\ControllerDispatcher",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php",
+            "line": 169,
+            "function": "runController",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 659,
+            "function": "run",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/VerifyCsrfToken.php",
+            "line": 67,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/View\/Middleware\/ShareErrorsFromSession.php",
+            "line": 49,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\View\\Middleware\\ShareErrorsFromSession",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Session\/Middleware\/StartSession.php",
+            "line": 63,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Session\\Middleware\\StartSession",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Cookie\/Middleware\/AddQueuedCookiesToResponse.php",
+            "line": 37,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Cookie\/Middleware\/EncryptCookies.php",
+            "line": 59,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 661,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 636,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 602,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 591,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 51,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 183,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 170,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 865,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 241,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 143,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
 ```
 
 ### HTTP Request
@@ -10338,7 +11926,7 @@ return information of current logged in user
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/user" \
+curl -X GET "http://atomuser.test/client-api/v1/user" \
 -H "Accept: application/json"
 ```
 
@@ -10346,7 +11934,7 @@ curl -X GET "http://localhost/client-api/v1/user" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/user",
+    "url": "http://atomuser.test/client-api/v1/user",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -10676,7 +12264,7 @@ $type = {new}
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/user/list/{type}" \
+curl -X GET "http://atomuser.test/client-api/v1/user/list/{type}" \
 -H "Accept: application/json"
 ```
 
@@ -10684,7 +12272,7 @@ curl -X GET "http://localhost/client-api/v1/user/list/{type}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/user/list/{type}",
+    "url": "http://atomuser.test/client-api/v1/user/list/{type}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -11014,7 +12602,7 @@ GET /api/v1/log
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/client-api/v1/log" \
+curl -X GET "http://atomuser.test/client-api/v1/log" \
 -H "Accept: application/json"
 ```
 
@@ -11022,7 +12610,7 @@ curl -X GET "http://localhost/client-api/v1/log" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/client-api/v1/log",
+    "url": "http://atomuser.test/client-api/v1/log",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -11351,7 +12939,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/v1/language" \
+curl -X GET "http://atomuser.test/api/v1/language" \
 -H "Accept: application/json"
 ```
 
@@ -11359,7 +12947,7 @@ curl -X GET "http://localhost/api/v1/language" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/v1/language",
+    "url": "http://atomuser.test/api/v1/language",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -11375,100 +12963,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "data": {
-        "id": "74ae7110-058b-4b82-8b8f-22248df7c012",
-        "name": "Francais",
-        "codes": "fr-fr",
-        "keywords": {
-            "manage.sidebar.tab.homepage": "Page d'accueil",
-            "manage.sidebar.tab.teaching": "Enseignement",
-            "manage.sidebar.tab.class": "Classe",
-            "manage.sidebar.tab.student": "Étudiant",
-            "manage.login.form.login": "S'identifier",
-            "manage.log.user.signin": "",
-            "manage.login.form.username": "Nom d'utilisateur",
-            "manage.login.form.password": "Mot de passe",
-            "manage.login.form.forgot_password": "Mot de passe oublié",
-            "manage.login.form.description": "Construisez votre propre communauté",
-            "manage.login.form.please_input_your_password": "Veuillez entrer votre mot de passe",
-            "manage.login.form.please_input_your_username": "Veuillez entrer votre nom d'utilisateur",
-            "log.your_student": "Ton élève",
-            "manage.login.form.please_check_info_account": "",
-            "manage.error.message.there_are_errors": "",
-            "manage.error.message.please_check_network": "",
-            "manage.global.you": "",
-            "manage.log.table.header_column_time": "",
-            "message.log.table.header": "",
-            "manage.sidebar.tab.log": "Log",
-            "manage.log.merchant.create": "",
-            "manage.log.table.header_column_content": "",
-            "manage.log.table.header_column_action": "",
-            "manage.user.signin": "",
-            "manage.merchant.create": "",
-            "social.login.form.description": "",
-            "social.login.form.text_login_facebook": "",
-            "social.login.form.text_login_google": "",
-            "website.homepage.section2.feature1_title": "",
-            "website.homepage.section2.feature1_content": "",
-            "social.login.form.merchant_unavailable": "",
-            "website.hompage.section1.title": "",
-            "website.homepage.section1.subtitle1": "",
-            "website.homepage.section1.title": "",
-            "website.homepage.section1.subtitle2": "",
-            "website.homepage.section1.getstarted_button": "",
-            "social.login.form.is_logging": "",
-            "website.homepage.section2.feature2_title": "",
-            "website.homepage.section2.feature2_content": "",
-            "website.homepage.section2.feature3_title": "",
-            "website.homepage.section2.feature3_content": "",
-            "website.homepage.section2.feature4_title": "",
-            "website.homepage.section2.feature4_content": "",
-            "website.homepage.section2.feature5_title": "",
-            "website.homepage.section2.feature5_content": "",
-            "website.homepage.section2.feature6_title": "",
-            "website.homepage.section2.feature6_content": "",
-            "website.homepage.section3.block1_title": "",
-            "website.homepage.section3.block1_content": "",
-            "website.homepage.section3.block2.title": "",
-            "website.homepage.section3.block2_content": "",
-            "website.homepage.section3.block2_title": "",
-            "website.homepage.section4.feature1_title": "",
-            "website.homepage.section4.feature1_content": "",
-            "website.homepage.section4.feature2_title": "",
-            "website.homepage.section4.feature2_content": "",
-            "website.homepage.section4.feature3.title": "",
-            "website.homepage.section4.feature3_content": "",
-            "website.homepage.section4.feature3_title": "",
-            "website.homepage.section5.signup_title": "",
-            "website.homepage.section5.signup_subtitle": "",
-            "website.homepage.section5.signup_fullname": "",
-            "website.homepage.section5.signup_email": "",
-            "website.homepage.section5.signup_password": "",
-            "website.homepage.section5.signup_button": "",
-            "social.editor.form.placeholder": "",
-            "social.editor.noti.upload_image_error": "",
-            "social.editor.form.button_post": "",
-            "social.editor_comment.form.placeholder": "",
-            "manage.dashboard.card_user.title": "",
-            "manage.dashboard.card_post.title": "",
-            "manage.dashboard.card_new_user.title": "",
-            "dashboard.datepicker_start_time.placeholder": "",
-            "dashboard.datepicker_end_time.placeholder": "",
-            "social.home.post_item.view_all_comment": "",
-            "social.home.post.upload_success": "",
-            "social.tooltip.header.signout": "",
-            "social.home.post_item.comment": "",
-            "social.home.post_item.upvote": "",
-            "social.home.post_item.downvote": "",
-            "social.home.comment_item.reply": "",
-            "social.home.post.comment_load_more": "",
-            "social.editor.action.photo": "",
-            "social.editor.action.file": "",
-            "social.editor.noti.limit_file_upload": "",
-            "social.home.title": ""
-        },
-        "version": "1530852054"
-    }
+    "message": "Chưa tồn tại ngôn ngữ nào"
 }
 ```
 
@@ -11486,7 +12981,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/v1/merchant/{merchantId}" \
+curl -X GET "http://atomuser.test/api/v1/merchant/{merchantId}" \
 -H "Accept: application/json"
 ```
 
@@ -11494,7 +12989,7 @@ curl -X GET "http://localhost/api/v1/merchant/{merchantId}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/v1/merchant/{merchantId}",
+    "url": "http://atomuser.test/api/v1/merchant/{merchantId}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -11528,7 +13023,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/signin" \
+curl -X GET "http://atomuser.test/signin" \
 -H "Accept: application/json"
 ```
 
@@ -11536,7 +13031,7 @@ curl -X GET "http://localhost/signin" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/signin",
+    "url": "http://atomuser.test/signin",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -11865,7 +13360,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/manage/{path?}" \
+curl -X GET "http://atomuser.test/manage/{path?}" \
 -H "Accept: application/json"
 ```
 
@@ -11873,7 +13368,7 @@ curl -X GET "http://localhost/manage/{path?}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/manage/{path?}",
+    "url": "http://atomuser.test/manage/{path?}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -12202,7 +13697,7 @@ $.ajax(settings).done(function (response) {
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/{path?}" \
+curl -X GET "http://atomuser.test/{path?}" \
 -H "Accept: application/json"
 ```
 
@@ -12210,7 +13705,7 @@ curl -X GET "http://localhost/{path?}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/{path?}",
+    "url": "http://atomuser.test/{path?}",
     "method": "GET",
     "headers": {
         "accept": "application/json"

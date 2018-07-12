@@ -45,9 +45,9 @@ class NotificationApiController extends ApiController
         $user = Auth::user();
 
         $notifications = Notification::where("receiver_id", $user->id);
-
-        $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
         dd($notifications);
+        $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
+
         return NotificationResource::collection($notifications);
     }
 }

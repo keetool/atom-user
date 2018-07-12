@@ -64,10 +64,11 @@ class NotificationApiController extends ApiController
 
     public function getNotificationsAfter($subDomain, $notificationId, Request $request)
     {
+        dd($notificationId);
         $user = Auth::user();
 
         $notifications = Notification::where("receiver_id", $user->id);
-        dd($notifications);
+
         $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
 
         return NotificationResource::collection($notifications);

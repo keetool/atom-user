@@ -30,8 +30,7 @@ class CommentApiController extends ApiController
         PostRepositoryInterface $postRepo,
         CommentRepositoryInterface $commentRepository,
         CommentVoteRepositoryInterface $commentVoteRepo
-    )
-    {
+    ) {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->commentRepo = $commentRepository;
@@ -237,5 +236,16 @@ class CommentApiController extends ApiController
         $comment = $this->commentRepo->show($commentId);
 
         return new CommentResource($comment);
+    }
+
+    /**
+     * Hide Comment
+     */
+    public function hideComment($subDomain, $commentId)
+    {
+        if ($this->commentRepo->isCreator($commentId) == false)
+            return $this->badRequest(["Message" => "Your are not the creator of this comment"]);
+        $this->commentRepo->hide($commentId);
+        return $this->success(["message" => "hid"]);
     }
 }

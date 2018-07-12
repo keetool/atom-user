@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentRepository extends Repository implements CommentRepositoryInterface
 {
@@ -48,6 +49,18 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
     public function decrement($commentId, $column)
     {
         Comment::where('id', $commentId)->decrement($column);
+    }
 
+    public function hide($commentId)
+    {
+        $comment = $this->show($commentId);
+        $comment->hide = 1;
+        $comment->save();
+    }
+
+    public function isCreator($commentId)
+    {
+        $comment = $this->show($commentId);
+        return $comment->user_id == Auth::user()->id;
     }
 }

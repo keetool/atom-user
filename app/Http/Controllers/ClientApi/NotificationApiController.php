@@ -48,7 +48,6 @@ class NotificationApiController extends ApiController
      */
     public function seenNotification($subDomain, $notificationId)
     {
-        dd($notificationId);
         $noti = Notification::find($notificationId);
 
         if ($noti == null) {

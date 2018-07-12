@@ -15,9 +15,9 @@ Route::middleware("auth:api")->group(function () {
     Route::prefix("user")->group(function () {
         Route::get("/", "ClientApi\UserApiController@user");
         Route::prefix("/notification")->group(function () {
+            Route::put("/{notificationId}/seen", "ClientApi\NotificationApiController@seenNotification");
             Route::get("/{notificationId}/after", "ClientApi\NotificationApiController@getNotificationsAfter");
             Route::get("/", "ClientApi\NotificationApiController@getNotifications");
-            Route::put("/{notificationId}/seen", "ClientApi\NotificationApiController@seenNotification");
         });
 
         Route::get("/list/{type}", "ClientApi\UserApiController@userList");

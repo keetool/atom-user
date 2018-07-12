@@ -303,10 +303,11 @@ class AuthController extends ApiController
             $user->name = $response->name;
 
             //avatar
-            // $response = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
-            // $response = json_decode((string)$response->getBody());
+            $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
+            $response = json_decode((string)$response->getBody());
 
-            $user->avatar_url = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
+            // $user->avatar_url = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
+            $user->avatar_url = $response->url;
             $user->save();
 
             $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");

@@ -46,7 +46,7 @@ class NotificationApiController extends ApiController
      * @param $notificationId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function seenNotification($notificationId)
+    public function seenNotification($subDomain, $notificationId)
     {
         dd($notificationId);
         $noti = Notification::find($notificationId);

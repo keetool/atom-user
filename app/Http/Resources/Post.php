@@ -24,6 +24,7 @@ class Post extends JsonResource
             $bookmark = $this->bookmarks()->where("user_id", $user->id)->first();
         } else {
             $vote = null;
+            $bookmark = null;
         }
 
         return [

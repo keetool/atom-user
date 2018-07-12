@@ -16,6 +16,7 @@ class Repository implements RepositoryInterface
     }
 
     public function queryAllOrderBy($field, $order = "asc"){
+
         return $this->model->orderBy($field, $order)->get();
     }
 

@@ -83,7 +83,6 @@ class PostApiController extends OpenApiController
     public function getPost($subdomain, $postId, Request $request)
     {
         $post = $this->postRepo->show($postId);
-
         if ($post == null) {
             return $this->notFound([
                 "message" => "post not found"

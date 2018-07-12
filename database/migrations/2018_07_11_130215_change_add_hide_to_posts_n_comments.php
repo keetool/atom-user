@@ -14,11 +14,11 @@ class ChangeAddHideToPostsNComments extends Migration
     public function up()
     {
         Schema::table('posts', function(Blueprint $table){
-            $table->boolean('hide')->default(0)->index();
+            $table->dateTime('hide')->nullable()->index();
         });
 
         Schema::table('comments', function(Blueprint $table){
-            $table->boolean('hide')->default(0)->index();
+            $table->dateTime('hide')->nullable()->index();
         });
     }
 

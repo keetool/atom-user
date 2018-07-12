@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class CommentRepository extends Repository implements CommentRepositoryInterface
 {
@@ -11,6 +12,8 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
     public function __construct()
     {
         parent::__construct(new Comment());
+
+        $this->model = $this->model->where("hide", null);
     }
 
     public function findAllCommentByPostIdPaginate($postId, $order = "asc", $limit = 10)
@@ -54,7 +57,7 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
     public function hide($commentId)
     {
         $comment = $this->show($commentId);
-        $comment->hide = 1;
+        $comment->hide = Carbon::now();
         $comment->save();
     }
 

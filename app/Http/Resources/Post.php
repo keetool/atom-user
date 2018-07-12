@@ -19,10 +19,13 @@ class Post extends JsonResource
     {
         $user = Auth::user();
 
-        if ($user)
+        if ($user) {
             $vote = $this->votes()->where("user_id", $user->id)->first();
-        else
+            $bookmark = $this->bookmarks()->where("user_id", $user->id)->first();
+        } else {
             $vote = null;
+            $bookmark = null;
+        }
 
         return [
             'id' => $this->id,
@@ -35,6 +38,7 @@ class Post extends JsonResource
             'created_at' => strtotime($this->created_at),
             'updated_at' => strtotime($this->updated_at),
             "vote" => $vote == null ? 0 : $vote->value,
+            "isBookmarked" => $bookmark == null ? 0 : 1,
             "images" => ImageResource::collection($this->images),
         ];
     }

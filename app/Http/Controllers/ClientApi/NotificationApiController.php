@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ClientApi;
 
 use App\Notification;
+
 use App\Repositories\NotificationRepository;
 use App\Repositories\NotificationRepositoryInterface;
 use App\Http\Controllers\ApiController;
@@ -49,7 +50,7 @@ class NotificationApiController extends ApiController
     {
         $noti = Notification::find($notificationId);
 
-        if($noti == null){
+        if ($noti == null) {
             return $this->badRequest(["message" => "Notification not found!"]);
         }
 
@@ -58,5 +59,17 @@ class NotificationApiController extends ApiController
         return $this->success([
             "message" => "Seen"
         ]);
+    }
+
+    public function getNotificationsAfter($subDomain, $notificationId, Request $request)
+    {
+        $user = Auth::user();
+
+        $notifications = Notification::where("receiver_id", $user->id);
+        dd($notifications);
+        $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
+
+        return NotificationResource::collection($notifications);
+
     }
 }

@@ -46,6 +46,9 @@ abstract class Notification
     public static function saveNotification($channel, Notification $notification)
     {
 
+        if ($notification->receiver->id == $notification->actor->id) {
+            return;
+        }
         $newNotification = new \App\Notification();
         $newNotification->detail = $notification->format();
         $newNotification->image_url = $notification->image_url;
@@ -59,7 +62,7 @@ abstract class Notification
         $newNotification->actor_id = $notification->actor->id;
         $newNotification->save();
 
-        $data = new NotificationResource($newNotification);
+        $data = ["notification" => new NotificationResource($newNotification)];
         $createNotificationSocketEvent = new CreateNotificationSocketEvent($data);
 
         $socketSerice = resolve(SocketServiceInterface::class);

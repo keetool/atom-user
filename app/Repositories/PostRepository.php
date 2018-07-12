@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Post as PostResource;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PostRepository extends Repository implements PostRepositoryInterface
 {
@@ -14,7 +15,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
     {
         parent::__construct(new Post());
 
-        // $this->model = $this->model->where("hide", false);
+        $this->model = $this->model->where("hide", null);
     }
 
     public function findByMerchantId($merchantId, $limit = 20, $order = "desc")
@@ -26,9 +27,10 @@ class PostRepository extends Repository implements PostRepositoryInterface
     {
         if ($limit == null)
             $limit = 10;
-        $posts = $this->model->where("merchant_id", $merchantId);
+        $posts = clone $this->model;
+        $posts = $posts->where("merchant_id", $merchantId);
         if ($postId) 
-            $posts = $posts->where("created_at", "<", $this->model->find($postId)->created_at);
+            $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
         return $posts;
     }
@@ -62,7 +64,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
     public function hide($postId)
     {
         $post = $this->show($postId);
-        $post->hide = 1;
+        $post->hide = Carbon::now();
         $post->save();
     }
 

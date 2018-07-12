@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,8 @@ class Repository implements RepositoryInterface
         $this->model = $model;
     }
 
-    public function queryAllOrderBy($field, $order = "asc"){
+    public function queryAllOrderBy($field, $order = "asc")
+    {
 
         return $this->model->orderBy($field, $order)->get();
     }
@@ -47,7 +49,7 @@ class Repository implements RepositoryInterface
         return $record->update($data);
     }
 
-     // remove record from the database
+    // remove record from the database
 
     /**
      * @param $id
@@ -58,29 +60,42 @@ class Repository implements RepositoryInterface
         return $this->model->destroy($id);
     }
 
-     // show the record with the given id
+    // show the record with the given id
     public function show($id)
     {
         return $this->model->findOrFail($id);
     }
 
-     // Get the associated model
+    // Get the associated model
     public function getModel()
     {
         return $this->model;
     }
 
-     // Set the associated model
+    // Set the associated model
     public function setModel($model)
     {
         $this->model = $model;
         return $this;
     }
 
-     // Eager load database relationships
+    // Eager load database relationships
     public function with($relations)
     {
         return $this->model->with($relations);
+    }
+
+    public function loadAfterModelId($modelId, $models, $limit = 20, $order = "desc")
+    {
+        if ($limit == null)
+            $limit = 20;
+        if (!$models) {
+            $models = clone $this->model;
+        }
+        if ($modelId)
+            $models = $models->where("created_at", "<", $this->show($modelId)->created_at);
+        $models = $models->orderBy("created_at", $order)->limit($limit)->get();
+        return $models;
     }
 
 }

@@ -16,8 +16,9 @@ Route::middleware("auth:api")->group(function () {
         Route::get("/", "ClientApi\UserApiController@user");
         Route::prefix("/notification")->group(function () {
             Route::get("/{notificationId}/after", "ClientApi\NotificationApiController@getNotificationsAfter");
-            Route::get("/", "ClientApi\NotificationApiController@getNotifications");
             Route::get("/{notificationId}/seen", "ClientApi\NotificationApiController@seenNotification");
+            Route::get("/", "ClientApi\NotificationApiController@getNotifications");
+
 
         });
 

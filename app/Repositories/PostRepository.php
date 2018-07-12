@@ -34,6 +34,18 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
         return $posts;
     }
+    
+    public function searchByMerchantId($merchantId, $search, $postId = null, $limit = 10, $order = "desc")
+    {
+        if ($limit == null)
+            $limit = 10;
+        $posts = clone $this->model;
+        $posts = $posts->where("merchant_id", $merchantId)->where("body", "like", "%$search%");
+        if ($postId) 
+            $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
+        $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
+        return $posts;
+    }
 
     public function loadTopByMerchantId($merchantId, $postId = null, $limit = 10, $order = "desc")
     {

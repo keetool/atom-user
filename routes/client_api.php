@@ -67,6 +67,7 @@ Route::middleware("auth:api")->group(function () {
     });
 
     Route::get("load-post", "ClientApi\PostApiController@loadPosts");    
+    Route::get("search", "ClientApi\ClientApiController@search");    
 });
 
 // Route::prefix("comment")->group(function () {

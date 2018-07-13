@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ClientApi;
+namespace App\Http\Controllers\ManageApi;
 
 use App\Http\Resources\PostFullResource;
 use App\Logs\Log;

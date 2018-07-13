@@ -59,13 +59,19 @@ class UserApiController extends OpenApiController
 
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
-        $user = $this->userRepo->show($userId);
-
         $posts = $this->postRepo->loadByMerchantAndUser($merchant->id, $userId, $request->post_id);
+
+        if ($request->post_id) {
+            return $this->success([
+                "posts" => PostFullResource::collection($posts)
+            ]);
+        }
+
+        $user = $this->userRepo->show($userId);
 
         return $this->success([
             "data" => new UserResource($user),
-            "posts" => PostFullResource::collection($this->postRepo->loadByMerchantAndUser($merchant->id, $userId))
+            "posts" => PostFullResource::collection($posts)
         ]);
     }
 }

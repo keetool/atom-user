@@ -73,7 +73,7 @@ class BookmarkApiController extends ApiController
     {
         $merchant = $this->merchantRepository->findBySubDomain($subDomain);
         $user = Auth::user();
-        $posts = $this->bookmarkRepository->getBookmarkPostsBySubDomainPaginate($merchant->id, $user->id, $request->order, $request->limit);
+        $posts = $this->bookmarkRepository->getBookmarkPostsBySubDomainPaginate($merchant->id, $request->bookmark_id, $user->id, $request->order, $request->limit);
         return PostFullResource::collection($posts);
     }
 

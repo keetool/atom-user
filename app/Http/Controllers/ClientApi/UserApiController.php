@@ -10,6 +10,7 @@ use App\Repositories\UserRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Http\Resources\PostFullResource;
+use App\Services\AppService;
 /**
  * @resource Client user
  */

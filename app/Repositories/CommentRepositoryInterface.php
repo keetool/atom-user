@@ -22,5 +22,9 @@ interface CommentRepositoryInterface
     
     public function hide($commentId);
 
+    public function countByMerchantAndUserId($merchantId, $userId);
+
+    public function countVoteByMerchantAndUserId($merchantId, $userId);
+
     public function isCreator($commentId);
 }

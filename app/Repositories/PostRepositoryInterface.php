@@ -26,5 +26,9 @@ interface PostRepositoryInterface
 
     public function hide($postId);
 
+    public function countByMerchantAndUserId($merchantId, $userId);
+
+    public function countVoteByMerchantAndUserId($merchantId, $userId);
+
     public function isCreator($postId);
 }

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class CommentRepository extends Repository implements CommentRepositoryInterface
 {
@@ -59,6 +60,23 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         $comment = $this->show($commentId);
         $comment->hide = Carbon::now();
         $comment->save();
+    }
+
+    public function countByMerchantAndUserId($merchantId, $userId)
+    {
+        $count = Comment::join('posts', 'comments.post_id', '=', 'posts.id')
+            ->where('comments.hide', null)
+            ->where('posts.merchant_id', $merchantId)->where('comments.user_id', $userId)->count();
+
+        return $count;
+    }
+
+    public function countVoteByMerchantAndUserId($merchantId, $userId)
+    {
+        $count = Comment::join('posts', 'comments.post_id', '=', 'posts.id')
+            ->where('comments.hide', null)
+            ->where('posts.merchant_id', $merchantId)->where('comments.user_id', $userId)->sum(DB::raw('comments.upvote + comments.downvote'));
+        return $count;
     }
 
     public function isCreator($commentId)

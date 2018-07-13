@@ -88,6 +88,18 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $post->save();
     }
 
+    public function countByMerchantAndUserId($merchantId, $userId)
+    {
+        $count = clone $this->model;
+        $count = $count->where("merchant_id", $merchantId)->where("creator_id", $userId)->count();
+        return $count;
+    }
+
+    public function countVoteByMerchantAndUserId($merchantId, $userId)
+    {
+        return $this->model->where("merchant_id", $merchantId)->where("creator_id", $userId)->sum(DB::raw('upvote + downvote'));
+    }
+
     public function isCreator($postId)
     {
         $post = $this->show($postId);

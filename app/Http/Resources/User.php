@@ -14,7 +14,7 @@ class User extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $data =  [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
@@ -25,5 +25,12 @@ class User extends JsonResource
             'created_at' => strtotime($this->created_at),
             'updated_at' => strtotime($this->updated_at),
         ];
+        if(isset($this->posts_count))
+            $data['posts_count'] = $this->posts_count;
+        if(isset($this->comments_count))
+            $data['comments_count'] = $this->comments_count;
+        if(isset($this->votes_count))
+            $data['votes_count'] = $this->votes_count;
+        return $data;
     }
 }

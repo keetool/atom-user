@@ -12,4 +12,6 @@ namespace App\Repositories;
 interface VoteRepositoryInterface
 {
     public function findVoteByUserIdAndPostId($userId, $postId);
+
+    public function countByMerchantAndUserId($merchantId, $userId);
 }

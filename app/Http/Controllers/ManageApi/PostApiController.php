@@ -84,7 +84,7 @@ class PostApiController extends ApiController
             return $this->notFound(["message" => "merchant not found"]);
 
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
-
+        dd($merchant);
         $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
         return PostFullResource::collection($posts);
     }

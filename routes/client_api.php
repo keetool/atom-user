@@ -28,6 +28,7 @@ Route::middleware("auth:api")->group(function () {
             Route::post("/post/{postId}", "Api\BookmarkApiController@createBookmark");
             Route::delete("/post/{postId}", "Api\BookmarkApiController@deleteBookmark");
             Route::get("/", "Api\BookmarkApiController@getAllBookmarks");
+            Route::get("/after/{bookmarkId?}", "Api\BookmarkApiController@getAllBookmarks");
             Route::get("/by-sub-domain", "Api\BookmarkApiController@getBookmarksBySubDomain");
         });
 

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Bookmark;
 use App\Http\Controllers\ApiController;
+use App\Http\Resources\BookmarkResource;
+use App\Http\Resources\Post as PostResource;
 use App\Http\Resources\PostFullResource;
 use App\Repositories\BookmarkRepositoryInterface;
 use App\Repositories\MerchantInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\Post as PostResource;
 
 /**
  * @resource Client bookmark
@@ -88,6 +90,26 @@ class BookmarkApiController extends ApiController
         $user = Auth::user();
         $posts = $this->bookmarkRepository->getAllBookmarkPostsPaginate($user->id, $request->order, $request->limit);
         return PostFullResource::collection($posts);
+    }
+
+
+    /**
+     * Get bookmark after bookmarkId from all subdomains
+     * @param $subDomain
+     * @param null $bookmarkId
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function getBookmarksAfter($subDomain, $bookmarkId = null, Request $request)
+    {
+        $user = Auth::user();
+        if ($bookmarkId == null) {
+            $bookmarks = $this->bookmarkRepository->getAllBookmarkPostsPaginate($user->id, $request->order, $request->limit);
+        } else {
+            $bookmarks = Bookmark::where("user_id", $user->id);
+            $bookmarks = $this->bookmarkRepository->loadAfterModelId($bookmarkId, $bookmarks, $request->limit, $request->order);
+        }
+        return BookmarkResource::collection($bookmarks);
     }
 
 }

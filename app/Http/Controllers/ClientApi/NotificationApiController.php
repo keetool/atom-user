@@ -62,13 +62,16 @@ class NotificationApiController extends ApiController
         ]);
     }
 
-    public function getNotificationsAfter($subDomain, $notificationId, Request $request)
+    public function getNotificationsAfter($subDomain, $notificationId = null, Request $request)
     {
         $user = Auth::user();
 
-        $notifications = Notification::where("receiver_id", $user->id);
-
-        $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
+        if ($notificationId) {
+            $notifications = Notification::where("receiver_id", $user->id);
+            $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
+        } else {
+            $notifications = $this->notificationRepository->findNotificationByReceiverIdPaginate($user->id, $request->order, $request->limit);
+        }
 
         return NotificationResource::collection($notifications);
 

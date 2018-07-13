@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\ApiController;
+use App\Http\Resources\PostFullResource;
 use App\Repositories\BookmarkRepositoryInterface;
 use App\Repositories\MerchantInterface;
 use Illuminate\Http\Request;
@@ -73,7 +74,7 @@ class BookmarkApiController extends ApiController
         $merchant = $this->merchantRepository->findBySubDomain($subDomain);
         $user = Auth::user();
         $posts = $this->bookmarkRepository->getBookmarkPostsBySubDomainPaginate($merchant->id, $user->id, $request->order, $request->limit);
-        return PostResource::collection($posts);
+        return PostFullResource::collection($posts);
     }
 
     /**
@@ -86,7 +87,7 @@ class BookmarkApiController extends ApiController
     {
         $user = Auth::user();
         $posts = $this->bookmarkRepository->getAllBookmarkPostsPaginate($user->id, $request->order, $request->limit);
-        return PostResource::collection($posts);
+        return PostFullResource::collection($posts);
     }
 
 }

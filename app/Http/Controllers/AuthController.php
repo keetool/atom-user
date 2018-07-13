@@ -303,11 +303,11 @@ class AuthController extends ApiController
             $user->name = $response->name;
 
 
-            $data = file_get_contents("https://graph.facebook.com/" . $facebookId . "/picture?&type=large&access_token=" . $inputToken);
-            $fileName = 'fb_profilepic.jpg';
-            $file = fopen($fileName, 'w+');
-            fputs($file, $data);
-            fclose($file);
+//            $data = file_get_contents("https://graph.facebook.com/" . $facebookId . "/picture?&type=large&access_token=" . $inputToken);
+//            $fileName = 'fb_profilepic.jpg';
+//            $file = fopen($fileName, 'w+');
+//            fputs($file, $data);
+//            fclose($file);
 
             //avatar
             $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");

@@ -25,6 +25,11 @@ class Post extends UuidModel
         return $this->hasMany(Vote::class, "post_id");
     }
 
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class, "post_id");
+    }
+
     public function images()
     {
         return $this->belongsToMany(Image::class, "image_post", "post_id", "image_id");

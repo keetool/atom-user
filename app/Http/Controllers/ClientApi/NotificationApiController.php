@@ -35,6 +35,7 @@ class NotificationApiController extends ApiController
      */
     public function getNotifications($subDomain, Request $request)
     {
+
         $user = Auth::user();
 
         $notifications = $this->notificationRepository->findNotificationByReceiverIdPaginate($user->id, $request->order, $request->limit);
@@ -63,7 +64,6 @@ class NotificationApiController extends ApiController
 
     public function getNotificationsAfter($subDomain, $notificationId, Request $request)
     {
-        dd($notificationId);
         $user = Auth::user();
 
         $notifications = Notification::where("receiver_id", $user->id);

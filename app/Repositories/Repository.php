@@ -92,10 +92,14 @@ class Repository implements RepositoryInterface
         if ($order == null) {
             $order = "desc";
         }
-        if ($modelId)
-            $models = $models->where("created_at", "<", $this->show($modelId)->created_at);
-        $models = $models->orderBy("created_at", $order)->limit($limit)->get();
-        dd($models);
+        if ($models == null) {
+            $models = clone $this->model;
+        }
+
+        $time = $this->show($modelId)->created_at;
+        $models = $models->where("created_at", "<", $time);
+
+        $models = $models->orderBy("created_at", $order)->limit($limit)->paginate($limit);
         return $models;
     }
 

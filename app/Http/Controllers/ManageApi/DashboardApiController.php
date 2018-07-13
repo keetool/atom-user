@@ -8,6 +8,7 @@ use App\Merchant;
 use App\MerchantUser;
 use Illuminate\Support\Facades\DB;
 use App\Post;
+use Carbon\Carbon;
 /**
  * @resource Root dashboard
  */
@@ -25,8 +26,8 @@ class DashboardApiController extends ManageApiController
             $start_time = $request->start_time;
             $end_time = $request->end_time;
             if ($start_time == null) {
-                $start_time = "2018-06-13";
-                $end_time = "2018-06-22";
+                $start_time = date("Y-m-d", strtotime("-6 days"));
+                $end_time = date("Y-m-d");
             }
             $date_array = createDateRangeArray(strtotime($start_time), strtotime($end_time));
             $new_user_by_date_temp = MerchantUser::select(DB::raw('DATE(created_at) as date,count(1) as num'))
@@ -61,8 +62,8 @@ class DashboardApiController extends ManageApiController
             $start_time = $request->start_time;
             $end_time = $request->end_time;
             if ($start_time == null) {
-                $start_time = "2018-06-13";
-                $end_time = "2018-07-22";
+                $start_time = date("Y-m-d", strtotime("-6 days"));
+                $end_time = date("Y-m-d");
             }
             $date_array = createDateRangeArray(strtotime($start_time), strtotime($end_time));
             $posts_by_date_temp = Post::select(DB::raw('DATE(created_at) as date,count(1) as num'))

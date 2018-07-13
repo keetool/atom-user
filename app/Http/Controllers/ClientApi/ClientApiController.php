@@ -59,7 +59,7 @@ class ClientApiController extends ApiController
         $search = $this->appService->convert_vi_to_en(strtolower($request->search));
         
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
-        
+
         $posts = $this->postRepo->searchByMerchantId($merchant->id, $search, $request->post_id);
 
         return $this->success(["posts" => PostFullResource::collection($posts)]);

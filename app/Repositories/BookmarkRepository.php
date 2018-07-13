@@ -14,7 +14,7 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
     }
 
 
-    public function getBookmarkPostsBySubDomainPaginate($merchantId, $userId, $order = "desc", $limit = 20)
+    public function getBookmarkPostsBySubDomainPaginate($merchantId, $bookmarkId, $userId, $order = "desc", $limit = 20)
     {
         if ($order == null) {
             $order = "desc";

@@ -30,7 +30,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $posts = $posts->where("merchant_id", $merchantId);
         if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
-        $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
+        $posts = $posts->orderBy("created_at", $order)->paginate($limit);
         return $posts;
     }
 
@@ -42,7 +42,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $posts = $posts->where("merchant_id", $merchantId)->where("body", "like", "%$search%");
         if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
-        $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
+        $posts = $posts->orderBy("created_at", $order)->paginate($limit);
         return $posts;
     }
 
@@ -56,7 +56,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
             $value = 1000000000 * ($post->upvote + $post->downvote) / (2500000000 - (strtotime($post->created_at) - 1));
             $posts = $posts->whereRaw("1000000000*((upvote + downvote)/(2500000000-extract(epoch from (created_at::timestamp - '1970-01-01 00:00:01'::timestamp)))) < " . (string)$value);
         }
-        $posts = $posts->orderByRaw("((upvote + downvote)/(2500000000-extract(epoch from (created_at::timestamp - '1970-01-01 00:00:01'::timestamp)))) desc")->limit($limit)->get();
+        $posts = $posts->orderByRaw("((upvote + downvote)/(2500000000-extract(epoch from (created_at::timestamp - '1970-01-01 00:00:01'::timestamp)))) desc")->paginate($limit);
 
         return $posts;
     }
@@ -67,7 +67,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $posts = $posts->where("merchant_id", $merchantId)->where("creator_id", $userId);
         if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
-        $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
+        $posts = $posts->orderBy("created_at", $order)->paginate($limit);
         return $posts;
     }
 

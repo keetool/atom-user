@@ -55,6 +55,18 @@ class UserApiController extends OpenApiController
      */
     public function profile($subdomain, $userId, Request $request)
     {
+        $user = $this->userRepo->show($userId);
+
+        return $this->success([
+            "data" => new UserResource($user),
+        ]);
+    }
+
+    /**
+     * User post
+     */
+    public function userPost($subdomain, $userId, Request $request)
+    {
         if ($this->merchantRepo->findBySubDomain($subdomain) == null)
             return $this->notFound(["message" => "merchant not found"]);
 
@@ -62,17 +74,8 @@ class UserApiController extends OpenApiController
 
         $posts = $this->postRepo->loadByMerchantAndUser($merchant->id, $userId, $request->post_id);
 
-        if ($request->post_id) {
-            return $this->success([
-                "posts" => PostFullResource::collection($posts)
-            ]);
-        }
-
-        $user = $this->userRepo->show($userId);
-
         return $this->success([
-            "data" => new UserResource($user),
-            "posts" => PostFullResource::collection($posts)
+            "data" => PostFullResource::collection($posts)
         ]);
     }
 }

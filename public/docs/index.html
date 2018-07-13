@@ -9653,40 +9653,17 @@ $.ajax(settings).done(function (response) {
 <p><code>HEAD access-dashboard</code></p>
 <!-- END_75f64f5b9a4d91a47158f08005d65937 -->
 <h1>Notification</h1>
-<!-- START_c513138f52a8b9ba5b7a4b1d4a90d28e -->
-<h2>client-api/v1/user/notification/{notificationId}/seen</h2>
+<!-- START_da914950f64656295d06287b39a80ba9 -->
+<h2>client-api/v1/user/notification/after/{notificationId?}</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://atomuser.test/client-api/v1/user/notification/{notificationId}/seen" \
+<pre><code class="language-bash">curl -X GET "http://atomuser.test/client-api/v1/user/notification/after/{notificationId?}" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://atomuser.test/client-api/v1/user/notification/{notificationId}/seen",
-    "method": "PUT",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>PUT client-api/v1/user/notification/{notificationId}/seen</code></p>
-<!-- END_c513138f52a8b9ba5b7a4b1d4a90d28e -->
-<!-- START_58588e9725e58fbef9952f4c144cd372 -->
-<h2>client-api/v1/user/notification/{notificationId}/after</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET "http://atomuser.test/client-api/v1/user/notification/{notificationId}/after" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://atomuser.test/client-api/v1/user/notification/{notificationId}/after",
+    "url": "http://atomuser.test/client-api/v1/user/notification/after/{notificationId?}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -9998,9 +9975,32 @@ $.ajax(settings).done(function (response) {
     ]
 }</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET client-api/v1/user/notification/{notificationId}/after</code></p>
-<p><code>HEAD client-api/v1/user/notification/{notificationId}/after</code></p>
-<!-- END_58588e9725e58fbef9952f4c144cd372 -->
+<p><code>GET client-api/v1/user/notification/after/{notificationId?}</code></p>
+<p><code>HEAD client-api/v1/user/notification/after/{notificationId?}</code></p>
+<!-- END_da914950f64656295d06287b39a80ba9 -->
+<!-- START_c513138f52a8b9ba5b7a4b1d4a90d28e -->
+<h2>client-api/v1/user/notification/{notificationId}/seen</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://atomuser.test/client-api/v1/user/notification/{notificationId}/seen" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/user/notification/{notificationId}/seen",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT client-api/v1/user/notification/{notificationId}/seen</code></p>
+<!-- END_c513138f52a8b9ba5b7a4b1d4a90d28e -->
 <!-- START_5cdf6064e98da9906e0e6f20c37b924d -->
 <h2>GET user notification list</h2>
 <p>Param: limit, page</p>

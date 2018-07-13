@@ -5,6 +5,6 @@ Route::middleware("auth:api")->group(function () {
         Route::get("/{type}", "DashboardApiController@dashBoard");
     });
     Route::prefix("post")->group(function () {
-        Route::get("/all", "PostApiController@getPosts");
+        Route::get("/all", "PostApiController@loadPosts");
     });
 });

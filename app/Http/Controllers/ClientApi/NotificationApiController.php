@@ -62,6 +62,14 @@ class NotificationApiController extends ApiController
         ]);
     }
 
+    /***
+     * Get notification after
+     * if no id, act as normal
+     * @param $subDomain
+     * @param null $notificationId
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function getNotificationsAfter($subDomain, $notificationId = null, Request $request)
     {
         $user = Auth::user();

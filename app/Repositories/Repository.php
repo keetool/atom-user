@@ -89,12 +89,13 @@ class Repository implements RepositoryInterface
     {
         if ($limit == null)
             $limit = 20;
-        if (!$models) {
-            $models = clone $this->model;
+        if ($order == null) {
+            $order = "desc";
         }
         if ($modelId)
             $models = $models->where("created_at", "<", $this->show($modelId)->created_at);
         $models = $models->orderBy("created_at", $order)->limit($limit)->get();
+        dd($models);
         return $models;
     }
 

@@ -33,6 +33,8 @@ class NotificationApiController extends ApiController
      */
     public function getNotifications($subDomain, Request $request)
     {
+        dd("test");
+
         $user = Auth::user();
 
         $notifications = $this->notificationRepository->findNotificationByReceiverIdPaginate($user->id, $request->order, $request->limit);
@@ -45,7 +47,6 @@ class NotificationApiController extends ApiController
         $user = Auth::user();
 
         $notifications = Notification::where("receiver_id", $user->id);
-        dd($notifications);
         $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
 
         return NotificationResource::collection($notifications);

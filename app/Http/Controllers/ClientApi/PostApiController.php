@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Post as PostResource;
+use App\Services\AppService;
 
 /**
  * @resource Client post
@@ -26,7 +27,7 @@ class PostApiController extends ApiController
 {
 
     protected $postRepo;
-
+    protected $appService;
     protected $imagePostRepository;
     protected $merchantRepo;
     protected $voteRepo;
@@ -37,7 +38,8 @@ class PostApiController extends ApiController
         PostRepositoryInterface $postRepo,
         SocketServiceInterface $socketService,
         ImagePostRepositoryInterface $imagePostRepository,
-        MerchantRepository $merchantRepository
+        MerchantRepository $merchantRepository,
+        AppService $appService
     ) {
         parent::__construct();
         $this->postRepo = $postRepo;
@@ -45,6 +47,7 @@ class PostApiController extends ApiController
         $this->voteRepo = $voteRepository;
         $this->socketService = $socketService;
         $this->imagePostRepository = $imagePostRepository;
+        $this->appService = $appService;
     }
 
     /**

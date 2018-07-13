@@ -40,7 +40,7 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         $comments = Comment::where("post_id", $postId);
         if ($commentId)
             $comments = $comments->where('created_at', '<', Comment::find($commentId)->created_at);
-        $comments = $comments->orderBy("created_at", $order)->limit($limit)->get();
+        $comments = $comments->orderBy("created_at", $order)->paginate($limit);
         return $comments;
     }
 

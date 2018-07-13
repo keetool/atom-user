@@ -35,6 +35,7 @@ class NotificationApiController extends ApiController
      */
     public function getNotifications($subDomain, Request $request)
     {
+
         $user = Auth::user();
 
         $notifications = $this->notificationRepository->findNotificationByReceiverIdPaginate($user->id, $request->order, $request->limit);
@@ -61,14 +62,24 @@ class NotificationApiController extends ApiController
         ]);
     }
 
-    public function getNotificationsAfter($subDomain, $notificationId, Request $request)
+    /***
+     * Get notification after
+     * if no id, act as normal
+     * @param $subDomain
+     * @param null $notificationId
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function getNotificationsAfter($subDomain, $notificationId = null, Request $request)
     {
-        dd($notificationId);
         $user = Auth::user();
 
-        $notifications = Notification::where("receiver_id", $user->id);
-
-        $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
+        if ($notificationId) {
+            $notifications = Notification::where("receiver_id", $user->id);
+            $notifications = $this->notificationRepository->loadAfterModelId($notificationId, $notifications, $request->limit, $request->order);
+        } else {
+            $notifications = $this->notificationRepository->findNotificationByReceiverIdPaginate($user->id, $request->order, $request->limit);
+        }
 
         return NotificationResource::collection($notifications);
 

@@ -18,6 +18,8 @@ interface PostRepositoryInterface
 
     public function searchByMerchantId($merchantId, $search, $postId = null, $limit = 10, $order = "desc");
 
+    public function loadByMerchantAndUser($merchantId, $userId, $postId = null, $limit = 10, $order = "desc");
+
     public function increment($postId, $column);
 
     public function decrement($postId, $column);

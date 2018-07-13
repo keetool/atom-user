@@ -28,19 +28,19 @@ class PostRepository extends Repository implements PostRepositoryInterface
             $limit = 10;
         $posts = clone $this->model;
         $posts = $posts->where("merchant_id", $merchantId);
-        if ($postId) 
+        if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
         return $posts;
     }
-    
+
     public function searchByMerchantId($merchantId, $search, $postId = null, $limit = 10, $order = "desc")
     {
         if ($limit == null)
             $limit = 10;
         $posts = clone $this->model;
         $posts = $posts->where("merchant_id", $merchantId)->where("body", "like", "%$search%");
-        if ($postId) 
+        if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
         return $posts;
@@ -61,6 +61,15 @@ class PostRepository extends Repository implements PostRepositoryInterface
         return $posts;
     }
 
+    public function loadByMerchantAndUser($merchantId, $userId, $postId = null, $limit = 10, $order = "desc")
+    {
+        $posts = clone $this->model;
+        $posts = $posts->where("merchant_id", $merchantId)->where("creator_id", $userId);
+        if ($postId)
+            $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
+        $posts = $posts->orderBy("created_at", $order)->limit($limit)->get();
+        return $posts;
+    }
 
     public function increment($postId, $column)
     {

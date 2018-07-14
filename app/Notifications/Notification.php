@@ -43,7 +43,7 @@ abstract class Notification
     }
 
 
-    public static function saveNotification($channel, Notification $notification)
+    public static function saveNotification($channel, Notification $notification, $merchant)
     {
 
         if ($notification->receiver->id == $notification->actor->id) {
@@ -52,6 +52,7 @@ abstract class Notification
         $newNotification = new \App\Notification();
         $newNotification->detail = $notification->format();
         $newNotification->image_url = $notification->image_url;
+        $newNotification = $merchant->id;
 
         $newNotification->action_app = $notification->action_app;
         $newNotification->action_web = $notification->action_web;

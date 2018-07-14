@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\ClientApi;
 
+use App\Http\Controllers\ApiController;
+use App\Http\Resources\Post as PostResource;
 use App\Http\Resources\PostFullResource;
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
@@ -12,13 +14,11 @@ use App\Repositories\ImagePostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
+use App\Services\AppService;
 use App\Services\SocketServiceInterface;
 use App\SocketEvent\Post\CreatePostSocketEvent;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\Post as PostResource;
-use App\Services\AppService;
 
 /**
  * @resource Client post
@@ -40,7 +40,8 @@ class PostApiController extends ApiController
         ImagePostRepositoryInterface $imagePostRepository,
         MerchantRepository $merchantRepository,
         AppService $appService
-    ) {
+    )
+    {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
@@ -223,7 +224,7 @@ class PostApiController extends ApiController
      * Vote post
      * $vote = {up, down}
      */
-    public function vote($subdomain, $postId, $vote)
+    public function vote($subdomain, $postId, $vote, Request $request)
     {
         $voteValue = $vote == "up" ? 1 : -1;
 
@@ -246,11 +247,12 @@ class PostApiController extends ApiController
             ]);
             if ($voteValue == 1) {
                 $notification = new CreateUpvotePostNotification($user, $post);
-                Notification::saveNotification($subdomain, $notification);
+                Notification::saveNotification($subdomain, $notification, $request->merchant);
+
                 $this->postRepo->increment($postId, "upvote");
             } else if ($voteValue == -1) {
                 $notification = new CreateDownvotePostNotification($user, $post);
-                Notification::saveNotification($subdomain, $notification);
+                Notification::saveNotification($subdomain, $notification, $request->merchant);
 
                 $this->postRepo->increment($postId, 'downvote');
 
@@ -274,13 +276,14 @@ class PostApiController extends ApiController
 
                 if ($voteValue == 1) {
                     $notification = new CreateUpvotePostNotification($user, $post);
-                    Notification::saveNotification($subdomain, $notification);
+                    Notification::saveNotification($subdomain, $notification, $request->merchant);
+
 
                     $this->postRepo->increment($postId, "upvote");
                     $this->postRepo->decrement($postId, "downvote");
                 } else if ($voteValue == -1) {
                     $notification = new CreateDownvotePostNotification($user, $post);
-                    Notification::saveNotification($subdomain, $notification);
+                    Notification::saveNotification($subdomain, $notification, $request->merchant);
 
                     $this->postRepo->increment($postId, "downvote");
                     $this->postRepo->decrement($postId, "upvote");

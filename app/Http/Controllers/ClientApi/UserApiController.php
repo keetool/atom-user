@@ -13,6 +13,7 @@ use App\Http\Resources\PostFullResource;
 use App\Services\AppService;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 /**
  * @resource Client user
  */
@@ -37,6 +38,7 @@ class UserApiController extends OpenApiController
         $this->commentRepo = $commentRepo;
         $this->voteRepo = $voteRepo;
     }
+    
     /**
      * GET /api/v1/user
      * return information of current logged in user
@@ -44,6 +46,21 @@ class UserApiController extends OpenApiController
     public function user(Request $request)
     {
         $user = $request->user();
+        return new UserResource($user);
+    }
+    
+    /**
+     * Edit info
+     * return information of current logged in user
+     */
+    public function editInfo(Request $request)
+    {
+        $user = Auth::user(); 
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->avatar_url = $request->avatar_url;
+        $user->save();
         return new UserResource($user);
     }
 

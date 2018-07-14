@@ -4786,6 +4786,40 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_91a42f0561668492606e641d7c5d53fb -->
 
+<!-- START_25b33c4fbbdc91008816f08a67acb820 -->
+## Edit info
+return information of current logged in user
+
+> Example request:
+
+```bash
+curl -X PUT "http://atomuser.test/client-api/v1/user" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://atomuser.test/client-api/v1/user",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PUT client-api/v1/user`
+
+
+<!-- END_25b33c4fbbdc91008816f08a67acb820 -->
+
 <!-- START_aa07c84141ec3e505bad3bcb7aaf700c -->
 ## User profile
 

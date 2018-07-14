@@ -43,9 +43,15 @@ class UserApiController extends OpenApiController
      * GET /api/v1/user
      * return information of current logged in user
      */
-    public function user(Request $request)
+    public function user($subdomain, Request $request)
     {
         $user = $request->user();
+        $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
+        if (!$userExist) {
+            return $this->badRequest([
+                "User does not exist in merchant"
+            ]);
+        }
         return new UserResource($user);
     }
     

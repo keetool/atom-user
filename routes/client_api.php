@@ -18,6 +18,10 @@ Route::middleware("auth:api")->group(function () {
         Route::get("/{userId}/profile", "ClientApi\UserApiController@profile");
         Route::get("/{userId}/post", "ClientApi\UserApiController@userPost");
         Route::prefix("/notification")->group(function () {
+            Route::prefix("merchant")->group(function () {
+                Route::get("/", "ClientApi\NotificationApiController@getNotificationByMerchant");
+                Route::get("/after", "ClientApi\NotificationApiController@getNotificationsMerchantAfter");
+            });
             Route::get("/after/{notificationId?}", "ClientApi\NotificationApiController@getNotificationsAfter");
             Route::put("/{notificationId}/seen", "ClientApi\NotificationApiController@seenNotification");
             Route::get("/", "ClientApi\NotificationApiController@getNotifications");
@@ -72,8 +76,8 @@ Route::middleware("auth:api")->group(function () {
         Route::post("/", "ClientApi\ImageApiController@createImage");
     });
 
-    Route::get("load-post", "ClientApi\PostApiController@loadPosts");    
-    Route::get("search", "ClientApi\ClientApiController@search");    
+    Route::get("load-post", "ClientApi\PostApiController@loadPosts");
+    Route::get("search", "ClientApi\ClientApiController@search");
 });
 
 // Route::prefix("comment")->group(function () {

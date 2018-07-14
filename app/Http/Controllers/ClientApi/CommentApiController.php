@@ -104,7 +104,7 @@ class CommentApiController extends ApiController
 
         // Create notification
         $notification = new CreateCommentNotification($user, $post);
-        Notification::saveNotification($subDomain, $notification);
+        Notification::saveNotification($subDomain, $notification, $request->merchant);
 
         return new CommentResource($comment);
     }

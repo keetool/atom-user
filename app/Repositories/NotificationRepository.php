@@ -22,4 +22,17 @@ class NotificationRepository extends Repository implements NotificationRepositor
         return Notification::where("receiver_id", $userId)
             ->orderBy("created_at", $order)->paginate($limit);
     }
+
+    public function findNotificationByReceiverIdAndMerchantIdPaginate($userId, $merchantId, $order = "desc", $limit = 20)
+    {
+        if ($order == null) {
+            $order = "desc";
+        }
+        if ($limit == null) {
+            $limit = 20;
+        }
+        return Notification::where("receiver_id", $userId)
+            ->where("merchant_id", $merchantId)
+            ->orderBy("created_at", $order)->paginate($limit);
+    }
 }

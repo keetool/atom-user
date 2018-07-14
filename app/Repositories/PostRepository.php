@@ -39,7 +39,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
         if ($limit == null)
             $limit = 10;
         $posts = clone $this->model;
-        $posts = $posts->where("merchant_id", $merchantId)->where("body", "like", "%$search%");
+        $posts = $posts->where("merchant_id", $merchantId)->where("body", "ilike", "%$search%");
         if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->paginate($limit);

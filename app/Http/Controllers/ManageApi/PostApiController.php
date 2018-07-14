@@ -132,6 +132,6 @@ class PostApiController extends ApiController
 //        if ($this->postRepo->isCreator($postId) == false)
 //            return $this->badRequest(["Message" => "Your are not the creator of this post"]);
         $this->postRepo->hide($postId);
-        return $this->success(["message" => "hid"]);
+        return $this->success(["message" => "hidden"]);
     }
 }

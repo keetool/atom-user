@@ -9,11 +9,21 @@ use Illuminate\Support\Facades\DB;
 class UserRepository extends Repository implements UserRepositoryInterface
 {
     protected $merchantRepository;
+    private $postRepo;
+    private $commentRepo;
+    private $voteRepo;
 
-    public function __construct(MerchantRepository $merchantRepository)
-    {
+    public function __construct(
+        MerchantRepository $merchantRepository,
+        PostRepositoryInterface $postRepo,
+        CommentRepositoryInterface $commentRepo,
+        VoteRepositoryInterface $voteRepo
+    ) {
         parent::__construct(new User());
         $this->merchantRepository = $merchantRepository;
+        $this->postRepo = $postRepo;
+        $this->commentRepo = $commentRepo;
+        $this->voteRepo = $voteRepo;
     }
 
     public function joinMerchantUser()
@@ -77,7 +87,16 @@ class UserRepository extends Repository implements UserRepositoryInterface
         //     ->get();
         // dd($users);
         $users = $this->joinMerchantUser()
-            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->paginate($limit);
+            ->where("merchant_user.merchant_id", $merchant->id)
+            ->orderBy("merchant_user.created_at", "desc")->select('users.*', 'merchant_user.created_at as created_at')->paginate($limit);
+        $users = $users->map(function ($user) use ($merchant) {
+            // $user->id = $user->user_id;
+            $user->posts_count =  $this->postRepo->countByMerchantAndUserId($merchant->id, $user->id);
+            $user->comments_count = $this->commentRepo->countByMerchantAndUserId($merchant->id, $user->id);
+            $user->votes_count = $this->voteRepo->countByMerchantAndUserId($merchant->id, $user->id);
+            return $user;
+        });
+        // dd($users);
         return $users;
     }
 

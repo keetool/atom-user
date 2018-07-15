@@ -83,7 +83,7 @@ class UserApiController extends OpenApiController
         // change validation rules
         $rules = [
             'name' => 'required|string',
-            'phone' => "string",
+            'phone' => "string|number",
             'email' => 'string|email',
         ];
 

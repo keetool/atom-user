@@ -68,7 +68,7 @@ class UserRepository extends Repository implements UserRepositoryInterface
         }
 
         $users = $this->joinMerchantUser()
-            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->limit($limit)->get();
+            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->paginate($limit);
         
         return $users;
     }

@@ -88,6 +88,13 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $post->save();
     }
 
+    public function countByMerchantId($merchantId)
+    {
+        $count = clone $this->model;
+        $count = $count->where("merchant_id", $merchantId)->count();
+        return $count;
+    }
+    
     public function countByMerchantAndUserId($merchantId, $userId)
     {
         $count = clone $this->model;

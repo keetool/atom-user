@@ -38,7 +38,7 @@ class UserApiController extends OpenApiController
         $this->commentRepo = $commentRepo;
         $this->voteRepo = $voteRepo;
     }
-    
+
     /**
      * GET /api/v1/user
      * return information of current logged in user
@@ -54,14 +54,14 @@ class UserApiController extends OpenApiController
         }
         return new UserResource($user);
     }
-    
+
     /**
      * Edit info
      * return information of current logged in user
      */
     public function editInfo(Request $request)
     {
-        $user = Auth::user(); 
+        $user = Auth::user();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -76,8 +76,20 @@ class UserApiController extends OpenApiController
      */
     public function userList($subdomain, $type, Request $request)
     {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+
         if ($type == 'new') {
-            return UserResource::collection($this->userRepo->findNewUserByMerchant($subdomain));
+            $data = [
+                "users" => UserResource::collection($this->userRepo->findNewUserByMerchant($subdomain)),
+                "posts_count" => $this->postRepo->countByMerchantId($merchant->id),
+                "users_count" => $merchant->users()->count(),
+                "comments_count" => $this->commentRepo->countByMerchantId($merchant->id)
+
+            ];
+            return $this->success(["data" => $data]);
         }
     }
 

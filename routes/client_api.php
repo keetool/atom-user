@@ -10,8 +10,6 @@ Route::prefix("auth")->group(function () {
 });
 
 Route::middleware("auth:api")->group(function () {
-
-
     Route::prefix("user")->group(function () {
         Route::get("/", "ClientApi\UserApiController@user");
         Route::put("/", "ClientApi\UserApiController@editInfo");

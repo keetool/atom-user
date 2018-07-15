@@ -4,13 +4,11 @@ namespace App\Http\Controllers\ClientApi;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\User as UserResource;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\OpenApiController;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Http\Resources\PostFullResource;
-use App\Services\AppService;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
@@ -43,12 +41,17 @@ class UserApiController extends OpenApiController
      * GET /api/v1/user
      * return information of current logged in user
      */
-    public function user(Request $request)
+    public function user($subdomain, Request $request)
     {
         $user = $request->user();
-        $userResource = new UserResource($user);
-//        dd($userResource);
-        return $userResource;
+
+        $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
+        if (!$userExist) {
+            return $this->badRequest([
+                "User does not exist in merchant"
+            ]);
+        }
+        return new UserResource($user);
     }
 
     /**
@@ -58,10 +61,26 @@ class UserApiController extends OpenApiController
     public function editInfo(Request $request)
     {
         $user = Auth::user();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->avatar_url = $request->avatar_url;
+
+
+        $userExist = false;
+
+        if (isset($request->username)) {
+            $userExist = $this->userRepo->uniqueUserByUsername($request->username);
+        }
+
+        if ($userExist){
+            return $this->badRequest([
+                "message" => 'server.message.error.username_already_exists'
+            ]);
+        }
+
+        $user->name = isset($request->name) ? $request->name : $user->name;
+        $user->email = isset($request->email) ? $request->email : $user->email;
+        $user->phone =  isset($request->phone) ? $request->phone : $user->phone;
+        $user->avatar_url = isset($request->avatar_url) ? $request->avatar_url : $user->avatar_url;
+        $user->username = isset($request->username) ? $request->username : $user->username;
+
         $user->save();
         return new UserResource($user);
     }
@@ -72,8 +91,20 @@ class UserApiController extends OpenApiController
      */
     public function userList($subdomain, $type, Request $request)
     {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+
         if ($type == 'new') {
-            return UserResource::collection($this->userRepo->findNewUserByMerchant($subdomain));
+            $data = [
+                "users" => UserResource::collection($this->userRepo->findNewUserByMerchant($subdomain)),
+                "posts_count" => $this->postRepo->countByMerchantId($merchant->id),
+                "users_count" => $merchant->users()->count(),
+                "comments_count" => $this->commentRepo->countByMerchantId($merchant->id)
+
+            ];
+            return $this->success(["data" => $data]);
         }
     }
 

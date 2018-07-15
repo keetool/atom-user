@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends Repository implements UserRepositoryInterface
@@ -67,10 +69,31 @@ class UserRepository extends Repository implements UserRepositoryInterface
             return false;
         }
 
+
+        // $users = $this->model->leftJoin('posts', 'posts.creator_id', '=', 'users.id')->leftJoin('comments', 'comments.post_id', '=', 'posts.id')
+        //     ->where('posts.merchant_id', $merchant->id)
+        //     ->groupBy('users.id')
+        //     ->select('users.*', DB::raw('sum(posts.upvote) + sum(comments.upvote) + sum(posts.downvote) + sum(comments.downvote) as votes_count')
+        //         , DB::raw('count(posts.*) as posts_count'), DB::raw('count(comments.*) as comments_count'))
+        //     ->get();
+        // dd($users);
         $users = $this->joinMerchantUser()
-            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->limit($limit)->get();
-        
+            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->paginate($limit);
         return $users;
     }
 
+    /**
+     * Check if user exists
+     * @param [string] $username
+     * @return [bool] userExist
+     */
+    public function uniqueUserByUsername($username)
+    {
+        $user = Auth::user();
+
+        $userExist = User::where('username', $username)->where('id', '<>', $user->id)->first();
+
+        return $userExist != null;
+
+    }
 }

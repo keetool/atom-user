@@ -129,9 +129,9 @@ class PostApiController extends ApiController
      */
     public function hidePost($subdomain, $postId)
     {
-        if ($this->postRepo->isCreator($postId) == false)
-            return $this->badRequest(["Message" => "Your are not the creator of this post"]);
+//        if ($this->postRepo->isCreator($postId) == false)
+//            return $this->badRequest(["Message" => "Your are not the creator of this post"]);
         $this->postRepo->hide($postId);
-        return $this->success(["message" => "hid"]);
+        return $this->success(["message" => "hidden"]);
     }
 }

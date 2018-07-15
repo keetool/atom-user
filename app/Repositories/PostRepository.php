@@ -39,7 +39,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
         if ($limit == null)
             $limit = 10;
         $posts = clone $this->model;
-        $posts = $posts->where("merchant_id", $merchantId)->where("body", "like", "%$search%");
+        $posts = $posts->where("merchant_id", $merchantId)->where(DB::raw("unaccent_string(body)"), "ilike", "%$search%");
         if ($postId)
             $posts = $posts->where("created_at", "<", $this->show($postId)->created_at);
         $posts = $posts->orderBy("created_at", $order)->paginate($limit);
@@ -88,6 +88,13 @@ class PostRepository extends Repository implements PostRepositoryInterface
         $post->save();
     }
 
+    public function countByMerchantId($merchantId)
+    {
+        $count = clone $this->model;
+        $count = $count->where("merchant_id", $merchantId)->count();
+        return $count;
+    }
+    
     public function countByMerchantAndUserId($merchantId, $userId)
     {
         $count = clone $this->model;

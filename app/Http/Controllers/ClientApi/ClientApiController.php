@@ -56,8 +56,8 @@ class ClientApiController extends ApiController
      */
     public function search($subDomain, Request $request)
     {
-        $search = $this->appService->convert_vi_to_en(strtolower($request->search));
-        
+        $search = $this->appService->convert_vi_to_en($request->search);
+
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $posts = $this->postRepo->searchByMerchantId($merchant->id, $search, $request->post_id);

@@ -62,6 +62,15 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         $comment->save();
     }
 
+    public function countByMerchantId($merchantId)
+    {
+        $count = Comment::join('posts', 'comments.post_id', '=', 'posts.id')
+            ->where('comments.hide', null)
+            ->where('posts.merchant_id', $merchantId)->count();
+
+        return $count;
+    }
+    
     public function countByMerchantAndUserId($merchantId, $userId)
     {
         $count = Comment::join('posts', 'comments.post_id', '=', 'posts.id')

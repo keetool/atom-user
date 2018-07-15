@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends Repository implements UserRepositoryInterface

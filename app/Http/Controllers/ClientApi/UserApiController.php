@@ -14,6 +14,7 @@ use App\Services\AppService;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
+
 /**
  * @resource Client user
  */
@@ -31,14 +32,15 @@ class UserApiController extends OpenApiController
         CommentRepositoryInterface $commentRepo,
         MerchantRepository $merchantRepo,
         VoteRepositoryInterface $voteRepo
-    ) {
+    )
+    {
         $this->userRepo = $userRepo;
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepo;
         $this->commentRepo = $commentRepo;
         $this->voteRepo = $voteRepo;
     }
-    
+
     /**
      * GET /api/v1/user
      * return information of current logged in user
@@ -54,18 +56,33 @@ class UserApiController extends OpenApiController
         }
         return new UserResource($user);
     }
-    
+
     /**
      * Edit info
      * return information of current logged in user
      */
     public function editInfo(Request $request)
     {
-        $user = Auth::user(); 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->avatar_url = $request->avatar_url;
+        $user = Auth::user();
+
+        $userExist = false;
+
+        if ($request->username) {
+            $userExist = $this->userRepo->uniqueUserByUsername($request->username);
+        }
+
+        if ($userExist){
+            return $this->badRequest([
+                "message" => 'server.message.error.username_already_exists'
+            ]);
+        }
+
+        $user->name = $request->name ? $request->name : $user->name;
+        $user->email = $request->email ? $request->email : $user->email;
+        $user->phone = $request->phone ? $request->phone : $user->phone;
+        $user->avatar_url = $request->avatar_url ? $request->avatar_url : $user->avatar_url;
+        $user->username = $request->username ? $request->username : $user->username;
+
         $user->save();
         return new UserResource($user);
     }

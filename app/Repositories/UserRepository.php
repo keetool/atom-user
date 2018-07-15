@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
@@ -69,8 +70,22 @@ class UserRepository extends Repository implements UserRepositoryInterface
 
         $users = $this->joinMerchantUser()
             ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->limit($limit)->get();
-        
+
         return $users;
     }
 
+    /**
+     * Check if user exists
+     * @param [string] $username
+     * @return [bool] userExist
+     */
+    public function uniqueUserByUsername($username)
+    {
+        $user = Auth::user();
+
+        $userExist = User::where('username', $username)->where('id', $user->id)->first();
+
+        return $userExist != null;
+
+    }
 }

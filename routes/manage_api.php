@@ -6,5 +6,6 @@ Route::middleware("auth:api")->group(function () {
     });
     Route::prefix("post")->group(function () {
         Route::get("/all", "PostApiController@loadPosts");
+        Route::put("/hide/{postId}", "PostApiController@hidePost");
     });
 });

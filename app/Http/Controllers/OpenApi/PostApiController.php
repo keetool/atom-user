@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\OpenApi;
 
+use App\Http\Resources\PostFullResource;
 use App\Logs\Log;
 use App\Logs\Post\PostLogFactory;
 use App\Notifications\Notification;
@@ -49,7 +50,8 @@ class PostApiController extends OpenApiController
         LanguageRepository $languageRepo,
         KeywordRepository $keywordRepo,
         KeywordLanguageRepository $keywordLanguageRepo
-    ) {
+    )
+    {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
@@ -74,7 +76,7 @@ class PostApiController extends OpenApiController
         $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
 
         $posts = $this->postRepo->loadByMerchantId($merchant->id, $request->post_id, $request->limit);
-        return PostResource::collection($posts);
+        return PostFullResource::collection($posts);
     }
 
     /**
@@ -89,7 +91,7 @@ class PostApiController extends OpenApiController
             ]);
         }
 
-        return new PostResource($post);
+        return new PostFullResource($post);
     }
 
     public function test()
@@ -107,7 +109,6 @@ class PostApiController extends OpenApiController
         $id = "69b65fd2-433e-4ea8-ae92-39eccee28cde";
         $user = $this->userRepo->show($id);
         $subject = "askdk";
-
 
 
         Mail::send('email.test1', ['data' => $data], function ($m) use ($user, $subject) {

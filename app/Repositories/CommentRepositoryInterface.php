@@ -27,4 +27,7 @@ interface CommentRepositoryInterface
     public function countVoteByMerchantAndUserId($merchantId, $userId);
 
     public function isCreator($commentId);
+
+    public function countByMerchantId($merchantId);
+    
 }

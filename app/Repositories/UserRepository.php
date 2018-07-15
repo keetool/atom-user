@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
@@ -68,9 +67,16 @@ class UserRepository extends Repository implements UserRepositoryInterface
             return false;
         }
 
-        $users = $this->joinMerchantUser()
-            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->limit($limit)->get();
 
+        // $users = $this->model->leftJoin('posts', 'posts.creator_id', '=', 'users.id')->leftJoin('comments', 'comments.post_id', '=', 'posts.id')
+        //     ->where('posts.merchant_id', $merchant->id)
+        //     ->groupBy('users.id')
+        //     ->select('users.*', DB::raw('sum(posts.upvote) + sum(comments.upvote) + sum(posts.downvote) + sum(comments.downvote) as votes_count')
+        //         , DB::raw('count(posts.*) as posts_count'), DB::raw('count(comments.*) as comments_count'))
+        //     ->get();
+        // dd($users);
+        $users = $this->joinMerchantUser()
+            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->paginate($limit);
         return $users;
     }
 

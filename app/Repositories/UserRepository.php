@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
@@ -90,7 +91,7 @@ class UserRepository extends Repository implements UserRepositoryInterface
     {
         $user = Auth::user();
 
-        $userExist = User::where('username', $username)->where('id', $user->id)->first();
+        $userExist = User::where('username', $username)->where('id', '<>', $user->id)->first();
 
         return $userExist != null;
 

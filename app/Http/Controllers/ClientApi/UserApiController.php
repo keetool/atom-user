@@ -4,13 +4,11 @@ namespace App\Http\Controllers\ClientApi;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\User as UserResource;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\OpenApiController;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Http\Resources\PostFullResource;
-use App\Services\AppService;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +47,7 @@ class UserApiController extends OpenApiController
     public function user($subdomain, Request $request)
     {
         $user = $request->user();
+
         $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
         if (!$userExist) {
             return $this->badRequest([
@@ -65,6 +64,7 @@ class UserApiController extends OpenApiController
     public function editInfo(Request $request)
     {
         $user = Auth::user();
+
 
         $userExist = false;
 

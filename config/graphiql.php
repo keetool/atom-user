@@ -15,7 +15,7 @@ return [
 
     'routes' => [
         // Path to send the graphql queries
-        'graphql' => 'graphql',
+        'graphql' => 'https://atomuser.com/graphql',
 
         // Path to the graphiql ui
         'ui' => 'graphql-ui',

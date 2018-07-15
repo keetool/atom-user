@@ -1,4 +1,9 @@
 <?php
+if (config("app.protocol") == "http://") {
+    $path ='http://atomuser.test/graphql';
+} else {
+    $path ='https://atomuser.com/graphql';
+}
 
 return [
 
@@ -15,7 +20,7 @@ return [
 
     'routes' => [
         // Path to send the graphql queries
-        'graphql' => 'https://atomuser.com/graphql',
+        'graphql' => $path,
 
         // Path to the graphiql ui
         'ui' => 'graphql-ui',

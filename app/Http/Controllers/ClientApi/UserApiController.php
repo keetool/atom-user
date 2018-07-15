@@ -65,7 +65,7 @@ class UserApiController extends OpenApiController
 
         $userExist = false;
 
-        if ($request->username) {
+        if (isset($request->username)) {
             $userExist = $this->userRepo->uniqueUserByUsername($request->username);
         }
 
@@ -75,11 +75,11 @@ class UserApiController extends OpenApiController
             ]);
         }
 
-        $user->name = $request->name ? $request->name : $user->name;
-        $user->email = $request->email ? $request->email : $user->email;
-        $user->phone = $request->phone ? $request->phone : $user->phone;
-        $user->avatar_url = $request->avatar_url ? $request->avatar_url : $user->avatar_url;
-        $user->username = $request->username ? $request->username : $user->username;
+        $user->name = isset($request->name) ? $request->name : $user->name;
+        $user->email = isset($request->email) ? $request->email : $user->email;
+        $user->phone =  isset($request->phone) ? $request->phone : $user->phone;
+        $user->avatar_url = isset($request->avatar_url) ? $request->avatar_url : $user->avatar_url;
+        $user->username = isset($request->username) ? $request->username : $user->username;
 
         $user->save();
         return new UserResource($user);

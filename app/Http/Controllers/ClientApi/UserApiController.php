@@ -68,7 +68,7 @@ class UserApiController extends OpenApiController
 
         $userExist = false;
 
-        if (isset($request->username)) {
+        if ($request->username != null) {
             $userExist = $this->userRepo->uniqueUserByUsername($request->username);
         }
 

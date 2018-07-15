@@ -19,6 +19,7 @@ class User extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
+            'username' => $this->username,
             'avatar_url' => $this->avatar_url,
             "is_root" => $this->is_root,
             "lang_encode" => $this->lang_encode,

@@ -38,7 +38,7 @@ class UserApiController extends OpenApiController
         $this->commentRepo = $commentRepo;
         $this->voteRepo = $voteRepo;
     }
-    
+
     /**
      * GET /api/v1/user
      * return information of current logged in user
@@ -46,16 +46,18 @@ class UserApiController extends OpenApiController
     public function user(Request $request)
     {
         $user = $request->user();
-        return new UserResource($user);
+        $userResource = new UserResource($user);
+//        dd($userResource);
+        return $userResource;
     }
-    
+
     /**
      * Edit info
      * return information of current logged in user
      */
     public function editInfo(Request $request)
     {
-        $user = Auth::user(); 
+        $user = Auth::user();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;

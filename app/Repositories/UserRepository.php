@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class UserRepository extends Repository implements UserRepositoryInterface
 {
@@ -78,7 +79,7 @@ class UserRepository extends Repository implements UserRepositoryInterface
             return false;
         }
 
-        
+
         // $users = $this->model->leftJoin('posts', 'posts.creator_id', '=', 'users.id')->leftJoin('comments', 'comments.post_id', '=', 'posts.id')
         //     ->where('posts.merchant_id', $merchant->id)
         //     ->groupBy('users.id')
@@ -100,4 +101,18 @@ class UserRepository extends Repository implements UserRepositoryInterface
         return $users;
     }
 
+    /**
+     * Check if user exists
+     * @param [string] $username
+     * @return [bool] userExist
+     */
+    public function uniqueUserByUsername($username)
+    {
+        $user = Auth::user();
+
+        $userExist = User::where('username', $username)->where('id', '<>', $user->id)->first();
+
+        return $userExist != null;
+
+    }
 }

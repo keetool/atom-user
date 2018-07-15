@@ -4,16 +4,16 @@ namespace App\Http\Controllers\ClientApi;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\User as UserResource;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\OpenApiController;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Http\Resources\PostFullResource;
-use App\Services\AppService;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
 /**
  * @resource Client user
  */
@@ -31,7 +31,8 @@ class UserApiController extends OpenApiController
         CommentRepositoryInterface $commentRepo,
         MerchantRepository $merchantRepo,
         VoteRepositoryInterface $voteRepo
-    ) {
+    )
+    {
         $this->userRepo = $userRepo;
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepo;
@@ -46,6 +47,7 @@ class UserApiController extends OpenApiController
     public function user($subdomain, Request $request)
     {
         $user = $request->user();
+
         $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
         if (!$userExist) {
             return $this->badRequest([
@@ -62,10 +64,42 @@ class UserApiController extends OpenApiController
     public function editInfo(Request $request)
     {
         $user = Auth::user();
+
+
+        $userExist = false;
+
+        if ($request->username != null) {
+            $userExist = $this->userRepo->uniqueUserByUsername($request->username);
+        }
+
+        if ($userExist) {
+            return $this->badRequest(lang_key_to_text('server.message.error.username_already_exists'));
+        }
+
+        $messages = [
+            'name.required' => lang_key_to_text("form.error.name.required"),
+        ];
+
+        // change validation rules
+        $rules = [
+            'name' => 'required|string',
+            'phone' => "string",
+            'email' => 'string|email',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            return $this->badRequest($errors);
+        }
+
         $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->avatar_url = $request->avatar_url;
+        $user->email = $request->email == null ? $request->email : $user->email;
+        $user->phone = $request->phone == null ? $request->phone : $user->phone;
+        $user->avatar_url = $request->avatar_url == null ? $request->avatar_url : $user->avatar_url;
+        $user->username = $request->username == null ? $request->username : $user->username;
+
         $user->save();
         return new UserResource($user);
     }

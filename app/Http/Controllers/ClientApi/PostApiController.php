@@ -93,8 +93,6 @@ class PostApiController extends ApiController
             "body" => $body,
         ], $postId);
 
-        // $request->image_ids = ["81d1d461-fdf2-4084-a442-930cc9fd5835", "c829ad5e-a88a-4963-85f3-2f91e17789d6"];
-        // $request->image_ids = json_encode($request->image_ids);
         if ($request->image_ids) {
             $this->imagePostRepository->deleteImagePostsByPostId($post->id);
             $imageIds = json_decode($request->image_ids);

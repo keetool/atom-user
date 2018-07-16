@@ -12,6 +12,8 @@ use App\Http\Resources\PostFullResource;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
 /**
  * @resource Client user
  */
@@ -29,7 +31,8 @@ class UserApiController extends OpenApiController
         CommentRepositoryInterface $commentRepo,
         MerchantRepository $merchantRepo,
         VoteRepositoryInterface $voteRepo
-    ) {
+    )
+    {
         $this->userRepo = $userRepo;
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepo;
@@ -65,21 +68,37 @@ class UserApiController extends OpenApiController
 
         $userExist = false;
 
-        if (isset($request->username)) {
+        if ($request->username != null) {
             $userExist = $this->userRepo->uniqueUserByUsername($request->username);
         }
 
-        if ($userExist){
-            return $this->badRequest([
-                "message" => 'server.message.error.username_already_exists'
-            ]);
+        if ($userExist) {
+            return $this->badRequest(lang_key_to_text('server.message.error.username_already_exists'));
         }
 
-        $user->name = isset($request->name) ? $request->name : $user->name;
-        $user->email = isset($request->email) ? $request->email : $user->email;
-        $user->phone =  isset($request->phone) ? $request->phone : $user->phone;
-        $user->avatar_url = isset($request->avatar_url) ? $request->avatar_url : $user->avatar_url;
-        $user->username = isset($request->username) ? $request->username : $user->username;
+        $messages = [
+            'name.required' => lang_key_to_text("form.error.name.required"),
+        ];
+
+        // change validation rules
+        $rules = [
+            'name' => 'required|string',
+            'phone' => "string",
+            'email' => 'string|email',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            return $this->badRequest($errors);
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email == null ? $request->email : $user->email;
+        $user->phone = $request->phone == null ? $request->phone : $user->phone;
+        $user->avatar_url = $request->avatar_url == null ? $request->avatar_url : $user->avatar_url;
+        $user->username = $request->username == null ? $request->username : $user->username;
 
         $user->save();
         return new UserResource($user);

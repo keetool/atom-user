@@ -79,6 +79,22 @@ class BookmarkApiController extends ApiController
         return PostFullResource::collection($posts);
     }
 
+    public function getBookmarksBySubDomainAfter($subDomain, $bookmarkId = null, Request $request)
+    {
+        $merchant = $this->merchantRepository->findBySubDomain($subDomain);
+        $user = Auth::user();
+        if ($bookmarkId == null) {
+            $posts = $this->bookmarkRepository->getBookmarkPostsBySubDomainPaginate($merchant->id, $request->bookmark_id, $user->id, $request->order, $request->limit);
+            return PostFullResource::collection($posts);
+        } else {
+            $bookmarks = Bookmark::where("user_id", $user->id)
+                ->where("posts.merchant_id", "=", $merchant->id);
+            $bookmarks = $this->bookmarkRepository->loadAfterModelId($bookmarkId, $bookmarks, $request->limit, $request->order);
+            return BookmarkResource::collection($bookmarks);
+        }
+
+    }
+
     /**
      * Get bookmarks from all subdomains
      * @param $subDomain

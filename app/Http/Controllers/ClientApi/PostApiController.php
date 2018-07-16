@@ -87,6 +87,8 @@ class PostApiController extends ApiController
             ]);
         }
 
+        if ($this->postRepo->isCreator($postId) == false)
+            return $this->badRequest(["Message" => "Your are not the creator of this post"]);
 
         $this->postRepo->update([
             "body" => $body,

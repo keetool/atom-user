@@ -8,13 +8,14 @@
 
 namespace App\GraphQL\Query;
 
+use App\Post;
 use App\User;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
 use Rebing\GraphQL\Support\SelectFields;
 
-class UsersQuery extends Query
+class PostsQuery extends Query
 {
     protected $attributes = [
         'name' => "Users query",
@@ -25,9 +26,7 @@ class UsersQuery extends Query
     {
 
         // result of query with pagination laravel
-        return Type::listOf(GraphQL::type('user'));
-
-//        return Type::listOf(GraphQL::type('user'));
+        GraphQL::paginate('user');
     }
 
     // arguments to filter query
@@ -36,10 +35,6 @@ class UsersQuery extends Query
         return [
             'id' => [
                 "name" => "id",
-                "type" => Type::string()
-            ],
-            'email' => [
-                "name" => "name",
                 "type" => Type::string()
             ]
         ];
@@ -51,14 +46,11 @@ class UsersQuery extends Query
             if (isset($args['id'])) {
                 $query->where("id", $args['id']);
             }
-            if (isset($args['email'])) {
-                $query->where("email", $args['email']);
-            }
         };
-        $user = User::with(array_keys($fields->getRelations()))
+        $posts = Post::with(array_keys($fields->getRelations()))
             ->where($where)
             ->select($fields->getSelect())
-            ->get();
-        return $user;
+            ->paginate($args['limit'], ['*'], 'page', $args['page']);
+        return $posts;
     }
 }

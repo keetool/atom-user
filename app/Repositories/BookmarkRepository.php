@@ -27,8 +27,8 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
         $bookmarks = Bookmark::join("posts", "bookmarks.post_id", "=", "posts.id")
             ->where("posts.merchant_id", "=", $merchantId)
             ->where("bookmarks.user_id", "=", $userId)
-            ->select("bookmarks.*")
             ->orderBy("bookmarks.created_at", $order)
+            ->select("bookmarks.*")
             ->paginate($limit);
 
         return $bookmarks;
@@ -44,7 +44,7 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
             $limit = 20;
         }
         $bookmark = Bookmark::where("bookmarks.user_id", "=", $userId)
-            ->select("posts.*")
+            ->select("bookmarks.*")
             ->orderBy("bookmarks.created_at", $order)
             ->paginate($limit);
 

@@ -14,7 +14,7 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
     }
 
 
-    public function getBookmarkPostsBySubDomainPaginate($merchantId, $bookmarkId, $userId, $order = "desc", $limit = 20)
+    public function getBookmarksBySubDomainPaginate($merchantId, $bookmarkId, $userId, $order = "desc", $limit = 20)
     {
         if ($order == null) {
             $order = "desc";
@@ -24,17 +24,17 @@ class BookmarkRepository extends Repository implements BookmarkRepositoryInterfa
             $limit = 20;
         }
 
-        $posts = Post::join("bookmarks", "bookmarks.post_id", "=", "posts.id")
+        $bookmarks = Bookmark::join("posts", "bookmarks.post_id", "=", "posts.id")
             ->where("posts.merchant_id", "=", $merchantId)
             ->where("bookmarks.user_id", "=", $userId)
-            ->select("posts.*")
+            ->select("bookmarks.*")
             ->orderBy("bookmarks.created_at", $order)
             ->paginate($limit);
 
-        return $posts;
+        return $bookmarks;
     }
 
-    public function getAllBookmarkPostsPaginate($userId, $order = "desc", $limit = 20)
+    public function getAllBookmarksPaginate($userId, $order = "desc", $limit = 20)
     {
         if ($order == null) {
             $order = "desc";

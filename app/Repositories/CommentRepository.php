@@ -13,8 +13,6 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
     public function __construct()
     {
         parent::__construct(new Comment());
-
-        $this->model = $this->model->where("hide", null);
     }
 
     public function findAllCommentByPostIdPaginate($postId, $order = "asc", $limit = 10)

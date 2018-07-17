@@ -14,7 +14,7 @@ class PostRepository extends Repository implements PostRepositoryInterface
     public function __construct()
     {
         parent::__construct(new Post());
-        $this->model = $this->model->where("hide", null);
+        // $this->model = $this->model->where("hide", null);
     }
 
     public function findByMerchantId($merchantId, $limit = 20, $order = "desc")

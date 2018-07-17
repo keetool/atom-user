@@ -10,6 +10,12 @@ class Comment extends UuidModel
 
     protected $fillable = ["value", "post_id", "user_id", "upvote", "downvote"];
 
+    public function newQuery($excludeDeleted = true)
+    {
+        return parent::newQuery($excludeDeleted)
+            ->where('comments.hide', '=', null);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, "user_id");

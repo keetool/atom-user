@@ -15,6 +15,11 @@ class Post extends UuidModel
         return $this->belongsTo(Merchant::class, "merchant_id");
     }
 
+    public function creator()
+    {
+        return $this->belongsTo(User::class, "creator_id");
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, "creator_id");

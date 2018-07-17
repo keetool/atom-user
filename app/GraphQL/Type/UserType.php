@@ -20,6 +20,16 @@ class UserType extends GraphQLType
         'model' => User::class
     ];
 
+    public function resolveCreatedAtField($root, $args)
+    {
+        return strtotime($root->created_at);
+    }
+
+    public function resolveUpdatedAtField($root, $args)
+    {
+        return strtotime($root->updated_at);
+    }
+
     // define field of type
     public function fields()
     {
@@ -28,14 +38,36 @@ class UserType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The id of the user'
             ],
+            'name' => [
+                'type' => Type::string(),
+                'description' => 'The email of user'
+            ],
             'email' => [
                 'type' => Type::string(),
                 'description' => 'The email of user'
             ],
-            'name' => [
+            'phone' => [
                 'type' => Type::string(),
-                'description' => 'The name of the user'
             ],
+            'username' => [
+                'type' => Type::string(),
+            ],
+            'avatar_url' => [
+                'type' => Type::string(),
+            ],
+            'is_root' => [
+                'type' => Type::boolean(),
+            ],
+            'lang_encode' => [
+                'type' => Type::string(),
+                'description' => 'Language of current user'
+            ],
+            "created_at" => [
+                'type' => Type::string()
+            ],
+            "updated_at" => [
+                'type' => Type::string()
+            ]
         ];
     }
 

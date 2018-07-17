@@ -8,23 +8,22 @@
 
 namespace App\GraphQL\Query;
 
-use App\Post;
+use App\Image;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
 use Rebing\GraphQL\Support\SelectFields;
 
-class PostsQuery extends Query
+class ImagesQuery extends Query
 {
     protected $attributes = [
-        'name' => "Posts query",
+        'name' => "Images query",
         'description' => "A query of posts"
     ];
 
     public function type()
     {
-        // result of query with pagination laravel
-        return GraphQL::paginate('post');
+        return GraphQL::paginate('image');
     }
 
     // arguments to filter query
@@ -42,10 +41,6 @@ class PostsQuery extends Query
             'page' => [
                 "name" => "page",
                 "type" => Type::int()
-            ],
-            "order" => [
-                "name" => "order",
-                "type" => Type::string()
             ]
         ];
     }
@@ -57,27 +52,10 @@ class PostsQuery extends Query
                 $query->where("id", $args['id']);
             }
         };
-
-        $order = 'desc';
-
-        if (isset($args['order'])) {
-            $order = $args['order'];
-        }
-
-        $limit = 20;
-        $page = 1;
-        if (isset($args['limit'])) {
-            $limit = $args['limit'];
-        }
-        if (isset($args['page'])) {
-            $page = $args['page'];
-        }
-
-        $posts = Post::with(array_keys($fields->getRelations()))
+        $images = Image::with(array_keys($fields->getRelations()))
             ->where($where)
-            ->orderBy("created_at", $order)
             ->select($fields->getSelect())
-            ->paginate($limit, ['*'], 'page', $page);
-        return $posts;
+            ->paginate($args['limit'], ['*'], 'page', $args['page']);
+        return $images;
     }
 }

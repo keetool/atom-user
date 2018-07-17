@@ -189,21 +189,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -308,7 +308,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -416,7 +416,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -430,28 +430,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -669,21 +669,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -788,7 +788,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -896,7 +896,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -910,28 +910,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -1006,21 +1006,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -1125,7 +1125,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -1233,7 +1233,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -1247,28 +1247,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -1410,21 +1410,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -1529,7 +1529,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -1637,7 +1637,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -1651,28 +1651,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -1747,21 +1747,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -1866,7 +1866,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -1974,7 +1974,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -1988,28 +1988,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -2084,21 +2084,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -2203,7 +2203,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -2311,7 +2311,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -2325,28 +2325,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -2421,21 +2421,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -2540,7 +2540,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -2648,7 +2648,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -2662,28 +2662,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -2760,21 +2760,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -2879,7 +2879,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -2987,7 +2987,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -3001,28 +3001,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -3198,21 +3198,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -3317,7 +3317,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -3425,7 +3425,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -3439,28 +3439,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -3708,21 +3708,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -3827,7 +3827,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -3935,7 +3935,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -3949,28 +3949,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -4045,21 +4045,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -4164,7 +4164,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -4272,7 +4272,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -4286,28 +4286,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -4484,21 +4484,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -4603,7 +4603,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -4711,7 +4711,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -4725,28 +4725,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -4821,21 +4821,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -4940,7 +4940,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -5048,7 +5048,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -5062,28 +5062,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -5160,21 +5160,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -5279,7 +5279,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -5387,7 +5387,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -5401,28 +5401,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -5531,21 +5531,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -5650,7 +5650,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -5758,7 +5758,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -5772,28 +5772,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -5868,21 +5868,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -5987,7 +5987,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -6095,7 +6095,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -6109,28 +6109,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -6206,21 +6206,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -6325,7 +6325,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -6433,7 +6433,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -6447,28 +6447,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -6675,15 +6675,29 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1909,
+            "line": 1963,
             "function": "select",
             "class": "Illuminate\\Database\\Connection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1894,
+            "line": 1951,
             "function": "runSelect",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 2435,
+            "function": "Illuminate\\Database\\Query\\{closure}",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 1952,
+            "function": "onceWithColumns",
             "class": "Illuminate\\Database\\Query\\Builder",
             "type": "->"
         },
@@ -6724,7 +6738,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Eloquent\/Model.php",
-            "line": 1509,
+            "line": 1570,
             "function": "findOrFail",
             "class": "Illuminate\\Database\\Eloquent\\Builder",
             "type": "->"
@@ -6776,7 +6790,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 659,
+            "line": 665,
             "function": "run",
             "class": "Illuminate\\Routing\\Route",
             "type": "->"
@@ -6923,28 +6937,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 661,
+            "line": 667,
             "function": "then",
             "class": "Illuminate\\Pipeline\\Pipeline",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 636,
+            "line": 642,
             "function": "runRouteWithinStack",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "runRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -7049,7 +7063,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -7157,7 +7171,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -7171,28 +7185,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -7282,15 +7296,29 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1909,
+            "line": 1963,
             "function": "select",
             "class": "Illuminate\\Database\\Connection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1894,
+            "line": 1951,
             "function": "runSelect",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 2435,
+            "function": "Illuminate\\Database\\Query\\{closure}",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 1952,
+            "function": "onceWithColumns",
             "class": "Illuminate\\Database\\Query\\Builder",
             "type": "->"
         },
@@ -7331,7 +7359,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Eloquent\/Model.php",
-            "line": 1509,
+            "line": 1570,
             "function": "findOrFail",
             "class": "Illuminate\\Database\\Eloquent\\Builder",
             "type": "->"
@@ -7383,7 +7411,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 659,
+            "line": 665,
             "function": "run",
             "class": "Illuminate\\Routing\\Route",
             "type": "->"
@@ -7530,28 +7558,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 661,
+            "line": 667,
             "function": "then",
             "class": "Illuminate\\Pipeline\\Pipeline",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 636,
+            "line": 642,
             "function": "runRouteWithinStack",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "runRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -7656,7 +7684,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -7764,7 +7792,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -7778,28 +7806,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -7969,15 +7997,29 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1909,
+            "line": 1963,
             "function": "select",
             "class": "Illuminate\\Database\\Connection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1894,
+            "line": 1951,
             "function": "runSelect",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 2435,
+            "function": "Illuminate\\Database\\Query\\{closure}",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 1952,
+            "function": "onceWithColumns",
             "class": "Illuminate\\Database\\Query\\Builder",
             "type": "->"
         },
@@ -8018,7 +8060,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Eloquent\/Model.php",
-            "line": 1509,
+            "line": 1570,
             "function": "findOrFail",
             "class": "Illuminate\\Database\\Eloquent\\Builder",
             "type": "->"
@@ -8070,7 +8112,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 659,
+            "line": 665,
             "function": "run",
             "class": "Illuminate\\Routing\\Route",
             "type": "->"
@@ -8217,28 +8259,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 661,
+            "line": 667,
             "function": "then",
             "class": "Illuminate\\Pipeline\\Pipeline",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 636,
+            "line": 642,
             "function": "runRouteWithinStack",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "runRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -8343,7 +8385,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -8451,7 +8493,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -8465,28 +8507,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -8648,15 +8690,29 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1909,
+            "line": 1963,
             "function": "select",
             "class": "Illuminate\\Database\\Connection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
-            "line": 1894,
+            "line": 1951,
             "function": "runSelect",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 2435,
+            "function": "Illuminate\\Database\\Query\\{closure}",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php",
+            "line": 1952,
+            "function": "onceWithColumns",
             "class": "Illuminate\\Database\\Query\\Builder",
             "type": "->"
         },
@@ -8697,7 +8753,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Eloquent\/Model.php",
-            "line": 1509,
+            "line": 1570,
             "function": "findOrFail",
             "class": "Illuminate\\Database\\Eloquent\\Builder",
             "type": "->"
@@ -8749,7 +8805,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 659,
+            "line": 665,
             "function": "run",
             "class": "Illuminate\\Routing\\Route",
             "type": "->"
@@ -8896,28 +8952,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 661,
+            "line": 667,
             "function": "then",
             "class": "Illuminate\\Pipeline\\Pipeline",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 636,
+            "line": 642,
             "function": "runRouteWithinStack",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "runRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -9022,7 +9078,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -9130,7 +9186,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -9144,28 +9200,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -9273,21 +9329,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -9392,7 +9448,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -9500,7 +9556,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -9514,28 +9570,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -9610,21 +9666,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -9729,7 +9785,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -9837,7 +9893,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -9851,28 +9907,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -9947,21 +10003,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -10066,7 +10122,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -10174,7 +10230,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -10188,28 +10244,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -10284,21 +10340,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -10403,7 +10459,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -10511,7 +10567,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -10525,28 +10581,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -10621,21 +10677,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -10740,7 +10796,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -10848,7 +10904,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -10862,28 +10918,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -10958,21 +11014,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -11077,7 +11133,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -11185,7 +11241,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -11199,28 +11255,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -11295,21 +11351,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -11414,7 +11470,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -11522,7 +11578,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -11536,28 +11592,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -11633,21 +11689,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -11752,7 +11808,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -11860,7 +11916,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -11874,28 +11930,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -12004,21 +12060,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -12123,7 +12179,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -12231,7 +12287,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -12245,28 +12301,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -12341,21 +12397,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -12460,7 +12516,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -12568,7 +12624,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -12582,28 +12638,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -12678,21 +12734,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -12797,7 +12853,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -12905,7 +12961,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -12919,28 +12975,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -13049,21 +13105,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -13168,7 +13224,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -13276,7 +13332,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -13290,28 +13346,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -13389,21 +13445,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -13508,7 +13564,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -13616,7 +13672,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -13630,28 +13686,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -13728,21 +13784,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -13847,7 +13903,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -13955,7 +14011,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -13969,28 +14025,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -14065,21 +14121,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -14184,7 +14240,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -14292,7 +14348,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -14306,28 +14362,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -14402,21 +14458,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -14521,7 +14577,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -14629,7 +14685,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -14643,28 +14699,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -14741,21 +14797,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -14860,7 +14916,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -14968,7 +15024,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -14982,28 +15038,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -15042,6 +15098,427 @@ $.ajax(settings).done(function (response) {
 <!-- END_87e4f4943d1ffa49802b574e98a1453b -->
 
 #general
+<!-- START_4fc3b46197813c69cd9a09ceaa4ce7d8 -->
+## Display the graphql ui
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/graphql-ui" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/graphql-ui",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+null
+```
+
+### HTTP Request
+`GET graphql-ui`
+
+`HEAD graphql-ui`
+
+
+<!-- END_4fc3b46197813c69cd9a09ceaa4ce7d8 -->
+
+<!-- START_22dbd3ab5a1ad76dfe137312e21e3462 -->
+## graphql
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/graphql" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/graphql",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+[]
+```
+
+### HTTP Request
+`GET graphql`
+
+`POST graphql`
+
+`HEAD graphql`
+
+
+<!-- END_22dbd3ab5a1ad76dfe137312e21e3462 -->
+
+<!-- START_386059102fe8e9d62a7947091c04b325 -->
+## graphql/{default}
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/graphql/{default}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/graphql/{default}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/RouteCollection.php",
+    "line": 179,
+    "trace": [
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 619,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 608,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
+            "line": 597,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 176,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 30,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
+            "line": 31,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
+            "line": 62,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 151,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
+            "line": 53,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
+            "line": 104,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 151,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
+            "line": 116,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 116,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/AbstractGenerator.php",
+            "line": 98,
+            "function": "callRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Generators\/LaravelGenerator.php",
+            "line": 58,
+            "function": "getRouteResponse",
+            "class": "Mpociot\\ApiDoc\\Generators\\AbstractGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 261,
+            "function": "processRoute",
+            "class": "Mpociot\\ApiDoc\\Generators\\LaravelGenerator",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Mpociot\/ApiDoc\/Commands\/GenerateDocumentation.php",
+            "line": 83,
+            "function": "processLaravelRoutes",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "function": "handle",
+            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 29,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 87,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
+            "line": 31,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
+            "line": 564,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 184,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Command\/Command.php",
+            "line": 251,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
+            "line": 171,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 886,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 262,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
+            "line": 145,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
+            "line": 89,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
+            "line": 122,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "->"
+        },
+        {
+            "file": "\/var\/www\/artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET graphql/{default}`
+
+`POST graphql/{default}`
+
+`HEAD graphql/{default}`
+
+
+<!-- END_386059102fe8e9d62a7947091c04b325 -->
+
 <!-- START_57011a4e29c6bc1cfec9270de49657bf -->
 ## Authorize a client to access the user&#039;s account.
 
@@ -15072,9 +15549,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "error": "unsupported_grant_type",
-    "message": "The authorization grant type is not supported by the authorization server.",
-    "hint": "Check that all required parameters have been provided"
+    "message": "Unauthenticated."
 }
 ```
 
@@ -15664,21 +16139,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -15783,7 +16258,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -15891,7 +16366,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -15905,28 +16380,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -16044,12 +16519,15 @@ $.ajax(settings).done(function (response) {
             "website.homepage.section2.feature4_content": "",
             "website.homepage.section2.feature5_title": "",
             "website.homepage.section2.feature5_content": "",
+            "social.edit_profile.form.placeholder_username": "",
             "website.homepage.section2.feature6_title": "",
             "website.homepage.section2.feature6_content": "",
+            "social.editor_comment.form.placeholder": "",
             "website.homepage.section3.block1_title": "",
             "website.homepage.section3.block1_content": "",
             "website.homepage.section3.block2.title": "",
             "website.homepage.section3.block2_content": "",
+            "social.edit_profile.form.placeholder_email": "",
             "website.homepage.section3.block2_title": "",
             "website.homepage.section4.feature1_title": "",
             "website.homepage.section4.feature1_content": "",
@@ -16064,15 +16542,15 @@ $.ajax(settings).done(function (response) {
             "website.homepage.section5.signup_email": "",
             "website.homepage.section5.signup_password": "",
             "website.homepage.section5.signup_button": "",
+            "social.edit_profile.form.placeholder_phone": "",
             "social.editor.form.placeholder": "",
             "social.editor.noti.upload_image_error": "",
             "social.editor.form.button_post": "",
-            "social.editor_comment.form.placeholder": "",
             "manage.dashboard.card_user.title": "",
             "manage.dashboard.card_post.title": "",
             "manage.dashboard.card_new_user.title": "",
-            "dashboard.datepicker_start_time.placeholder": "",
-            "dashboard.datepicker_end_time.placeholder": "",
+            "manage.dashboard.datepicker.7_days": "",
+            "manage.dashboard.datepicker.15_days": "",
             "social.home.post_item.view_all_comment": "",
             "social.home.post.upload_success": "",
             "social.tooltip.header.signout": "",
@@ -16084,13 +16562,79 @@ $.ajax(settings).done(function (response) {
             "social.editor.action.photo": "",
             "social.editor.action.file": "",
             "social.editor.noti.limit_file_upload": "",
-            "social.home.title": "",
-            "emails.merchant.signup.image": "",
-            "emails.merchant.signup.title": "",
-            "emails.merchant.signup.content": "",
-            "emails.merchant.signup.greet": ""
+            "social.page.home.title": "",
+            "social.page.post.title": "",
+            "social.editor.form.button_signin_to_post": "",
+            "social.editor.form.placeholder_need_signin": "",
+            "social.global.signin": "",
+            "social.editor_comment.form.button_signin_to_comment": "",
+            "manage.dashboard.datepicker.30_days": "",
+            "social.tooltip.tabbar.search": "",
+            "social.tooltip.tabbar.mark": "",
+            "social.tooltip.tabbar.home": "",
+            "social.tooltip.tabbar.notification": "",
+            "social.tooltip.tabbar.profile": "",
+            "social.page.mark.title": "",
+            "social.page.notification.title": "",
+            "social.page.profile.title": "",
+            "social.page.search.title": "",
+            "social.notification.type.post_vote_up_create": "",
+            "social.global.you": "",
+            "manage.dashboard.datepicker.other": "",
+            "manage.dashboard.modal.ok": "",
+            "manage.dashboard.modal.cancel": "",
+            "social.notification.type.post_vote_down_create": "",
+            "social.global.your": "",
+            "social.notification.type.post_comment_create": "",
+            "social.notification.noti.empty": "",
+            "social.mark.header.marked": "",
+            "social.mark.noti.empty": "",
+            "social.search.header.search_placeholder": "",
+            "manage.post.table.action.hide": "",
+            "social.search.header.number_result": "",
+            "social.search.noti.empty": "",
+            "social.home.noti.empty": "",
+            "social.home.post_item.mark": "",
+            "social.profile.info.post": "",
+            "social.profile.info.vote": "",
+            "social.profile.info.comment": "",
+            "social.profile.info.edit": "",
+            "manage.post.table.header.creator": "",
+            "manage.post.table.header.body": "",
+            "manage.post.table.header.created_at": "",
+            "manage.post.table.action.detail": "",
+            "social.home.post_item.view_more": "",
+            "manage.post.confirm.description": "",
+            "manage.user.table_user.phone": "téléphone",
+            "manage.post.confirm.hide_post": "",
+            "manage.user.table_user.upvotes": "",
+            "social.header.back.text": "",
+            "server.message.error.username_already_exists": "",
+            "social.edit_profile.form.submit": "",
+            "social.edit_profile.form.placeholder_name": "",
+            "social.edit_profile.form.please_input_your_name": "",
+            "social.edit_profile.noti.upload_success": "",
+            "social.edit_profile.form.email_invalid": "",
+            "social.page.edit_profile.title": "",
+            "social.home.post_item.dropdown_remove_bookmark": "",
+            "social.home.post_item.dropdown_add_bookmark": "",
+            "social.home.post_item.dropdown_edit": "",
+            "social.home.post_item.dropdown_delete": "",
+            "social.home.post_item.delete_post_success": "",
+            "social.global.yes": "",
+            "social.global.cancel": "",
+            "social.global.no": "",
+            "social.global.are_you_sure_delete": "",
+            "social.home.post_item.are_you_sure_delete_this_post?": "",
+            "social.editor.form.button_edit_post": "",
+            "social.home.post_item.modal_edit_post_title": "",
+            "social.global.are_you_sure": "",
+            "social.home.post_item.are_you_sure_close_edit_this_post": "",
+            "social.home.post_item.close_modal_lost_content": "",
+            "manage.user.table_user.statistic": "",
+            "manage.user.table_user.parameter": ""
         },
-        "version": "1531284154"
+        "version": "1531740612"
     }
 }
 ```
@@ -16182,21 +16726,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -16301,7 +16845,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -16409,7 +16953,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -16423,28 +16967,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -16519,21 +17063,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -16638,7 +17182,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -16746,7 +17290,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -16760,28 +17304,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
@@ -16856,21 +17400,21 @@ $.ajax(settings).done(function (response) {
     "trace": [
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 613,
+            "line": 619,
             "function": "match",
             "class": "Illuminate\\Routing\\RouteCollection",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 602,
+            "line": 608,
             "function": "findRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 591,
+            "line": 597,
             "function": "dispatchToRoute",
             "class": "Illuminate\\Routing\\Router",
             "type": "->"
@@ -16975,7 +17519,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 51,
+            "line": 62,
             "function": "Illuminate\\Routing\\{closure}",
             "class": "Illuminate\\Routing\\Pipeline",
             "type": "->"
@@ -17083,7 +17627,7 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
+            "line": 184,
             "function": "call",
             "class": "Illuminate\\Container\\Container",
             "type": "->"
@@ -17097,28 +17641,28 @@ $.ajax(settings).done(function (response) {
         },
         {
             "file": "\/var\/www\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
+            "line": 171,
             "function": "run",
             "class": "Symfony\\Component\\Console\\Command\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 865,
+            "line": 886,
             "function": "run",
             "class": "Illuminate\\Console\\Command",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 241,
+            "line": 262,
             "function": "doRunCommand",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"
         },
         {
             "file": "\/var\/www\/vendor\/symfony\/console\/Application.php",
-            "line": 143,
+            "line": 145,
             "function": "doRun",
             "class": "Symfony\\Component\\Console\\Application",
             "type": "->"

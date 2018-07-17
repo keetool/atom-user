@@ -15,6 +15,7 @@ use App\Logs\Log;
 use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Merchant;
+use PharIo\Manifest\Email;
 
 /**
  * @resource Auth
@@ -288,37 +289,27 @@ class AuthController extends ApiController
             $response = $http->get("https://graph.facebook.com/me?fields=id,name,email&access_token=" . $inputToken);
             $response = json_decode((string)$response->getBody());
             // dd($response);
-            $user = User::where("social_id", "facebook." . $facebookId)->first();
+            $user = User::where("email", $response->email)->first();
             if ($user == null) {
                 $user = new User();
                 if (isset($response->email))
                     $user->email = $response->email;
                 else
                     $user->email = "facebook" . $response->id . '@atomuser.com';
-                $user->social_id = "facebook." . $facebookId;
-                $user->password = bcrypt($user->social_id);
+                $user->username = $user->email;
                 $user->phone = '000';
             }
-
+            $user->social_id = "facebook." . $facebookId;
+            $user->password = bcrypt($user->social_id);
             $user->name = $response->name;
-
-
-//            $data = file_get_contents("https://graph.facebook.com/" . $facebookId . "/picture?&type=large&access_token=" . $inputToken);
-//            $fileName = 'fb_profilepic.jpg';
-//            $file = fopen($fileName, 'w+');
-//            fputs($file, $data);
-//            fclose($file);
-
             //avatar
             $response = $http->get("https://graph.facebook.com/" . $facebookId . "/picture?redirect=0&type=large");
             $response = json_decode((string)$response->getBody())->data;
 
-            // $user->avatar_url = "https://graph.facebook.com/" . $facebookId . "/picture?type=large";
             $user->avatar_url = $response->url;
             $user->save();
 
             $this->merchantUserRepository->createMerchantUser($merchant->id, $user->id, "student");
-
             return $this->appService->signIn($request, $user->email, $user->social_id);
         } else {
             return $this->badRequest();
@@ -328,7 +319,6 @@ class AuthController extends ApiController
     public function googleTokenSignin(Request $request)
     {
         $inputToken = $request->input_token;
-
         $subDomain = $request->subDomain;
         $merchant = Merchant::where('sub_domain', $subDomain)->first();
         if ($merchant == null)
@@ -337,19 +327,18 @@ class AuthController extends ApiController
         $http = new Client;
         $response = $http->get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" . $inputToken);
         $response = json_decode((string)$response->getBody());
-
-        // dd($response);
-        $user = User::where("social_id", "google." . $response->sub)->first();
+        $user = User::where("email", $response->email)->first();
         if ($user == null) {
             $user = new User();
             if (isset($response->email))
                 $user->email = $response->email;
             else
                 $user->email = $response->sub . '@atomuser.com';
-            $user->social_id = "google." . $response->sub;
-            $user->password = bcrypt($user->social_id);
+            $user->username = $user->email;
             $user->phone = '000';
         }
+        $user->social_id = "google." . $response->sub;
+        $user->password = bcrypt($user->social_id);
         $user->name = $response->name;
         $user->avatar_url = $response->picture;
         $user->save();

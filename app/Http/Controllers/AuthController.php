@@ -16,6 +16,7 @@ use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Merchant;
 use PharIo\Manifest\Email;
+use Carbon\Carbon;
 
 /**
  * @resource Auth
@@ -299,7 +300,7 @@ class AuthController extends ApiController
                 $user->username = $user->email;
                 $user->phone = '000';
             }
-            $user->social_id = "facebook." . $facebookId;
+            $user->social_id = "facebook-" . $facebookId . '-' . strtotime(Carbon::now());
             $user->password = bcrypt($user->social_id);
             $user->name = $response->name;
             //avatar
@@ -337,7 +338,7 @@ class AuthController extends ApiController
             $user->username = $user->email;
             $user->phone = '000';
         }
-        $user->social_id = "google." . $response->sub;
+        $user->social_id = "google-" . $response->sub . '-' . strtotime(Carbon::now());
         $user->password = bcrypt($user->social_id);
         $user->name = $response->name;
         $user->avatar_url = $response->picture;

@@ -13,4 +13,13 @@ class ImagePostRepository extends Repository implements ImagePostRepositoryInter
         parent::__construct(new ImagePost());
     }
 
+    public function deleteImagePostsByPostId($postId)
+    {
+        $imagePosts = $this->model->where('post_id', $postId)->get();
+        if ($imagePosts) {
+            foreach ($imagePosts as $imagePost) {
+                $this->delete($imagePost->id);
+            }
+        }
+    }
 }

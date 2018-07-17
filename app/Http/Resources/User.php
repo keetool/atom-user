@@ -32,6 +32,8 @@ class User extends JsonResource
             $data['comments_count'] = $this->comments_count;
         if(isset($this->votes_count))
             $data['votes_count'] = $this->votes_count;
+        if(isset($this->joined))
+            $data['joined'] = $this->joined;
         return $data;
     }
 }

@@ -49,12 +49,14 @@ class UserApiController extends OpenApiController
         $user = $request->user();
 
         $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
-        if (!$userExist) {
-            return $this->badRequest([
-                "User does not exist in merchant"
-            ]);
-        }
-        return new UserResource($user);
+        // if (!$userExist) {
+        //     return $this->badRequest([
+        //         "User does not exist in merchant"
+        //     ]);
+        // }
+        $data = new UserResource($user);
+        $data['joined'] = $userExist;
+        return $this->success(['data' => $data]);
     }
 
     /**

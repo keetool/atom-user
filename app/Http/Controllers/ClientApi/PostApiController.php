@@ -59,7 +59,6 @@ class PostApiController extends ApiController
     public function updatePost($subdomain, $postId, Request $request)
     {
         $body = $request->body;
-
         if ($body == null) {
             return $this->badRequest([
                 "Thiếu dữ liệu trả lên"
@@ -93,6 +92,17 @@ class PostApiController extends ApiController
         $this->postRepo->update([
             "body" => $body,
         ], $postId);
+
+        if ($request->image_ids) {
+            $this->imagePostRepository->deleteImagePostsByPostId($post->id);
+            $imageIds = json_decode($request->image_ids);
+            foreach ($imageIds as $imageId) {
+                $this->imagePostRepository->create([
+                    "image_id" => $imageId,
+                    'post_id' => $post->id
+                ]);
+            }
+        }
 
         $post = $this->postRepo->show($postId);
 

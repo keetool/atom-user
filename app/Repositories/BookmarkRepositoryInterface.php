@@ -12,9 +12,9 @@ namespace App\Repositories;
 
 interface BookmarkRepositoryInterface
 {
-    public function getBookmarkPostsBySubDomainPaginate($merchantId, $bookmarkId, $userId, $order = "desc", $limit = 20);
+    public function getBookmarksBySubDomainPaginate($merchantId, $bookmarkId, $userId, $order = "desc", $limit = 20);
 
-    public function getAllBookmarkPostsPaginate($userId, $order = "desc", $limit = 20);
+    public function getAllBookmarksPaginate($userId, $order = "desc", $limit = 20);
 
     public function findByPostIdAndUserId($postId, $userId);
 }

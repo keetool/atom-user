@@ -95,6 +95,8 @@ class ClientApiController extends ApiController
 
         $data = new UserResource($user);
 
+        $data['joined'] = true;
+
         return $this->success([
             "data" => $data,
         ]);

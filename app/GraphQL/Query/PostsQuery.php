@@ -9,7 +9,6 @@
 namespace App\GraphQL\Query;
 
 use App\Post;
-use App\User;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
@@ -18,15 +17,14 @@ use Rebing\GraphQL\Support\SelectFields;
 class PostsQuery extends Query
 {
     protected $attributes = [
-        'name' => "Users query",
-        'description' => "A query of users"
+        'name' => "Posts query",
+        'description' => "A query of posts"
     ];
 
     public function type()
     {
-
         // result of query with pagination laravel
-        GraphQL::paginate('user');
+        return GraphQL::paginate('post');
     }
 
     // arguments to filter query
@@ -35,6 +33,18 @@ class PostsQuery extends Query
         return [
             'id' => [
                 "name" => "id",
+                "type" => Type::string()
+            ],
+            'limit' => [
+                "name" => "limit",
+                "type" => Type::int()
+            ],
+            'page' => [
+                "name" => "page",
+                "type" => Type::int()
+            ],
+            "order" => [
+                "name" => "order",
                 "type" => Type::string()
             ]
         ];
@@ -47,10 +57,27 @@ class PostsQuery extends Query
                 $query->where("id", $args['id']);
             }
         };
+
+        $order = 'desc';
+
+        if (isset($args['order'])) {
+            $order = $args['order'];
+        }
+
+        $limit = 20;
+        $page = 1;
+        if (isset($args['limit'])) {
+            $limit = $args['limit'];
+        }
+        if (isset($args['page'])) {
+            $page = $args['page'];
+        }
+
         $posts = Post::with(array_keys($fields->getRelations()))
             ->where($where)
+            ->orderBy("created_at", $order)
             ->select($fields->getSelect())
-            ->paginate($args['limit'], ['*'], 'page', $args['page']);
+            ->paginate($limit, ['*'], 'page', $page);
         return $posts;
     }
 }

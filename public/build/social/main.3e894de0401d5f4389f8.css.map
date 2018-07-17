@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/components/GlobalLoading/styles.less"],"names":[],"mappings":"AAAA,UAAkC,kBAAkB,MAAM,SAAS,QAAQ,OAAO,aAAa,mBAAmB,sBAAsB,C","file":"main.3e894de0401d5f4389f8.css","sourcesContent":[".global-loading-container-loading{position:absolute;top:0;bottom:0;right:0;left:0;display:flex;align-items:center;justify-content:center}"],"sourceRoot":""}

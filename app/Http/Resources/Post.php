@@ -33,7 +33,7 @@ class Post extends JsonResource
             'downvote' => $this->downvote,
             "upvote" => $this->upvote,
             'num_comments' => $this->num_comments,
-            "creator" => new UserResource($this->user),
+            "creator" => new UserResource($this->creator),
             "merchant" => new MerchantResource($this->merchant),
             'created_at' => strtotime($this->created_at),
             'updated_at' => strtotime($this->updated_at),

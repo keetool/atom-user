@@ -87,7 +87,9 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'users' => \App\GraphQL\Query\UsersQuery::class,
+                'user' => \App\GraphQL\Query\UsersQuery::class,
+                'image' => \App\GraphQL\Query\ImagesQuery::class,
+                "post" => \App\GraphQL\Query\PostsQuery::class
             ],
             'mutation' => [
             ],
@@ -106,6 +108,9 @@ return [
     //
     'types' => [
         'user' => \App\GraphQL\Type\UserType::class,
+        'post' => \App\GraphQL\Type\PostType::class,
+        'merchant' => \App\GraphQL\Type\MerchantType::class,
+        'image' => \App\GraphQL\Type\ImageType::class
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.

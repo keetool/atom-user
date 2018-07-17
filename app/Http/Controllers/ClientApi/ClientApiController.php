@@ -21,6 +21,7 @@ use App\Http\Resources\Post as PostResource;
 use App\Services\AppService;
 use App\Repositories\MerchantUserRepository;
 use App\Repositories\UserRepository;
+use App\Http\Resources\User as UserResource;
 
 /**
  * @resource Client
@@ -46,7 +47,8 @@ class ClientApiController extends ApiController
         MerchantUserRepository $merchantUserRepo,
         AppService $appService,
         UserRepository $userRepo
-    ) {
+    )
+    {
         parent::__construct();
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepository;
@@ -58,9 +60,9 @@ class ClientApiController extends ApiController
         $this->userRepo = $userRepo;
     }
 
-    /** 
+    /**
      * Search
-     * param = {search, post_id} 
+     * param = {search, post_id}
      */
     public function search($subDomain, Request $request)
     {
@@ -89,6 +91,12 @@ class ClientApiController extends ApiController
 
         $this->merchantUserRepo->createMerchantUser($merchant->id, $user->id, "student");
 
-        return $this->success(['message' => 'success']);
+        $user = $this->userRepo->show($user->id);
+
+        $data = new UserResource($user);
+
+        return $this->success([
+            "data" => $data,
+        ]);
     }
 }

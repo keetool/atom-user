@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Logs\CreateMerchantLogFactory;
-use App\Logs\SignInLogFactory;
 use App\Services\AppService;
 use Illuminate\Http\Request;
 use App\Repositories\MerchantRepository;
@@ -15,7 +14,6 @@ use App\Logs\Log;
 use App\Repositories\MerchantUserRepository;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Merchant;
-use PharIo\Manifest\Email;
 use Carbon\Carbon;
 
 /**

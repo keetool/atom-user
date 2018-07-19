@@ -87,9 +87,11 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'user' => \App\GraphQL\Query\UsersQuery::class,
+                'user' => \App\GraphQL\Query\UserQuery::class,
+                'users' => \App\GraphQL\Query\UsersQuery::class,
                 'image' => \App\GraphQL\Query\ImagesQuery::class,
                 "post" => \App\GraphQL\Query\PostsQuery::class,
+                'merchants' => \App\GraphQL\Query\MerchantsQuery::class,
                 'merchant' => \App\GraphQL\Query\MerchantQuery::class
             ],
             'mutation' => [

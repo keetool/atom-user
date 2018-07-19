@@ -1,8 +1,8 @@
 <?php
 if (config("app.protocol") == "http://") {
-    $path ='http://atomuser.test/graphql';
+    $path = 'http://atomuser.test/graphql';
 } else {
-    $path ='https://atomuser.com/graphql';
+    $path = 'https://atomuser.com/graphql';
 }
 
 return [

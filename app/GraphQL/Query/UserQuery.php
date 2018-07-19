@@ -8,22 +8,26 @@
 
 namespace App\GraphQL\Query;
 
-use App\Merchant;
+use App\User;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
 use Rebing\GraphQL\Support\SelectFields;
 
-class MerchantQuery extends Query
+class UserQuery extends Query
 {
     protected $attributes = [
-        'name' => "Merchant query",
-        'description' => "A query of merchant"
+        'name' => "User query",
+        'description' => "A query of users"
     ];
 
     public function type()
     {
-        return GraphQL::type('merchant');
+
+        // result of query with pagination laravel
+        return GraphQL::type('user');
+
+//        return Type::listOf(GraphQL::type('user'));
     }
 
     // arguments to filter query
@@ -32,6 +36,10 @@ class MerchantQuery extends Query
         return [
             'id' => [
                 "name" => "id",
+                "type" => Type::string()
+            ],
+            'email' => [
+                "name" => "email",
                 "type" => Type::string()
             ]
         ];
@@ -43,12 +51,14 @@ class MerchantQuery extends Query
             if (isset($args['id'])) {
                 $query->where("id", $args['id']);
             }
+            if (isset($args['email'])) {
+                $query->where("email", $args['email']);
+            }
         };
-
-        $merchant = Merchant::with(array_keys($fields->getRelations()))
+        $user = User::with(array_keys($fields->getRelations()))
             ->where($where)
             ->select($fields->getSelect())
             ->first();
-        return $merchant;
+        return $user;
     }
 }

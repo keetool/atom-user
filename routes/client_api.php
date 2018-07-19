@@ -33,7 +33,10 @@ Route::middleware("auth:api")->group(function () {
             Route::get("/", "Api\BookmarkApiController@getAllBookmarks");
             Route::get("/after/{bookmarkId?}", "Api\BookmarkApiController@getAllBookmarks");
             Route::get("/by-sub-domain", "Api\BookmarkApiController@getBookmarksBySubDomain");
+            Route::get("/by-sub-domain/after/{bookmarkId?}", "Api\BookmarkApiController@getBookmarksBySubDomainAfter");
         });
+
+        Route::put("join-merchant", "ClientApi\ClientApiController@joinMerchant");
 
     });
 
@@ -76,6 +79,7 @@ Route::middleware("auth:api")->group(function () {
 
     Route::get("load-post", "ClientApi\PostApiController@loadPosts");
     Route::get("search", "ClientApi\ClientApiController@search");
+
 });
 
 // Route::prefix("comment")->group(function () {

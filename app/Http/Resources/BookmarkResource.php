@@ -8,6 +8,12 @@ class BookmarkResource extends JsonResource
 {
     public function toArray($request)
     {
-        return new PostFullResource($this->post);
+        return [
+            "id" => $this->id,
+            "user_id" => $this->user_id,
+            "post" => new PostFullResource($this->post),
+            "updated_at" => strtotime($this->updated_at),
+            "created_at" => strtotime($this->created_at)
+        ];
     }
 }

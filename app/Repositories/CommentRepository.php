@@ -13,8 +13,6 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
     public function __construct()
     {
         parent::__construct(new Comment());
-
-        $this->model = $this->model->where("hide", null);
     }
 
     public function findAllCommentByPostIdPaginate($postId, $order = "asc", $limit = 10)
@@ -62,6 +60,15 @@ class CommentRepository extends Repository implements CommentRepositoryInterface
         $comment->save();
     }
 
+    public function countByMerchantId($merchantId)
+    {
+        $count = Comment::join('posts', 'comments.post_id', '=', 'posts.id')
+            ->where('comments.hide', null)
+            ->where('posts.merchant_id', $merchantId)->count();
+
+        return $count;
+    }
+    
     public function countByMerchantAndUserId($merchantId, $userId)
     {
         $count = Comment::join('posts', 'comments.post_id', '=', 'posts.id')

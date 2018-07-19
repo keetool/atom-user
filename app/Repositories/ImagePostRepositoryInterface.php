@@ -12,4 +12,5 @@ namespace App\Repositories;
 
 interface ImagePostRepositoryInterface
 {
+    public function deleteImagePostsByPostId($postId);
 }

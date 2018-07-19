@@ -4,16 +4,16 @@ namespace App\Http\Controllers\ClientApi;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\User as UserResource;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\OpenApiController;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\MerchantRepository;
 use App\Http\Resources\PostFullResource;
-use App\Services\AppService;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
 /**
  * @resource Client user
  */
@@ -31,14 +31,15 @@ class UserApiController extends OpenApiController
         CommentRepositoryInterface $commentRepo,
         MerchantRepository $merchantRepo,
         VoteRepositoryInterface $voteRepo
-    ) {
+    )
+    {
         $this->userRepo = $userRepo;
         $this->postRepo = $postRepo;
         $this->merchantRepo = $merchantRepo;
         $this->commentRepo = $commentRepo;
         $this->voteRepo = $voteRepo;
     }
-    
+
     /**
      * GET /api/v1/user
      * return information of current logged in user
@@ -46,26 +47,61 @@ class UserApiController extends OpenApiController
     public function user($subdomain, Request $request)
     {
         $user = $request->user();
+
         $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
-        if (!$userExist) {
-            return $this->badRequest([
-                "User does not exist in merchant"
-            ]);
-        }
-        return new UserResource($user);
+        // if (!$userExist) {
+        //     return $this->badRequest([
+        //         "User does not exist in merchant"
+        //     ]);
+        // }
+        $data = new UserResource($user);
+        $data['joined'] = $userExist;
+        return $this->success(['data' => $data]);
     }
-    
+
     /**
      * Edit info
      * return information of current logged in user
      */
     public function editInfo(Request $request)
     {
-        $user = Auth::user(); 
+        $user = Auth::user();
+
+
+        $userExist = false;
+
+        if ($request->username != null) {
+            $userExist = $this->userRepo->uniqueUserByUsername($request->username);
+        }
+
+        if ($userExist) {
+            return $this->badRequest(lang_key_to_text('server.message.error.username_already_exists'));
+        }
+
+        $messages = [
+            'name.required' => lang_key_to_text("form.error.name.required"),
+        ];
+
+        // change validation rules
+        $rules = [
+            'name' => 'required|string',
+            'phone' => "string",
+            'email' => 'string|email',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            return $this->badRequest($errors);
+        }
+
         $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->avatar_url = $request->avatar_url;
+        $user->email = $request->email == null ? $request->email : $user->email;
+        $user->phone = $request->phone == null ? $request->phone : $user->phone;
+        $user->avatar_url = $request->avatar_url == null ? $request->avatar_url : $user->avatar_url;
+        $user->username = $request->username == null ? $request->username : $user->username;
+
         $user->save();
         return new UserResource($user);
     }
@@ -76,8 +112,20 @@ class UserApiController extends OpenApiController
      */
     public function userList($subdomain, $type, Request $request)
     {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+
         if ($type == 'new') {
-            return UserResource::collection($this->userRepo->findNewUserByMerchant($subdomain));
+            $data = [
+                "users" => UserResource::collection($this->userRepo->findNewUserByMerchant($subdomain)),
+                "posts_count" => $this->postRepo->countByMerchantId($merchant->id),
+                "users_count" => $merchant->users()->count(),
+                "comments_count" => $this->commentRepo->countByMerchantId($merchant->id)
+
+            ];
+            return $this->success(["data" => $data]);
         }
     }
 

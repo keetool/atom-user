@@ -6,7 +6,6 @@ use App\Bookmark;
 use App\Http\Controllers\ApiController;
 use App\Http\Resources\BookmarkResource;
 use App\Http\Resources\Post as PostResource;
-use App\Http\Resources\PostFullResource;
 use App\Repositories\BookmarkRepositoryInterface;
 use App\Repositories\MerchantInterface;
 use Illuminate\Http\Request;
@@ -46,7 +45,7 @@ class BookmarkApiController extends ApiController
                 "user_id" => $user->id
             ]);
         }
-        return new PostResource($bookmark->post);
+        return new BookmarkResource($bookmark);
     }
 
     /**
@@ -75,8 +74,23 @@ class BookmarkApiController extends ApiController
     {
         $merchant = $this->merchantRepository->findBySubDomain($subDomain);
         $user = Auth::user();
-        $posts = $this->bookmarkRepository->getBookmarkPostsBySubDomainPaginate($merchant->id, $request->bookmark_id, $user->id, $request->order, $request->limit);
-        return PostFullResource::collection($posts);
+        $posts = $this->bookmarkRepository->getBookmarksBySubDomainPaginate($merchant->id, $request->bookmark_id, $user->id, $request->order, $request->limit);
+        return BookmarkResource::collection($posts);
+    }
+
+    public function getBookmarksBySubDomainAfter($subDomain, $bookmarkId = null, Request $request)
+    {
+        $merchant = $this->merchantRepository->findBySubDomain($subDomain);
+        $user = Auth::user();
+        if ($bookmarkId == null) {
+            $bookmarks = $this->bookmarkRepository->getBookmarksBySubDomainPaginate($merchant->id, $request->bookmark_id, $user->id, $request->order, $request->limit);
+        } else {
+            $bookmarks = Bookmark::where("user_id", $user->id)
+                ->where("posts.merchant_id", "=", $merchant->id);
+            $bookmarks = $this->bookmarkRepository->loadAfterModelId($bookmarkId, $bookmarks, $request->limit, $request->order);
+        }
+        return BookmarkResource::collection($bookmarks);
+
     }
 
     /**
@@ -88,8 +102,8 @@ class BookmarkApiController extends ApiController
     public function getAllBookmarks($subDomain, Request $request)
     {
         $user = Auth::user();
-        $posts = $this->bookmarkRepository->getAllBookmarkPostsPaginate($user->id, $request->order, $request->limit);
-        return PostFullResource::collection($posts);
+        $posts = $this->bookmarkRepository->getAllBookmarksPaginate($user->id, $request->order, $request->limit);
+        return BookmarkResource::collection($posts);
     }
 
 
@@ -104,7 +118,7 @@ class BookmarkApiController extends ApiController
     {
         $user = Auth::user();
         if ($bookmarkId == null) {
-            $bookmarks = $this->bookmarkRepository->getAllBookmarkPostsPaginate($user->id, $request->order, $request->limit);
+            $bookmarks = $this->bookmarkRepository->getAllBookmarksPaginate($user->id, $request->order, $request->limit);
         } else {
             $bookmarks = Bookmark::where("user_id", $user->id);
             $bookmarks = $this->bookmarkRepository->loadAfterModelId($bookmarkId, $bookmarks, $request->limit, $request->order);

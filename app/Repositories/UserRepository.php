@@ -1,18 +1,30 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends Repository implements UserRepositoryInterface
 {
     protected $merchantRepository;
+    private $postRepo;
+    private $commentRepo;
+    private $voteRepo;
 
-    public function __construct(MerchantRepository $merchantRepository)
-    {
+    public function __construct(
+        MerchantRepository $merchantRepository,
+        PostRepositoryInterface $postRepo,
+        CommentRepositoryInterface $commentRepo,
+        VoteRepositoryInterface $voteRepo
+    ) {
         parent::__construct(new User());
         $this->merchantRepository = $merchantRepository;
+        $this->postRepo = $postRepo;
+        $this->commentRepo = $commentRepo;
+        $this->voteRepo = $voteRepo;
     }
 
     public function joinMerchantUser()
@@ -67,10 +79,40 @@ class UserRepository extends Repository implements UserRepositoryInterface
             return false;
         }
 
+
+        // $users = $this->model->leftJoin('posts', 'posts.creator_id', '=', 'users.id')->leftJoin('comments', 'comments.post_id', '=', 'posts.id')
+        //     ->where('posts.merchant_id', $merchant->id)
+        //     ->groupBy('users.id')
+        //     ->select('users.*', DB::raw('sum(posts.upvote) + sum(comments.upvote) + sum(posts.downvote) + sum(comments.downvote) as votes_count')
+        //         , DB::raw('count(posts.*) as posts_count'), DB::raw('count(comments.*) as comments_count'))
+        //     ->get();
+        // dd($users);
         $users = $this->joinMerchantUser()
-            ->where("merchant_user.merchant_id", $merchant->id)->orderBy("merchant_user.created_at", "desc")->limit($limit)->get();
-        
+            ->where("merchant_user.merchant_id", $merchant->id)
+            ->orderBy("merchant_user.created_at", "desc")->select('users.*', 'merchant_user.created_at as created_at')->paginate($limit);
+        $users = $users->map(function ($user) use ($merchant) {
+            // $user->id = $user->user_id;
+            $user->posts_count =  $this->postRepo->countByMerchantAndUserId($merchant->id, $user->id);
+            $user->comments_count = $this->commentRepo->countByMerchantAndUserId($merchant->id, $user->id);
+            $user->votes_count = $this->voteRepo->countByMerchantAndUserId($merchant->id, $user->id);
+            return $user;
+        });
+        // dd($users);
         return $users;
     }
 
+    /**
+     * Check if user exists
+     * @param [string] $username
+     * @return [bool] userExist
+     */
+    public function uniqueUserByUsername($username)
+    {
+        $user = Auth::user();
+
+        $userExist = User::where('username', $username)->where('id', '<>', $user->id)->first();
+
+        return $userExist != null;
+
+    }
 }

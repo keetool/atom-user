@@ -19,6 +19,7 @@ class User extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
+            'username' => $this->username,
             'avatar_url' => $this->avatar_url,
             "is_root" => $this->is_root,
             "lang_encode" => $this->lang_encode,
@@ -31,6 +32,8 @@ class User extends JsonResource
             $data['comments_count'] = $this->comments_count;
         if(isset($this->votes_count))
             $data['votes_count'] = $this->votes_count;
+        if(isset($this->joined))
+            $data['joined'] = $this->joined;
         return $data;
     }
 }

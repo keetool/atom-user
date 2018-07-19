@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use App\Logs\Log;
 use App\Logs\SignInLog;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class AppService
 {
@@ -28,7 +29,10 @@ class AppService
         $signInLog = new SignInLog($user, "manage.user.signin", $request->url(), $request->header('User-Agent'));
         Log::sendLog($signInLog);
 
-        return json_decode((string)$response->getBody(), true);
+        $response = json_decode((string)$response->getBody(), true);
+        $response['user_id'] = $user->id;
+        $response['lang_encode'] = $user->lang_encode;
+        return $response;
     }
 
     public function convert_vi_to_en($str)

@@ -94,6 +94,21 @@ class PostApiController extends OpenApiController
         return new PostFullResource($post);
     }
 
+    /**
+     * Post list
+     * $type = {top}
+     * param = {post_id}
+     */
+    public function postList($subdomain, $type, Request $request)
+    {
+        if ($this->merchantRepo->findBySubDomain($subdomain) == null)
+            return $this->notFound(["message" => "merchant not found"]);
+        $merchant = $this->merchantRepo->findBySubDomain($request->subDomain);
+        if ($type == "top")
+            $posts = $this->postRepo->loadTopByMerchantId($merchant->id, $request->post_id, $request->limit);
+        return PostFullResource::collection($posts);
+    }
+
     public function test()
     {
         $language = $this->languageRepo->findByCode("vi-vn");

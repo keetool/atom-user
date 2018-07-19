@@ -8,43 +8,41 @@
 
 namespace App\GraphQL\Query;
 
-use App\User;
+use App\Merchant;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
 use Rebing\GraphQL\Support\SelectFields;
 
-class UsersQuery extends Query
+class MerchantsQuery extends Query
 {
     protected $attributes = [
-        'name' => "Users query",
-        'description' => "A query of users"
+        'name' => "Merchants query",
+        'description' => "A query of merchants"
     ];
 
     public function type()
     {
-        // result of query with pagination laravel
-        return GraphQL::paginate('user');
+        return GraphQL::paginate('merchant');
     }
 
     // arguments to filter query
     public function args()
     {
         return [
-            "limit" => [
-                "name" => "limit",
-                "type" => Type::int()
-            ],
-            "page" => [
-                "name" => "page",
-                "type" => Type::int()
-            ],
             'id' => [
                 "name" => "id",
                 "type" => Type::string()
             ],
-            'email' => [
-                "name" => "email",
+            'limit' => [
+                "name" => "limit",
+                "type" => Type::int()
+            ],
+            'page' => [
+                "name" => "page",
+                "type" => Type::int()
+            ],
+            'user_id' => [
                 "type" => Type::string()
             ],
             "order" => [
@@ -60,10 +58,8 @@ class UsersQuery extends Query
             if (isset($args['id'])) {
                 $query->where("id", $args['id']);
             }
-            if (isset($args['email'])) {
-                $query->where("email", $args['email']);
-            }
         };
+
         $limit = 20;
         $page = 1;
 
@@ -79,11 +75,12 @@ class UsersQuery extends Query
         if (isset($args['order'])) {
             $order = $args['order'];
         }
-        $user = User::with(array_keys($fields->getRelations()))
+
+        $merchants = Merchant::with(array_keys($fields->getRelations()))
             ->where($where)
             ->select($fields->getSelect())
             ->orderBy("created_at", $order)
             ->paginate($limit, ['*'], 'page', $page);
-        return $user;
+        return $merchants;
     }
 }

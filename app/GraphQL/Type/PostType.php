@@ -5,7 +5,6 @@
  * Date: 7/15/18
  * Time: 4:23 PM
  */
-
 namespace App\GraphQL\Type;
 
 use App\Post;

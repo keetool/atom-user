@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-
 class Post extends UuidModel
 {
     protected $table = 'posts';

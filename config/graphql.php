@@ -89,7 +89,8 @@ return [
             'query' => [
                 'user' => \App\GraphQL\Query\UsersQuery::class,
                 'image' => \App\GraphQL\Query\ImagesQuery::class,
-                "post" => \App\GraphQL\Query\PostsQuery::class
+                "post" => \App\GraphQL\Query\PostsQuery::class,
+                'merchant' => \App\GraphQL\Query\MerchantQuery::class
             ],
             'mutation' => [
             ],

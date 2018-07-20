@@ -86,7 +86,7 @@ class MerchantsQuery extends Query
         $merchants = $merchants
             ->where($where)
             ->select($fields->getSelect())
-            ->orderBy("created_at", $order)
+            ->orderBy("merchants.created_at", $order)
             ->paginate($limit, ['*'], 'page', $page);
         return $merchants;
     }

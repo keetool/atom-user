@@ -57,7 +57,9 @@ class MerchantsQuery extends Query
         $merchants = Merchant::with(array_keys($fields->getRelations()))->select("merchants.*");
 
         if (isset($args['user_id'])) {
-            $merchants = $merchants->join("merchant_user", 'merchants.id', '=', 'merchant_user.merchant_id');
+            $merchants = $merchants
+                ->join("merchant_user", 'merchants.id', '=', 'merchant_user.merchant_id')
+                ->where("merchant_user.user_id", $args["user_id"]);
         }
 
         $where = function ($query) use ($args) {

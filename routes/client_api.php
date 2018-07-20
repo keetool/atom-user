@@ -21,6 +21,7 @@ Route::middleware("auth:api")->group(function () {
                 Route::get("/after", "ClientApi\NotificationApiController@getNotificationsMerchantAfter");
             });
             Route::get("/after/{notificationId?}", "ClientApi\NotificationApiController@getNotificationsAfter");
+            Route::put("/{notificationId}/click", "ClientApi\NotificationApiController@clickNotification");
             Route::put("/{notificationId}/seen", "ClientApi\NotificationApiController@seenNotification");
             Route::get("/", "ClientApi\NotificationApiController@getNotifications");
         });

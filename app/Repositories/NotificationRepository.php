@@ -11,6 +11,12 @@ class NotificationRepository extends Repository implements NotificationRepositor
         parent::__construct(new Notification());
     }
 
+    public function countUnseenUserNotification($userId)
+    {
+        return Notification::where("receiver_id", $userId)
+            ->where("status", "unseen")->count();
+    }
+
     public function findNotificationByReceiverIdPaginate($userId, $order = "desc", $limit = 20)
     {
         if ($order == null) {

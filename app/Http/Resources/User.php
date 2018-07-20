@@ -34,6 +34,8 @@ class User extends JsonResource
             $data['votes_count'] = $this->votes_count;
         if(isset($this->joined))
             $data['joined'] = $this->joined;
+        if(isset($this->unseen_notification))
+            $data['unseen_notification'] = $this->unseen_notification;
         return $data;
     }
 }

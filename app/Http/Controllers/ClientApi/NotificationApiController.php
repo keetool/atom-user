@@ -81,7 +81,7 @@ class NotificationApiController extends ApiController
      * @param $notificationId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function seenNotification($subDomain, $notificationId)
+    public function clickNotification($subDomain, $notificationId)
     {
         $noti = Notification::find($notificationId);
 
@@ -89,10 +89,10 @@ class NotificationApiController extends ApiController
             return $this->badRequest(["message" => "Notification not found!"]);
         }
 
-        $this->notificationRepository->update(["status" => \App\Notifications\Notification::SEEN], $notificationId);
+        $this->notificationRepository->update(["status" => \App\Notifications\Notification::CLICKED], $notificationId);
 
         return $this->success([
-            "message" => "Seen"
+            "message" => "Clicked"
         ]);
     }
 

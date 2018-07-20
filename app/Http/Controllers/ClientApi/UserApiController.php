@@ -13,6 +13,7 @@ use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\VoteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Repositories\NotificationRepositoryInterface;
 
 /**
  * @resource Client user
@@ -24,13 +25,15 @@ class UserApiController extends OpenApiController
     private $merchantRepo;
     private $commentRepo;
     private $voteRepo;
+    private $notificationRepo;
 
     public function __construct(
         UserRepositoryInterface $userRepo,
         PostRepositoryInterface $postRepo,
         CommentRepositoryInterface $commentRepo,
         MerchantRepository $merchantRepo,
-        VoteRepositoryInterface $voteRepo
+        VoteRepositoryInterface $voteRepo,
+        NotificationRepositoryInterface $notificationRepo
     )
     {
         $this->userRepo = $userRepo;
@@ -38,6 +41,7 @@ class UserApiController extends OpenApiController
         $this->merchantRepo = $merchantRepo;
         $this->commentRepo = $commentRepo;
         $this->voteRepo = $voteRepo;
+        $this->notificationRepo = $notificationRepo;
     }
 
     /**
@@ -49,13 +53,9 @@ class UserApiController extends OpenApiController
         $user = $request->user();
 
         $userExist = $this->userRepo->uniqueUserMerchant($subdomain, $user->email);
-        // if (!$userExist) {
-        //     return $this->badRequest([
-        //         "User does not exist in merchant"
-        //     ]);
-        // }
         $data = new UserResource($user);
         $data['joined'] = $userExist;
+        $data['unseen_notification'] = $this->notificationRepo->countUnseenUserNotification($user->id);
         return $this->success(['data' => $data]);
     }
 

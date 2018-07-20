@@ -54,6 +54,12 @@ class MerchantsQuery extends Query
 
     public function resolve($root, $args, SelectFields $fields)
     {
+        $merchants = Merchant::with(array_keys($fields->getRelations()))->select("merchants.*");
+
+        if (isset($args['user_id'])) {
+            $merchants = $merchants->join("merchant_user", 'merchants.id', '=', 'merchant_user.merchant_id');
+        }
+
         $where = function ($query) use ($args) {
             if (isset($args['id'])) {
                 $query->where("id", $args['id']);
@@ -76,7 +82,8 @@ class MerchantsQuery extends Query
             $order = $args['order'];
         }
 
-        $merchants = Merchant::with(array_keys($fields->getRelations()))
+
+        $merchants = $merchants
             ->where($where)
             ->select($fields->getSelect())
             ->orderBy("created_at", $order)

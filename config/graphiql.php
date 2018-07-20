@@ -6,7 +6,6 @@ if (config("app.protocol") == "http://") {
 }
 
 return [
-
     'paths' => [
         // Absolute path to public assets folder
         'assets' => public_path('vendor/graphiql'),

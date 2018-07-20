@@ -62,7 +62,7 @@ class MerchantsQuery extends Query
 
         $where = function ($query) use ($args) {
             if (isset($args['id'])) {
-                $query->where("id", $args['id']);
+                $query->where("merchants.id", $args['id']);
             }
         };
 
